@@ -53,7 +53,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="aspect-square rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=400&width=400"
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Team collaboration"
                     width={400}
                     height={400}
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 </div>
                 <div className="aspect-square rounded-lg overflow-hidden mt-8">
                   <Image
-                    src="/placeholder.svg?height=400&width=400"
+                    src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Office environment"
                     width={400}
                     height={400}
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 </div>
                 <div className="aspect-square rounded-lg overflow-hidden -mt-8">
                   <Image
-                    src="/placeholder.svg?height=400&width=400"
+                    src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Coding session"
                     width={400}
                     height={400}
@@ -80,7 +80,7 @@ export default function AboutPage() {
                 </div>
                 <div className="aspect-square rounded-lg overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=400&width=400"
+                    src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Team meeting"
                     width={400}
                     height={400}
@@ -143,19 +143,19 @@ export default function AboutPage() {
             <TeamMember
               name="Alex Johnson"
               position="Founder & CEO"
-              image="/placeholder.svg?height=400&width=400"
+              image="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
               bio="With over 15 years of experience in software development and business leadership, Alex founded Devstract with a vision to create innovative solutions that drive real business value."
             />
             <TeamMember
               name="Sarah Chen"
               position="CTO"
-              image="/placeholder.svg?height=400&width=400"
+              image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
               bio="Sarah leads our technical strategy and ensures we stay at the forefront of emerging technologies. Her background in enterprise architecture and cloud computing guides our development practices."
             />
             <TeamMember
               name="Michael Rodriguez"
               position="Design Director"
-              image="/placeholder.svg?height=400&width=400"
+              image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
               bio="Michael oversees our design team, bringing his expertise in UX/UI design and user research to create intuitive, engaging interfaces that delight users and achieve business objectives."
             />
             <TeamMember

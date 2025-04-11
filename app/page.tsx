@@ -117,17 +117,17 @@ export default function Home() {
             <ProjectCard
               title="FinTech Dashboard"
               category="Web Application"
-              image="/placeholder.svg?height=600&width=800"
+              image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600"
             />
             <ProjectCard
               title="Health & Wellness App"
               category="Mobile Application"
-              image="/placeholder.svg?height=600&width=800"
+              image="https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600"
             />
             <ProjectCard
               title="E-commerce Platform"
               category="Web & Mobile"
-              image="/placeholder.svg?height=600&width=800"
+              image="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600"
             />
           </div>
 

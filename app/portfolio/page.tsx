@@ -19,7 +19,7 @@ const projects = [
     category: "Web Development",
     description:
       "A comprehensive financial analytics dashboard with real-time data visualization and reporting capabilities.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600",
     technologies: ["React", "Node.js", "D3.js", "MongoDB"],
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     title: "Health & Wellness App",
     category: "Mobile Apps",
     description: "A cross-platform mobile application for tracking fitness goals, nutrition, and mental wellbeing.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600",
     technologies: ["React Native", "Firebase", "Redux", "HealthKit"],
   },
   {
@@ -36,7 +36,7 @@ const projects = [
     category: "E-commerce",
     description:
       "A scalable e-commerce solution with inventory management, payment processing, and customer analytics.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600",
     technologies: ["Next.js", "Stripe", "PostgreSQL", "AWS"],
   },
   {
@@ -129,7 +129,7 @@ export default function PortfolioPage() {
             <CaseStudy
               title="Transforming Financial Services with AI"
               client="Global Investment Firm"
-              image="/placeholder.svg?height=600&width=1200"
+              image="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=600"
               challenge="The client needed to process vast amounts of financial data to identify investment opportunities faster than competitors."
               solution="We developed an AI-powered analytics platform that processes market data in real-time and provides actionable insights."
               results={[
@@ -142,7 +142,7 @@ export default function PortfolioPage() {
             <CaseStudy
               title="Revolutionizing Healthcare Delivery"
               client="Regional Healthcare Network"
-              image="/placeholder.svg?height=600&width=1200"
+              image="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=600"
               challenge="The healthcare provider struggled with fragmented patient data and inefficient appointment scheduling."
               solution="We created an integrated healthcare platform connecting patients, doctors, and administrators in a seamless digital ecosystem."
               results={[
