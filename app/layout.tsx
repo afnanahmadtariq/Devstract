@@ -10,12 +10,23 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "Devstract - Next-Generation Web & Mobile Solutions",
+    default: "Devstract",
     template: "%s | Devstract",
   },
   description: "We build next-generation web and mobile solutions for forward-thinking businesses.",
   keywords: ["web development", "mobile development", "software solutions", "UI/UX design", "cloud services"],
-    generator: 'v0.dev'
+  icons: {
+    icon: [
+      {
+        url: '/images/D logo b.png',
+        media: '(prefers-color-scheme: light)'
+      },
+      {
+        url: '/images/D logo w.png',
+        media: '(prefers-color-scheme: dark)'
+      }
+    ],
+  }
 }
 
 export default function RootLayout({

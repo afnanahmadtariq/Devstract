@@ -4,8 +4,8 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-gray-900 py-12 border-t border-gray-800">
-      <div className="container mx-auto px-4">
+    <footer className="border-t border-gray-800 bg-gray-950 text-gray-400">
+      <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Logo />
@@ -61,6 +61,11 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
                 <Link href="/portfolio" className="text-gray-400 hover:text-teal-400">
                   Our Work
                 </Link>
@@ -80,23 +85,20 @@ export function SiteFooter() {
           <div>
             <h3 className="font-semibold text-white mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">hello@devstract.com</li>
-              <li className="text-gray-400">+1 (555) 123-4567</li>
-              <li className="text-gray-400">123 Tech Lane, San Francisco, CA 94107</li>
+              <li className="text-gray-400">contact@devstract.site</li>
+              <li className="text-gray-400">Islamabad Capital Territory, Pakistan</li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© 2025 Devstract. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="hover:text-teal-400">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-teal-400">
-                Terms of Service
-              </Link>
-            </div>
+        <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p>© {new Date().getFullYear()} Devstract. All rights reserved.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link href="/privacy" className="hover:text-teal-400">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-teal-400">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
