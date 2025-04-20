@@ -20,11 +20,22 @@ export default function Home() {
               solutions across popular frameworks.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button className="bg-teal-500 hover:bg-teal-600 text-gray-950 font-medium px-6 py-6">
-                Start a Project
+              <Button
+                className="bg-teal-500 hover:bg-teal-600 text-gray-950 font-medium px-6 py-6"
+                asChild
+              >
+                <Link href="/contact">
+                  Start a Project
+                </Link>
               </Button>
-              <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500/10 px-6 py-6">
-                View Our Portfolio <ArrowRight className="ml-2 h-4 w-4" />
+              <Button
+                variant="outline"
+                className="border-teal-500 text-teal-500 hover:bg-teal-500/10 px-6 py-6"
+                asChild
+              >
+                <Link href="/portfolio">
+                  View Our Portfolio <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>

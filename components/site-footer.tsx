@@ -21,7 +21,7 @@ export function SiteFooter() {
                 <Twitter size={20} />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-teal-400">
+              <Link href="https://www.linkedin.com/company/devstract/?viewAsMember=true" className="text-gray-400 hover:text-teal-400">
                 <Linkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
               </Link>
@@ -71,7 +71,7 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-400 hover:text-teal-400">
+                <Link href="https://blog.devstract.site" className="text-gray-400 hover:text-teal-400">
                   Blog
                 </Link>
               </li>

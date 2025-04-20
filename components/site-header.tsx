@@ -10,7 +10,12 @@ export function SiteHeader() {
         <Logo />
         <MainNav />
         <div className="flex items-center gap-4">
-          <Button className="bg-teal-500 hover:bg-teal-600 text-gray-950 font-medium">Start a Project</Button>
+          <Button
+            className="bg-teal-500 hover:bg-teal-600 text-gray-950 font-medium"
+            asChild
+          >
+            <a href="/contact">Start a Project</a>
+          </Button>
           <MobileNav />
         </div>
       </div>
