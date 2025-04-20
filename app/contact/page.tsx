@@ -1,16 +1,37 @@
+"use client"
 import type { Metadata } from "next"
+import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { CircuitBackground } from "@/components/circuit-background"
 
-export const metadata: Metadata = {
-  title: "Contact Us | Devstract",
-  description: "Get in touch with our team to discuss your project requirements or any questions you may have.",
-}
+// export const metadata: Metadata = {
+//   title: "Contact Us | Devstract",
+//   description: "Get in touch with our team to discuss your project requirements or any questions you may have.",
+// }
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null)
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    const form = formRef.current
+    if (!form) return
+
+    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value
+    const subject = (form.elements.namedItem("subject") as HTMLInputElement)?.value
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value
+
+    const mailto = `mailto:contact@devstract.site?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    )}`
+
+    window.location.href = mailto
+  }
+
   return (
     <>
     {/* Hero Section */}
@@ -31,7 +52,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
-              <form className="space-y-6">
+              <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
