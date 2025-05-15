@@ -1,70 +1,27 @@
-import type { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { CircuitBackground } from "@/components/circuit-background"
-import { ArrowRight } from "lucide-react"
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { CircuitBackground } from "@/components/circuit-background";
+import { ArrowRight } from "lucide-react";
+import { projects, Project } from "@/lib/projects-data"; // Import projects and Project interface
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Explore our featured projects and case studies showcasing our expertise in software development.",
+};
+
+const categories = ["All", "Web Development", "Mobile Apps", "UX/UI Design", "E-commerce", "Enterprise Solutions"];
+
+interface CaseStudyProps {
+  title: string;
+  client: string;
+  image: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  reverse?: boolean;
 }
-
-const categories = ["All", "Web Development", "Mobile Apps", "UX/UI Design", "E-commerce", "Enterprise Solutions"]
-
-const projects = [
-  {
-    id: 1,
-    title: "FinTech Dashboard",
-    category: "Web Development",
-    description:
-      "A comprehensive financial analytics dashboard with real-time data visualization and reporting capabilities.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600",
-    technologies: ["React", "Node.js", "D3.js", "MongoDB"],
-  },
-  {
-    id: 2,
-    title: "Health & Wellness App",
-    category: "Mobile Apps",
-    description: "A cross-platform mobile application for tracking fitness goals, nutrition, and mental wellbeing.",
-    image: "https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600",
-    technologies: ["React Native", "Firebase", "Redux", "HealthKit"],
-  },
-  {
-    id: 3,
-    title: "E-commerce Platform",
-    category: "E-commerce",
-    description:
-      "A scalable e-commerce solution with inventory management, payment processing, and customer analytics.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600",
-    technologies: ["Next.js", "Stripe", "PostgreSQL", "AWS"],
-  },
-  {
-    id: 4,
-    title: "Corporate Intranet Portal",
-    category: "Enterprise Solutions",
-    description: "A secure internal portal for document management, team collaboration, and company communications.",
-    image: "/placeholder.svg?height=600&width=800",
-    technologies: ["Angular", "ASP.NET Core", "SQL Server", "Azure"],
-  },
-  {
-    id: 5,
-    title: "Restaurant Ordering System",
-    category: "Web Development",
-    description:
-      "An integrated solution for online ordering, table reservations, and kitchen management for restaurants.",
-    image: "/placeholder.svg?height=600&width=800",
-    technologies: ["Vue.js", "Laravel", "MySQL", "Twilio"],
-  },
-  {
-    id: 6,
-    title: "Travel Companion App",
-    category: "Mobile Apps",
-    description: "A feature-rich travel app with itinerary planning, local recommendations, and offline navigation.",
-    image: "/placeholder.svg?height=600&width=800",
-    technologies: ["Flutter", "GraphQL", "Google Maps API", "Firebase"],
-  },
-]
 
 export default function PortfolioPage() {
   return (
@@ -177,40 +134,43 @@ export default function PortfolioPage() {
   )
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project }: { project: Project }) {
+  const projectSlug = project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group">
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <Image
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          width={800}
-          height={600}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute top-4 right-4 bg-teal-500 text-gray-950 text-xs font-medium px-2 py-1 rounded">
-          {project.category}
+    <Link href={`/projects/${projectSlug}`} passHref legacyBehavior>
+      <a className="block bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group">
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <Image
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            width={800}
+            height={600}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute top-4 right-4 bg-teal-500 text-gray-950 text-xs font-medium px-2 py-1 rounded">
+            {project.category}
+          </div>
         </div>
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-gray-400 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
-            <span key={tech} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded-full">
-              {tech}
-            </span>
-          ))}
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+          <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies.map((tech: string) => (
+              <span key={tech} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded-full">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <div className="text-teal-500 hover:text-teal-400 flex items-center text-sm font-medium">
+            View Project <ArrowRight className="ml-1 h-4 w-4" />
+          </div>
         </div>
-        <Button variant="link" className="text-teal-500 p-0 hover:text-teal-400 flex items-center">
-          View Project <ArrowRight className="ml-1 h-4 w-4" />
-        </Button>
-      </div>
-    </div>
-  )
+      </a>
+    </Link>
+  );
 }
 
-function CaseStudy({ title, client, image, challenge, solution, results, reverse = false }) {
+function CaseStudy({ title, client, image, challenge, solution, results, reverse = false }: CaseStudyProps) {
   return (
     <div className={`grid md:grid-cols-2 gap-8 items-center ${reverse ? "md:rtl" : ""}`}>
       <div className={reverse ? "md:ltr" : ""}>
@@ -237,7 +197,7 @@ function CaseStudy({ title, client, image, challenge, solution, results, reverse
           <div>
             <h4 className="font-semibold mb-2">Results</h4>
             <ul className="text-gray-400 space-y-1">
-              {results.map((result, index) => (
+              {results.map((result: string, index: number) => (
                 <li key={index} className="flex items-start">
                   <span className="text-teal-500 mr-2">•</span>
                   <span>{result}</span>

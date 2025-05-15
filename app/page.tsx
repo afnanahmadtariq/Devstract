@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { CircuitBackground } from "@/components/circuit-background"
 import { ArrowRight, Code, Layers, Server, Smartphone } from "lucide-react"
+import FrameworksSection from "@/components/frameworks-section"
 
 export default function Home() {
   return (
@@ -94,27 +95,7 @@ export default function Home() {
       </section>
 
       {/* Featured Frameworks */}
-      <section id="frameworks" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Frameworks</h2>
-            <p className="text-gray-400 text-lg">We leverage cutting-edge technologies to build robust solutions</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
-            <FrameworkLogo name="React" />
-            <FrameworkLogo name="Vue.js" />
-            <FrameworkLogo name="Angular" />
-            <FrameworkLogo name="Node.js" />
-            <FrameworkLogo name="Django" />
-            <FrameworkLogo name="Laravel" />
-            <FrameworkLogo name="Flutter" />
-            <FrameworkLogo name="React Native" />
-            <FrameworkLogo name="Next.js" />
-            <FrameworkLogo name="Svelte" />
-          </div>
-        </div>
-      </section>
+      <FrameworksSection />
 
       {/* Featured Projects */}
       <section className="py-20 bg-gray-900">

@@ -141,40 +141,25 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <TeamMember
-              name="Alex Johnson"
+              name="Afnan Ahmad Tariq"
               position="Founder & CEO"
-              image="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
-              bio="With over 15 years of experience in software development and business leadership, Alex founded Devstract with a vision to create innovative solutions that drive real business value."
+              image="/placeholder-user.jpg"
+              bio="Connect on LinkedIn: www.linkedin.com/in/afnanahmadtariq"
+              linkedin="https://www.linkedin.com/in/afnanahmadtariq"
             />
             <TeamMember
-              name="Sarah Chen"
+              name="Muhammad Usman Ahmed"
               position="CTO"
-              image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
-              bio="Sarah leads our technical strategy and ensures we stay at the forefront of emerging technologies. Her background in enterprise architecture and cloud computing guides our development practices."
+              image="/placeholder-user.jpg"
+              bio="Connect on LinkedIn: https://www.linkedin.com/in/muhammad-usman-ahmed-"
+              linkedin="https://www.linkedin.com/in/muhammad-usman-ahmed-"
             />
             <TeamMember
-              name="Michael Rodriguez"
-              position="Design Director"
-              image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
-              bio="Michael oversees our design team, bringing his expertise in UX/UI design and user research to create intuitive, engaging interfaces that delight users and achieve business objectives."
-            />
-            <TeamMember
-              name="Emily Patel"
-              position="Lead Developer"
-              image="/placeholder.svg?height=400&width=400"
-              bio="Emily specializes in full-stack development with a focus on performance optimization and scalable architecture. She leads our most complex technical implementations."
-            />
-            <TeamMember
-              name="David Kim"
-              position="Mobile Development Lead"
-              image="/placeholder.svg?height=400&width=400"
-              bio="David brings extensive experience in native and cross-platform mobile development, ensuring our mobile solutions provide seamless experiences across all devices."
-            />
-            <TeamMember
-              name="Olivia Martinez"
-              position="Project Manager"
-              image="/placeholder.svg?height=400&width=400"
-              bio="Olivia excels at coordinating complex projects, managing client relationships, and ensuring timely delivery of high-quality solutions that meet or exceed expectations."
+              name="Ali Akbar"
+              position="COO"
+              image="/placeholder-user.jpg"
+              bio="Connect on LinkedIn: https://www.linkedin.com/in/aliakbar07"
+              linkedin="https://www.linkedin.com/in/aliakbar07"
             />
           </div>
         </div>
@@ -243,7 +228,7 @@ export default function AboutPage() {
   )
 }
 
-function ValueCard({ icon, title, description }) {
+function ValueCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) {
   return (
     <div className="bg-gray-950 border border-gray-800 rounded-xl p-6 hover:border-teal-500/50 transition-colors">
       <div className="w-14 h-14 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 mb-4">
@@ -255,7 +240,7 @@ function ValueCard({ icon, title, description }) {
   )
 }
 
-function TeamMember({ name, position, image, bio }) {
+function TeamMember({ name, position, image, bio, linkedin }: { name: string; position: string; image: string; bio: string; linkedin?: string }) {
   return (
     <div className="bg-gray-950 border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group">
       <div className="aspect-square overflow-hidden">
@@ -270,13 +255,18 @@ function TeamMember({ name, position, image, bio }) {
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-1">{name}</h3>
         <p className="text-teal-500 mb-4">{position}</p>
-        <p className="text-gray-400">{bio}</p>
+        <p className="text-gray-400 text-sm mb-3">{bio}</p>
+        {linkedin && (
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-500 hover:text-teal-400 flex items-center">
+            View LinkedIn Profile <ArrowRight className="ml-1 h-3 w-3" />
+          </a>
+        )}
       </div>
     </div>
-  )
+  );
 }
 
-function ProcessStep({ number, title, description }) {
+function ProcessStep({ number, title, description }: { number: string; title: string; description: string; }) {
   return (
     <div className="grid md:grid-cols-5 gap-6 items-start">
       <div className="md:col-span-1">
