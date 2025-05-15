@@ -117,4 +117,13 @@ export const projects: Project[] = [
     technologies: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     website: "https://stream-hub-site.vercel.app/",
   },
+  {
+    id: 13,
+    title: "Hassan Corporation",
+    category: "Web Development",
+    description: "A corporate website for Hassan Corporation, showcasing their services and information. Built with modern web technologies for a seamless user experience.",
+    image: "/placeholder.svg?height=600&width=800", // You might want to update this with a specific image for the project
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"], // Assuming technologies, please update if different
+    website: "https://hassan-corporation.vercel.app/",
+  },
 ];
