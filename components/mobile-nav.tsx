@@ -15,22 +15,22 @@ export function MobileNav() {
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-gray-700 hover:text-teal-500 transition-colors"
+        className="text-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary"
         aria-label="Toggle menu"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white/90 backdrop-blur-sm border-b border-gray-200 p-4 z-50">
+        <div className="absolute top-16 left-0 right-0 bg-background/90 backdrop-blur-sm border-b border-border p-4 z-50">
           <nav className="flex flex-col space-y-4">
             {NAV_ITEMS.map((item) => ( // Use NAV_ITEMS
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "hover:text-teal-500 transition-colors",
-                  pathname === item.href ? "text-teal-500" : "text-gray-700",
+                  "font-medium hover:text-primary transition-colors",
+                  pathname === item.href ? "text-primary" : "text-foreground",
                 )}
                 onClick={() => setIsOpen(false)}
               >

@@ -11,7 +11,9 @@ export function SiteHeader() {
         <MainNav />
         <div className="flex items-center gap-4">
           <Button
-            className="bg-teal-500 hover:bg-teal-600 text-white font-medium"
+            variant="default"
+            size="default"
+            className="font-semibold shadow-md transition-transform duration-150 hover:scale-105 focus-visible:ring-2 focus-visible:ring-primary"
             asChild
           >
             <a href="/contact">Start a Project</a>
