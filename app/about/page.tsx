@@ -94,36 +94,32 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-white via-teal-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-gray-800">Our Values</h2>
-            <p className="text-gray-600">
-              At the core of everything we do are the values that guide our decisions, shape our culture, and define our
-              approach to client partnerships.
-            </p>
+            <h2 className="text-3xl font-bold mb-4 text-gray-800 drop-shadow-lg">Our Values</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-blue-400 mx-auto mb-6 rounded-full"></div>
           </div>
-
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <ValueCard
-              icon={<Clock className="h-8 w-8" />}
-              title="Innovation"
-              description="We constantly explore new technologies and approaches to deliver cutting-edge solutions that give our clients a competitive edge."
+              icon={<Heart className="h-8 w-8 text-teal-500" />}
+              title="Passion"
+              description="We love what we do and bring that passion to every project."
             />
             <ValueCard
-              icon={<Award className="h-8 w-8" />}
+              icon={<Award className="h-8 w-8 text-teal-500" />}
               title="Excellence"
-              description="We hold ourselves to the highest standards in everything we do, from code quality to client communication and project management."
+              description="We strive for the highest standards in our work and results."
             />
             <ValueCard
-              icon={<Users className="h-8 w-8" />}
+              icon={<Users className="h-8 w-8 text-teal-500" />}
               title="Collaboration"
-              description="We believe in the power of teamwork, both within our organization and in partnership with our clients, to achieve exceptional results."
+              description="We believe in teamwork and open communication."
             />
             <ValueCard
-              icon={<Heart className="h-8 w-8" />}
-              title="Integrity"
-              description="We operate with transparency, honesty, and ethical practices in all our business relationships and decision-making processes."
+              icon={<Clock className="h-8 w-8 text-teal-500" />}
+              title="Reliability"
+              description="We deliver on our promises and value long-term partnerships."
             />
           </div>
         </div>
@@ -228,13 +224,13 @@ export default function AboutPage() {
   )
 }
 
-function ValueCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) {
+function ValueCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 hover:border-teal-500/50 transition-colors shadow-md hover:shadow-lg translucent-card">
-      <div className="w-14 h-14 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 mb-4">
+    <div className="translucent-card rounded-xl p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
+      <div className="w-14 h-14 rounded-lg bg-teal-500/10 flex items-center justify-center mb-4">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   )
@@ -266,7 +262,7 @@ function TeamMember({ name, position, image, bio, linkedin }: { name: string; po
   );
 }
 
-function ProcessStep({ number, title, description }: { number: string; title: string; description: string; }) {
+function ProcessStep({ number, title, description }: { number: string; title: string; description: string }) {
   return (
     <div className="grid md:grid-cols-5 gap-6 items-start">
       <div className="md:col-span-1">

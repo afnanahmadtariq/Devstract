@@ -64,7 +64,8 @@ export default function Home() {
       <section id="services" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 drop-shadow-lg">Our Services</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-blue-400 mx-auto mb-6 rounded-full"></div>
             <p className="text-gray-600 text-lg">
               We offer comprehensive software solutions tailored to your business needs
             </p>
@@ -128,10 +129,11 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-white via-teal-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 drop-shadow-lg">What Our Clients Say</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-blue-400 mx-auto mb-6 rounded-full"></div>
             <p className="text-gray-600 text-lg">
               Don't just take our word for it - hear from some of our satisfied clients
             </p>
@@ -169,12 +171,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-white via-teal-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-lg border border-gray-100">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-500/10 blur-3xl"></div>
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Ready to Start Your Project?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 drop-shadow-lg">Ready to Start Your Project?</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-teal-400 to-blue-400 mx-auto mb-6 rounded-full"></div>
               <p className="text-gray-600 text-lg mb-8">
                 Let's discuss how our software solutions can help you achieve your goals and stay ahead of the
                 competition.
