@@ -10,4 +10,13 @@ module.exports = {
         'https://www.devstract.site/sitemap-0.xml', // Add additional sitemaps if needed
       ],
     },
+    // Add lastmod support for better indexing
+    transform: async (config, path) => {
+      return {
+        loc: path,
+        lastmod: new Date().toISOString(),
+        changefreq: config.changefreq,
+        priority: config.priority,
+      };
+    },
   }

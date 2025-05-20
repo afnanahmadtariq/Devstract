@@ -6,10 +6,12 @@ const GRID_SIZE = 48;
 
 export function AnimatedGrid() {
   const [cells, setCells] = useState(() =>
-    Array.from({ length: GRID_SIZE }, () => Math.random() > 0.7)
+    Array.from({ length: GRID_SIZE }, () => false)
   );
 
   useEffect(() => {
+    // Initialize with random values on client after mount
+    setCells(Array.from({ length: GRID_SIZE }, () => Math.random() > 0.7));
     const interval = setInterval(() => {
       setCells((prev) =>
         prev.map((cell) => (Math.random() > 0.92 ? !cell : cell))
