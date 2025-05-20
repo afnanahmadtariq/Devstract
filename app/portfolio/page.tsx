@@ -31,8 +31,8 @@ export default function PortfolioPage() {
         <CircuitBackground />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio</h1>
-            <p className="text-xl text-gray-400">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Our Portfolio</h1>
+            <p className="text-xl text-gray-600">
               Explore our featured projects and discover how we've helped businesses across industries achieve their
               digital transformation goals.
             </p>
@@ -41,7 +41,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Portfolio Filters */}
-      <section className="py-12 bg-gray-900">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
@@ -50,8 +50,8 @@ export default function PortfolioPage() {
                 variant={category === "All" ? "default" : "outline"}
                 className={
                   category === "All"
-                    ? "bg-teal-500 hover:bg-teal-600 text-gray-950"
-                    : "border-gray-700 hover:border-teal-500 hover:text-teal-500"
+                    ? "bg-teal-500 hover:bg-teal-600 text-white"
+                    : "border-gray-200 hover:border-teal-500 hover:text-teal-500"
                 }
               >
                 {category}
@@ -62,7 +62,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
@@ -73,11 +73,11 @@ export default function PortfolioPage() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Featured Case Studies</h2>
-            <p className="text-gray-400">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">Featured Case Studies</h2>
+            <p className="text-gray-600">
               Dive deeper into our most impactful projects and learn about our approach, challenges, and results.
             </p>
           </div>
@@ -114,16 +114,17 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-500/10 blur-3xl"></div>
+          <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-md translucent-card">
+            {/* Optional: Subtle decorative element if needed, otherwise remove or adjust for light theme */}
+            {/* <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-500/5 blur-3xl"></div> */}
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Build Something Amazing?</h2>
-              <p className="text-gray-400 text-lg mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Ready to Build Something Amazing?</h2>
+              <p className="text-gray-600 text-lg mb-8">
                 Let's discuss how we can help bring your vision to life with our expertise in software development.
               </p>
-              <Button className="bg-teal-500 hover:bg-teal-600 text-gray-950 font-medium px-8 py-6 text-lg">
+              <Button className="bg-teal-500 hover:bg-teal-600 text-white font-medium px-8 py-6 text-lg">
                 Start Your Project
               </Button>
             </div>
@@ -138,7 +139,7 @@ function ProjectCard({ project }: { project: Project }) {
   const projectSlug = project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   return (
     <Link href={`/projects/${projectSlug}`} passHref legacyBehavior>
-      <a className="block bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group">
+      <a className="block bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg hover:border-teal-500 transition-all duration-300 group translucent-card">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
             src={project.image || "/placeholder.svg"}
@@ -147,16 +148,16 @@ function ProjectCard({ project }: { project: Project }) {
             height={600}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute top-4 right-4 bg-teal-500 text-gray-950 text-xs font-medium px-2 py-1 rounded">
+          <div className="absolute top-4 right-4 bg-teal-500 text-white text-xs font-medium px-2 py-1 rounded">
             {project.category}
           </div>
         </div>
         <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-          <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">{project.title}</h3>
+          <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech: string) => (
-              <span key={tech} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded-full">
+              <span key={tech} className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-full">
                 {tech}
               </span>
             ))}
@@ -179,24 +180,24 @@ function CaseStudy({ title, client, image, challenge, solution, results, reverse
           alt={title}
           width={1200}
           height={600}
-          className="rounded-xl border border-gray-800"
+          className="rounded-xl border border-gray-200 shadow-md"
         />
       </div>
       <div className={reverse ? "md:ltr" : ""}>
-        <div className="text-teal-500 text-sm font-medium mb-2">{client}</div>
-        <h3 className="text-2xl font-bold mb-4">{title}</h3>
+        <div className="text-teal-600 text-sm font-medium mb-2">{client}</div>
+        <h3 className="text-2xl font-bold mb-4 text-gray-800">{title}</h3>
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold mb-2">The Challenge</h4>
-            <p className="text-gray-400">{challenge}</p>
+            <h4 className="font-semibold mb-2 text-gray-700">The Challenge</h4>
+            <p className="text-gray-600">{challenge}</p>
           </div>
           <div>
-            <h4 className="font-semibold mb-2">Our Solution</h4>
-            <p className="text-gray-400">{solution}</p>
+            <h4 className="font-semibold mb-2 text-gray-700">Our Solution</h4>
+            <p className="text-gray-600">{solution}</p>
           </div>
           <div>
-            <h4 className="font-semibold mb-2">Results</h4>
-            <ul className="text-gray-400 space-y-1">
+            <h4 className="font-semibold mb-2 text-gray-700">Results</h4>
+            <ul className="text-gray-600 space-y-1">
               {results.map((result: string, index: number) => (
                 <li key={index} className="flex items-start">
                   <span className="text-teal-500 mr-2">•</span>
@@ -206,7 +207,7 @@ function CaseStudy({ title, client, image, challenge, solution, results, reverse
             </ul>
           </div>
         </div>
-        <Button className="mt-6 bg-teal-500 hover:bg-teal-600 text-gray-950" asChild>
+        <Button className="mt-6 bg-teal-500 hover:bg-teal-600 text-white" asChild>
           <Link href="/contact">
             Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

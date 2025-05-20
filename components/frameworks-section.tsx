@@ -63,7 +63,7 @@ const FrameworksSection = () => {
   }
 
   return (
-    <section className="py-20 bg-secondary" id="frameworks">
+    <section className="py-20 bg-white" id="frameworks">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -71,9 +71,9 @@ const FrameworksSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Frameworks</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Featured Frameworks</h2>
+          <div className="w-20 h-1 bg-teal-500 mx-auto mb-6"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             We work with the latest technologies to deliver cutting-edge solutions for our clients.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ const FrameworksSection = () => {
         >
           {frameworks.map((framework, index) => (
             <motion.div key={index} variants={itemVariants} className="flex justify-center items-center">
-              <div className="framework-logo h-16 flex items-center justify-center bg-background/30 p-4 rounded-lg w-full">
+              <div className="framework-logo h-16 flex items-center justify-center bg-white/70 backdrop-blur-sm p-4 rounded-lg w-full border border-gray-200 shadow-md">
                 <Image
                   src={framework.logo || "/placeholder.svg"}
                   alt={`${framework.name} logo`}

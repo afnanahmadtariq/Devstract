@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 100%; /* White */
+    --foreground: 224 71.4% 4.1%; /* Dark Gray */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 224 71.4% 4.1%; /* Dark Gray */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 224 71.4% 4.1%; /* Dark Gray */
 
-    --primary: 172 66% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 172 66% 50%; /* Teal */
+    --primary-foreground: 0 0% 100%; /* White for primary buttons */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 5.9% 90%; /* Light Gray (bg-gray-200 equivalent) */
+    --secondary-foreground: 224 71.4% 4.1%; /* Dark Gray */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 4.8% 95.9%; /* Lighter Gray (bg-gray-100 equivalent) */
+    --muted-foreground: 240 3.8% 46.1%; /* Medium Gray (text-gray-600 equivalent) */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 4.8% 95.9%; /* Lighter Gray */
+    --accent-foreground: 172 66% 45%; /* Darker Teal for accents if needed */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 172 66% 50%;
+    --border: 220 13% 88%; /* Lighter border (border-gray-300 equivalent) */
+    --input: 220 13% 88%; /* Lighter input border */
+    --ring: 172 66% 50%; /* Teal for focus rings */
 
     --radius: 0.5rem;
   }
@@ -64,17 +64,37 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 172 66% 50%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    /* Ensure body background is white for the light theme */
+    background-color: hsl(var(--background)); 
   }
 }
 
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-400;
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-cyan-500;
+  }
+
+  /* Translucent card styles - ensure consistency */
+  .translucent-card {
+    /* Applied to various cards like ProjectCard, ServiceCard, TestimonialCard, ValueCard, TeamMember */
+    @apply bg-white/70 backdrop-blur-sm border border-gray-200 shadow-md transition-all duration-300;
+  }
+
+  .translucent-card:hover {
+    @apply shadow-lg transform-gpu translate-y-[-1px];
+    /* Consider a slightly more prominent border on hover if desired */
+    /* @apply border-teal-400; */
+  }
 }
+
+/* 
+  Button styles are primarily handled by app/components/ui/button.tsx 
+  and its usage of cva with theme variables from :root.
+  No need for .btn-primary, .btn-secondary, .btn-outline here if shadcn/ui is configured correctly.
+*/

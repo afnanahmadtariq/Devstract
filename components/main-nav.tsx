@@ -23,8 +23,8 @@ export function MainNav() {
             key={item.name}
             href={item.href}
             className={cn(
-              "hover:text-teal-400 transition-colors",
-              pathname === item.href ? "text-teal-400" : "text-white",
+              "hover:text-teal-500 transition-colors",
+              pathname === item.href ? "text-teal-500" : "text-gray-700",
             )}
           >
             {item.name}

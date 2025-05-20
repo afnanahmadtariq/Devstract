@@ -17,8 +17,8 @@ export default function AboutPage() {
         <CircuitBackground />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Devstract</h1>
-            <p className="text-xl text-gray-400">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">About Devstract</h1>
+            <p className="text-xl text-gray-600">
               We're a team of passionate developers, designers, and strategists dedicated to building next-generation
               software solutions that drive business growth and innovation.
             </p>
@@ -27,22 +27,22 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <p className="text-gray-400 mb-4">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
+              <p className="text-gray-600 mb-4">
                 Founded in 2018, Devstract began with a simple mission: to help businesses leverage technology to
                 achieve their goals. What started as a small team of three developers has grown into a full-service
                 software development company with expertise across multiple platforms and technologies.
               </p>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-600 mb-4">
                 Our journey has been defined by continuous learning, adaptation, and a relentless focus on delivering
                 exceptional value to our clients. We've worked with startups, mid-sized businesses, and enterprise
                 organizations across various industries, helping them navigate the complex digital landscape.
               </p>
-              <p className="text-gray-400">
+              <p className="text-gray-600">
                 Today, Devstract stands at the forefront of technological innovation, combining technical expertise with
                 strategic thinking to create solutions that not only meet current needs but are also built for future
                 growth and scalability.
@@ -51,7 +51,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/20 rounded-full blur-3xl"></div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-square rounded-lg overflow-hidden">
+                <div className="aspect-square rounded-lg overflow-hidden shadow-md">
                   <Image
                     src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Team collaboration"
@@ -60,7 +60,7 @@ export default function AboutPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="aspect-square rounded-lg overflow-hidden mt-8">
+                <div className="aspect-square rounded-lg overflow-hidden mt-8 shadow-md">
                   <Image
                     src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Office environment"
@@ -69,7 +69,7 @@ export default function AboutPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="aspect-square rounded-lg overflow-hidden -mt-8">
+                <div className="aspect-square rounded-lg overflow-hidden -mt-8 shadow-md">
                   <Image
                     src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Coding session"
@@ -78,7 +78,7 @@ export default function AboutPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="aspect-square rounded-lg overflow-hidden">
+                <div className="aspect-square rounded-lg overflow-hidden shadow-md">
                   <Image
                     src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400"
                     alt="Team meeting"
@@ -94,11 +94,11 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-            <p className="text-gray-400">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">Our Values</h2>
+            <p className="text-gray-600">
               At the core of everything we do are the values that guide our decisions, shape our culture, and define our
               approach to client partnerships.
             </p>
@@ -130,11 +130,11 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-gray-400">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">Meet Our Team</h2>
+            <p className="text-gray-600">
               Our diverse team of experts brings together a wealth of experience and a passion for technology.
             </p>
           </div>
@@ -166,11 +166,11 @@ export default function AboutPage() {
       </section>
 
       {/* Our Process */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Process</h2>
-            <p className="text-gray-400">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">Our Process</h2>
+            <p className="text-gray-600">
               We follow a structured yet flexible approach to software development that ensures quality, efficiency, and
               alignment with client objectives.
             </p>
@@ -207,17 +207,17 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-lg border border-gray-100">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-500/10 blur-3xl"></div>
             <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Team</h2>
-              <p className="text-gray-400 text-lg mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Join Our Team</h2>
+              <p className="text-gray-600 text-lg mb-8">
                 We're always looking for talented individuals who are passionate about technology and innovation.
                 Explore our current openings and become part of our growing team.
               </p>
-              <Button className="bg-teal-500 hover:bg-teal-600 text-gray-950 font-medium px-8 py-6 text-lg">
+              <Button className="bg-teal-500 hover:bg-teal-600 text-white font-medium px-8 py-6 text-lg">
                 View Career Opportunities <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -230,19 +230,19 @@ export default function AboutPage() {
 
 function ValueCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) {
   return (
-    <div className="bg-gray-950 border border-gray-800 rounded-xl p-6 hover:border-teal-500/50 transition-colors">
+    <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 hover:border-teal-500/50 transition-colors shadow-md hover:shadow-lg translucent-card">
       <div className="w-14 h-14 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 mb-4">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-gray-400">{description}</p>
+      <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
+      <p className="text-gray-600">{description}</p>
     </div>
   )
 }
 
 function TeamMember({ name, position, image, bio, linkedin }: { name: string; position: string; image: string; bio: string; linkedin?: string }) {
   return (
-    <div className="bg-gray-950 border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group">
+    <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group shadow-md hover:shadow-lg translucent-card">
       <div className="aspect-square overflow-hidden">
         <Image
           src={image || "/placeholder.svg"}
@@ -253,11 +253,11 @@ function TeamMember({ name, position, image, bio, linkedin }: { name: string; po
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold mb-1">{name}</h3>
+        <h3 className="text-xl font-semibold mb-1 text-gray-800">{name}</h3>
         <p className="text-teal-500 mb-4">{position}</p>
-        <p className="text-gray-400 text-sm mb-3">{bio}</p>
+        <p className="text-gray-600 text-sm mb-3">{bio}</p>
         {linkedin && (
-          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-500 hover:text-teal-400 flex items-center">
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-500 hover:text-teal-600 flex items-center">
             View LinkedIn Profile <ArrowRight className="ml-1 h-3 w-3" />
           </a>
         )}
@@ -273,8 +273,8 @@ function ProcessStep({ number, title, description }: { number: string; title: st
         <div className="text-5xl font-bold text-teal-500">{number}</div>
       </div>
       <div className="md:col-span-4">
-        <h3 className="text-2xl font-semibold mb-3">{title}</h3>
-        <p className="text-gray-400">{description}</p>
+        <h3 className="text-2xl font-semibold mb-3 text-gray-800">{title}</h3>
+        <p className="text-gray-600">{description}</p>
       </div>
     </div>
   )
