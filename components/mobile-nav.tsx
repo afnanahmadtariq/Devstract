@@ -5,13 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "About", href: "/about" },
-]
+import { NAV_ITEMS } from "@/lib/nav-config" // Import NAV_ITEMS
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
@@ -30,7 +24,7 @@ export function MobileNav() {
       {isOpen && (
         <div className="absolute top-16 left-0 right-0 bg-white/90 backdrop-blur-sm border-b border-gray-200 p-4 z-50">
           <nav className="flex flex-col space-y-4">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => ( // Use NAV_ITEMS
               <Link
                 key={item.name}
                 href={item.href}

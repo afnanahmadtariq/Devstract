@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { CircuitBackground } from "@/components/circuit-background"
 import { ArrowRight, Code, Layers, Server, Smartphone } from "lucide-react"
 import FrameworksSection from "@/components/frameworks-section"
+import { projects } from "@/lib/projects-data"
 
 export default function Home() {
   return (
@@ -106,29 +107,22 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard
-              title="FinTech Dashboard"
-              category="Web Application"
-              image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600"
-            />
-            <ProjectCard
-              title="Health & Wellness App"
-              category="Mobile Application"
-              image="https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600"
-            />
-            <ProjectCard
-              title="E-commerce Platform"
-              category="Web & Mobile"
-              image="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=600"
-            />
-          </div>
+            {projects.slice(0, 3).map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                category={project.category}
+                image={project.image}
+              />
+            ))}
 
-          <div className="text-center mt-12">
-            <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500/10" asChild>
-              <Link href="/portfolio">
-                View All Projects <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="text-center mt-12">
+              <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500/10" asChild>
+                <Link href="/portfolio">
+                  View All Projects <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -144,21 +138,32 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="Devstract transformed our business with their innovative web solution. Their team was professional, responsive, and delivered beyond our expectations."
-              author="Sarah Johnson"
-              position="CEO, TechInnovate"
-            />
-            <TestimonialCard
-              quote="Working with Devstract was a game-changer for our mobile app. They understood our vision and executed it flawlessly, resulting in a 200% increase in user engagement."
-              author="Michael Chen"
-              position="Product Manager, AppWorks"
-            />
-            <TestimonialCard
-              quote="The team at Devstract provided exceptional service from start to finish. Their attention to detail and technical expertise made our complex project a success."
-              author="Emily Rodriguez"
-              position="CTO, DataFlow Systems"
-            />
+            {[
+              {
+                quote: "Devstract transformed our business with their innovative web solution. Their team was professional, responsive, and delivered beyond our expectations.",
+                author: "Sarah Johnson",
+                position: "CEO, TechInnovate",
+              },
+              {
+                quote: "Working with Devstract was a game-changer for our mobile app. They understood our vision and executed it flawlessly, resulting in a 200% increase in user engagement.",
+                author: "Michael Chen",
+                position: "Product Manager, AppWorks",
+              },
+              {
+                quote: "The team at Devstract provided exceptional service from start to finish. Their attention to detail and technical expertise made our complex project a success.",
+                author: "Emily Rodriguez",
+                position: "CTO, DataFlow Systems",
+              },
+            ].map(
+              ({ quote, author, position }: { quote: string; author: string; position: string }, index: number) => (
+                <TestimonialCard
+                  key={index}
+                  quote={quote}
+                  author={author}
+                  position={position}
+                />
+              )
+            )}
           </div>
         </div>
       </section>
@@ -185,7 +190,7 @@ export default function Home() {
   )
 }
 
-function ServiceCard({ icon, title, description }) {
+function ServiceCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
     <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 hover:border-teal-500/50 transition-colors group shadow-md hover:shadow-lg translucent-card">
       <div className="w-14 h-14 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500 mb-4">
@@ -201,7 +206,7 @@ function ServiceCard({ icon, title, description }) {
   )
 }
 
-function FrameworkLogo({ name }) {
+function FrameworkLogo({ name }: { name: string }) {
   return (
     <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-4 flex items-center justify-center h-20 w-full hover:border-teal-500/50 transition-colors shadow-sm hover:shadow-md">
       <span className="text-center font-medium text-gray-700">{name}</span>
@@ -209,7 +214,7 @@ function FrameworkLogo({ name }) {
   )
 }
 
-function ProjectCard({ title, category, image }) {
+function ProjectCard({ title, category, image }: { title: string; category: string; image: string }) {
   return (
     <div className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg">
       <Image
@@ -230,7 +235,7 @@ function ProjectCard({ title, category, image }) {
   )
 }
 
-function TestimonialCard({ quote, author, position }) {
+function TestimonialCard({ quote, author, position }: { quote: string; author: string; position: string }) {
   return (
     <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 hover:border-teal-500/50 transition-colors shadow-md hover:shadow-lg translucent-card">
       <div className="text-teal-500 mb-4 text-4xl font-serif">"</div>

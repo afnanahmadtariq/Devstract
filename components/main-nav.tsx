@@ -3,14 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-]
+import { NAV_ITEMS } from "@/lib/nav-config" // Import NAV_ITEMS
 
 export function MainNav() {
   const pathname = usePathname()
@@ -18,7 +11,7 @@ export function MainNav() {
   return (
     <div className="flex gap-6 md:gap-8">
       <nav className="hidden md:flex items-center gap-8">
-        {navItems.map((item) => (
+        {NAV_ITEMS.map((item) => ( // Use NAV_ITEMS
           <Link
             key={item.name}
             href={item.href}
@@ -32,7 +25,7 @@ export function MainNav() {
         ))}
       </nav>
       
-      {/* The privacy policy typically doesn't need to be in the main nav,
+      {/* The privacy policy typically doesn\'t need to be in the main nav,
           but if you want to add it to a dropdown menu, you can do so here */}
     </div>
   )
