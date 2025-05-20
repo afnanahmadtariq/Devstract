@@ -1,15 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CircuitBackground } from "@/components/circuit-background";
 import { ArrowRight } from "lucide-react";
 import { projects, Project } from "@/lib/projects-data"; // Import projects and Project interface
-
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Explore our featured projects and case studies showcasing our expertise in software development.",
-};
+import { useState } from "react";
 
 const categories = ["All", "Web Development", "Mobile Apps", "UX/UI Design", "E-commerce", "Enterprise Solutions"];
 
@@ -24,6 +21,13 @@ interface CaseStudyProps {
 }
 
 export default function PortfolioPage() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
+
   return (
     <>
       {/* Hero Section */}
@@ -47,12 +51,13 @@ export default function PortfolioPage() {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant={category === "All" ? "default" : "outline"}
+                variant={selectedCategory === category ? "default" : "outline"}
                 className={
-                  category === "All"
+                  selectedCategory === category
                     ? "bg-teal-500 hover:bg-teal-600 text-white"
                     : "border-gray-200 hover:border-teal-500 hover:text-teal-500"
                 }
+                onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </Button>
@@ -65,7 +70,7 @@ export default function PortfolioPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+            {filteredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
