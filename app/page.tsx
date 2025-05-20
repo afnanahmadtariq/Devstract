@@ -104,14 +104,13 @@ export default function Home() {
                 image={project.image}
               />
             ))}
-
-            <div className="text-center mt-12">
-              <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500/10" asChild>
-                <Link href="/portfolio">
-                  View All Projects <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+          </div>
+          <div className="text-center mt-12">
+            <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500/10" asChild>
+              <Link href="/portfolio">
+                View All Projects <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
