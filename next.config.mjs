@@ -1,3 +1,5 @@
+import path from 'path';
+
 let userConfig = undefined
 try {
   // try to import ESM first
@@ -26,6 +28,10 @@ const nextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
+  },
+  webpack: (config) => {
+    config.resolve.alias['@'] = path.resolve();
+    return config;
   },
 }
 
