@@ -28,8 +28,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 88%; /* Lighter border (border-gray-300 equivalent) */
-    --input: 220 13% 88%; /* Lighter input border */
+    --border: 0 0% 100%; /* Remove grey border by setting to white */
+    --input: 0 0% 100%; /* Remove grey input border by setting to white */
     --ring: 172 66% 50%; /* Teal for focus rings */
 
     --radius: 0.5rem;
@@ -83,7 +83,7 @@
   /* Translucent card styles - ensure consistency */
   .translucent-card {
     /* Applied to various cards like ProjectCard, ServiceCard, TestimonialCard, ValueCard, TeamMember */
-    @apply bg-white/70 backdrop-blur-sm border border-gray-200 shadow-md transition-all duration-300;
+    @apply bg-white/70 backdrop-blur-sm border shadow-md transition-all duration-300;
   }
 
   .translucent-card:hover {

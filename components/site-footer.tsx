@@ -4,7 +4,7 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-gray-200 bg-gradient-to-br from-white via-teal-50 to-blue-50 text-gray-600">
+    <footer className="border-t bg-gradient-to-br from-white via-teal-50 to-blue-50 text-gray-600">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -90,7 +90,7 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-200 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-8 pt-6 flex flex-col md:flex-row justify-between items-center border-t">
           <p>© {new Date().getFullYear()} Devstract. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-gray-600 hover:text-teal-500">

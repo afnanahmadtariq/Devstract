@@ -53,22 +53,22 @@ export default function ServicesPage() {
                 </FeatureItem>
               </div>
             </div>
-            <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 relative shadow-md translucent-card">
+            <div className="bg-white/70 backdrop-blur-sm border rounded-xl p-6 relative shadow-md translucent-card">
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/10 rounded-full blur-3xl"></div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">React</div>
                   <p className="text-gray-600 text-sm">Component-based UI development</p>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">Angular</div>
                   <p className="text-gray-600 text-sm">Full-featured framework</p>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">Vue.js</div>
                   <p className="text-gray-600 text-sm">Progressive JavaScript framework</p>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">Node.js</div>
                   <p className="text-gray-600 text-sm">Server-side JavaScript runtime</p>
                 </div>
@@ -82,22 +82,22 @@ export default function ServicesPage() {
       <section id="mobile" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 relative shadow-md translucent-card">
+            <div className="order-2 md:order-1 bg-white/70 backdrop-blur-sm border rounded-xl p-6 relative shadow-md translucent-card">
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/10 rounded-full blur-3xl"></div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">iOS</div>
                   <p className="text-gray-600 text-sm">Native Swift development</p>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">Android</div>
                   <p className="text-gray-600 text-sm">Native Kotlin development</p>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">Flutter</div>
                   <p className="text-gray-600 text-sm">Cross-platform UI toolkit</p>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 text-center shadow-sm">
                   <div className="text-teal-500 font-bold text-xl mb-2">React Native</div>
                   <p className="text-gray-600 text-sm">JavaScript mobile framework</p>
                 </div>
@@ -161,10 +161,10 @@ export default function ServicesPage() {
                 </FeatureItem>
               </div>
             </div>
-            <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 relative shadow-md translucent-card">
+            <div className="bg-white/70 backdrop-blur-sm border rounded-xl p-6 relative shadow-md translucent-card">
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/10 rounded-full blur-3xl"></div>
               <div className="space-y-4">
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 shadow-sm">
                   <div className="h-4 w-24 bg-teal-500/30 rounded mb-2"></div>
                   <div className="h-8 w-full bg-gray-100 rounded mb-2"></div>
                   <div className="grid grid-cols-3 gap-2">
@@ -174,11 +174,11 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/80 border border-gray-200 rounded-lg p-4 shadow-sm">
+                  <div className="bg-white/80 border rounded-lg p-4 shadow-sm">
                     <div className="h-4 w-16 bg-teal-500/30 rounded mb-2"></div>
                     <div className="h-24 bg-gray-100 rounded"></div>
                   </div>
-                  <div className="bg-white/80 border border-gray-200 rounded-lg p-4 shadow-sm">
+                  <div className="bg-white/80 border rounded-lg p-4 shadow-sm">
                     <div className="h-4 w-20 bg-teal-500/30 rounded mb-2"></div>
                     <div className="h-24 bg-gray-100 rounded"></div>
                   </div>
@@ -193,10 +193,10 @@ export default function ServicesPage() {
       <section id="cloud" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl p-6 relative shadow-md translucent-card">
+            <div className="order-2 md:order-1 bg-white/70 backdrop-blur-sm border rounded-xl p-6 relative shadow-md translucent-card">
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/10 rounded-full blur-3xl"></div>
               <div className="space-y-4">
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <div className="h-4 w-4 bg-teal-500 rounded-full mr-2"></div>
                     <div className="h-4 w-32 bg-gray-100 rounded"></div>
@@ -204,17 +204,17 @@ export default function ServicesPage() {
                   <div className="h-16 bg-gray-100 rounded"></div>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                  <div className="bg-white/80 border border-gray-200 rounded-lg p-3 flex items-center justify-center shadow-sm">
+                  <div className="bg-white/80 border rounded-lg p-3 flex items-center justify-center shadow-sm">
                     <Server size={24} className="text-teal-500" />
                   </div>
-                  <div className="bg-white/80 border border-gray-200 rounded-lg p-3 flex items-center justify-center shadow-sm">
+                  <div className="bg-white/80 border rounded-lg p-3 flex items-center justify-center shadow-sm">
                     <Database size={24} className="text-teal-500" />
                   </div>
-                  <div className="bg-white/80 border border-gray-200 rounded-lg p-3 flex items-center justify-center shadow-sm">
+                  <div className="bg-white/80 border rounded-lg p-3 flex items-center justify-center shadow-sm">
                     <Workflow size={24} className="text-teal-500" />
                   </div>
                 </div>
-                <div className="bg-white/80 border border-gray-200 rounded-lg p-4 shadow-sm">
+                <div className="bg-white/80 border rounded-lg p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <div className="h-4 w-4 bg-teal-500 rounded-full mr-2"></div>
                     <div className="h-4 w-40 bg-gray-100 rounded"></div>

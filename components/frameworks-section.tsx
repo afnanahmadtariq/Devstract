@@ -6,12 +6,13 @@ import { motion } from "framer-motion"
 
 const frameworks = [
   { name: "React", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg", color: "#61DAFB", url: "https://react.dev/" },
-  { name: "Next.js", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg", color: "#000000", url: "https://nextjs.org/" },
+  { name: "Node.js", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg", color: "#339933", url: "https://nodejs.org/" },
   { name: "Express.js", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg", color: "#303030", url: "https://expressjs.com/" },
   { name: "MongoDB", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg", color: "#47A248", url: "https://www.mongodb.com/" },
-  { name: "PostgreSQL", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg", color: "#336791", url: "https://www.postgresql.org/" },
+  { name: "Next.js", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg", color: "#000000", url: "https://nextjs.org/" },
   { name: "Firebase", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg", color: "#FFCA28", url: "https://firebase.google.com/" },
   { name: "Flutter", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg", color: "#02569B", url: "https://flutter.dev/" },
+  { name: "PostgreSQL", logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg", color: "#336791", url: "https://www.postgresql.org/" },
 ]
 
 const FrameworksSection = () => {

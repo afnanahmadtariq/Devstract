@@ -5,7 +5,7 @@ import { MobileNav } from "@/components/mobile-nav"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-gradient-to-br from-white/80 via-teal-50/80 to-blue-50/80 backdrop-blur-sm shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-br from-white/80 via-teal-50/80 to-blue-50/80 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Logo />
         <MainNav />

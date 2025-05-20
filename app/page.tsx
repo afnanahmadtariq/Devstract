@@ -5,6 +5,7 @@ import { CircuitBackground } from "@/components/circuit-background"
 import { ArrowRight, Code, Layers, Server, Smartphone } from "lucide-react"
 import FrameworksSection from "@/components/frameworks-section"
 import { projects } from "@/lib/projects-data"
+import { AnimatedGrid } from "@/components/animated-grid"
 
 export default function Home() {
   return (
@@ -42,20 +43,7 @@ export default function Home() {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-teal-500/20 rounded-full blur-3xl"></div>
-            <div className="relative z-10 border border-gray-200 rounded-xl overflow-hidden bg-white/70 backdrop-blur-sm p-6 shadow-md">
-              <div className="grid grid-cols-12 gap-4">
-                {Array.from({ length: 48 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className={`aspect-square rounded-md ${
-                      Math.random() > 0.7 ? "bg-teal-500/20 border border-teal-500/30" : "bg-gray-100"
-                    }`}
-                  ></div>
-                ))}
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-teal-500/20 pointer-events-none"></div>
-            </div>
+            <AnimatedGrid />
           </div>
         </div>
       </section>
