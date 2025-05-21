@@ -279,7 +279,7 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
-                className="bg-slate-800/70 text-white hover:bg-teal-500/90 rounded-full p-3 shadow-lg transform transition-all duration-200 ease-out 
+                className="bg-slate-800/70 text-white hover:bg-sky-500/90 rounded-full p-3 shadow-lg transform transition-all duration-200 ease-out 
                            opacity-0 translate-y-4 rotate-[-25deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 
                            hover:!scale-125 hover:!rotate-[8deg]"
                 style={{ transitionDelay: '0.1s' }} 
@@ -293,7 +293,7 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Portfolio"
-                className="bg-slate-800/70 text-white hover:bg-sky-500/90 rounded-full p-3 shadow-lg transform transition-all duration-200 ease-out 
+                className="bg-slate-800/70 text-white hover:bg-teal-500/90 rounded-full p-3 shadow-lg transform transition-all duration-200 ease-out 
                            opacity-0 translate-y-4 rotate-[25deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 
                            hover:!scale-125 hover:!rotate-[-8deg]"
                 style={{ transitionDelay: '0.15s' }} 
