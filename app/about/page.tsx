@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { CircuitBackground } from "@/components/circuit-background"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Award, Clock, Heart, Users } from "lucide-react"
+import { ArrowRight, Award, Clock, Heart, Users, Linkedin, Globe2 } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -139,23 +139,30 @@ export default function AboutPage() {
             <TeamMember
               name="Afnan Ahmad Tariq"
               position="Founder & CEO"
-              image="/placeholder-user.jpg"
-              bio="Connect on LinkedIn: www.linkedin.com/in/afnanahmadtariq"
+              image="https://media.licdn.com/dms/image/v2/D4D03AQGZbaik-a6XGQ/profile-displayphoto-shrink_400_400/B4DZOLFAzhGUAg-/0/1733205169027?e=1753315200&v=beta&t=2SXts10xJHnLedixCcrMCbRTyf4D9yCFa0VzUOF7lsE"
               linkedin="https://www.linkedin.com/in/afnanahmadtariq"
+              portfolio={undefined}
             />
             <TeamMember
               name="Muhammad Usman Ahmed"
               position="CTO"
-              image="/placeholder-user.jpg"
-              bio="Connect on LinkedIn: https://www.linkedin.com/in/muhammad-usman-ahmed-"
+              image="https://media.licdn.com/dms/image/v2/D4D03AQGYjql48zyyrQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721579506159?e=1753315200&v=beta&t=iwQVtpeIla-p76JXiI-zQ6i3VoqbgFNeRN93RIB9Suk"
               linkedin="https://www.linkedin.com/in/muhammad-usman-ahmed-"
+              portfolio={undefined}
             />
             <TeamMember
               name="Ali Akbar"
               position="COO"
-              image="/placeholder-user.jpg"
-              bio="Connect on LinkedIn: https://www.linkedin.com/in/aliakbar07"
+              image="https://media.licdn.com/dms/image/v2/D4D03AQEQ6TVDqbQ0UQ/profile-displayphoto-shrink_400_400/B4DZWQv7BdHYAg-/0/1741890237012?e=1753315200&v=beta&t=YwfGifYnVMwbDiT1VzCVHZ1MppyRPO1SwyyEtYGY8hs"
               linkedin="https://www.linkedin.com/in/aliakbar07"
+              portfolio={undefined}
+            />
+            <TeamMember
+              name="Taha Ashfaq"
+              position="Product Designer"
+              image="https://media.licdn.com/dms/image/v2/D4D03AQG5KX0duUqx4A/profile-displayphoto-shrink_400_400/B4DZQboshyHYAg-/0/1735630444132?e=1753315200&v=beta&t=Ensa8n_tZhSYsbhIVgMnMzq6tUP2-YZWL-LLuDqgXio"
+              linkedin="https://www.linkedin.com/in/taha-ashfaq-637874273"
+              portfolio={undefined}
             />
           </div>
         </div>
@@ -236,27 +243,48 @@ function ValueCard({ icon, title, description }: { icon: React.ReactNode; title:
   )
 }
 
-function TeamMember({ name, position, image, bio, linkedin }: { name: string; position: string; image: string; bio: string; linkedin?: string }) {
+function TeamMember({ name, position, image, linkedin, portfolio }: { name: string; position: string; image: string; linkedin?: string; portfolio?: string }) {
   return (
-    <div className="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl overflow-hidden hover:border-teal-500/50 transition-colors group shadow-md hover:shadow-lg translucent-card">
-      <div className="aspect-square overflow-hidden">
+    <div className="bg-white/80 backdrop-blur-md border border-gray-200 rounded-lg overflow-hidden group shadow hover:shadow-lg transition-all relative flex flex-col items-center p-0 w-48 md:w-56 mx-auto">
+      <div className="aspect-square w-full overflow-hidden flex items-center justify-center bg-gray-100 relative">
         <Image
           src={image || "/placeholder.svg"}
           alt={name}
-          width={400}
-          height={400}
+          width={224}
+          height={224}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
+        {/* Animated hover icons */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="flex gap-4">
+            {/* LinkedIn Icon */}
+            <a
+              href={linkedin || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`bg-white rounded-full p-2 shadow-lg transition-all duration-300 transform ${linkedin ? 'hover:bg-teal-500 hover:text-white' : 'opacity-50 pointer-events-none'} group-hover:translate-y-0 group-hover:scale-100 translate-y-4 scale-75`}
+              style={{ transitionDelay: '100ms' }}
+              title="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            {/* Portfolio Icon */}
+            <a
+              href={portfolio || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`bg-white rounded-full p-2 shadow-lg transition-all duration-300 transform ${portfolio ? 'hover:bg-teal-500 hover:text-white' : 'opacity-50 pointer-events-none'} group-hover:translate-y-0 group-hover:scale-100 translate-y-4 scale-75`}
+              style={{ transitionDelay: '250ms' }}
+              title="Portfolio"
+            >
+              <Globe2 className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-1 text-gray-800">{name}</h3>
-        <p className="text-teal-500 mb-4">{position}</p>
-        <p className="text-gray-600 text-sm mb-3">{bio}</p>
-        {linkedin && (
-          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-500 hover:text-teal-600 flex items-center">
-            View LinkedIn Profile <ArrowRight className="ml-1 h-3 w-3" />
-          </a>
-        )}
+      <div className="p-3 w-full text-center">
+        <h3 className="text-base font-semibold text-gray-800 mb-0.5">{name}</h3>
+        <p className="text-teal-500 text-xs font-medium">{position}</p>
       </div>
     </div>
   );

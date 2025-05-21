@@ -9,6 +9,7 @@ export function CircuitBackground() {
   useEffect(() => {
     let timeoutIds: number[] = [];
     let isUnmounted = false;
+    let direction: 'forward' | 'reverse' = 'forward';
 
     function animatePathsLoop() {
       pathRefs.forEach((ref, i) => {
@@ -16,22 +17,28 @@ export function CircuitBackground() {
         if (path) {
           const length = path.getTotalLength();
           path.style.strokeDasharray = `${length}`;
-          path.style.strokeDashoffset = `${length}`;
           path.style.transition = "none";
+          // Set initial offset based on direction
+          path.style.strokeDashoffset = direction === 'forward' ? `${length}` : '0';
           // Force reflow for SVG element
           path.getBoundingClientRect();
           path.style.transition = "stroke-dashoffset 2s cubic-bezier(0.77,0,0.18,1)";
           timeoutIds.push(
             window.setTimeout(() => {
-              if (!isUnmounted) path.style.strokeDashoffset = "0";
+              if (!isUnmounted) {
+                path.style.strokeDashoffset = direction === 'forward' ? '0' : `${length}`;
+              }
             }, 300 + i * 500)
           );
         }
       });
-      // After all paths are drawn, reset and loop
+      // After all paths are drawn, reverse direction and loop
       timeoutIds.push(
         window.setTimeout(() => {
-          if (!isUnmounted) animatePathsLoop();
+          if (!isUnmounted) {
+            direction = direction === 'forward' ? 'reverse' : 'forward';
+            animatePathsLoop();
+          }
         }, 300 + pathRefs.length * 500 + 2200) // 2200ms for last path's transition
       );
     }
