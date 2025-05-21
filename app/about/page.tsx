@@ -157,13 +157,13 @@ export default function AboutPage() {
               linkedin="https://www.linkedin.com/in/aliakbar07"
               portfolio="https://akbarcodes.vercel.app/"
             />
-            <TeamMember
+            {/* <TeamMember
               name="Taha Ashfaq"
               position="Product Designer"
               image="https://media.licdn.com/dms/image/v2/D4D03AQG5KX0duUqx4A/profile-displayphoto-shrink_400_400/B4DZQboshyHYAg-/0/1735630444132?e=1753315200&v=beta&t=Ensa8n_tZhSYsbhIVgMnMzq6tUP2-YZWL-LLuDqgXio"
               linkedin="https://www.linkedin.com/in/taha-ashfaq-637874273"
               portfolio="https://taha-ashfaq-designer-and-developer.netlify.app/"
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -247,7 +247,7 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
   return (
     <div className="relative group bg-gradient-to-br from-white to-gray-100 p-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-cyan-300/40 transition-all duration-300 ease-in-out w-72 mx-auto flex flex-col items-center text-center">
       {/* Decorative Glow - subtle for light theme */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-teal-200 to-cyan-200 rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-1000 group-hover:duration-300 animate-tilt"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-teal-200 to-cyan-200 rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-700 group-hover:duration-200 animate-tilt"></div>
       
       <div className="relative z-10 flex flex-col items-center w-full">
         <div className="relative mb-6"> {/* Increased margin-bottom for icon space */}
@@ -266,8 +266,8 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
-                className="bg-gray-700 text-white hover:bg-teal-500 rounded-full p-3 shadow-md transform transition-all duration-300 ease-out opacity-0 translate-y-4 rotate-[-15deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 hover:!scale-125 hover:!rotate-[5deg]"
-                style={{ transitionDelay: '0.2s' }} 
+                className="bg-gray-700 text-white hover:bg-teal-500 rounded-full p-3 shadow-md transform transition-all duration-200 ease-out opacity-0 translate-y-4 rotate-[-15deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 hover:!scale-125 hover:!rotate-[5deg]"
+                style={{ transitionDelay: '0.1s' }} 
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -278,8 +278,8 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Portfolio"
-                className="bg-gray-700 text-white hover:bg-sky-500 rounded-full p-3 shadow-md transform transition-all duration-300 ease-out opacity-0 translate-y-4 rotate-[15deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 hover:!scale-125 hover:!rotate-[-5deg]"
-                style={{ transitionDelay: '0.3s' }} 
+                className="bg-gray-700 text-white hover:bg-sky-500 rounded-full p-3 shadow-md transform transition-all duration-200 ease-out opacity-0 translate-y-4 rotate-[15deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 hover:!scale-125 hover:!rotate-[-5deg]"
+                style={{ transitionDelay: '0.15s' }} 
               >
                 <Globe2 className="w-5 h-5" />
               </a>
