@@ -245,20 +245,33 @@ function ValueCard({ icon, title, description }: { icon: React.ReactNode; title:
 
 function TeamMember({ name, position, image, linkedin, portfolio }: { name: string; position: string; image: string; linkedin?: string; portfolio?: string }) {
   return (
-    <div className="relative group bg-gradient-to-br from-white to-gray-100 p-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-cyan-300/40 transition-all duration-300 ease-in-out w-72 mx-auto flex flex-col items-center text-center">
-      {/* Decorative Glow - subtle for light theme */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-teal-200 to-cyan-200 rounded-xl blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-700 group-hover:duration-200 animate-tilt"></div>
+    <div 
+      className="relative group p-6 rounded-2xl shadow-xl transition-all duration-300 ease-in-out w-72 mx-auto flex flex-col items-center text-center
+                 bg-white/5 backdrop-blur-lg border border-white/15 
+                 hover:border-white/25 hover:shadow-cyan-400/50
+                 bg-[url('/public/textures/subtle-noise.svg')] bg-repeat" // Added for texture - ensure you have this file or similar
+      style={{
+        // Adding a subtle perspective for a 3D effect on hover
+        transformStyle: 'preserve-3d',
+      }}
+    >
+      {/* Optional: Inner shadow to enhance glass depth, or a very subtle gradient border */}
+      {/* <div className="absolute inset-0 rounded-2xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]"></div> */}
+
+      {/* Decorative Glow - can be adjusted or removed if it clashes with glass effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-teal-300/60 to-cyan-300/60 rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 group-hover:duration-300 animate-tilt -z-10"></div>
       
-      <div className="relative z-10 flex flex-col items-center w-full">
-        <div className="relative mb-6"> {/* Increased margin-bottom for icon space */}
+      <div 
+        className="relative z-10 flex flex-col items-center w-full transition-transform duration-300 ease-out group-hover:[transform:translateZ(20px)]" // Lifts content on hover
+      >
+        <div className="relative mb-6">
           <Image
             src={image || "/placeholder-user.jpg"} 
             alt={name}
-            width={144} // Slightly increased size
-            height={144} // Slightly increased size
-            className="rounded-full object-cover border-4 border-gray-200 group-hover:border-cyan-400 transition-all duration-300 transform group-hover:scale-105"
+            width={144}
+            height={144}
+            className="rounded-full object-cover border-4 border-white/30 group-hover:border-cyan-300/70 transition-all duration-300 transform group-hover:scale-105"
           />
-          {/* Icons container - positioned below image */}
           <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex space-x-3">
             {linkedin && (
               <a
@@ -266,7 +279,9 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
-                className="bg-gray-700 text-white hover:bg-teal-500 rounded-full p-3 shadow-md transform transition-all duration-200 ease-out opacity-0 translate-y-4 rotate-[-15deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 hover:!scale-125 hover:!rotate-[5deg]"
+                className="bg-slate-800/70 text-white hover:bg-teal-500/90 rounded-full p-3 shadow-lg transform transition-all duration-200 ease-out 
+                           opacity-0 translate-y-4 rotate-[-25deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 
+                           hover:!scale-125 hover:!rotate-[8deg]"
                 style={{ transitionDelay: '0.1s' }} 
               >
                 <Linkedin className="w-5 h-5" />
@@ -278,7 +293,9 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Portfolio"
-                className="bg-gray-700 text-white hover:bg-sky-500 rounded-full p-3 shadow-md transform transition-all duration-200 ease-out opacity-0 translate-y-4 rotate-[15deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 hover:!scale-125 hover:!rotate-[-5deg]"
+                className="bg-slate-800/70 text-white hover:bg-sky-500/90 rounded-full p-3 shadow-lg transform transition-all duration-200 ease-out 
+                           opacity-0 translate-y-4 rotate-[25deg] group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-110 group-hover:rotate-0 
+                           hover:!scale-125 hover:!rotate-[-8deg]"
                 style={{ transitionDelay: '0.15s' }} 
               >
                 <Globe2 className="w-5 h-5" />
@@ -287,8 +304,8 @@ function TeamMember({ name, position, image, linkedin, portfolio }: { name: stri
           </div>
         </div>
 
-        <h3 className="text-xl font-bold text-gray-800 mb-1 mt-4">{name}</h3> {/* Added margin-top for spacing after icons */}
-        <p className="text-teal-600 font-medium text-sm">{position}</p>
+        <h3 className="text-xl font-bold text-gray-800 group-hover:text-gray-900 mb-1 mt-4 transition-colors">{name}</h3>
+        <p className="text-teal-600 group-hover:text-teal-500 font-medium text-sm transition-colors">{position}</p>
       </div>
     </div>
   );
