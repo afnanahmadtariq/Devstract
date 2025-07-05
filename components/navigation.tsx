@@ -8,7 +8,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
-          <div className="w-12 h-12 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]">
+          <div className="w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]">
             <Image
               src="/images/logo.svg"
               alt="Devstract Logo"
@@ -20,23 +20,23 @@ export default function Navigation() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#home" className="text-white hover:text-yellow-400 font-medium transition-colors text-sm">
+            <Link href="#home" className="text-white hover:text-purple-400 font-medium transition-colors text-sm">
               Home
             </Link>
-            <Link href="#service" className="text-white/80 hover:text-yellow-400 font-medium transition-colors text-sm">
+            <Link href="#service" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
               Services
             </Link>
-            <Link href="#blog" className="text-white/80 hover:text-yellow-400 font-medium transition-colors text-sm">
+            <Link href="#blog" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
               Blog
             </Link>
-            <Link href="#faqs" className="text-white/80 hover:text-yellow-400 font-medium transition-colors text-sm">
+            <Link href="#faqs" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
               FAQs
             </Link>
           </div>
         </div>
 
         {/* Contact Us Button */}
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 font-medium rounded-full border-0">
+        <Button className="contact-button text-white px-6 py-2 font-medium rounded-full border-0">
           Contact Us
         </Button>
       </div>
