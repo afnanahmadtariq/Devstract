@@ -1,5 +1,12 @@
 import type { Metadata } from 'next'
+import { Syne } from 'next/font/google'
 import './globals.css'
+
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${syne.variable} font-sans antialiased`}>{children}</body>
     </html>
   )
 }
