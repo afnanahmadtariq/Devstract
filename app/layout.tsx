@@ -9,7 +9,25 @@ export const metadata: Metadata = {
   description: "We build next-generation web and mobile solutions for forward-thinking businesses.",
   keywords: ["web development", "mobile development", "software solutions", "UI/UX design", "cloud services"],
   icons: {
-    icon: ['/images/logo.svg'],
+    icon: [
+      {
+        url: '/favicon.ico',
+        type: 'image/x-icon',
+        sizes: '16x16 32x32',
+      },
+      {
+        url: '/favicon-16x16.png',
+        type: 'image/png',
+        sizes: '16x16',
+      },
+      {
+        url: '/favicon-32x32.png',
+        type: 'image/png',
+        sizes: '32x32',
+      }
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 }
 
