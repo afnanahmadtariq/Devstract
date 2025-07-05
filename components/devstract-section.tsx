@@ -8,11 +8,30 @@ export default function DevstractSection() {
         </div>
 
         {/* Main Brand Name */}
-        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 text-gray-900 leading-tight">Devstract</h2>
+        <h2
+              className="text-center font-['Syne-Bold',_sans-serif] text-6xl md:text-8xl lg:text-9xl font-bold relative mx-auto mb-8 leading-tight"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(44, 44, 44, 1.00) 0%,rgba(44, 44, 44, 1.00) 53.557692766189575%,rgba(181, 181, 181, 1.00) 53.76939356327057%,rgba(146, 146, 146, 1.00) 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+          Devstract</h2>
+
+        {/* Devstract Effect SVG */}
+        <div className="mb-8 flex justify-center">
+          <img 
+            src="/media/devstract-effect.svg" 
+            alt="Devstract Effect" 
+            className="w-auto h-auto max-w-full"
+          />
+        </div>
 
         {/* Descriptive Text */}
         <div className="max-w-2xl mx-auto">
-          <p className="text-base text-gray-600 leading-relaxed">
+          <p className="text-base text-gray-600 leading-relaxed font-syne">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.
           </p>

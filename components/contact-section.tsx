@@ -77,7 +77,7 @@ export default function ContactSection() {
           {/* Main content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
             <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
-              get in <span className="text-purple-600">touch</span>
+              Get in <span className="text-purple-600">touch</span>
             </h2>
 
             <Button className="bg-white hover:bg-gray-100 text-black rounded-full px-8 py-3 text-base font-semibold inline-flex items-center space-x-2">

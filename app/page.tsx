@@ -14,8 +14,8 @@ export default function Home() {
         <Navigation />
         <HeroSection />
       </div>
-      <ServicesSection />
       <ScrollTextSection />
+      <ServicesSection />
       <DevstractSection />
       <TestimonialsSection />
       <ContactSection />
