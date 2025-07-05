@@ -8,7 +8,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
-          <div className="w-12 h-12 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]">
             <Image
               src="/images/logo.svg"
               alt="Devstract Logo"
