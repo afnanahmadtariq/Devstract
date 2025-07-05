@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Navigation() {
   return (
@@ -7,8 +8,14 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
-          <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-            <span className="text-black font-bold text-sm">V</span>
+          <div className="w-12 h-12 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center">
+            <Image
+              src="/images/logo.svg"
+              alt="Devstract Logo"
+              width={32}
+              height={32}
+              className="filter brightness-0 invert"
+            />
           </div>
 
           {/* Navigation Links */}
