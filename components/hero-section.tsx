@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="w-full flex flex-col items-center justify-center text-center px-6 py-24 bg-gradient-to-b from-purple-900 via-purple-800 to-indigo-900"
+      className="w-full flex flex-col items-center justify-center text-center px-6 py-24"
     >
       {/* Main heading */}
       <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight max-w-4xl">

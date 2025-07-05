@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Navigation() {
   return (
-    <nav className="w-full px-6 py-6 bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900">
+    <nav className="w-full px-6 py-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">

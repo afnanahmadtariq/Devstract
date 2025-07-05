@@ -120,4 +120,11 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Add this to your CSS file or in a <style> tag */
+  .dual-radial-gradient {
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(151, 120, 255, 1) 0%, rgba(29, 44, 250, 0) 60%),
+      radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 1) 0%, rgba(29, 44, 250, 0) 40%);
+  }
 }

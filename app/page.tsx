@@ -10,8 +10,10 @@ import Footer from "@/components/footer"
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      <Navigation />
-      <HeroSection />
+      <div className="bg-black dual-radial-gradient w-full">
+        <Navigation />
+        <HeroSection />
+      </div>
       <ServicesSection />
       <ScrollTextSection />
       <DevstractSection />
