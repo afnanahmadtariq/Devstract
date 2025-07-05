@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 
 interface Service {
@@ -12,6 +12,9 @@ interface Service {
 
 export default function ServicesSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
 
   const services: Service[] = [
     {
@@ -78,20 +81,51 @@ export default function ServicesSection() {
     }
   }
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (scrollRef.current) {
+      setIsDragging(true)
+      setStartX(e.pageX - scrollRef.current.offsetLeft)
+      setScrollLeft(scrollRef.current.scrollLeft)
+    }
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return
+    e.preventDefault()
+    const x = e.pageX - scrollRef.current.offsetLeft
+    const walk = (x - startX) * 2
+    scrollRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+  }
+
   return (
     <section className="py-16 bg-white">
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
         <div className="px-32 ml-6 mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-left">My Service</h2>
-          <p className="text-base text-gray-600 max-w-2xl text-left">
+          <p className="text-xl text-[#676767] max-w-xl text-left">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.
           </p>
         </div>
 
         {/* Scrollable carousel */}
-        <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4">
+        <div
+          ref={scrollRef}
+          className={`flex gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+        >
           {services.map((service, index) => (
             <div
               key={service.id}
