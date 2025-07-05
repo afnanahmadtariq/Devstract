@@ -106,7 +106,7 @@ export default function ServicesSection() {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section id="services" className="py-16 bg-white">
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
         <div className="px-32 ml-6 mb-12">

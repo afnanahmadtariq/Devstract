@@ -28,7 +28,7 @@ export default function CarouselCards() {
         {loopCards.map((card, idx) => (
           <div
             key={`${card.id}-${idx}`}
-            className={`w-64 h-40 ${card.color} rounded-xl flex-shrink-0 m-4 flex flex-col items-center justify-center shadow-lg`}
+            className={`w-72 h-80 ${card.color} rounded-xl flex-shrink-0 m-4 flex flex-col items-center justify-center shadow-lg`}
           >
             <h3 className="text-white font-bold text-lg mb-1">{card.title}</h3>
             <p className="text-white text-sm opacity-90">{card.description}</p>

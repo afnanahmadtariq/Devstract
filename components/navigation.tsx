@@ -23,7 +23,7 @@ export default function Navigation() {
             <Link href="#home" className="text-white hover:text-purple-400 font-medium transition-colors text-sm">
               Home
             </Link>
-            <Link href="#service" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
+            <Link href="#services" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
               Services
             </Link>
             <Link href="#blog" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
