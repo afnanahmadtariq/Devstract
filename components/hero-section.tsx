@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="w-full flex flex-col items-center justify-center text-center px-6 py-24"
+      className="w-full flex flex-col items-center justify-center text-center py-24"
     >
       {/* Main heading */}
       <h1 className="text-4xl md:text-6xl font-medium mb-6 text-white leading-tight max-w-6xl">
