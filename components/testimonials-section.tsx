@@ -179,7 +179,12 @@ export default function TestimonialsSection() {
                 className="w-full h-80 object-cover absolute -top-16 left-0 z-0"
               />
               <div className="relative z-10 h-64 flex items-center justify-center">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full">
+                <Button
+                  className="text-white font-semibold px-6 py-2 rounded-full"
+                  style={{
+                    background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)"
+                  }}
+                >
                   Check My Eligibility
                 </Button>
               </div>
