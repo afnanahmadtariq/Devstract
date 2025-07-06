@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useLayoutEffect } from "react"
 import { Button } from "@/components/ui/button"
 
 interface Testimonial {
@@ -61,6 +61,16 @@ export default function TestimonialsSection() {
     }
   }
 
+  // Store dynamic heights for each testimonial's name/title block
+  const nameTitleRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [nameTitleHeights, setNameTitleHeights] = useState<number[]>([])
+
+  useLayoutEffect(() => {
+    setNameTitleHeights(
+      nameTitleRefs.current.map(ref => ref?.offsetHeight ?? 0)
+    )
+  }, [cardOrder])
+
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -107,21 +117,31 @@ export default function TestimonialsSection() {
                       />
                       
                       {/* Name and title */}
-                      <div className="absolute left-[235px] top-8">
+                      <div
+                        className="absolute left-[235px] top-8"
+                        ref={el => {
+                          nameTitleRefs.current[index] = el
+                        }}
+                      >
                         <h4 className="text-[#2c2c2c] font-syne font-bold text-2xl max-w-[185px] leading-tight">
                           {testimonial.name}
                         </h4>
-                        <p className="text-[rgba(44,44,44,0.37)] font-syne text-base font-medium max-w-[185px] mt-1">
+                        <p className="text-[rgba(44,44,44,0.37)] font-syne text-base font-medium max-w-[185px]">
                           {testimonial.title}
                         </p>
                       </div>
 
                       {/* Large quote mark */}
-                      {/* {index === 0 && (
-                        <div className="text-[#2c2c2c] font-syne text-8xl font-medium absolute left-[235px] top-[90px] w-9 h-[70px]">
-                          "
+                      {index === 0 && (
+                        <div
+                          className="text-[#2c2c2c] font-syne text-8xl font-medium absolute left-[235px] w-9 h-[70px] mt-4"
+                          style={{
+                            top: 8 + (nameTitleHeights[0] ?? 62) + 10 // 8px top + name/title height + 10px gap
+                          }}
+                        >
+                          “
                         </div>
-                      )} */}
+                      )}
 
                       {/* Review text */}
                       <div className="absolute left-8 top-48 w-[418px] h-[198px]">
