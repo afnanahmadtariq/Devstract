@@ -17,33 +17,33 @@ export default function TestimonialsSection() {
       id: 1,
       name: "Marshall Clark",
       title: "CEO, TechStart Inc.",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal complexities. Such a fine company with great people experienced",
+        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
     },
     {
       id: 2,
       name: "Michael Chen",
       title: "Founder, EcoSolutions",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "Working with Devstract was a game-changer for our business. They delivered a beautiful, functional website that perfectly captures our brand essence.",
+        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
     },
     {
       id: 3,
       name: "Emily Rodriguez",
       title: "Marketing Director, GrowthCo",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "The team at Devstract is simply outstanding. They took our complex requirements and turned them into an elegant solution.",
+        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
     },
     {
       id: 4,
       name: "David Thompson",
       title: "CTO, InnovateLab",
-      image: "/placeholder.svg?height=60&width=60",
+      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "Devstract's systematic approach from ideation to execution is impressive. They delivered on time, within budget, and the quality exceeded our expectations.",
+        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
     },
   ]
 
@@ -67,54 +67,67 @@ export default function TestimonialsSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Card Stack */}
           <div className="relative">
-            <div className="relative h-96 w-full max-w-md mx-auto lg:mx-0">
+            <div className="relative h-[415px] w-full max-w-[574px] mx-auto lg:mx-0">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
                 const zIndex = cardOrder.length - index
-                const translateY = index * 8
-                const translateX = index * 4
-                const scale = 1 - index * 0.02
+                const translateY = index * 25
+                const translateX = index * 52
+                const scale = 1 - index * 0.05
 
                 return (
                   <div
                     key={testimonial.id}
-                    className="absolute inset-0 cursor-pointer transition-all duration-500 ease-out"
+                    className="absolute cursor-pointer transition-all duration-500 ease-out"
                     style={{
                       zIndex,
                       transform: `translateY(${translateY}px) translateX(${translateX}px) scale(${scale})`,
+                      left: 0,
+                      top: index === 0 ? 0 : '50%',
+                      translate: index === 0 ? '0 0' : '0 -50%',
                     }}
                     onClick={() => handleCardClick(testimonial.id)}
                   >
-                    <div className="bg-white rounded-2xl shadow-lg p-6 h-full border border-gray-100">
-                      {/* Header with image and name/title */}
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center space-x-3">
-                          <img
-                            src={testimonial.image || "/placeholder.svg"}
-                            alt={testimonial.name}
-                            className="w-12 h-12 rounded-full object-cover bg-yellow-400"
-                          />
-                          <div>
-                            <h4 className="font-semibold text-gray-900 text-base">{testimonial.name}</h4>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-xs text-gray-500 font-medium">{testimonial.title}</p>
-                        </div>
+                    <div 
+                      className="rounded-[10px] border border-[#d7d7d7] w-[469px] h-[415px] overflow-hidden"
+                      style={{
+                        background: "linear-gradient(179.9deg, rgba(236, 236, 236, 1.00) 0%, rgba(255, 255, 255, 1.00) 100%)",
+                        boxShadow: index === 0 ? "-4px 4px 15px 0px rgba(0, 0, 0, 0.07)" : 
+                                  index === 1 ? "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)" : "none"
+                      }}
+                    >
+                      {/* Large image on the left */}
+                      <img
+                        src={testimonial.image || "/placeholder.svg"}
+                        alt={testimonial.name}
+                        className="rounded-[10px] w-[183px] h-[135px] absolute left-8 top-8 object-cover"
+                        style={{
+                          background: "linear-gradient(to left, #d9d9d9, #d9d9d9)",
+                        }}
+                      />
+                      
+                      {/* Name and title */}
+                      <div className="absolute left-[235px] top-8">
+                        <h4 className="text-[#2c2c2c] font-syne font-bold text-2xl max-w-[185px] leading-tight">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-[rgba(44,44,44,0.37)] font-syne text-base font-medium max-w-[185px] mt-1">
+                          {testimonial.title}
+                        </p>
                       </div>
+
+                      {/* Large quote mark */}
+                      {/* {index === 0 && (
+                        <div className="text-[#2c2c2c] font-syne text-8xl font-medium absolute left-[235px] top-[90px] w-9 h-[70px]">
+                          "
+                        </div>
+                      )} */}
 
                       {/* Review text */}
-                      <div className="mt-6">
-                        <p className="text-gray-700 leading-relaxed text-sm">{testimonial.review}</p>
-                      </div>
-
-                      {/* Rating stars */}
-                      <div className="flex mt-4">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 text-blue-500 fill-current" viewBox="0 0 20 20">
-                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                          </svg>
-                        ))}
+                      <div className="absolute left-8 top-48 w-[418px] h-[198px]">
+                        <p className="text-[#2c2c2c] font-syne text-3xl font-medium leading-tight">
+                          "{testimonial.review}"
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -124,16 +137,16 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Right Column - Call to Action */}
-          <div className="text-left">
+          <div className="text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Here From Others</h3>
-            <p className="text-base text-gray-600 mb-8 max-w-md">
+            <p className="text-base text-gray-600 mb-8 max-w-md mx-auto">
               Don't just take our word for it. See what our clients have to say about their experience working with us
               and the results we've delivered.
             </p>
 
             {/* Button on background */}
             <div className="relative">
-              <div className="w-full h-32 bg-yellow-400 rounded-2xl relative overflow-hidden">
+              <div className="w-full h-64 rounded-2xl relative overflow-hidden bg-cover bg-center" style={{backgroundImage: 'url(/media/world-map.png)'}}>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full">
                     Check My Eligibility
