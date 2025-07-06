@@ -99,13 +99,17 @@ export default function TestimonialsSection() {
                     onClick={() => handleCardClick(testimonial.id)}
                   >
                     <div 
-                      className="rounded-[10px] border border-[#d7d7d7] w-[469px] h-[415px] overflow-hidden"
+                      className="rounded-xl border border-[#d7d7d7] w-[469px] h-[415px] overflow-hidden"
                       style={{
                         background: "linear-gradient(179.9deg, rgba(236, 236, 236, 1.00) 0%, rgba(255, 255, 255, 1.00) 100%)",
                         boxShadow: index === 0 ? "-4px 4px 15px 0px rgba(0, 0, 0, 0.07)" : 
                                   index === 1 ? "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)" : "none"
                       }}
                     >
+                      {/* Black inner border at bottom for active card */}
+                      {index === 0 && (
+                        <div className="absolute inset-x-0 bottom-0 h-[8px] bg-black rounded-b-xl z-20"/>
+                      )}
                       {/* Large image on the left */}
                       <img
                         src={testimonial.image || "/placeholder.svg"}
