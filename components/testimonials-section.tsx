@@ -137,21 +137,27 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Right Column - Call to Action */}
-          <div className="text-center">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Here From Others</h3>
-            <p className="text-base text-gray-600 mb-8 max-w-md mx-auto">
+          <div className="text-center relative z-10">
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
+              <div className="relative max-w-md mx-auto mb-8 z-10">
+                <img src="/media/line.svg" alt="Line decoration" className="absolute right-0 top-0 h-5 w-auto -mt-5" />
+              </div>
+            <p className="text-xl text-[#676767] leading-tight mb-8 max-w-md mx-auto relative z-10">
               Don't just take our word for it. See what our clients have to say about their experience working with us
               and the results we've delivered.
             </p>
 
             {/* Button on background */}
             <div className="relative">
-              <div className="w-full h-64 rounded-2xl relative overflow-hidden bg-cover bg-center" style={{backgroundImage: 'url(/media/world-map.png)'}}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full">
-                    Check My Eligibility
-                  </Button>
-                </div>
+              <img 
+                src="/media/world-map.png" 
+                alt="World map background" 
+                className="w-full h-80 object-cover absolute -top-16 left-0 z-0"
+              />
+              <div className="relative z-10 h-64 flex items-center justify-center">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full">
+                  Check My Eligibility
+                </Button>
               </div>
             </div>
           </div>

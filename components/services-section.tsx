@@ -110,7 +110,7 @@ export default function ServicesSection() {
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
         <div className="px-32 ml-6 mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-left">My Service</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
           <p className="text-xl text-[#676767] max-w-xl text-left">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.
