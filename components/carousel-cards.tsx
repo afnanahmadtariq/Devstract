@@ -1,38 +1,120 @@
 "use client"
 
+import { useRef, useState, useEffect } from 'react'
+
 interface Card {
   id: number
   title: string
   description: string
-  color: string
+  image: string
 }
 
 export default function CarouselCards() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
+  const [isAnimationPaused, setIsAnimationPaused] = useState(false)
+
   const cards: Card[] = [
-    { id: 1, title: "Web Development", description: "Custom websites & web apps", color: "bg-blue-500" },
-    { id: 2, title: "Mobile Apps", description: "iOS & Android applications", color: "bg-purple-500" },
-    { id: 3, title: "UI/UX Design", description: "Beautiful user experiences", color: "bg-green-500" },
-    { id: 4, title: "E-commerce", description: "Online store solutions", color: "bg-orange-500" },
-    { id: 5, title: "Digital Marketing", description: "Grow your online presence", color: "bg-pink-500" },
-    { id: 6, title: "SEO Services", description: "Improve search rankings", color: "bg-indigo-500" },
-    { id: 7, title: "Brand Identity", description: "Logo & brand design", color: "bg-red-500" },
-    { id: 8, title: "Consulting", description: "Strategic tech guidance", color: "bg-teal-500" },
+    { id: 1, title: "Lightning Fast Delivery", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card1.svg" },
+    { id: 2, title: "Any integration you can imagine", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card2.svg" },
+    { id: 3, title: "Solutions that drives revenue", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card3.svg" },
+    { id: 4, title: "Security-First Engineering", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card4.svg" },
   ]
 
   // Duplicate list for seamless looping
   const loopCards = [...cards, ...cards]
 
+  // Mouse drag handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true)
+    setIsAnimationPaused(true)
+    setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0))
+    setScrollLeft(scrollContainerRef.current?.scrollLeft || 0)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return
+    e.preventDefault()
+    const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0)
+    const walk = (x - startX) * 2 // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+    // Resume animation after a short delay
+    setTimeout(() => setIsAnimationPaused(false), 1000)
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+    // Resume animation after a short delay
+    setTimeout(() => setIsAnimationPaused(false), 1000)
+  }
+
+  // Touch drag handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true)
+    setIsAnimationPaused(true)
+    setStartX(e.touches[0].pageX - (scrollContainerRef.current?.offsetLeft || 0))
+    setScrollLeft(scrollContainerRef.current?.scrollLeft || 0)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return
+    const x = e.touches[0].pageX - (scrollContainerRef.current.offsetLeft || 0)
+    const walk = (x - startX) * 2 // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+    // Resume animation after a short delay
+    setTimeout(() => setIsAnimationPaused(false), 1000)
+  }
+
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex animate-scroll-left">
+      <div 
+        ref={scrollContainerRef}
+        className={`flex overflow-x-scroll scrollbar-hide cursor-grab active:cursor-grabbing select-none ${
+          !isAnimationPaused ? 'animate-scroll-left' : ''
+        }`}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          scrollBehavior: isDragging ? 'auto' : 'smooth',
+          animationPlayState: isAnimationPaused ? 'paused' : 'running'
+        }}
+      >
         {loopCards.map((card, idx) => (
           <div
             key={`${card.id}-${idx}`}
-            className={`w-72 h-80 ${card.color} rounded-xl flex-shrink-0 m-4 flex flex-col justify-end shadow-lg`}
+            className="w-72 h-80 rounded-xl flex-shrink-0 m-4 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
+            style={{
+              backgroundColor: '#121212'
+            }}
           >
-            <div className="p-6 text-left">              
-              <h3 className="text-white font-bold text-lg mb-1">{card.title}</h3>
-              <p className="text-white text-sm opacity-90">{card.description}</p>
+            {/* Image element positioned from top */}
+            <img
+              src={card.image}
+              alt={card.title}
+              className="absolute top-0 left-0 w-full h-auto object-cover z-0"
+            />
+            
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+            
+            <div className="p-6 text-left relative z-20">              
+              <h5 className="text-white font-normal text-sm mb-1">{card.title}</h5>
+              <p className="text-white/[0.32] text-xs">{card.description}</p>
             </div>
           </div>
         ))}
