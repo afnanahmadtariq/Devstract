@@ -123,9 +123,10 @@
 
   /* Add this to your CSS file or in a <style> tag */
   .dual-radial-gradient {
-    background-image: 
+    background-image: radial-gradient(rgba(130,121,188,1.00) 0%,rgba(60,46,134,1.00) 30%,rgba(25,13,55,1.00) 65%,rgba(9,9,9,1.00) 100%);background-size: 135.13513513513513% 135.13513513513513%;background-position: center center;
+    /* background-image: 
       radial-gradient(circle at 50% -20%, rgba(151, 120, 255, 1) 0%, rgba(29, 44, 250, 0) 60%),
-      radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 1) 0%, rgba(29, 44, 250, 0) 40%);
+      radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 1) 0%, rgba(29, 44, 250, 0) 40%); */
   }
 
   .contact-button {
