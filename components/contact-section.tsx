@@ -33,10 +33,29 @@ export default function ContactSection() {
 
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <div className="relative bg-yellow-400 rounded-3xl overflow-hidden min-h-[400px]">
+      <div className="max-w-8xl mx-auto">
+        <div 
+        className="relative rounded-3xl overflow-hidden min-h-[800px]"
+          style={{
+            border: "1px solid #D7D7D7",
+            background: "linear-gradient(to bottom, #DBDBDB -10%, #FFFFFF 20%)",
+          }}
+        >
+          {/* "Get in touch" heading behind the image */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-10 pointer-events-none">
+            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
+              Get in <span className="text-purple-600">touch</span>
+            </h2>
+          </div>
+          {/* Bottom-aligned background image in front of heading */}
+          <img
+            src="/media/mountain.png"
+            alt="Contact section background"
+            className="absolute bottom-0 left-0 w-full h-2/3 object-cover z-20"
+            style={{ pointerEvents: "none" }}
+          />
           {/* Top-left team images and description */}
-          <div className="absolute top-8 left-8 z-20">
+          <div className="absolute top-8 left-8 z-30">
             <div className="flex -space-x-3 mb-3">
               {teamMembers.map((member, index) => (
                 <div
@@ -57,7 +76,7 @@ export default function ContactSection() {
           </div>
 
           {/* Top-right circular arrow with text */}
-          <div className="absolute top-8 right-8 z-20">
+          <div className="absolute top-8 right-8 z-30">
             <div className="relative w-16 h-16">
               <svg className="w-16 h-16 animate-spin-slow" viewBox="0 0 100 100">
                 <defs>
@@ -74,13 +93,11 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Main content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
-              Get in <span className="text-purple-600">touch</span>
-            </h2>
-
-            <Button className="bg-white hover:bg-gray-100 text-black rounded-full px-8 py-3 text-base font-semibold inline-flex items-center space-x-2">
+          {/* Main content except heading */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
+            {/* Spacer for heading */}
+            <div className="mb-24" />
+            <Button className="bg-white hover:bg-gray-100 text-black rounded-full px-8 py-3 text-base font-semibold inline-flex items-center space-x-2 pointer-events-auto">
               <span>Bring your ideas to life</span>
               <ArrowUpRight className="w-4 h-4" />
             </Button>
