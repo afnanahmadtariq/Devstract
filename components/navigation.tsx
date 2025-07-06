@@ -1,12 +1,12 @@
-// "use client"
+"use client"
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-// import { useState } from "react"
+import { useState } from "react"
 
 export default function Navigation() {
-  // const [rotating, setRotating] = useState(false)
+  const [rotating, setRotating] = useState(false)
 
   return (
     <nav className="w-full px-6 py-6">
@@ -19,15 +19,15 @@ export default function Navigation() {
               alt="Devstract Logo"
               width={32}
               height={32}
-              className="filter brightness-0 invert"
-              // className={`filter brightness-0 invert cursor-pointer transition-transform duration-500 ${rotating ? "rotate-[-360deg]" : ""}`}
-              // onClick={() => {
-              //   setRotating(true)
-              //   setTimeout(() => {
-              //     window.location.reload()
-              //   }, 500)
-              // }}
-              // style={{ willChange: "transform" }}
+              // className="filter brightness-0 invert"
+              className={`filter brightness-0 invert cursor-pointer transition-transform duration-500 ${rotating ? "rotate-[-360deg]" : ""}`}
+              onClick={() => {
+                setRotating(true)
+                setTimeout(() => {
+                  window.location.reload()
+                }, 500)
+              }}
+              style={{ willChange: "transform" }}
             />
           </div>
 
