@@ -1,8 +1,13 @@
+// "use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+// import { useState } from "react"
 
 export default function Navigation() {
+  // const [rotating, setRotating] = useState(false)
+
   return (
     <nav className="w-full px-6 py-6">
       <div className="max-w-8xl mx-auto flex items-center justify-between">
@@ -15,6 +20,14 @@ export default function Navigation() {
               width={32}
               height={32}
               className="filter brightness-0 invert"
+              // className={`filter brightness-0 invert cursor-pointer transition-transform duration-500 ${rotating ? "rotate-[-360deg]" : ""}`}
+              // onClick={() => {
+              //   setRotating(true)
+              //   setTimeout(() => {
+              //     window.location.reload()
+              //   }, 500)
+              // }}
+              // style={{ willChange: "transform" }}
             />
           </div>
 
