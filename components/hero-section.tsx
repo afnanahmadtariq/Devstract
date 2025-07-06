@@ -17,7 +17,7 @@ export default function HeroSection() {
 
       {/* Sub-heading */}
       <p className="text-lg text-white/[0.53] mb-8 max-w-2xl">
-        From innovative startups to enterprise solutions, we deliver cutting-edge digital experiences.
+        Fast. Efficient. Reliable. Try us and see the difference.
       </p>
 
       {/* CTA button */}

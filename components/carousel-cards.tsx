@@ -109,11 +109,8 @@ export default function CarouselCards() {
               className="absolute top-0 left-0 w-full h-auto object-cover z-0"
             />
             
-            {/* Dark overlay for better text readability */}
-            <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-            
             <div className="p-6 text-left relative z-20">              
-              <h5 className="text-white font-normal text-sm mb-1">{card.title}</h5>
+              <h5 className="text-white font-normal text-md mb-1">{card.title}</h5>
               <p className="text-white/[0.32] text-xs">{card.description}</p>
             </div>
           </div>

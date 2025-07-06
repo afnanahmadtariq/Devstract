@@ -1,15 +1,15 @@
 export default function DevstractSection() {
   return (
     <section className="py-24 px-6 bg-white">
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-8xl mx-auto text-center">
         {/* Process Flow */}
         <div className="mb-8">
           <p className="text-base text-gray-600 tracking-wider">Ideation → Planning → Execution</p>
         </div>
 
         {/* Main Brand Name */}
-        <h2
-              className="text-center font-['Syne-Bold',_sans-serif] text-6xl md:text-8xl lg:text-9xl font-bold relative mx-auto mb-8 leading-tight"
+        <h1
+              className="text-center font-syne font-bold text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight"
               style={{
                 background:
                   "linear-gradient(180deg, rgba(44, 44, 44, 1.00) 0%,rgba(44, 44, 44, 1.00) 53.557692766189575%,rgba(181, 181, 181, 1.00) 53.76939356327057%,rgba(146, 146, 146, 1.00) 100%)",
@@ -18,10 +18,10 @@ export default function DevstractSection() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-          Devstract</h2>
+          Devstract</h1>
 
         {/* Devstract Effect SVG */}
-        <div className="mb-8 flex justify-center">
+        <div className="flex justify-center">
           <img 
             src="/media/devstract-effect.svg" 
             alt="Devstract Effect" 
@@ -30,8 +30,8 @@ export default function DevstractSection() {
         </div>
 
         {/* Descriptive Text */}
-        <div className="max-w-2xl mx-auto">
-          <p className="text-base text-gray-600 leading-relaxed font-syne">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-2xl text-gray-600 leading-relaxed font-syne">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.
           </p>
