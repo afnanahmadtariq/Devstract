@@ -4,7 +4,22 @@ export default function DevstractSection() {
       <div className="max-w-8xl mx-auto text-center">
         {/* Process Flow */}
         <div className="mb-8">
-          <p className="text-base text-gray-600 tracking-wider">Ideation → Planning → Execution</p>
+          <p className="text-2xl text-[#2C2C2C] tracking-wider flex items-center justify-center gap-8">
+            Ideation 
+            <img src="/media/arrow.svg" alt="arrow" className="w-34 h-34" />
+            Planning 
+            <img src="/media/arrow.svg" alt="arrow" className="w-34 h-34" />
+            <span
+              style={{
+                background: "linear-gradient(310deg, #5A45FF 0%, #7D71FF 77%, #7C81FF 98%, #000099 150%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Execution
+            </span>
+          </p>
         </div>
 
         {/* Main Brand Name */}
