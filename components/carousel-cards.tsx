@@ -82,6 +82,11 @@ export default function CarouselCards() {
         className={`flex overflow-x-scroll scrollbar-hide cursor-grab active:cursor-grabbing select-none ${
           !isAnimationPaused ? 'animate-scroll-left' : ''
         }`}
+        style={{
+          width: `${loopCards.length * 320}px`, // 320px = 288px card width + 32px margin
+          scrollBehavior: isDragging ? 'auto' : 'smooth',
+          animationPlayState: isAnimationPaused ? 'paused' : 'running'
+        }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -89,10 +94,6 @@ export default function CarouselCards() {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        style={{
-          scrollBehavior: isDragging ? 'auto' : 'smooth',
-          animationPlayState: isAnimationPaused ? 'paused' : 'running'
-        }}
       >
         {loopCards.map((card, idx) => (
           <div
