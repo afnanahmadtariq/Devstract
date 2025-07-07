@@ -24,10 +24,10 @@ export default function DevstractSection() {
 
         {/* Main Brand Name */}
         <h1
-              className="text-center font-syne font-bold text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight"
+              className="text-center font-syne font-bold text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight origin-center" 
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(44, 44, 44, 1.00) 0%,rgba(44, 44, 44, 1.00) 53.557692766189575%,rgba(181, 181, 181, 1.00) 53.76939356327057%,rgba(146, 146, 146, 1.00) 100%)",
+                  "linear-gradient(180deg, #2C2C2C 0%,#2C2C2C 53.557692766189575%,#d1d1d1 53.76939356327057%,#929292 100%)",
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
