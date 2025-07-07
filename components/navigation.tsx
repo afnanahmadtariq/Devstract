@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 interface NavigationProps {
   contactPage?: boolean;
@@ -11,6 +11,30 @@ interface NavigationProps {
 
 export default function Navigation({ contactPage = false }: NavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [menuClosing, setMenuClosing] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        handleCloseMenu()
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [menuOpen])
+
+  // Handle menu close with animation
+  function handleCloseMenu() {
+    setMenuClosing(true)
+    setTimeout(() => {
+      setMenuOpen(false)
+      setMenuClosing(false)
+    }, 300) // match animation duration
+  }
 
   return (
     <nav className="w-full px-8 py-8">
@@ -79,14 +103,22 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {menuOpen && (
+      {(menuOpen || menuClosing) && (
         <div className="fixed inset-0 z-50 bg-black/70 flex justify-end">
-          <div className={contactPage ? "w-72 max-w-full h-full bg-white dark:bg-[#18182a] flex flex-col justify-between shadow-xl animate-slide-in-right" : "w-72 max-w-full h-full bg-[#18182a] flex flex-col justify-between shadow-xl animate-slide-in-right"}>
+          <div
+            ref={menuRef}
+            className={
+              (contactPage
+                ? "w-72 max-w-full h-full bg-white dark:bg-[#18182a] flex flex-col justify-between shadow-xl "
+                : "w-72 max-w-full h-full bg-[#18182a] flex flex-col justify-between shadow-xl ") +
+              (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
+            }
+          >
             <div>
               <div className="flex justify-end p-4">
                 <button
                   className={contactPage ? "text-black dark:text-white text-2xl" : "text-white text-2xl"}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={handleCloseMenu}
                   aria-label="Close menu"
                 >
                   &times;
@@ -123,17 +155,6 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
           </div>
         </div>
       )}
-
-      {/* Animation for mobile menu */}
-      <style jsx global>{`
-        .animate-slide-in-right {
-          animation: slide-in-right 0.3s cubic-bezier(0.4,0,0.2,1);
-        }
-        @keyframes slide-in-right {
-          from { transform: translateX(100%); }
-          to { transform: translateX(0); }
-        }
-      `}</style>
     </nav>
   )
 }
