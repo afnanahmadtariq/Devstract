@@ -39,9 +39,26 @@ export default function ContactUsPage() {
                   <textarea id="message" name="message" rows={4} required className="appearance-none rounded-2xl relative block w-full px-3 py-2 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Your Message" />
                 </div>
                 <div>
-                  <button type="submit" className="group flex items-center gap-2 px-6 py-2 border border-indigo-600 rounded-full text-sm font-medium text-indigo-600 bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-auto min-w-[140px] mx-auto transition-colors">
-                    Send Message
-                    <span className="inline-flex items-center justify-center ml-2 w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+                  <button type="submit" className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-auto min-w-[140px] mx-auto transition-colors">
+                    <span
+                      className="px-4 py-2 ml-4 bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage: 'linear-gradient(323deg, rgba(90,68,255,1.00) 0%,rgba(125,113,255,1.00) 27%,rgba(124,128,255,1.00) 48%,rgba(0,0,153,1.00) 100%)',
+                        backgroundPosition: 'center center',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        display: 'inline-block',
+                      }}
+                    >
+                      Send Message
+                    </span>
+                    <span
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-full"
+                      style={{
+                        backgroundImage: 'linear-gradient(323deg, rgba(90,68,255,1.00) 0%,rgba(125,113,255,1.00) 27%,rgba(124,128,255,1.00) 48%,rgba(0,0,153,1.00) 100%)',
+                        backgroundPosition: 'center center',
+                      }}
+                    >
                       <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
                     </span>
                   </button>
