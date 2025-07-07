@@ -5,8 +5,11 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState } from "react"
 
-export default function Navigation() {
-  const [rotating, setRotating] = useState(false)
+interface NavigationProps {
+  contactPage?: boolean;
+}
+
+export default function Navigation({ contactPage = false }: NavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -14,35 +17,35 @@ export default function Navigation() {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
-          <div className="w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]">
+          <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
             <Image
               src="/images/logo.svg"
               alt="Devstract Logo"
               width={32}
               height={32}
-              className={`filter brightness-0 invert cursor-pointer transition-transform duration-500 ${rotating ? "rotate-[-360deg]" : ""}`}
+              className={
+                contactPage
+                  ? "cursor-pointer" 
+                  : "cursor-pointer filter brightness-0 invert"
+              }
               onClick={() => {
-                setRotating(true)
-                setTimeout(() => {
-                  window.location.reload()
-                }, 500)
+                window.location.href = "/"
               }}
-              style={{ willChange: "transform" }}
             />
           </div>
 
           {/* Navigation Links (Desktop) */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#home" className="text-white hover:text-purple-400 font-medium transition-colors text-sm">
+            <Link href="/#home" className={contactPage ? "text-black dark:text-white hover:text-purple-400 font-medium transition-colors text-sm" : "text-white hover:text-purple-400 font-medium transition-colors text-sm"}>
               Home
             </Link>
-            <Link href="#services" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
+            <Link href="/#services" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
               Services
             </Link>
-            <Link href="#blog" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
+            <Link href="#blog" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
               Blog
             </Link>
-            <Link href="#faqs" className="text-white/80 hover:text-purple-400 font-medium transition-colors text-sm">
+            <Link href="/#faqs" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
               FAQs
             </Link>
           </div>
@@ -50,7 +53,7 @@ export default function Navigation() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-white/10"
+          className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/10 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-white/10"}
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
@@ -62,21 +65,27 @@ export default function Navigation() {
         </button>
 
         {/* Contact Us Button (Desktop) */}
-        <Link href="/contactus" passHref legacyBehavior>
-          <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
+        {contactPage ? (
+          <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
             Contact Us
-          </Button>
-        </Link>
+          </span>
+        ) : (
+          <Link href="/contactus" passHref legacyBehavior>
+            <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
+              Contact Us
+            </Button>
+          </Link>
+        )}
       </div>
 
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-black/70 flex justify-end">
-          <div className="w-72 max-w-full h-full bg-[#18182a] flex flex-col justify-between shadow-xl animate-slide-in-right">
+          <div className={contactPage ? "w-72 max-w-full h-full bg-white dark:bg-[#18182a] flex flex-col justify-between shadow-xl animate-slide-in-right" : "w-72 max-w-full h-full bg-[#18182a] flex flex-col justify-between shadow-xl animate-slide-in-right"}>
             <div>
               <div className="flex justify-end p-4">
                 <button
-                  className="text-white text-2xl"
+                  className={contactPage ? "text-black dark:text-white text-2xl" : "text-white text-2xl"}
                   onClick={() => setMenuOpen(false)}
                   aria-label="Close menu"
                 >
@@ -84,26 +93,32 @@ export default function Navigation() {
                 </button>
               </div>
               <nav className="flex flex-col items-start px-8 space-y-6 mt-8">
-                <Link href="#home" className="text-white text-lg font-medium" onClick={() => setMenuOpen(false)}>
+                <Link href="/#home" className={contactPage ? "text-black dark:text-white hover:text-purple-400 font-medium transition-colors text-lg" : "text-white hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
                   Home
                 </Link>
-                <Link href="#services" className="text-white/80 text-lg font-medium" onClick={() => setMenuOpen(false)}>
+                <Link href="/#services" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-lg" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
                   Services
                 </Link>
-                <Link href="#blog" className="text-white/80 text-lg font-medium" onClick={() => setMenuOpen(false)}>
+                <Link href="#blog" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-lg" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
                   Blog
                 </Link>
-                <Link href="#faqs" className="text-white/80 text-lg font-medium" onClick={() => setMenuOpen(false)}>
+                <Link href="/#faqs" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-lg" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
                   FAQs
                 </Link>
               </nav>
             </div>
             <div className="p-8">
-              <Link href="/contactus" passHref legacyBehavior>
-                <Button className="contact-button w-full text-white px-6 py-5 font-syne font-light rounded-full border-0">
+              {contactPage ? (
+                <span className="w-full px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none block text-center">
                   Contact Us
-                </Button>
-              </Link>
+                </span>
+              ) : (
+                <Link href="/contactus" passHref legacyBehavior>
+                  <Button className="contact-button w-full text-white px-6 py-5 font-syne font-light rounded-full border-0">
+                    Contact Us
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
