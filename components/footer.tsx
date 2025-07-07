@@ -94,7 +94,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             {/* Logo */}
             <div className="flex items-center">
-              <img src="/images/logo.svg" alt="Logo" className="w-12 h-12 mr-3" />
+              <img src="/images/logo.svg" alt="Logo" className="w-10 h-10 mr-3" />
             </div>
 
             {/* Legal Links */}
