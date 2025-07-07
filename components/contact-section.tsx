@@ -33,7 +33,7 @@ export default function ContactSection() {
 
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-white">
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-7xl md:max-w-[95rem] mx-auto">
         <div 
         className="relative rounded-3xl overflow-hidden min-h-[800px]"
           style={{
@@ -42,8 +42,8 @@ export default function ContactSection() {
           }}
         >
           {/* "Get in touch" heading behind the image */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-10 pointer-events-none">
-            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
+          <div className="absolute inset-x-0 top-[150px] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+            <h2 className="text-6xl md:text-[12rem] font-bold text-black mb-8 leading-none">
               Get in <span className="text-purple-600">touch</span>
             </h2>
           </div>
