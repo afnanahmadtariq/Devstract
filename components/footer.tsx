@@ -2,7 +2,6 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
 
 export default function Footer() {
@@ -52,26 +51,25 @@ export default function Footer() {
 
             {/* Subscribe Card */}
             <div className="lg:col-span-1">
-              <div className="rounded-2xl p-6 bg-gray-50">
+              <div className="rounded-2xl p-6 bg-black/[0.03]">
                 <h3 className="text-base font-semibold mb-4 text-black">Subscribe</h3>
                 <form onSubmit={handleSubscribe} className="space-y-4">
-                  <div>
+                  <div className="relative">
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                      className="w-full px-4 py-3 pr-12 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
                       required
                     />
+                    <button
+                      type="submit"
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-black rounded-full hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      <img src="/media/small_arrow.svg" alt="Submit" className="w-4 h-4 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
+                    </button>
                   </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-4 py-3 font-medium inline-flex items-center justify-center space-x-2 transition-colors duration-200 text-sm"
-                  >
-                    <span>Subscribe</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Button>
                 </form>
                 <p className="text-xs text-gray-500 mt-3 leading-relaxed">
                   Get the latest updates on our services, industry insights, and exclusive offers delivered to your
@@ -86,7 +84,7 @@ export default function Footer() {
       {/* Horizontal Separator */}
       <div className="px-6">
         <div className="max-w-7xl mx-auto">
-          <hr className="border-gray-200" />
+          <hr className="border-black/[0.06]" />
         </div>
       </div>
 
@@ -96,9 +94,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3">
-                <span className="text-black font-bold text-sm">V</span>
-              </div>
+              <img src="/images/logo.svg" alt="Logo" className="w-8 h-8 mr-3" />
             </div>
 
             {/* Legal Links */}
@@ -123,9 +119,9 @@ export default function Footer() {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-8 h-8 hover:bg-gray-100 rounded-full flex items-center justify-center transition-colors duration-200 group"
+                    className="w-8 h-8 border border-black/[0.1] rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-gray-100"
                   >
-                    <IconComponent className="w-4 h-4 text-gray-600 group-hover:text-black" />
+                    <IconComponent className="w-4 h-4 text-black" />
                   </a>
                 )
               })}
