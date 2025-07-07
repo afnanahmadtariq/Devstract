@@ -8,7 +8,7 @@ export default function ContactUsPage() {
       <Navigation />
       <main className="flex flex-col min-h-[70vh] bg-white dark:bg-gray-900">
         <section className="flex flex-col items-center justify-center py-16 px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 text-center">Contact us</h1>
+          <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">Contact Us</h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl text-center mb-12">
             We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
           </p>
