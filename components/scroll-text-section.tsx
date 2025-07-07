@@ -39,16 +39,13 @@ export default function ScrollTextSection() {
 
   const getLetterColor = (index: number) => {
     const totalLetters = text.length
-    const letterProgress = (scrollProgress * totalLetters - index) / 20
-    const clampedProgress = Math.max(0, Math.min(1, letterProgress))
-
-    // Gray to black transition
-    const grayValue = 156 - (156 * clampedProgress) // 156 -> 0 (gray to black)
-    return `rgb(${grayValue}, ${grayValue}, ${grayValue})`
+    const threshold = Math.floor(scrollProgress * totalLetters)
+    // Distinct color transition: gray before threshold, black after
+    return index < threshold ? "#2C2C2C" : "#C2C2C2"
   }
 
   return (
-    <section ref={sectionRef} className="py-36 px-6 md:px-24 bg-white">
+    <section ref={sectionRef} className="py-48 px-6 md:px-24 bg-white">
       <div className="text-center mx-auto">
         <p className="text-md md:text-4xl font-semibold leading-[1.6] md:leading-[1.6]">
           {text.split('').map((char, index) => (
