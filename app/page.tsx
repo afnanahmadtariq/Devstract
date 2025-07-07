@@ -6,6 +6,7 @@ import DevstractSection from "@/components/devstract-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
+import ScrollToTopButton from "@/components/scroll-to-top-button"
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
+      <ScrollToTopButton />
     </main>
   )
 }
