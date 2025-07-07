@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
 import CarouselCards from "@/components/carousel-cards"
 
 export default function HeroSection() {
@@ -29,8 +28,8 @@ export default function HeroSection() {
       </p>
 
       {/* CTA button */}
-      <Button className="bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-8 py-6 text-base font-medium inline-flex items-center space-x-2 mb-32">
-        <ArrowRight className="w-4 h-4" />
+      <Button className="bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-8 py-7 text-base font-normal inline-flex items-center space-x-2 mb-32">
+        <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4" />
         <span>Start a project</span>
       </Button>
 
