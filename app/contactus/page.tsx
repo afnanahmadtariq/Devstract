@@ -12,11 +12,14 @@ export default function ContactUsPage() {
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl text-center mb-12">
             We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
           </p>
-          <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-4xl">
+          <div className="w-full flex flex-col md:flex-row justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-2xl">
             {/* Left Side (empty or add info later) */}
-            <div className="flex-1 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow p-8 hidden md:block" />
+            <div className="flex-1 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow p-8 hidden md:block border-2 border-[#EBEBEB]" />
             {/* Right Side (Form) */}
-            <div className="flex-1 bg-white dark:bg-gray-800 rounded-2xl shadow p-8">
+            <div className="flex-1 bg-white dark:bg-gray-800 rounded-2xl shadow p-8 border-2 border-[#EBEBEB]">
+              <div className="mb-6 text-center max-w-sm mx-auto">
+                <p className="text-xl font-semibold text-gray-900 dark:text-white">Let’s Connect 🚀 We’re just a message away reach out 🤝</p>
+              </div>
               <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="sr-only">Name</label>
