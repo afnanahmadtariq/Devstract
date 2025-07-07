@@ -109,8 +109,8 @@ export default function ServicesSection() {
     <section id="services" className="py-16 bg-white">
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
-        <div className="px-32 ml-6 mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
+        <div className="px-28 ml-6 mb-12">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
           <p className="text-xl text-[#676767] max-w-xl text-left">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.
@@ -143,9 +143,9 @@ export default function ServicesSection() {
                 <p className="text-xl mb-6 font-light leading-tight text-white/[0.77]">{service.description}</p>
 
                 {/* Arrow button */}
-                <div className="flex justify-start">
+                {/* <div className="flex justify-start">
                     <ArrowUpRight className="h-16 w-16 text-white" />
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
