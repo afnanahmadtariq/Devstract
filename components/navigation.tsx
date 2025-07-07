@@ -53,7 +53,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
 
         {/* Mobile Menu Button */}
         <button
-          className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/10 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-white/10"}
+          className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/10 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
         >
@@ -92,7 +92,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
                   &times;
                 </button>
               </div>
-              <nav className="flex flex-col items-start px-8 space-y-6 mt-8">
+              <nav className="flex flex-col items-center px-8 space-y-10 mt-8">
                 <Link href="/#home" className={contactPage ? "text-black dark:text-white hover:text-purple-400 font-medium transition-colors text-lg" : "text-white hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
                   Home
                 </Link>
