@@ -62,9 +62,11 @@ export default function Navigation() {
         </button>
 
         {/* Contact Us Button (Desktop) */}
-        <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
-          Contact Us
-        </Button>
+        <Link href="/contactus" passHref legacyBehavior>
+          <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
+            Contact Us
+          </Button>
+        </Link>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -97,9 +99,11 @@ export default function Navigation() {
               </nav>
             </div>
             <div className="p-8">
-              <Button className="contact-button w-full text-white px-6 py-5 font-syne font-light rounded-full border-0">
-                Contact Us
-              </Button>
+              <Link href="/contactus" passHref legacyBehavior>
+                <Button className="contact-button w-full text-white px-6 py-5 font-syne font-light rounded-full border-0">
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
