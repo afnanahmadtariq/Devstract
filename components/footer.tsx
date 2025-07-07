@@ -6,11 +6,28 @@ import { ArrowUpRight, Facebook, Twitter, Instagram, Linkedin, Youtube } from "l
 
 export default function Footer() {
   const [email, setEmail] = useState("")
+  const [subscribeStatus, setSubscribeStatus] = useState<string | null>(null)
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Subscribing email:", email)
-    setEmail("")
+    setSubscribeStatus(null)
+    if (!email) return
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (res.ok) {
+        setSubscribeStatus('Subscribed successfully!')
+        setEmail("")
+      } else {
+        const data = await res.json()
+        setSubscribeStatus(data.error || 'Subscription failed.')
+      }
+    } catch {
+      setSubscribeStatus('Subscription failed.')
+    }
   }
 
   const footerLinks = {
@@ -70,6 +87,9 @@ export default function Footer() {
                       <img src="/media/small_arrow.svg" alt="Submit" className="w-4 h-4 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
                     </button>
                   </div>
+                  {subscribeStatus && (
+                    <div className="text-xs mt-2 text-center" style={{ color: subscribeStatus.includes('success') ? '#5A44FF' : '#D32F2F' }}>{subscribeStatus}</div>
+                  )}
                 </form>
                 <p className="text-xs text-gray-500 mt-3 leading-relaxed">
                   Get the latest updates on our services, industry insights, and exclusive offers delivered to your
