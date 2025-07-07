@@ -98,7 +98,7 @@ export default function CarouselCards() {
         {loopCards.map((card, idx) => (
           <div
             key={`${card.id}-${idx}`}
-            className="w-72 h-80 rounded-xl flex-shrink-0 m-4 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
+            className="w-72 h-80 rounded-xl flex-shrink-0 m-2 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
             style={{
               backgroundColor: '#121212'
             }}

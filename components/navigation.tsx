@@ -9,8 +9,8 @@ export default function Navigation() {
   const [rotating, setRotating] = useState(false)
 
   return (
-    <nav className="w-full px-6 py-6">
-      <div className="max-w-8xl mx-auto flex items-center justify-between">
+    <nav className="w-full px-8 py-8">
+      <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
           <div className="w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]">
@@ -49,7 +49,7 @@ export default function Navigation() {
         </div>
 
         {/* Contact Us Button */}
-        <Button className="contact-button text-white px-6 py-2 font-medium rounded-full border-0">
+        <Button className="contact-button text-white px-6 py-4 font-syne font-light rounded-full border-0">
           Contact Us
         </Button>
       </div>
