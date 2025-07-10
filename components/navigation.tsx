@@ -66,7 +66,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
             <Link href="/#services" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
               Services
             </Link>
-            <Link href="#blog" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
+            <Link href="https://blog.devstract.site" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
               Blog
             </Link>
             <Link href="/#faqs" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
