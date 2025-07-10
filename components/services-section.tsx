@@ -72,12 +72,22 @@ export default function ServicesSection() {
     if (scrollRef.current) {
       const scrollAmount = 550
       const currentScroll = scrollRef.current.scrollLeft
-      const targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount
+      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
+      let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount
+      let snapped = Math.round(targetScroll / scrollAmount) * scrollAmount
 
-      scrollRef.current.scrollTo({
-        left: targetScroll,
-        behavior: "smooth",
-      })
+      // Snap to whichever is closer: snapped or maxScroll
+      if (Math.abs(targetScroll - snapped) < Math.abs(targetScroll - maxScroll)) {
+        scrollRef.current.scrollTo({
+          left: snapped,
+          behavior: "smooth",
+        })
+      } else {
+        scrollRef.current.scrollTo({
+          left: maxScroll,
+          behavior: "smooth",
+        })
+      }
     }
   }
 
@@ -99,10 +109,48 @@ export default function ServicesSection() {
 
   const handleMouseUp = () => {
     setIsDragging(false)
+    if (scrollRef.current) {
+      const scrollAmount = 550
+      const currentScroll = scrollRef.current.scrollLeft
+      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
+      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
+
+      // Snap to whichever is closer: snapped or maxScroll
+      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
+        scrollRef.current.scrollTo({
+          left: snapped,
+          behavior: "smooth",
+        })
+      } else {
+        scrollRef.current.scrollTo({
+          left: maxScroll,
+          behavior: "smooth",
+        })
+      }
+    }
   }
 
   const handleMouseLeave = () => {
     setIsDragging(false)
+    if (scrollRef.current) {
+      const scrollAmount = 550
+      const currentScroll = scrollRef.current.scrollLeft
+      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
+      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
+
+      // Snap to whichever is closer: snapped or maxScroll
+      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
+        scrollRef.current.scrollTo({
+          left: snapped,
+          behavior: "smooth",
+        })
+      } else {
+        scrollRef.current.scrollTo({
+          left: maxScroll,
+          behavior: "smooth",
+        })
+      }
+    }
   }
 
   return (
@@ -124,7 +172,7 @@ export default function ServicesSection() {
             type="button"
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200
-              bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32"
+              bg-white/[0.1] border border-white text-white hover:bg-white/[0.2] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32 ml-6 shadow-lg shadow-black/30"
             style={{ pointerEvents: 'auto' }}
             aria-label="Scroll left"
           >
@@ -136,7 +184,7 @@ export default function ServicesSection() {
             type="button"
             onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200
-              bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32"
+              bg-white/[0.1] border border-white text-white hover:bg-white/[0.2] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32 mr-6 shadow-lg shadow-black/30"
             style={{ pointerEvents: 'auto' }}
             aria-label="Scroll right"
           >
