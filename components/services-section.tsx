@@ -1,7 +1,8 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ArrowUpRight } from "lucide-react"
+import "./services-section-animations.css"
 
 interface Service {
   id: number
@@ -15,6 +16,11 @@ export default function ServicesSection() {
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
+  const [animate, setAnimate] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => setAnimate(true), 100) // slight delay for mount
+  }, [])
 
   const services: Service[] = [
     {
@@ -154,10 +160,10 @@ export default function ServicesSection() {
   }
 
   return (
-    <section id="services" className="py-16 bg-white">
+    <section id="services" className={`py-16 bg-white transition-opacity duration-[2000ms] ${animate ? 'opacity-100' : 'opacity-0'}`}> 
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
-        <div className="px-28 ml-6 mb-12">
+        <div className={`px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
           <p className="text-xl text-[#676767] max-w-xl text-left">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
@@ -199,29 +205,34 @@ export default function ServicesSection() {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseLeave}
           >
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${
-                  index === 0 ? "ml-32" : ""
-                }`}
-                style={{ backgroundImage: `url(${service.image})` }}
-              >
-                {/* Dark overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-2xl"></div>
+            {services.map((service, index) => {
+              let cardAnim = ''
+              if (index === 0) cardAnim = `slide-from-left${animate ? ' show' : ''}`
+              else if (index === 1) cardAnim = `slide-from-right${animate ? ' show' : ''}`
+              else if (index === 2) cardAnim = `slide-from-far-right${animate ? ' show' : ''}`
+              else cardAnim = animate ? 'opacity-100' : 'opacity-0'
+              return (
+                <div
+                  key={service.id}
+                  className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-32" : ""} transition-all duration-[2000ms] ${cardAnim}`}
+                  style={{ backgroundImage: `url(${service.image})` }}
+                >
+                  {/* Dark overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-2xl"></div>
 
-                {/* Card content */}
-                <div className="relative z-10">
-                  <h3 className="text-5xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-xl mb-6 font-light leading-tight text-white/[0.77]">{service.description}</p>
+                  {/* Card content */}
+                  <div className="relative z-10">
+                    <h3 className="text-5xl font-semibold mb-4">{service.title}</h3>
+                    <p className="text-xl mb-6 font-light leading-tight text-white/[0.77]">{service.description}</p>
 
-                  {/* Arrow button */}
-                  {/* <div className="flex justify-start">
+                    {/* Arrow button */}
+                    {/* <div className="flex justify-start">
                       <ArrowUpRight className="h-16 w-16 text-white" />
                   </div> */}
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
