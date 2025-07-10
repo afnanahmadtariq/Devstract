@@ -12,7 +12,12 @@ interface NavigationProps {
 export default function Navigation({ contactPage = false }: NavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuClosing, setMenuClosing] = useState(false)
+  const [showNav, setShowNav] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setShowNav(true)
+  }, [])
 
   useEffect(() => {
     if (!menuOpen) return
@@ -37,7 +42,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
   }
 
   return (
-    <nav className="w-full px-8 py-8">
+    <nav className={`w-full px-8 py-8 transition-opacity duration-[3000ms] ${showNav ? 'animate-navbar-down' : 'opacity-0'}`}>
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
@@ -157,4 +162,29 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
       )}
     </nav>
   )
+}
+
+// Add animation styles
+if (typeof window !== 'undefined') {
+  const styleId = 'navbar-down-animation-style';
+  if (!document.getElementById(styleId)) {
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.innerHTML = `
+      @keyframes navbar-down {
+        0% {
+          transform: translateY(-40px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-navbar-down {
+        animation: navbar-down 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 }

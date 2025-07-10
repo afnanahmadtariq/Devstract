@@ -1,11 +1,18 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import CarouselCards from "@/components/carousel-cards"
+import { useEffect, useState } from "react"
 
 export default function HeroSection() {
+  const [showHero, setShowHero] = useState(false)
+  useEffect(() => {
+    setShowHero(true)
+  }, [])
   return (
     <section
       id="home"
-      className="w-full flex flex-col items-center justify-center text-center py-24"
+      className={`w-full flex flex-col items-center justify-center text-center py-24 transition-opacity duration-[3000ms] ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
     >
       {/* Main heading */}
       <h1 className="text-5xl md:text-7xl font-medium mb-6 text-white leading-tight max-w-7xl">
@@ -37,4 +44,29 @@ export default function HeroSection() {
       <CarouselCards />
     </section>
   )
+}
+
+// Add animation styles
+if (typeof window !== 'undefined') {
+  const styleId = 'hero-up-animation-style';
+  if (!document.getElementById(styleId)) {
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.innerHTML = `
+      @keyframes hero-up {
+        0% {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-hero-up {
+        animation: hero-up 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      }
+    `;
+    document.head.appendChild(style);
+  }
 }
