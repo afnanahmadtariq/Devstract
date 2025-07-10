@@ -144,4 +144,15 @@
     from { transform: translateX(0); }
     to { transform: translateX(100%); }
   }
+
+  /* Prevent text selection globally */
+  * {
+    user-select: none;
+  }
+
+  /* Prevent image selection and dragging */
+  img, svg {
+    user-select: none;
+    pointer-events: none;
+  }
 }
