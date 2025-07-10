@@ -70,7 +70,7 @@ export default function ServicesSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 320
+      const scrollAmount = 550
       const currentScroll = scrollRef.current.scrollLeft
       const targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount
 
@@ -117,38 +117,64 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Scrollable carousel */}
-        <div
-          ref={scrollRef}
-          className={`flex gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-        >
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${
-                index === 0 ? "ml-32" : ""
-              }`}
-              style={{ backgroundImage: `url(${service.image})` }}
-            >
-              {/* Dark overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-2xl"></div>
+        {/* Scrollable carousel with hover buttons */}
+        <div className="relative group">
+          {/* Left scroll button */}
+          <button
+            type="button"
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200
+              bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32"
+            style={{ pointerEvents: 'auto' }}
+            aria-label="Scroll left"
+          >
+            <img src="/media/small_arrow.svg" alt="arrow left" className="w-4 h-4 rotate-180" />
+          </button>
 
-              {/* Card content */}
-              <div className="relative z-10">
-                <h3 className="text-5xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-xl mb-6 font-light leading-tight text-white/[0.77]">{service.description}</p>
+          {/* Right scroll button */}
+          <button
+            type="button"
+            onClick={() => scroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200
+              bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32"
+            style={{ pointerEvents: 'auto' }}
+            aria-label="Scroll right"
+          >
+            <img src="/media/small_arrow.svg" alt="arrow right" className="w-4 h-4" />
+          </button>
 
-                {/* Arrow button */}
-                {/* <div className="flex justify-start">
-                    <ArrowUpRight className="h-16 w-16 text-white" />
-                </div> */}
+          <div
+            ref={scrollRef}
+            className={`flex gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+          >
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${
+                  index === 0 ? "ml-32" : ""
+                }`}
+                style={{ backgroundImage: `url(${service.image})` }}
+              >
+                {/* Dark overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-2xl"></div>
+
+                {/* Card content */}
+                <div className="relative z-10">
+                  <h3 className="text-5xl font-semibold mb-4">{service.title}</h3>
+                  <p className="text-xl mb-6 font-light leading-tight text-white/[0.77]">{service.description}</p>
+
+                  {/* Arrow button */}
+                  {/* <div className="flex justify-start">
+                      <ArrowUpRight className="h-16 w-16 text-white" />
+                  </div> */}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
