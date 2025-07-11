@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-left' && index === 0) {
                   // Top card slides left to go behind the stack with lowest z-index
-                  animationDuration = 'duration-500'
+                  animationDuration = 'duration-900'
                   translateX = -150
                   scale = 0.5
                   zIndex = 0 // Put it behind all other cards
@@ -123,6 +123,7 @@ export default function TestimonialsSection() {
                   animationDuration = 'duration-500'
                   translateX = -200
                   scale = 1 - index * 0.1
+                  zIndex = 0
                 }
 
                 return (
@@ -145,8 +146,7 @@ export default function TestimonialsSection() {
                       className="rounded-xl border border-[#d7d7d7] overflow-hidden relative"
                       style={{
                         background: "linear-gradient(179.9deg, rgba(236, 236, 236, 1.00) 0%, rgba(255, 255, 255, 1.00) 100%)",
-                        boxShadow: index === 0 ? "-4px 4px 15px 0px rgba(0, 0, 0, 0.07)" : 
-                                  index === 1 ? "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)" : "none",
+                        boxShadow: "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)",
                         width: `469px`,
                         height: `415px`,
                       }}
