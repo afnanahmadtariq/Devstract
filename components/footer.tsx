@@ -111,14 +111,14 @@ export default function Footer() {
       {/* Bottom Section */}
       <div className="px-6 py-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center flex-1 justify-start md:justify-start w-full md:w-auto">
               <img src="/images/logo.svg" alt="Logo" className="w-10 h-10 mr-3" />
             </div>
 
             {/* Legal Links */}
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center justify-center space-x-8 w-full md:w-auto order-2 md:order-none">
               <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
                 Terms
               </a>
@@ -131,7 +131,7 @@ export default function Footer() {
             </div>
 
             {/* Social Media Icons */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center flex-1 justify-end md:justify-end space-x-4 w-full md:w-auto">
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon
                 return (
