@@ -45,30 +45,32 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-white">
+    <footer className="bg-white px-40">
       {/* Top Section */}
       <div className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-4 gap-12">
-            {/* Footer Links Columns */}
-            {Object.entries(footerLinks).map(([heading, links]) => (
-              <div key={heading}>
-                <h3 className="text-base font-semibold mb-6 text-black">{heading}</h3>
-                <ul className="space-y-3">
-                  {links.map((link, index) => (
-                    <li key={index}>
-                      <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Footer Links Columns (all in one col-span-2) */}
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+              {Object.entries(footerLinks).map(([heading, links]) => (
+                <div key={heading}>
+                  <h3 className="text-base font-semibold mb-3 text-black">{heading}</h3>
+                  <ul className="space-y-1">
+                    {links.map((link, index) => (
+                      <li key={index}>
+                        <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
+                          {link}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
 
-            {/* Subscribe Card */}
-            <div className="lg:col-span-1">
-              <div className="rounded-2xl p-6 bg-black/[0.03]">
+            {/* Subscribe Card (right column) */}
+            <div className="flex justify-end">
+              <div className="rounded-2xl p-10 bg-black/[0.03] max-w-xs">
                 <h3 className="text-base font-semibold mb-4 text-black">Subscribe</h3>
                 <form onSubmit={handleSubscribe} className="space-y-4">
                   <div className="relative">

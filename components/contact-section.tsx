@@ -31,7 +31,7 @@ export default function ContactSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-white">
+    <section ref={sectionRef} className="mt-24 mb-12 px-6 bg-white">
       <div className="max-w-7xl md:max-w-[85rem] mx-auto">
         <div
           className="relative rounded-2xl overflow-hidden min-h-[700px]"
@@ -103,7 +103,7 @@ export default function ContactSection() {
             {/* Spacer for heading */}
             <div className="mb-96" />
             <Button className="bg-white hover:bg-gray-100 text-black rounded-full py-7 text-base font-semibold inline-flex pointer-events-auto">
-              <span className="m-4">Bring your ideas to life</span>
+              <span className="m-4 whitespace-nowrap">Bring your ideas to life</span>
               <span
                 className="flex items-center justify-center rounded-full"
                 style={{
