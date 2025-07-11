@@ -95,8 +95,8 @@ export default function TestimonialsSection() {
                   translateX = 200
                   scale = 0.7
                 } else if (animationPhase === 'slide-out' && index > 0) {
-                  // Behind cards move left and scale up
-                  translateX = (index - 1) * -70
+                  // Behind cards move left to give space and scale up
+                  translateX = (index - 1) * -70 - 250 // Move left by additional 250px to make space
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-in' && index === cardOrder.length - 1) {
                   // Last card (previously top) slides back from right
