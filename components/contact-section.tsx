@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -33,17 +32,17 @@ export default function ContactSection() {
 
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-white">
-      <div className="max-w-7xl md:max-w-[95rem] mx-auto">
-        <div 
-        className="relative rounded-3xl overflow-hidden min-h-[800px]"
+      <div className="max-w-7xl md:max-w-[85rem] mx-auto">
+        <div
+          className="relative rounded-2xl overflow-hidden min-h-[700px]"
           style={{
             border: "1px solid #D7D7D7",
             background: "linear-gradient(to bottom, #DBDBDB -10%, #FFFFFF 20%)",
           }}
         >
           {/* "Get in touch" heading behind the image */}
-          <div className="absolute inset-x-0 top-[150px] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
-            <h2 className="text-6xl md:text-[12rem] font-bold text-black mb-8 leading-none">
+          <div className="absolute inset-x-0 top-[210px] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+            <h2 className="text-6xl md:text-[12rem] font-bold text-black leading-none">
               Get in <span className="text-purple-600">touch</span>
             </h2>
           </div>
@@ -51,7 +50,7 @@ export default function ContactSection() {
           <img
             src="/media/mountain.png"
             alt="Contact section background"
-            className="absolute bottom-0 left-0 w-full h-2/3 object-cover z-20"
+            className="absolute bottom-0 left-0 w-full h-1/2 object-cover z-20"
             style={{ pointerEvents: "none" }}
           />
           {/* Top-left team images and description */}
@@ -76,30 +75,38 @@ export default function ContactSection() {
           </div>
 
           {/* Top-right circular arrow with text */}
-          <div className="absolute top-8 right-8 z-30">
-            <div className="relative w-16 h-16">
-              <svg className="w-16 h-16 animate-spin-slow" viewBox="0 0 100 100">
+          <div className="absolute top-6 right-8 z-30">
+            <div className="relative w-32 h-32">
+              <svg className="w-32 h-32 animate-spin-slow" viewBox="0 0 100 100">
                 <defs>
                   <path id="circle" d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
                 </defs>
-                <text className="text-[8px] fill-black font-medium">
-                  <textPath href="#circle">START YOUR PROJECT • START YOUR PROJECT •</textPath>
+                <text className="text-[12px] fill-black font-normal font-syne">
+                  <textPath href="#circle">Start your Journey Today and Live •</textPath>
                 </text>
               </svg>
-
               <div className="absolute inset-0 flex items-center justify-center">
-                <ArrowUpRight className="w-5 h-5 text-black" />
+                <img src="/media/small_arrow.svg" alt="Submit" className="w-10 h-10 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
               </div>
             </div>
           </div>
 
           {/* Main content except heading */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
+          <div className=" absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
             {/* Spacer for heading */}
-            <div className="mb-24" />
-            <Button className="bg-white hover:bg-gray-100 text-black rounded-full px-8 py-3 text-base font-semibold inline-flex items-center space-x-2 pointer-events-auto">
-              <span>Bring your ideas to life</span>
-              <ArrowUpRight className="w-4 h-4" />
+            <div className="mb-96" />
+            <Button className="bg-white hover:bg-gray-100 text-black rounded-full py-7 text-base font-semibold inline-flex pointer-events-auto">
+              <span className="m-4">Bring your ideas to life</span>
+              <span
+                className="flex items-center justify-center rounded-full"
+                style={{
+                  width: 42,
+                  height: 42,
+                  background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
+                }}
+              >
+                <img src="/media/small_arrow.svg" alt="arrow" className="m-0 w-4 h-4 transform -rotate-45" />
+              </span>
             </Button>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function DevstractSection() {
     setTimeout(() => setShow(true), 100)
     // Animate gradient angle from 0 to 180 over 2.5s
     let start: number | null = null
-    const duration = 2500
+    const duration = 10000
     function animate(ts: number) {
       if (!start) start = ts
       const elapsed = ts - start
@@ -73,7 +73,7 @@ export default function DevstractSection() {
         </div>
 
         {/* Descriptive Text */}
-        <div className="max-w-4xl mx-auto">
+        <div className={`max-w-4xl mx-auto transition-all duration-[10000ms] ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-2xl text-gray-600 leading-relaxed font-syne">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.

@@ -1,7 +1,7 @@
 .devstract-slide {
   opacity: 0;
   transform: translateX(-400px);
-  transition: opacity 2.5s cubic-bezier(0.4,0,0.2,1), transform 2.5s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 2.5s cubic-bezier(0.4,0,0.2,1), transform 10s cubic-bezier(0.4,0,0.2,1);
 }
 .devstract-slide.show {
   opacity: 1;
