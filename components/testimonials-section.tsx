@@ -62,10 +62,10 @@ export default function TestimonialsSection() {
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
           <div className="relative">
-            <div className="relative h-[415px] w-full max-w-[574px] mx-auto lg:mx-0">
+            <div className="relative h-[415px] w-full max-w-[574px] ml-40">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
                 const zIndex = cardOrder.length - index
@@ -86,7 +86,7 @@ export default function TestimonialsSection() {
                     onClick={() => handleCardClick(testimonial.id)}
                   >
                     <div 
-                      className="rounded-xl border border-[#d7d7d7] overflow-hidden"
+                      className="rounded-xl border border-[#d7d7d7] overflow-hidden relative"
                       style={{
                         background: "linear-gradient(179.9deg, rgba(236, 236, 236, 1.00) 0%, rgba(255, 255, 255, 1.00) 100%)",
                         boxShadow: index === 0 ? "-4px 4px 15px 0px rgba(0, 0, 0, 0.07)" : 
@@ -137,7 +137,7 @@ export default function TestimonialsSection() {
                       )}
 
                       {/* Review text */}
-                      <div className="absolute left-8 top-48 w-[418px] h-[198px]">
+                      <div className="absolute left-8 top-48 w-[418px] h-[198px] overflow-hidden">
                         <p className="text-[#2c2c2c] font-syne text-3xl font-medium leading-tight">
                           "{testimonial.review}"
                         </p>
