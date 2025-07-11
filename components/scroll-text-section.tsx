@@ -35,7 +35,7 @@ export default function ScrollTextSection() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const text = "As an enthusiastic UX/UI designer and developer, I am dedicated to creating engaging and intuitive digital experiences that bridge the gap between functionality and aesthetics. My journey in the tech world is fueled by a passion for innovative design and a commitment to crafting user-centric solutions that drive success."
+  const text = "Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
 
   const getLetterColor = (index: number) => {
     const totalLetters = text.length

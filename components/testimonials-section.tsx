@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
-          <div className="relative">
+          <div className="relative z-20">
             <div className="relative h-[415px] w-full max-w-[574px] ml-40">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
@@ -210,17 +210,18 @@ export default function TestimonialsSection() {
             </p>
 
             {/* Button on background */}
-            <div className="relative">
+            <div className="relative -top-16">
               <img 
                 src="/media/world-map.png" 
                 alt="World map background" 
-                className="w-full h-80 object-cover absolute -top-16 left-0 z-0"
+                className="w-full h-80 object-cover absolute left-0 z-0"
               />
               <div className="relative z-10 h-64 flex items-center justify-center">
                 <Button
-                  className="text-white font-semibold px-6 py-2 rounded-full"
+                  className="text-white text-base font-medium px-8 py-6 rounded-full"
                   style={{
-                    background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)"
+                    background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
+                    filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.48))"
                   }}
                 >
                   Check My Eligibility
