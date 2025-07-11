@@ -25,9 +25,9 @@ export default function ContactSection() {
   }, [])
 
   const teamMembers = [
-    { id: 1, image: "/placeholder.svg?height=60&width=60", name: "Sarah" },
-    { id: 2, image: "/placeholder.svg?height=60&width=60", name: "Mike" },
-    { id: 3, image: "/placeholder.svg?height=60&width=60", name: "Emma" },
+    { id: 1, image: "/images/image 3.png", name: "Sarah" },
+    { id: 2, image: "/images/image 4.png", name: "Mike" },
+    { id: 3, image: "/images/image 6.png", name: "Emma" },
   ]
 
   return (
@@ -41,9 +41,14 @@ export default function ContactSection() {
           }}
         >
           {/* "Get in touch" heading behind the image */}
-          <div className="absolute inset-x-0 top-[210px] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
-            <h2 className="text-6xl md:text-[12rem] font-bold text-black leading-none">
-              Get in <span className="text-purple-600">touch</span>
+          <div className="absolute inset-x-0 top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+            <h2 className="text-6xl md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
+              Get in <span style={{
+                background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}>touch</span>
             </h2>
           </div>
           {/* Bottom-aligned background image in front of heading */}
@@ -54,21 +59,23 @@ export default function ContactSection() {
             style={{ pointerEvents: "none" }}
           />
           {/* Top-left team images and description */}
-          <div className="absolute top-8 left-8 z-30">
-            <div className="flex -space-x-3 mb-3">
-              {teamMembers.map((member, index) => (
+          <div className="absolute top-12 left-12 z-30">
+            <div className="flex -space-x-3 mb-6 ml-2">
+              {[...teamMembers].reverse().map((member, index) => (
                 <div
                   key={member.id}
                   className="relative"
                   style={{
-                    zIndex: teamMembers.length - index,
+                    zIndex: index + 1,
                   }}
                 >
-                  <div className="w-12 h-12 bg-yellow-300 rounded-full border-3 border-white shadow-lg"></div>
+                  <div className="w-12 h-12 rounded-full overflow-hidden" style={{ border: '1px solid #ECECEC' }}>
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  </div>
                 </div>
               ))}
             </div>
-            <p className="text-sm text-black max-w-xs">
+            <p className="text-lg text-[#828282] max-w-2xl">
               From innovative startups to enterprise solutions, we deliver cutting-edge digital experiences. Contact us
               today to support your journey every step of the way.
             </p>
@@ -81,8 +88,8 @@ export default function ContactSection() {
                 <defs>
                   <path id="circle" d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
                 </defs>
-                <text className="text-[12px] fill-black font-normal font-syne">
-                  <textPath href="#circle">Start your Journey Today and Live •</textPath>
+                <text className="text-[14px] fill-black font-normal font-syne">
+                  <textPath href="#circle">Start your Journey Today Tehe</textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
