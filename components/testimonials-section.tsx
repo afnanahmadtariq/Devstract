@@ -93,27 +93,34 @@ export default function TestimonialsSection() {
                 // Calculate positions and scales based on animation phase
                 let translateX = index * -70
                 let scale = 1 - index * 0.1
-                
+                // Define duration based on animation phase
+                let animationDuration = 'duration-500' // default
+
                 // Animation adjustments
                 if (animationPhase === 'slide-out' && index === 0) {
                   // Top card slides right and scales down
+                  animationDuration = 'duration-500'
                   translateX = 200
                   scale = 0.7
                 } else if (animationPhase === 'slide-out' && index > 0) {
                   // Behind cards move left to give space and scale up
+                  animationDuration = 'duration-500'
                   translateX = (index - 1) * -70 - 250 // Move left by additional 250px to make space
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-left' && index === 0) {
                   // Top card slides left to go behind the stack with lowest z-index
-                  translateX = -300
+                  animationDuration = 'duration-500'
+                  translateX = -150
                   scale = 0.5
                   zIndex = 0 // Put it behind all other cards
                 } else if (animationPhase === 'slide-left' && index > 0) {
                   // Behind cards stay in their forward positions
-                  translateX = (index - 1) * -70 - 250
+                  animationDuration = 'duration-500'
+                  translateX = (index - 1) * -70
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-in' && index === cardOrder.length - 1) {
                   // Last card (previously top) slides back from right
+                  animationDuration = 'duration-500'
                   translateX = -200
                   scale = 1 - index * 0.1
                 }
@@ -121,7 +128,7 @@ export default function TestimonialsSection() {
                 return (
                   <div
                     key={testimonial.id}
-                    className={`absolute transition-all duration-500 ease-out ${
+                    className={`absolute transition-all ${animationDuration} ease-out ${
                       index === 0 && !isAnimating ? 'cursor-pointer' : 'cursor-default'
                     }`}
                     style={{
@@ -172,18 +179,16 @@ export default function TestimonialsSection() {
                           {testimonial.title}
                         </p>
                       </div>
-
+                      
                       {/* Large quote mark */}
-                      {index === 0 && (
-                        <div
+                      <div
                           className="text-[#2c2c2c] font-syne text-8xl font-medium absolute left-[235px] w-9 h-[70px] mt-4"
                           style={{
-                            top: 8 + (nameTitleHeights[0] ?? 62) + 10 // 8px top + name/title height + 10px gap
+                            top: 8 + (nameTitleHeights[index] ?? 62) + 10 // 8px top + name/title height + 10px gap
                           }}
                         >
                           “
-                        </div>
-                      )}
+                      </div>
 
                       {/* Review text */}
                       <div className="absolute left-8 top-48 w-[418px] h-[198px] overflow-hidden">
