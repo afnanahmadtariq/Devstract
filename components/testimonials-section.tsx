@@ -36,27 +36,15 @@ export default function TestimonialsSection() {
       image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
         "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
-    },
-    {
-      id: 4,
-      name: "David Thompson",
-      title: "CTO, InnovateLab",
-      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      review:
-        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
-    },
+    }
   ]
 
   const [cardOrder, setCardOrder] = useState(testimonials.map((t) => t.id))
 
   const handleCardClick = (clickedId: number) => {
     const clickedIndex = cardOrder.indexOf(clickedId)
-
     if (clickedIndex === 0) {
       const newOrder = [...cardOrder.slice(1), clickedId]
-      setCardOrder(newOrder)
-    } else {
-      const newOrder = [clickedId, ...cardOrder.filter((id) => id !== clickedId)]
       setCardOrder(newOrder)
     }
   }
@@ -81,9 +69,8 @@ export default function TestimonialsSection() {
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
                 const zIndex = cardOrder.length - index
-                const translateY = index * 25
-                const translateX = index * 52
-                const scale = 1 - index * 0.05
+                const translateX = index * - 70  // Offset to the right
+                const scale = 1 - index * 0.1
 
                 return (
                   <div
@@ -91,19 +78,21 @@ export default function TestimonialsSection() {
                     className="absolute cursor-pointer transition-all duration-500 ease-out"
                     style={{
                       zIndex,
-                      transform: `translateY(${translateY}px) translateX(${translateX}px) scale(${scale})`,
+                      transform: `translateX(${translateX}px)`,
                       left: 0,
-                      top: index === 0 ? 0 : '50%',
-                      translate: index === 0 ? '0 0' : '0 -50%',
+                      top: '50%',
+                      translate: '0 -50%',
                     }}
                     onClick={() => handleCardClick(testimonial.id)}
                   >
                     <div 
-                      className="rounded-xl border border-[#d7d7d7] w-[469px] h-[415px] overflow-hidden"
+                      className="rounded-xl border border-[#d7d7d7] overflow-hidden"
                       style={{
                         background: "linear-gradient(179.9deg, rgba(236, 236, 236, 1.00) 0%, rgba(255, 255, 255, 1.00) 100%)",
                         boxShadow: index === 0 ? "-4px 4px 15px 0px rgba(0, 0, 0, 0.07)" : 
-                                  index === 1 ? "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)" : "none"
+                                  index === 1 ? "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)" : "none",
+                        width: `${469 * scale}px`,
+                        height: `${415 * scale}px`,
                       }}
                     >
                       {/* Black inner border at bottom for active card */}
