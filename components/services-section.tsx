@@ -28,49 +28,49 @@ export default function ServicesSection() {
       title: "Ai Automation",
       description:
         "Get guidance based on where you are and where you're going. Interactive.",
-      image: "https://plus.unsplash.com/premium_photo-1671499727209-8e1770fd3965?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_1.png"
     },
     {
       id: 2,
       title: "LLM Fine Tuning",
       description:
         "Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal complexities.",
-      image: "https://plus.unsplash.com/premium_photo-1714618812303-f6a703492541?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_2.png"
     },
     {
       id: 3,
       title: "MVP design & development",
       description:
         "Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal complexities.",
-      image: "https://plus.unsplash.com/premium_photo-1671751033996-93d9688ce4db?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_3.png"
     },
     {
       id: 4,
       title: "AI Integration",
       description:
         "Get guidance based on where you are and where you're going. Interactive.",
-      image: "https://images.unsplash.com/photo-1636690498207-d7b393423b9a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_4.png"
     },
     {
       id: 5,
       title: "UX re-engineering",
       description:
         "Get guidance based on where you are and where you're going. Interactive.",
-      image: "https://plus.unsplash.com/premium_photo-1671411322489-189a1e3e5465?q=80&w=1244&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_5.png"
     },
     {
       id: 6,
       title: "Product designing",
       description:
         "Get guidance based on where you are and where you're going. Interactive.",
-      image: "https://images.unsplash.com/photo-1636690581110-a512fed05fd3?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_6.png"
     },
     {
       id: 7,
       title: "Full-stack Development",
       description:
         "Get guidance based on where you are and where you're going. Interactive.",
-      image: "https://images.unsplash.com/photo-1667000689629-905abd20a5ab?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?height=341&width=526",
+      image: "/media/unsplash_7.png"
     },
   ]
 
