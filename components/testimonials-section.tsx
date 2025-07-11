@@ -40,12 +40,27 @@ export default function TestimonialsSection() {
   ]
 
   const [cardOrder, setCardOrder] = useState(testimonials.map((t) => t.id))
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [animationPhase, setAnimationPhase] = useState<'idle' | 'slide-out' | 'slide-in'>('idle')
 
   const handleCardClick = (clickedId: number) => {
     const clickedIndex = cardOrder.indexOf(clickedId)
-    if (clickedIndex === 0) {
-      const newOrder = [...cardOrder.slice(1), clickedId]
-      setCardOrder(newOrder)
+    if (clickedIndex === 0 && !isAnimating) {
+      setIsAnimating(true)
+      setAnimationPhase('slide-out')
+      
+      // After slide-out animation completes, rearrange cards and slide back
+      setTimeout(() => {
+        const newOrder = [...cardOrder.slice(1), clickedId]
+        setCardOrder(newOrder)
+        setAnimationPhase('slide-in')
+        
+        // After slide-in animation completes, reset to idle
+        setTimeout(() => {
+          setAnimationPhase('idle')
+          setIsAnimating(false)
+        }, 500)
+      }, 500)
     }
   }
 
@@ -69,19 +84,39 @@ export default function TestimonialsSection() {
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
                 const zIndex = cardOrder.length - index
-                const translateX = index * - 70  // Offset to the right
-                const scale = 1 - index * 0.1
+                
+                // Calculate positions and scales based on animation phase
+                let translateX = index * -70
+                let scale = 1 - index * 0.1
+                
+                // Animation adjustments
+                if (animationPhase === 'slide-out' && index === 0) {
+                  // Top card slides right and scales down
+                  translateX = 200
+                  scale = 0.7
+                } else if (animationPhase === 'slide-out' && index > 0) {
+                  // Behind cards move left and scale up
+                  translateX = (index - 1) * -70
+                  scale = 1 - (index - 1) * 0.1
+                } else if (animationPhase === 'slide-in' && index === cardOrder.length - 1) {
+                  // Last card (previously top) slides back from right
+                  translateX = -200
+                  scale = 1 - index * 0.1
+                }
 
                 return (
                   <div
                     key={testimonial.id}
-                    className="absolute cursor-pointer transition-all duration-500 ease-out"
+                    className={`absolute transition-all duration-500 ease-out ${
+                      index === 0 && !isAnimating ? 'cursor-pointer' : 'cursor-default'
+                    }`}
                     style={{
                       zIndex,
-                      transform: `translateX(${translateX}px)`,
+                      transform: `translateX(${translateX}px) scale(${scale})`,
                       left: 0,
                       top: '50%',
                       translate: '0 -50%',
+                      transformOrigin: 'center',
                     }}
                     onClick={() => handleCardClick(testimonial.id)}
                   >
@@ -91,8 +126,8 @@ export default function TestimonialsSection() {
                         background: "linear-gradient(179.9deg, rgba(236, 236, 236, 1.00) 0%, rgba(255, 255, 255, 1.00) 100%)",
                         boxShadow: index === 0 ? "-4px 4px 15px 0px rgba(0, 0, 0, 0.07)" : 
                                   index === 1 ? "-4px 4px 7px 0px rgba(0, 0, 0, 0.30)" : "none",
-                        width: `${469 * scale}px`,
-                        height: `${415 * scale}px`,
+                        width: `469px`,
+                        height: `415px`,
                       }}
                     >
                       {/* Black inner border at bottom for active card */}
