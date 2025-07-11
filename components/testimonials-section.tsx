@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
 
   const [cardOrder, setCardOrder] = useState(testimonials.map((t) => t.id))
   const [isAnimating, setIsAnimating] = useState(false)
-  const [animationPhase, setAnimationPhase] = useState<'idle' | 'slide-out' | 'slide-in'>('idle')
+  const [animationPhase, setAnimationPhase] = useState<'idle' | 'slide-out' | 'slide-left' | 'slide-in'>('idle')
 
   const handleCardClick = (clickedId: number) => {
     const clickedIndex = cardOrder.indexOf(clickedId)
@@ -49,16 +49,21 @@ export default function TestimonialsSection() {
       setIsAnimating(true)
       setAnimationPhase('slide-out')
       
-      // After slide-out animation completes, rearrange cards and slide back
+      // After slide-out animation completes, slide the top card to the left
       setTimeout(() => {
-        const newOrder = [...cardOrder.slice(1), clickedId]
-        setCardOrder(newOrder)
-        setAnimationPhase('slide-in')
+        setAnimationPhase('slide-left')
         
-        // After slide-in animation completes, reset to idle
+        // After slide-left animation completes, rearrange cards and slide back
         setTimeout(() => {
-          setAnimationPhase('idle')
-          setIsAnimating(false)
+          const newOrder = [...cardOrder.slice(1), clickedId]
+          setCardOrder(newOrder)
+          setAnimationPhase('slide-in')
+          
+          // After slide-in animation completes, reset to idle
+          setTimeout(() => {
+            setAnimationPhase('idle')
+            setIsAnimating(false)
+          }, 500)
         }, 500)
       }, 500)
     }
@@ -83,7 +88,7 @@ export default function TestimonialsSection() {
             <div className="relative h-[415px] w-full max-w-[574px] ml-40">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
-                const zIndex = cardOrder.length - index
+                let zIndex = cardOrder.length - index
                 
                 // Calculate positions and scales based on animation phase
                 let translateX = index * -70
@@ -97,6 +102,15 @@ export default function TestimonialsSection() {
                 } else if (animationPhase === 'slide-out' && index > 0) {
                   // Behind cards move left to give space and scale up
                   translateX = (index - 1) * -70 - 250 // Move left by additional 250px to make space
+                  scale = 1 - (index - 1) * 0.1
+                } else if (animationPhase === 'slide-left' && index === 0) {
+                  // Top card slides left to go behind the stack with lowest z-index
+                  translateX = -300
+                  scale = 0.5
+                  zIndex = 0 // Put it behind all other cards
+                } else if (animationPhase === 'slide-left' && index > 0) {
+                  // Behind cards stay in their forward positions
+                  translateX = (index - 1) * -70 - 250
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-in' && index === cardOrder.length - 1) {
                   // Last card (previously top) slides back from right
