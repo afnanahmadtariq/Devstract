@@ -46,22 +46,21 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-8">
-          <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
-            <Image
-              src="/images/logo.svg"
-              alt="Devstract Logo"
-              width={32}
-              height={32}
-              className={
-                contactPage
-                  ? "cursor-pointer" 
-                  : "cursor-pointer filter brightness-0 invert"
-              }
-              onClick={() => {
-                window.location.href = "/"
-              }}
-            />
-          </div>
+          <Link href="/" passHref>
+            <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
+              <Image
+                src="/images/logo.svg"
+                alt="Devstract Logo"
+                width={32}
+                height={32}
+                className={
+                  contactPage
+                    ? "cursor-pointer" 
+                    : "cursor-pointer filter brightness-0 invert"
+                }
+              />
+            </div>
+          </Link>
 
           {/* Navigation Links (Desktop) */}
           <div className="hidden md:flex items-center space-x-8">
