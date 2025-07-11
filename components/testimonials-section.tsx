@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-left' && index === 0) {
                   // Top card slides left to go behind the stack with lowest z-index
-                  animationDuration = 'duration-900'
+                  animationDuration = 'duration-700'
                   translateX = -150
                   scale = 0.5
                   zIndex = 0 // Put it behind all other cards
