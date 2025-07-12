@@ -175,7 +175,7 @@ export default function ServicesSection() {
   }
 
   return (
-    <section ref={sectionRef} id="services" className={`py-16 bg-white transition-opacity duration-[2000ms] ${animate ? 'opacity-100' : 'opacity-0'}`}> 
+    <section ref={sectionRef} id="services" className={`py-16 bg-white transition-opacity duration-2000 ${animate ? 'opacity-100' : 'opacity-0'}`}> 
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
         <div className={`px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
@@ -229,7 +229,7 @@ export default function ServicesSection() {
               return (
                 <div
                   key={service.id}
-                  className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-32" : ""} transition-all duration-[2000ms] ${cardAnim}`}
+                  className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-32" : ""} transition-all duration-2000 ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                 >
                   {/* Dark overlay for better text readability */}
