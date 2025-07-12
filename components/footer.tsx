@@ -45,11 +45,11 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-white px-40">
+    <footer className="bg-white px-6 md:px-20 lg:px-40">
       {/* Top Section */}
-      <div className="px-6 py-16">
+      <div className="px-0 md:px-6 py-10 md:py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Footer Links Columns (all in one col-span-2) */}
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
               {Object.entries(footerLinks).map(([heading, links]) => (
@@ -69,8 +69,8 @@ export default function Footer() {
             </div>
 
             {/* Subscribe Card (right column) */}
-            <div className="flex justify-end">
-              <div className="rounded-2xl p-10 bg-black/[0.03] max-w-xs">
+            <div className="flex justify-center lg:justify-end">
+              <div className="rounded-2xl p-6 md:p-10 bg-black/[0.03] w-full max-w-xs">
                 <h3 className="text-base font-semibold mb-4 text-black">Subscribe</h3>
                 <form onSubmit={handleSubscribe} className="space-y-4">
                   <div className="relative">
