@@ -15,7 +15,6 @@ export default function ContactSection() {
 
         if (rect.top < windowHeight && rect.bottom > 0) {
           const progress = Math.min(Math.max((windowHeight - rect.top) / rect.height, 0), 1);
-          console.log(`Scroll Progress: ${progress}`);
           setScrollProgress(progress);
         } else {
           setScrollProgress(0);
