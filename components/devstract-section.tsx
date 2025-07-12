@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import "./devstract-section-animations.css"
 
 export default function DevstractSection() {
-  const [show, setShow] = useState(false)
   const [gradientAngle, setGradientAngle] = useState(0)
-  const [devstractAnimationRun, setDevstractAnimationRun] = useState(false);
-  const [textAnimationRun, setTextAnimationRun] = useState(false);
+  const [show, setShow] = useState(false);
+  const [processShow, setProcessShow] = useState(false);
+  const [textShow, setTextShow] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -19,7 +19,7 @@ export default function DevstractSection() {
 
         // Check if section is in view
         if (rect.top < windowHeight && rect.bottom > 0) {
-          setDevstractAnimationRun(true); // In view
+          setTimeout(() => setShow(true), 100)
         }
       }
       if (textRef.current) {
@@ -28,8 +28,8 @@ export default function DevstractSection() {
 
         // Check if text section is in view
         if (rect.top < windowHeight && rect.bottom > 0) {
-          setTextAnimationRun(true); // In view
-        } 
+          setTextShow(true); // In view
+        }
       }
     };
 
@@ -39,9 +39,7 @@ export default function DevstractSection() {
   }, []);
 
   useEffect(() => {
-    if (devstractAnimationRun) {
-      setDevstractAnimationRun(true)
-      setTimeout(() => setShow(true), 100)
+    if (show) {
       let start: number | null = null
       const duration = 5000
       function animate(ts: number) {
@@ -53,20 +51,30 @@ export default function DevstractSection() {
           requestAnimationFrame(animate)
         } else {
           setGradientAngle(180)
+          setProcessShow(true) // Animation complete
         }
       }
       requestAnimationFrame(animate)
     }
-  }, [devstractAnimationRun])
+  }, [show])
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-white">
       <div className="max-w-8xl mx-auto text-center">
         {/* Process Flow */}
         <div className="mb-8">
-          <p className="text-2xl text-[#2C2C2C] tracking-wider flex items-center justify-center gap-8">
-            Ideation 
+          <p
+            className={`text-2xl text-[#2C2C2C] tracking-wider flex items-center justify-center gap-8 process-flow-animate${processShow ? ' show' : ''}`}
+            style={{
+              transform: processShow ? 'scaleX(1)' : 'scaleX(0.2)',
+              opacity: processShow ? 1 : 0,
+              transition: 'transform 2.5s cubic-bezier(0.4,0,0.2,1), opacity 1.5s cubic-bezier(0.4,0,0.2,1)',
+              margin: '0 auto',
+              transformOrigin: 'left',
+            }}
+          >
+            Ideation
             <img src="/media/arrow.svg" alt="arrow" className="w-34 h-34" />
-            Planning 
+            Planning
             <img src="/media/arrow.svg" alt="arrow" className="w-34 h-34" />
             <span
               style={{
@@ -106,7 +114,7 @@ export default function DevstractSection() {
         </div>
 
         {/* Descriptive Text */}
-        <div  ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textAnimationRun ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div  ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-2xl text-gray-600 leading-relaxed font-syne">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.

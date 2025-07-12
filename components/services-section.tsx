@@ -17,10 +17,25 @@ export default function ServicesSection() {
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
   const [animate, setAnimate] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setTimeout(() => setAnimate(true), 100) // slight delay for mount
-  }, [])
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if section is in view
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          setTimeout(() => setAnimate(true), 100)
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const services: Service[] = [
     {
@@ -160,7 +175,7 @@ export default function ServicesSection() {
   }
 
   return (
-    <section id="services" className={`py-16 bg-white transition-opacity duration-[2000ms] ${animate ? 'opacity-100' : 'opacity-0'}`}> 
+    <section ref={sectionRef} id="services" className={`py-16 bg-white transition-opacity duration-[2000ms] ${animate ? 'opacity-100' : 'opacity-0'}`}> 
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
         <div className={`px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
