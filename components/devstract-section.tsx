@@ -1,32 +1,65 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./devstract-section-animations.css"
 
 export default function DevstractSection() {
   const [show, setShow] = useState(false)
   const [gradientAngle, setGradientAngle] = useState(0)
+  const [devstractAnimationRun, setDevstractAnimationRun] = useState(false);
+  const [textAnimationRun, setTextAnimationRun] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setTimeout(() => setShow(true), 100)
-    // Animate gradient angle from 0 to 180 over 2.5s
-    let start: number | null = null
-    const duration = 10000
-    function animate(ts: number) {
-      if (!start) start = ts
-      const elapsed = ts - start
-      const angle = Math.min(180, (elapsed / duration) * 180)
-      setGradientAngle(angle)
-      if (elapsed < duration) {
-        requestAnimationFrame(animate)
-      } else {
-        setGradientAngle(180)
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if section is in view
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          setDevstractAnimationRun(true); // In view
+        }
       }
+      if (textRef.current) {
+        const rect = textRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Check if text section is in view
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          setTextAnimationRun(true); // In view
+        } 
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (devstractAnimationRun) {
+      setDevstractAnimationRun(true)
+      setTimeout(() => setShow(true), 100)
+      let start: number | null = null
+      const duration = 5000
+      function animate(ts: number) {
+        if (!start) start = ts
+        const elapsed = ts - start
+        const angle = Math.min(180, (elapsed / duration) * 180)
+        setGradientAngle(angle)
+        if (elapsed < duration) {
+          requestAnimationFrame(animate)
+        } else {
+          setGradientAngle(180)
+        }
+      }
+      requestAnimationFrame(animate)
     }
-    requestAnimationFrame(animate)
-  }, [])
+  }, [devstractAnimationRun])
   return (
-    <section className="py-24 px-6 bg-white">
+    <section ref={sectionRef} className="py-24 px-6 bg-white">
       <div className="max-w-8xl mx-auto text-center">
         {/* Process Flow */}
         <div className="mb-8">
@@ -73,7 +106,7 @@ export default function DevstractSection() {
         </div>
 
         {/* Descriptive Text */}
-        <div className={`max-w-4xl mx-auto transition-all duration-[10000ms] ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div  ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textAnimationRun ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-2xl text-gray-600 leading-relaxed font-syne">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.

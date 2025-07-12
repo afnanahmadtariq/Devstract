@@ -4,25 +4,28 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export default function ContactSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const progress = Math.min(Math.max((windowHeight - rect.top) / rect.height, 0), 1);
+          console.log(`Scroll Progress: ${progress}`);
+          setScrollProgress(progress);
+        } else {
+          setScrollProgress(0);
         }
-      },
-      { threshold: 0.3 },
-    )
+      }
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const teamMembers = [
     { id: 1, image: "/images/image 3.png", name: "Sarah" },
@@ -41,7 +44,12 @@ export default function ContactSection() {
           }}
         >
           {/* "Get in touch" heading behind the image */}
-          <div className="absolute inset-x-0 top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+          <div
+            className="absolute inset-x-0 top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            style={{
+              transform: `translateY(${(1 - scrollProgress) * (typeof window !== "undefined" && window.innerWidth >= 768 ? 224 : 60)}px)`
+            }}
+          >
             <h2 className="text-6xl md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
               Get in <span style={{
                 background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
@@ -59,7 +67,13 @@ export default function ContactSection() {
             style={{ pointerEvents: "none" }}
           />
           {/* Top-left team images and description */}
-          <div className="absolute top-12 left-12 z-30">
+          <div
+            className="absolute top-12 left-12 z-30"
+            style={{
+              opacity: scrollProgress,
+              transition: "opacity 0.2s ease-out, transform 0.2s ease-out",
+            }}
+          >
             <div className="flex -space-x-3 mb-6 ml-2">
               {[...teamMembers].reverse().map((member, index) => (
                 <div
@@ -99,10 +113,16 @@ export default function ContactSection() {
           </div>
 
           {/* Main content except heading */}
-          <div className=" absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
             {/* Spacer for heading */}
             <div className="mb-96" />
-            <Button className="bg-white hover:bg-gray-100 text-black rounded-full py-7 text-base font-semibold inline-flex pointer-events-auto">
+            <Button
+              className="bg-white hover:bg-gray-100 text-black rounded-full py-7 text-base font-semibold justify-end pointer-events-auto overflow-hidden"
+              style={{
+                width: `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // Adjust width dynamically
+                transition: "width 1s ease-out", // Smooth transition for width
+              }}
+            >
               <span className="m-4 whitespace-nowrap">Bring your ideas to life</span>
               <span
                 className="flex items-center justify-center rounded-full"
@@ -110,9 +130,17 @@ export default function ContactSection() {
                   width: 42,
                   height: 42,
                   background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
+                  flexShrink: 0,
+                  marginRight: -5 
                 }}
               >
-                <img src="/media/small_arrow.svg" alt="arrow" className="m-0 w-4 h-4 transform -rotate-45" />
+                <img 
+                  src="/media/small_arrow.svg" 
+                  alt="arrow" 
+                  className="w-4 h-4 transform -rotate-45" 
+                  style={{ 
+                  }} 
+                />
               </span>
             </Button>
           </div>

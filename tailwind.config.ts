@@ -94,7 +94,18 @@ const config: Config = {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  		},
+      transitionDuration: {
+        '2000': '2000ms', // 2 seconds
+        '3000': '3000ms', // 3 seconds
+        '4000': '4000ms', // 4 seconds
+        '5000': '5000ms', // 5 seconds
+        '6000': '6000ms', // 6 seconds
+        '7000': '7000ms', // 7 seconds
+        '8000': '8000ms', // 8 seconds
+        '9000': '9000ms', // 9 seconds
+        '10000': '10000ms', // 10 seconds
+      },
   	}
   },
   plugins: [require("tailwindcss-animate")],
