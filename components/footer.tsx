@@ -179,7 +179,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <IconComponent className="w-4 h-4 text-black" />
+                    <IconComponent className="w-4 h-4" style={{ color: 'white', fill: 'black' }} />
                   </a>
                 )
               })}
