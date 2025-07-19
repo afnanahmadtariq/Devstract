@@ -35,7 +35,7 @@ export default function HeroSection() {
       </p>
 
       {/* CTA button */}
-      <Button className="bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.05] rounded-full px-8 py-7 text-base font-normal inline-flex items-center space-x-2 mb-32">
+      <Button className="bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.07] rounded-full px-8 py-7 text-base font-normal inline-flex items-center space-x-2 mb-32">
         <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4" />
         <span>Start a project</span>
       </Button>
@@ -66,6 +66,32 @@ if (typeof window !== 'undefined') {
       .animate-hero-up {
         animation: hero-up 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
       }
+      // .btn-gradient-border:hover {
+      //   position: relative;
+      //   border: none;
+      // }
+      // .btn-gradient-border::before:hover {
+      //   content: '';
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   height: 100%;
+      //   width: 100%;
+      //   border-radius: inherit; 
+      //   background: #0A0A0A;
+      //   z-index: -1;
+      // }
+      // .btn-gradient-border::after:hover {
+      //   content: '';
+      //   position: absolute;
+      //   // top: 0;
+      //   // left: 0;
+      //   height: 107%;
+      //   width: 102%;
+      //   border-radius: inherit; 
+      //   background-image: var(--primary-gradient);
+      //   z-index: -2;
+      // }
     `;
     document.head.appendChild(style);
   }
