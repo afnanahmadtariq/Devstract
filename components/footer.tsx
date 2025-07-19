@@ -62,7 +62,7 @@ export default function Footer() {
             <div className="flex justify-center lg:justify-end">
               <form onSubmit={handleSubscribe} className="space-y-4">
                 <div className="relative">
-                  <label htmlFor="email" className="absolute left-4 -top-2 bg-white px-1 text-xs font-medium text-[#202020]">Subscribe to Newsletter</label>
+                  <label htmlFor="email" className="absolute left-5 -top-3 bg-white px-1 text-sm font-normal text-[#202020]">Subscribe to Newsletter</label>
                   <input
                     id="email"
                     type="email"
