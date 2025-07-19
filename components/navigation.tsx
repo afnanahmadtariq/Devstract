@@ -110,19 +110,19 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
       </nav>
       {/* Mobile Menu Overlay rendered via Portal */}
       {(menuOpen || menuClosing) && typeof window !== "undefined" && createPortal(
-        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center">
+        <div className="fixed inset-0 z-[9999] bg-black/10 flex items-center justify-center">
           <div
             ref={menuRef}
             className={
               (contactPage
-                ? "relative w-[90vw] max-w-[400px] h-[90vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl p-8"
+                ? "relative w-[96vw] max-w-[400px] h-[98vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-16 py-12"
                 : "relative w-[90vw] max-w-[400px] h-[90vh] bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl p-8") +
               (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
             }
           >
             {/* Heading */}
             <div className="mb-8">
-              <span className={contactPage ? "text-black dark:text-white text-lg font-semibold" : "text-white text-lg font-semibold"}>Menu</span>
+              <span className={contactPage ? "text-[#838383] dark:text-white text-xs font-normal" : "text-white text-lg font-semibold"}>MENU</span>
             </div>
             {/* Menu Options */}
             <nav className="flex flex-col gap-6 flex-1">
@@ -136,13 +136,16 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
                   <Link
                     href={item.href}
                     className={contactPage
-                      ? "flex items-center justify-between w-full text-left text-black dark:text-white text-lg font-medium py-2"
+                      ? "flex items-center justify-between w-full text-left text-black/50 dark:text-white text-2xl font-normal py-2"
                       : "flex items-center justify-between w-full text-left text-white text-lg font-medium py-2"}
                     onClick={() => setMenuOpen(false)}
                   >
                     <span>{item.label}</span>
                     <span className="ml-2">
-                      <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{ transform: "rotate(45deg)" }} />
+                      <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{ 
+                        transform: "rotate(-45deg)",
+                        filter: "brightness(0.5) invert(1)"
+                      }} />
                     </span>
                   </Link>
                   <div className={contactPage ? "absolute left-0 right-0 bottom-0 h-px bg-black/10 dark:bg-white/20" : "absolute left-0 right-0 bottom-0 h-px bg-white/20"}></div>
@@ -150,14 +153,13 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
               ))}
             </nav>
             {/* Cross Button at Bottom */}
-            <div className="mt-8 flex justify-start">
+            <div className="mt-8 mb-4 flex justify-center">
               <button
-                className={contactPage ? "text-black dark:text-white text-3xl px-4 py-2" : "text-white text-3xl px-4 py-2"}
                 onClick={handleCloseMenu}
                 aria-label="Close menu"
-                style={{ border: "none", background: "transparent" }}
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#F2F2F2] border border-[#DBDBDB]"
               >
-                &times;
+                <Image src="/media/cross.svg" alt="Close" width={16} height={16} />
               </button>
             </div>
           </div>
