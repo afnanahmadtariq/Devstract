@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
+import { createPortal } from "react-dom"
 
 interface NavigationProps {
   contactPage?: boolean;
@@ -42,73 +43,74 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
   }
 
   return (
-    <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${showNav ? 'animate-navbar-down' : 'opacity-0'}`}>
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center space-x-8">
-          <Link href="/" passHref>
-            <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
-              <Image
-                src="/images/logo.svg"
-                alt="Devstract Logo"
-                width={32}
-                height={32}
-                className={
-                  contactPage
-                    ? "cursor-pointer" 
-                    : "cursor-pointer filter brightness-0 invert"
-                }
-              />
+    <>
+      <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${showNav ? 'animate-navbar-down' : 'opacity-0'}`}>
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-8">
+            <Link href="/" passHref>
+              <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
+                <Image
+                  src="/images/logo.svg"
+                  alt="Devstract Logo"
+                  width={32}
+                  height={32}
+                  className={
+                    contactPage
+                      ? "cursor-pointer" 
+                      : "cursor-pointer filter brightness-0 invert"
+                  }
+                />
+              </div>
+            </Link>
+
+            {/* Navigation Links (Desktop) */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/#home" className={contactPage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+                Home
+              </Link>
+              <Link href="/#services" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+                Services
+              </Link>
+              <Link href="https://blog.devstract.site" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+                Blog
+              </Link>
+              <Link href="/#faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+                FAQs
+              </Link>
             </div>
-          </Link>
-
-          {/* Navigation Links (Desktop) */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/#home" className={contactPage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
-              Home
-            </Link>
-            <Link href="/#services" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
-              Services
-            </Link>
-            <Link href="https://blog.devstract.site" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
-              Blog
-            </Link>
-            <Link href="/#faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
-              FAQs
-            </Link>
           </div>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/10 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
-          onClick={() => setMenuOpen(true)}
-          aria-label="Open menu"
-        >
-          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-            <line x1="5" y1="7" x2="19" y2="7" stroke="currentColor" strokeLinecap="round"/>
-            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeLinecap="round"/>
-            <line x1="5" y1="17" x2="19" y2="17" stroke="currentColor" strokeLinecap="round"/>
-          </svg>
-        </button>
+          {/* Mobile Menu Button */}
+          <button
+            className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="5" y1="7" x2="19" y2="7" stroke="currentColor" strokeLinecap="round"/>
+              <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeLinecap="round"/>
+              <line x1="5" y1="17" x2="19" y2="17" stroke="currentColor" strokeLinecap="round"/>
+            </svg>
+          </button>
 
-        {/* Contact Us Button (Desktop) */}
-        {contactPage ? (
-          <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
-            Contact Us
-          </span>
-        ) : (
-          <Link href="/contactus" passHref legacyBehavior>
-            <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
+          {/* Contact Us Button (Desktop) */}
+          {contactPage ? (
+            <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
               Contact Us
-            </Button>
-          </Link>
-        )}
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      {(menuOpen || menuClosing) && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex justify-end">
+            </span>
+          ) : (
+            <Link href="/contactus" passHref legacyBehavior>
+              <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
+                Contact Us
+              </Button>
+            </Link>
+          )}
+        </div>
+      </nav>
+      {/* Mobile Menu Overlay rendered via Portal */}
+      {(menuOpen || menuClosing) && typeof window !== "undefined" && createPortal(
+        <div className="fixed inset-0 z-[9999] bg-black/70 flex justify-end">
           <div
             ref={menuRef}
             className={
@@ -157,9 +159,10 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
-    </nav>
+    </>
   )
 }
 
