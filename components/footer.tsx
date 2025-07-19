@@ -43,13 +43,13 @@ export default function Footer() {
   return (
     <footer className="bg-white px-6 md:px-20 lg:px-40">
       {/* Top Section */}
-      <div className="px-0 md:px-6 py-10 md:py-16">
+      <div className="px-0 md:px-6 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Footer Links Columns (all in one col-span-2) */}
             <div className="lg:col-span-2 flex flex-row gap-8 items-center">
               <div className="flex flex-col items-start">
-                <h2 className="text-sm font-normal text-[#B4B4B4] mb-2">Links</h2>
+                <h2 className="text-sm font-normal text-[#B4B4B4] mb-6 -mt-8">Links</h2>
                 <div className="flex flex-row gap-8 items-center">
                   {footerLinks.map((heading) => (
                     <h3 key={heading} className="text-base font-normal text-black">{heading}</h3>
