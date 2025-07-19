@@ -48,22 +48,28 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Footer Links Columns (all in one col-span-2) */}
             <div className="lg:col-span-2 flex flex-row gap-8 items-center">
-              {footerLinks.map((heading) => (
-                <h3 key={heading} className="text-base font-semibold text-black">{heading}</h3>
-              ))}
+              <div className="flex flex-col items-start">
+                <h2 className="text-sm font-normal text-[#B4B4B4] mb-2">Links</h2>
+                <div className="flex flex-row gap-8 items-center">
+                  {footerLinks.map((heading) => (
+                    <h3 key={heading} className="text-base font-normal text-black">{heading}</h3>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Subscribe Card (right column) */}
             <div className="flex justify-center lg:justify-end">
-              <h3 className="text-base font-semibold mb-4 text-black">Subscribe</h3>
               <form onSubmit={handleSubscribe} className="space-y-4">
                 <div className="relative">
+                  <label htmlFor="email" className="absolute left-4 -top-2 bg-white px-1 text-xs font-medium text-[#202020]">Subscribe to Newsletter</label>
                   <input
+                    id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 pr-12 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                    className="w-full px-6 py-3 pr-28 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
                     required
                   />
                   <button
@@ -95,17 +101,17 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center items-center gap-6 md:gap-0">
             {/* Legal Links */}
             <div className="flex items-center justify-center space-x-8">
-              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
+              <a href="#" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
                 Terms of Service
               </a>
-              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
+              <a href="#" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
                 Privacy Policy
               </a>
             </div>
 
             {/* Logo */}
             <div className="flex items-center justify-center">
-              <img src="/images/logo.svg" alt="Logo" className="w-10 h-10 mr-3" />
+              <img src="/images/logo.svg" alt="Logo" className="w-12 h-12 mr-3" />
             </div>
 
             {/* Social Media Icons */}
