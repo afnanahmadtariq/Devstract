@@ -46,9 +46,9 @@ export default function ContactSection() {
         >
           {/* "Get in touch" heading behind the image */}
           <div
-            className="absolute inset-x-0 top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            className="absolute inset-x-0 top-[210px] sm:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
-              transform: `translateY(${(1 - scrollProgress) * (typeof window !== "undefined" && window.innerWidth >= 768 ? 224 : 60)}px)`
+              transform: `translateY(${(1 - scrollProgress) * (typeof window !== "undefined" && window.innerWidth >= 768 ? 224 : 120)}px)`
             }}
           >
             <h2 className="text-6xl md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
