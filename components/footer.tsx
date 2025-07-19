@@ -30,11 +30,7 @@ export default function Footer() {
     }
   }
 
-  const footerLinks = {
-    Product: ["Overview", "Features", "Solutions", "Tutorials", "Pricing"],
-    Information: ["About Us", "Careers", "Press", "News", "Media Kit"],
-    Company: ["About", "Blog", "Jobs", "Press", "Partners"],
-  }
+  const footerLinks = ["Home", "About us", "Services", "Testimonials", "FAQs"];
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
@@ -51,20 +47,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Footer Links Columns (all in one col-span-2) */}
-            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {Object.entries(footerLinks).map(([heading, links]) => (
-                <div key={heading}>
-                  <h3 className="text-base font-semibold mb-3 text-black">{heading}</h3>
-                  <ul className="space-y-1">
-                    {links.map((link, index) => (
-                      <li key={index}>
-                        <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="lg:col-span-2 flex flex-row gap-8 items-center">
+              {footerLinks.map((heading) => (
+                <h3 key={heading} className="text-base font-semibold text-black">{heading}</h3>
               ))}
             </div>
 
