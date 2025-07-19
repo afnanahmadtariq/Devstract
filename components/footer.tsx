@@ -46,11 +46,11 @@ export default function Footer() {
   const footerLinks = ["Home", "About us", "Services", "Testimonials", "FAQs"];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
+    { icon: Twitter, href: "https://x.com/devstract", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/devstract", label: "LinkedIn" },
+    { icon: Youtube, href: "https://www.youtube.com/@DevstractStudio", label: "YouTube" },
   ]
 
   return (
