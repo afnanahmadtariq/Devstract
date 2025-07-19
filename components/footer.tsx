@@ -176,6 +176,8 @@ export default function Footer() {
                     href={social.href}
                     aria-label={social.label}
                     className="w-8 h-8 border border-black/[0.1] rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-gray-100"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <IconComponent className="w-4 h-4 text-black" />
                   </a>
