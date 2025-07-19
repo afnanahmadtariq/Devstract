@@ -47,11 +47,25 @@ export default function ContactUsPage() {
           </p>
           <div className="w-full bg-[#F7F7F7] flex flex-col md:flex-row justify-center items-stretch p-3 gap-3 max-w-6xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Left Side (info and image) */}
-            <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-12 max-w-md hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
+            <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-md hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
               <img src="/media/baloons.svg" alt="Balloons" className="w-64 h-64 mb-6" />
-              <p className="text-gray-700 dark:text-gray-200 mt-8 text-base text-left">
-                Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life with precision and passion.
-              </p>
+              <div style={{ position: 'relative', width: '100%' }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '50%',
+                    background: 'linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                    pointerEvents: 'none',
+                    zIndex: 2,
+                  }}
+                />
+                <p className="text-[#707070] dark:text-gray-200 mt-8 text-lg text-left" style={{ position: 'relative', zIndex: 1 }}>
+                  Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life with precision and passion.
+                </p>
+              </div>
             </div>
             {/* Right Side (Form) */}
             <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-16 border-2 border-[#EBEBEB]">
