@@ -75,7 +75,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
               <Link href="https://blog.devstract.site" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Blog
               </Link>
-              <Link href="/#faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 FAQs
               </Link>
             </div>
@@ -130,7 +130,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
                 { href: "/#home", label: "Home" },
                 { href: "/#services", label: "Services" },
                 { href: "https://blog.devstract.site", label: "Blog" },
-                { href: "/#faqs", label: "FAQs" }
+                { href: "/faqs", label: "FAQs" }
               ].map((item, idx) => (
                 <div key={item.label} className="relative">
                   <Link
