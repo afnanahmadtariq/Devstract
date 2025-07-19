@@ -110,53 +110,55 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
       </nav>
       {/* Mobile Menu Overlay rendered via Portal */}
       {(menuOpen || menuClosing) && typeof window !== "undefined" && createPortal(
-        <div className="fixed inset-0 z-[9999] bg-black/70 flex justify-end">
+        <div className="fixed inset-0 z-[9999] bg-black/80 flex items-center justify-center">
           <div
             ref={menuRef}
             className={
               (contactPage
-                ? "w-72 max-w-full h-full bg-white dark:bg-[#18182a] flex flex-col justify-between shadow-xl "
-                : "w-72 max-w-full h-full bg-[#18182a] flex flex-col justify-between shadow-xl ") +
+                ? "relative w-[90vw] max-w-[400px] h-[90vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl p-8"
+                : "relative w-[90vw] max-w-[400px] h-[90vh] bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl p-8") +
               (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
             }
           >
-            <div>
-              <div className="flex justify-end p-4">
-                <button
-                  className={contactPage ? "text-black dark:text-white text-2xl" : "text-white text-2xl"}
-                  onClick={handleCloseMenu}
-                  aria-label="Close menu"
-                >
-                  &times;
-                </button>
-              </div>
-              <nav className="flex flex-col items-center px-8 space-y-10 mt-8">
-                <Link href="/#home" className={contactPage ? "text-black dark:text-white hover:text-purple-400 font-medium transition-colors text-lg" : "text-white hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
-                  Home
-                </Link>
-                <Link href="/#services" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-lg" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
-                  Services
-                </Link>
-                <Link href="#blog" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-lg" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
-                  Blog
-                </Link>
-                <Link href="/#faqs" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-lg" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-lg"} onClick={() => setMenuOpen(false)}>
-                  FAQs
-                </Link>
-              </nav>
+            {/* Heading */}
+            <div className="mb-8">
+              <span className={contactPage ? "text-black dark:text-white text-lg font-semibold" : "text-white text-lg font-semibold"}>Menu</span>
             </div>
-            <div className="p-8">
-              {contactPage ? (
-                <span className="w-full px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none block text-center">
-                  Contact Us
-                </span>
-              ) : (
-                <Link href="/contactus" passHref legacyBehavior>
-                  <Button className="contact-button w-full text-white px-6 py-5 font-syne font-light rounded-full border-0">
-                    Contact Us
-                  </Button>
-                </Link>
-              )}
+            {/* Menu Options */}
+            <nav className="flex flex-col gap-6 flex-1">
+              {[
+                { href: "/#home", label: "Home" },
+                { href: "/#services", label: "Services" },
+                { href: "https://blog.devstract.site", label: "Blog" },
+                { href: "/#faqs", label: "FAQs" }
+              ].map((item, idx) => (
+                <div key={item.label} className="relative">
+                  <Link
+                    href={item.href}
+                    className={contactPage
+                      ? "flex items-center justify-between w-full text-left text-black dark:text-white text-lg font-medium py-2"
+                      : "flex items-center justify-between w-full text-left text-white text-lg font-medium py-2"}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                    <span className="ml-2">
+                      <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{ transform: "rotate(45deg)" }} />
+                    </span>
+                  </Link>
+                  <div className={contactPage ? "absolute left-0 right-0 bottom-0 h-px bg-black/10 dark:bg-white/20" : "absolute left-0 right-0 bottom-0 h-px bg-white/20"}></div>
+                </div>
+              ))}
+            </nav>
+            {/* Cross Button at Bottom */}
+            <div className="mt-8 flex justify-start">
+              <button
+                className={contactPage ? "text-black dark:text-white text-3xl px-4 py-2" : "text-white text-3xl px-4 py-2"}
+                onClick={handleCloseMenu}
+                aria-label="Close menu"
+                style={{ border: "none", background: "transparent" }}
+              >
+                &times;
+              </button>
             </div>
           </div>
         </div>,
