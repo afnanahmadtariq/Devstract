@@ -7,10 +7,12 @@ import { ArrowUpRight, Facebook, Twitter, Instagram, Linkedin, Youtube } from "l
 export default function Footer() {
   const [email, setEmail] = useState("")
   const [subscribeStatus, setSubscribeStatus] = useState<string | null>(null)
+  const [buttonState, setButtonState] = useState<'idle' | 'loading' | 'success' | 'error'>("idle")
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubscribeStatus(null)
+    setButtonState('loading')
     if (!email) return
     try {
       const res = await fetch('/api/subscribe', {
@@ -20,13 +22,24 @@ export default function Footer() {
       })
       if (res.ok) {
         setSubscribeStatus('Subscribed successfully!')
+        setButtonState('success')
         setEmail("")
       } else {
         const data = await res.json()
         setSubscribeStatus(data.error || 'Subscription failed.')
+        setButtonState('error')
       }
     } catch {
       setSubscribeStatus('Subscription failed.')
+      setButtonState('error')
+    }
+  }
+
+  // Reset button state when user focuses email input after result
+  const handleEmailFocus = () => {
+    if (buttonState !== 'idle') {
+      setButtonState('idle')
+      setSubscribeStatus(null)
     }
   }
 
@@ -68,19 +81,58 @@ export default function Footer() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    onFocus={handleEmailFocus}
                     placeholder="Enter your email"
                     className="w-full px-6 py-3 pr-28 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
                     required
                   />
                   <button
                     type="submit"
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-black rounded-full hover:bg-gray-100 transition-colors duration-200"
+                    disabled={buttonState === 'loading' || buttonState === 'success' || buttonState === 'error'}
+                    className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-black rounded-full transition-colors duration-200 flex items-center justify-center bg-white ${buttonState === 'loading' || buttonState === 'success' || buttonState === 'error' ? 'opacity-60 cursor-not-allowed' : 'hover:bg-gray-100'}`}
+                    style={{ width: 32, height: 32 }}
                   >
-                    <img src="/media/small_arrow.svg" alt="Submit" className="w-4 h-4 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
+                    {/* Arrow animation */}
+                    {buttonState === 'idle' && (
+                      <img
+                        src="/media/small_arrow.svg"
+                        alt="Submit"
+                        className="w-4 h-4 transform -rotate-45 transition-transform duration-500"
+                        style={{ filter: 'brightness(0)' }}
+                      />
+                    )}
+                    {/* Loading spinner */}
+                    {buttonState === 'loading' && (
+                      <span className="w-4 h-4 flex items-center justify-center">
+                        <svg className="animate-spin" width="16" height="16" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="7" stroke="#5A44FF" strokeWidth="2" fill="none" opacity="0.2" />
+                          <path d="M8 1a7 7 0 0 1 7 7" stroke="#5A44FF" strokeWidth="2" fill="none" />
+                        </svg>
+                      </span>
+                    )}
+                    {/* Success tick animation */}
+                    {buttonState === 'success' && (
+                      <span className="w-4 h-4 flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="7" stroke="#5A44FF" strokeWidth="2" fill="none" opacity="0.2" />
+                          <path d="M4 8l3 3 5-5" stroke="#5A44FF" strokeWidth="2" fill="none" className="animate-[tick_0.5s_ease]" />
+                        </svg>
+                      </span>
+                    )}
+                    {/* Error cross animation */}
+                    {buttonState === 'error' && (
+                      <span className="w-4 h-4 flex items-center justify-center">
+                        <svg width="16" height="16" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="7" stroke="#D32F2F" strokeWidth="2" fill="none" opacity="0.2" />
+                          <path d="M5 5l6 6M11 5l-6 6" stroke="#D32F2F" strokeWidth="2" fill="none" className="animate-[cross_0.5s_ease]" />
+                        </svg>
+                      </span>
+                    )}
                   </button>
                 </div>
-                {subscribeStatus && (
-                  <div className="text-xs mt-2 text-center" style={{ color: subscribeStatus.includes('success') ? '#5A44FF' : '#D32F2F' }}>{subscribeStatus}</div>
+                {/* Status message below input, only for error */}
+                {buttonState === 'error' && subscribeStatus && (
+                  <div className="text-xs mt-2 text-center" style={{ color: '#D32F2F' }}>{subscribeStatus}</div>
                 )}
               </form>
             </div>
