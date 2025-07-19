@@ -80,7 +80,7 @@ export default function TestimonialsSection() {
   }, [cardOrder])
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section id="testimonials" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}

@@ -43,7 +43,13 @@ export default function Footer() {
     }
   }
 
-  const footerLinks = ["Home", "About us", "Services", "Testimonials", "FAQs"];
+  const footerLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About us", href: "/about" },
+    { label: "Services", href: "#services" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "FAQs", href: "/faqs" },
+  ];
 
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
@@ -64,8 +70,14 @@ export default function Footer() {
               <div className="flex flex-col items-center sm:items-start w-full">
                 <h2 className="text-sm font-normal text-[#B4B4B4] mb-6 -mt-8">Links</h2>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center w-full mb-10 sm:mb-0">
-                  {footerLinks.map((heading) => (
-                    <h3 key={heading} className="text-base font-normal text-black">{heading}</h3>
+                  {footerLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className="text-base font-normal text-black hover:text-purple-600 transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
                   ))}
                 </div>
               </div>
