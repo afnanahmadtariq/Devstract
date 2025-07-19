@@ -35,24 +35,44 @@ export default function ScrollTextSection() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const text = "Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
+  const textParts = [
+    "Devstract is a next-gen ",
+    <img key="gears" src="/media/gears.svg" alt="Gears" style={{ display: 'inline', verticalAlign: 'middle', margin: '0 4px' }} />, 
+    "design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design ",
+    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={{ display: 'inline', verticalAlign: 'middle', margin: '0 4px' }} />,
+    "to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
+  ];
 
+  // Flatten textParts to count total characters (excluding icons)
+  const flatText = textParts.map(part => typeof part === "string" ? part : "").join("");
   const getLetterColor = (index: number) => {
-    const totalLetters = text.length
-    const threshold = Math.floor(scrollProgress * totalLetters)
-    // Distinct color transition: gray before threshold, black after
-    return index < threshold ? "#2C2C2C" : "#C2C2C2"
-  }
+    const totalLetters = flatText.length;
+    // After scrollProgress > 0.5, threshold starts from 0 and goes to 100%
+    const threshold = scrollProgress < 0.5
+      ? 0
+      : Math.floor(((scrollProgress - 0.5) / 0.5) * totalLetters);
+    return index < threshold ? "#2C2C2C" : "#C2C2C2";
+  };
 
   return (
     <section ref={sectionRef} className="py-48 px-6 md:px-24 bg-white">
       <div className="text-center mx-auto">
-        <p className="text-md md:text-4xl font-semibold leading-[1.6] md:leading-[1.6]">
-          {text.split('').map((char, index) => (
-            <span key={index} style={{ color: getLetterColor(index) }}>
-              {char}
-            </span>
-          ))}
+        <p className="text-md md:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
+          {(() => {
+            let globalCharIndex = 0;
+            return textParts.map((part, i) => {
+              if (typeof part === "string") {
+                return part.split("").map((char, idx) => {
+                  const color = getLetterColor(globalCharIndex);
+                  const span = <span key={"char-" + i + "-" + idx} style={{ color }}>{char}</span>;
+                  globalCharIndex++;
+                  return span;
+                });
+              } else {
+                return part;
+              }
+            }).flat();
+          })()}
         </p>
       </div>
     </section>
