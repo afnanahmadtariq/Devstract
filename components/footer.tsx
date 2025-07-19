@@ -70,34 +70,28 @@ export default function Footer() {
 
             {/* Subscribe Card (right column) */}
             <div className="flex justify-center lg:justify-end">
-              <div className="rounded-2xl p-6 md:p-10 bg-black/[0.03] w-full max-w-xs">
-                <h3 className="text-base font-semibold mb-4 text-black">Subscribe</h3>
-                <form onSubmit={handleSubscribe} className="space-y-4">
-                  <div className="relative">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3 pr-12 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-black rounded-full hover:bg-gray-100 transition-colors duration-200"
-                    >
-                      <img src="/media/small_arrow.svg" alt="Submit" className="w-4 h-4 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
-                    </button>
-                  </div>
-                  {subscribeStatus && (
-                    <div className="text-xs mt-2 text-center" style={{ color: subscribeStatus.includes('success') ? '#5A44FF' : '#D32F2F' }}>{subscribeStatus}</div>
-                  )}
-                </form>
-                <p className="text-xs text-gray-500 mt-3 leading-relaxed">
-                  Get the latest updates on our services, industry insights, and exclusive offers delivered to your
-                  inbox.
-                </p>
-              </div>
+              <h3 className="text-base font-semibold mb-4 text-black">Subscribe</h3>
+              <form onSubmit={handleSubscribe} className="space-y-4">
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 pr-12 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 border border-black rounded-full hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    <img src="/media/small_arrow.svg" alt="Submit" className="w-4 h-4 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
+                  </button>
+                </div>
+                {subscribeStatus && (
+                  <div className="text-xs mt-2 text-center" style={{ color: subscribeStatus.includes('success') ? '#5A44FF' : '#D32F2F' }}>{subscribeStatus}</div>
+                )}
+              </form>
             </div>
           </div>
         </div>
@@ -113,27 +107,24 @@ export default function Footer() {
       {/* Bottom Section */}
       <div className="px-6 py-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center items-center gap-6 md:gap-0">
+            {/* Legal Links */}
+            <div className="flex items-center justify-center space-x-8">
+              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
+                Privacy Policy
+              </a>
+            </div>
+
             {/* Logo */}
-            <div className="flex items-center flex-1 justify-start md:justify-start w-full md:w-auto">
+            <div className="flex items-center justify-center">
               <img src="/images/logo.svg" alt="Logo" className="w-10 h-10 mr-3" />
             </div>
 
-            {/* Legal Links */}
-            <div className="flex items-center justify-center space-x-8 w-full md:w-auto order-2 md:order-none">
-              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
-                Terms
-              </a>
-              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
-                Privacy
-              </a>
-              <a href="#" className="text-gray-600 hover:text-black transition-colors duration-200 text-sm">
-                Cookies
-              </a>
-            </div>
-
             {/* Social Media Icons */}
-            <div className="flex items-center flex-1 justify-end md:justify-end space-x-4 w-full md:w-auto">
+            <div className="flex items-center justify-center space-x-4">
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon
                 return (
