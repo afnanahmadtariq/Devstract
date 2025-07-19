@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className={`w-full flex flex-col items-center justify-center text-center py-24 transition-opacity duration-3000 ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
+      className={`w-full flex flex-col items-center justify-center text-center py-2 mt-24 transition-opacity duration-3000 ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
     >
       {/* Main heading */}
       <h1 className="text-5xl md:text-7xl font-medium mb-6 text-white leading-tight max-w-7xl">

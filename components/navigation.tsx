@@ -64,16 +64,16 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
 
           {/* Navigation Links (Desktop) */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/#home" className={contactPage ? "text-black dark:text-white hover:text-purple-400 font-medium transition-colors text-sm" : "text-white hover:text-purple-400 font-medium transition-colors text-sm"}>
+            <Link href="/#home" className={contactPage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
               Home
             </Link>
-            <Link href="/#services" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
+            <Link href="/#services" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
               Services
             </Link>
-            <Link href="https://blog.devstract.site" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
+            <Link href="https://blog.devstract.site" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
               Blog
             </Link>
-            <Link href="/#faqs" className={contactPage ? "text-black/80 dark:text-white/80 hover:text-purple-400 font-medium transition-colors text-sm" : "text-white/80 hover:text-purple-400 font-medium transition-colors text-sm"}>
+            <Link href="/#faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
               FAQs
             </Link>
           </div>

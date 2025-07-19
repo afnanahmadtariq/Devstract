@@ -83,7 +83,7 @@ export default function CarouselCards() {
           !isAnimationPaused ? 'animate-scroll-left' : ''
         }`}
         style={{
-          width: `${loopCards.length * 320}px`, // 320px = 288px card width + 32px margin
+          width: `${loopCards.length * 383}px`, // 383px = 361px card width + 22px margin
           scrollBehavior: isDragging ? 'auto' : 'smooth',
           animationPlayState: isAnimationPaused ? 'paused' : 'running'
         }}
@@ -98,7 +98,7 @@ export default function CarouselCards() {
         {loopCards.map((card, idx) => (
           <div
             key={`${card.id}-${idx}`}
-            className="w-72 h-80 rounded-xl flex-shrink-0 m-2 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
+            className="w-[361px] h-[390px] rounded-xl flex-shrink-0 m-2 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
             style={{
               backgroundColor: '#121212'
             }}
@@ -111,8 +111,8 @@ export default function CarouselCards() {
             />
             
             <div className="p-6 text-left relative z-20">              
-              <h5 className="text-white font-normal text-md mb-1">{card.title}</h5>
-              <p className="text-white/[0.32] text-xs">{card.description}</p>
+              <h5 className="text-white font-normal text-lg mb-1">{card.title}</h5>
+              <p className="text-white/[0.32] font-normal text-base">{card.description}</p>
             </div>
           </div>
         ))}
