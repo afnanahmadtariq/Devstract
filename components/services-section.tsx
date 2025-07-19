@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowUpRight } from "lucide-react"
 import "./services-section-animations.css"
 
 interface Service {
@@ -180,38 +179,34 @@ export default function ServicesSection() {
         {/* Left-aligned heading and description */}
         <div className={`px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
-          <p className="text-xl text-[#676767] max-w-xl text-left">
-            Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
-            complexities.
-          </p>
+          <div className="flex items-center">
+            <p className="text-xl text-[#676767] max-w-xl text-left">
+              Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
+              complexities.
+            </p>
+            <div className="flex justify-end ml-6 gap-2 w-full">
+              <button
+                type="button"
+                onClick={() => scroll("left")}
+                className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+                aria-label="Scroll left"
+              >
+                <img src="/media/small_arrow.svg" alt="arrow left" className="w-6 h-6 rotate-180" style={{ filter: "invert(100%)" }}/>
+              </button>
+              <button
+                type="button"
+                onClick={() => scroll("right")}
+                className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+                aria-label="Scroll right"
+              >
+                <img src="/media/small_arrow.svg" alt="arrow right" className="w-6 h-6" style={{ filter: "invert(100%)" }}/>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Scrollable carousel with hover buttons */}
         <div className="relative group">
-          {/* Left scroll button */}
-          <button
-            type="button"
-            onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200
-              bg-white/[0.1] border border-white text-white hover:bg-white/[0.2] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32 ml-6 shadow-lg shadow-black/30"
-            style={{ pointerEvents: 'auto' }}
-            aria-label="Scroll left"
-          >
-            <img src="/media/small_arrow.svg" alt="arrow left" className="w-4 h-4 rotate-180" />
-          </button>
-
-          {/* Right scroll button */}
-          <button
-            type="button"
-            onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200
-              bg-white/[0.1] border border-white text-white hover:bg-white/[0.2] rounded-full px-5 py-5 text-base font-normal inline-flex items-center mb-32 mr-6 shadow-lg shadow-black/30"
-            style={{ pointerEvents: 'auto' }}
-            aria-label="Scroll right"
-          >
-            <img src="/media/small_arrow.svg" alt="arrow right" className="w-4 h-4" />
-          </button>
-
           <div
             ref={scrollRef}
             className={`flex gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
