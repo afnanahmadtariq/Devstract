@@ -97,18 +97,18 @@ export default function ContactSection() {
           </div>
 
           {/* Top-right circular arrow with text */}
-          <div className="absolute top-6 right-8 z-30">
-            <div className="relative w-32 h-32">
-              <svg className="w-32 h-32 animate-spin-slow" viewBox="0 0 100 100">
+          <div className="absolute top-2 right-2 sm:top-6 sm:right-8 z-30">
+            <div className="relative w-16 h-16 sm:w-32 sm:h-32">
+              <svg className="w-16 h-16 sm:w-32 sm:h-32 animate-spin-slow" viewBox="0 0 100 100">
                 <defs>
                   <path id="circle" d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
                 </defs>
-                <text className="text-[14px] fill-black font-normal font-syne">
+                <text className="text-xs sm:text-sm fill-black font-normal font-syne">
                   <textPath href="#circle">Start your Journey Today Tehe</textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <img src="/media/small_arrow.svg" alt="Submit" className="w-10 h-10 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
+                <img src="/media/small_arrow.svg" alt="Submit" className="w-5 h-5 sm:w-10 sm:h-10 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
               </div>
             </div>
           </div>
@@ -116,12 +116,12 @@ export default function ContactSection() {
           {/* Main content except heading */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
             {/* Spacer for heading */}
-            <div className="mb-96" />
+            <div className="mb-60 sm:mb-96" />
             <Button
               className="bg-white hover:bg-gray-100 text-black rounded-full py-4 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
               style={{
                 width: isMobile
-                  ? `${48 + (scrollProgress > 0.95 ? scrollProgress * 160 : 0)}px` // mobile width
+                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // mobile width
                   : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // desktop width
                 transition: "width 1s ease-out",
               }}
