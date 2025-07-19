@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobile"
 
 export default function ContactSection() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +38,7 @@ export default function ContactSection() {
     <section ref={sectionRef} className="mt-24 mb-12 px-6 bg-white">
       <div className="max-w-7xl md:max-w-[85rem] mx-auto">
         <div
-          className="relative rounded-2xl overflow-hidden min-h-[700px]"
+          className="relative rounded-2xl overflow-hidden min-h-[500px] sm:min-h-[700px]"
           style={{
             border: "1px solid #D7D7D7",
             background: "linear-gradient(to bottom, #DBDBDB -10%, #FFFFFF 20%)",
@@ -67,7 +69,7 @@ export default function ContactSection() {
           />
           {/* Top-left team images and description */}
           <div
-            className="absolute top-12 left-12 z-30"
+            className="absolute top-4 left-3 sm:top-12 sm:left-12 z-30"
             style={{
               opacity: scrollProgress,
               transition: "opacity 0.2s ease-out, transform 0.2s ease-out",
@@ -82,13 +84,13 @@ export default function ContactSection() {
                     zIndex: index + 1,
                   }}
                 >
-                  <div className="w-12 h-12 rounded-full overflow-hidden" style={{ border: '1px solid #ECECEC' }}>
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full overflow-hidden" style={{ border: '1px solid #ECECEC' }}>
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
                 </div>
               ))}
             </div>
-            <p className="text-lg text-[#828282] max-w-2xl">
+            <p className="ml-2 sm:ml-0 text-xs sm:text-lg text-[#828282] max-w-56 sm:max-w-2xl">
               From innovative startups to enterprise solutions, we deliver cutting-edge digital experiences. Contact us
               today to support your journey every step of the way.
             </p>
@@ -116,29 +118,31 @@ export default function ContactSection() {
             {/* Spacer for heading */}
             <div className="mb-96" />
             <Button
-              className="bg-white hover:bg-gray-100 text-black rounded-full py-7 text-base font-semibold justify-end pointer-events-auto overflow-hidden"
+              className="bg-white hover:bg-gray-100 text-black rounded-full py-4 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
               style={{
-                width: `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // Adjust width dynamically
-                transition: "width 1s ease-out", // Smooth transition for width
+                width: isMobile
+                  ? `${48 + (scrollProgress > 0.95 ? scrollProgress * 160 : 0)}px` // mobile width
+                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // desktop width
+                transition: "width 1s ease-out",
               }}
             >
-              <span className="m-4 whitespace-nowrap">Bring your ideas to life</span>
+              <span className="m-2 sm:m-4 whitespace-nowrap">
+                Bring your ideas to life
+              </span>
               <span
                 className="flex items-center justify-center rounded-full"
                 style={{
-                  width: 42,
-                  height: 42,
+                  width: isMobile ? 32 : 42,
+                  height: isMobile ? 32 : 42,
                   background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
                   flexShrink: 0,
-                  marginRight: -5 
+                  marginRight: isMobile ? -8 : -5,
                 }}
               >
-                <img 
-                  src="/media/small_arrow.svg" 
-                  alt="arrow" 
-                  className="w-4 h-4 transform -rotate-45" 
-                  style={{ 
-                  }} 
+                <img
+                  src="/media/small_arrow.svg"
+                  alt="arrow"
+                  className="w-3 h-3 sm:w-4 sm:h-4 transform -rotate-45"
                 />
               </span>
             </Button>
