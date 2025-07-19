@@ -35,11 +35,43 @@ export default function ScrollTextSection() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const iconStyle = {
+    display: 'inline',
+    verticalAlign: 'middle',
+    margin: '0 4px',
+  };
+
+  // Separate mobile styles for each icon
+  const iconMobileGears = {
+    ...iconStyle,
+    width: '2em',
+    height: '2em',
+  };
+  const iconMobileLightbulb = {
+    ...iconStyle,
+    width: '1.4em',
+    height: '1.4em',
+  };
+
+  // Responsive style for each icon
+  const getGearsIconStyle = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return iconMobileGears;
+    }
+    return iconStyle;
+  };
+  const getLightbulbIconStyle = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return iconMobileLightbulb;
+    }
+    return iconStyle;
+  };
+
   const textParts = [
     "Devstract is a next-gen ",
-    <img key="gears" src="/media/gears.svg" alt="Gears" style={{ display: 'inline', verticalAlign: 'middle', margin: '0 4px' }} />, 
+    <img key="gears" src="/media/gears.svg" alt="Gears" style={getGearsIconStyle()} />, 
     "design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design ",
-    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={{ display: 'inline', verticalAlign: 'middle', margin: '0 4px' }} />,
+    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={getLightbulbIconStyle()} />,
     "to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
   ];
 

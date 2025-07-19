@@ -12,10 +12,10 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className={`w-full flex flex-col items-center justify-center text-center py-2 mt-24 transition-opacity duration-3000 ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
+      className={`w-full flex flex-col items-center justify-center text-center py-2 mt-12 sm:mt-24 transition-opacity duration-3000 ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
     >
       {/* Main heading */}
-      <h1 className="text-5xl md:text-7xl font-medium mb-6 text-white leading-tight max-w-7xl">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium mb-6 text-white leading-tight max-w-7xl">
         The <span
           className="bg-clip-text text-transparent"
           style={{
@@ -30,7 +30,7 @@ export default function HeroSection() {
       </h1>
 
       {/* Sub-heading */}
-      <p className="text-xl text-white/[0.53] mb-8 max-w-2xl">
+      <p className="text-lg sm:text-xl text-white/[0.53] mb-8 max-w-2xl">
         Fast. Efficient. Reliable. Try us and see the difference.
       </p>
 
