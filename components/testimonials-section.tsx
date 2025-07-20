@@ -48,20 +48,18 @@ export default function TestimonialsSection() {
     if (clickedIndex === 0 && !isAnimating) {
       setIsAnimating(true)
       setAnimationPhase('slide-out')
-      // After slide-out animation completes, slide the top card to the left
+      // After slide-out animation completes, slide the top card to the left and rearrange cards
       setTimeout(() => {
         setAnimationPhase('slide-left')
-        // After slide-left animation completes, rearrange cards and slide back
+        // Rearrange cards and start slide-in for last card at the same time as slide-left for behind cards
+        const newOrder = [...cardOrder.slice(1), clickedId]
+        setCardOrder(newOrder)
+        setAnimationPhase('slide-in')
+        // After slide-in animation completes, reset to idle
         setTimeout(() => {
-          const newOrder = [...cardOrder.slice(1), clickedId]
-          setCardOrder(newOrder)
-          setAnimationPhase('slide-in')
-          // After slide-in animation completes, reset to idle
-          setTimeout(() => {
-            setAnimationPhase('idle')
-            setIsAnimating(false)
-          }, 250)
-        }, 375)
+          setAnimationPhase('idle')
+          setIsAnimating(false)
+        }, 250)
       }, 375)
     }
   }
