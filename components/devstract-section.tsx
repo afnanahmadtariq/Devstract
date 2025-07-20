@@ -78,7 +78,9 @@ export default function DevstractSection() {
             <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-34 sm:h-34" />
             <span
               style={{
-                background: "linear-gradient(310deg, #5A45FF 0%, #7D71FF 77%, #7C81FF 98%, #000099 150%)",
+                backgroundImage: "linear-gradient(310deg, #5A45FF 0%, #7D71FF 77%, #7C81FF 98%, #000099 150%)",
+                backgroundPosition: "center",
+                backgroundSize: "100%",
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -94,7 +96,9 @@ export default function DevstractSection() {
           className={`text-center font-syne font-bold text-5xl sm:text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight origin-center devstract-slide${show ? ' show' : ''} ${show ? 'devstract-gradient-animate' : ''}`}
           // @ts-ignore: Allow custom CSS property for gradient angle
           style={{
-            background: `linear-gradient(${gradientAngle}deg, #2C2C2C 0%,#2C2C2C 53.5%,#d1d1d1 53.7%,#929292 100%)`,
+            backgroundImage: `linear-gradient(${gradientAngle}deg, #2C2C2C 0%,#2C2C2C 53.5%,#d1d1d1 53.7%,#929292 100%)`,
+            backgroundPosition: "center",
+            backgroundSize: "100%",
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
