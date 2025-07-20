@@ -132,9 +132,9 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
               {[
                 { href: "/#home", label: "Home" },
                 { href: "/#services", label: "Services" },
-                { href: "https://blog.devstract.site", label: "Blog" },
                 { href: "/about-us", label: "About Us" },
-                { href: "/faqs", label: "FAQs" }
+                { href: "/#testimonials", label: "Testimonials" },
+                { href: "/contactus", label: "Contact Us" }
               ].map((item, idx) => (
                 <div key={item.label} className="relative">
                   <Link

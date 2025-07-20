@@ -63,7 +63,7 @@ export default function DevstractSection() {
         {/* Process Flow */}
         <div className="mb-8">
           <p
-            className={`text-2xl text-[#2C2C2C] tracking-wider flex items-center justify-center gap-8 process-flow-animate${processShow ? ' show' : ''}`}
+            className={`text-sm sm:text-2xl text-[#2C2C2C] tracking-wider flex items-center justify-center gap-2 sm:gap-8 process-flow-animate${processShow ? ' show' : ''}`}
             style={{
               transform: processShow ? 'scaleX(1)' : 'scaleX(0.2)',
               opacity: processShow ? 1 : 0,
@@ -73,9 +73,9 @@ export default function DevstractSection() {
             }}
           >
             Ideation
-            <img src="/media/arrow.svg" alt="arrow" className="w-34 h-34" />
+            <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-34 sm:h-34" />
             Planning
-            <img src="/media/arrow.svg" alt="arrow" className="w-34 h-34" />
+            <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-34 sm:h-34" />
             <span
               style={{
                 background: "linear-gradient(310deg, #5A45FF 0%, #7D71FF 77%, #7C81FF 98%, #000099 150%)",
@@ -91,7 +91,7 @@ export default function DevstractSection() {
 
         {/* Main Brand Name */}
         <h1
-          className={`text-center font-syne font-bold text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight origin-center devstract-slide${show ? ' show' : ''} ${show ? 'devstract-gradient-animate' : ''}`}
+          className={`text-center font-syne font-bold text-5xl sm:text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight origin-center devstract-slide${show ? ' show' : ''} ${show ? 'devstract-gradient-animate' : ''}`}
           // @ts-ignore: Allow custom CSS property for gradient angle
           style={{
             background: `linear-gradient(${gradientAngle}deg, #2C2C2C 0%,#2C2C2C 53.5%,#d1d1d1 53.7%,#929292 100%)`,
@@ -115,7 +115,7 @@ export default function DevstractSection() {
 
         {/* Descriptive Text */}
         <div  ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-2xl text-gray-600 leading-relaxed font-syne">
+          <p className="text-sm sm:text-2xl text-gray-600 leading-relaxed font-syne">
             Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
             complexities.
           </p>
