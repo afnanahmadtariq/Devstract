@@ -45,7 +45,7 @@ export default function Footer() {
 
   const footerLinks = [
     { label: "Home", href: "#home" },
-    { label: "About us", href: "/about" },
+    { label: "About us", href: "/about-us" },
     { label: "Services", href: "#services" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "FAQs", href: "/faqs" },
@@ -166,10 +166,10 @@ export default function Footer() {
             {/* Legal Links */}
             <div className="flex items-center justify-center space-x-8">
               <a href="#" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
-                Terms of Service
+                <a href="/terms-of-service">Terms of Service</a>
               </a>
               <a href="#" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
-                Privacy Policy
+                <a href="/privacy-policy">Privacy Policy</a>
               </a>
             </div>
 
