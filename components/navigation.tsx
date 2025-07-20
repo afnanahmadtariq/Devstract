@@ -111,21 +111,19 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
           )}
         </div>
       </nav>
+
       {/* Mobile Menu Overlay rendered via Portal */}
       {(menuOpen || menuClosing) && typeof window !== "undefined" && createPortal(
         <div className="fixed inset-0 z-[9999] bg-black/10 flex items-center justify-center">
           <div
             ref={menuRef}
-            className={
-              (contactPage
-                ? "relative w-[96vw] max-w-[400px] h-[98vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-16 py-12"
-                : "relative w-[90vw] max-w-[400px] h-[90vh] bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl p-8") +
-              (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
+            className={"relative w-[96vw] max-w-[400px] h-[98vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-16 py-12"
+              + (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
             }
           >
             {/* Heading */}
             <div className="mb-8">
-              <span className={contactPage ? "text-[#838383] dark:text-white text-xs font-normal" : "text-white text-lg font-semibold"}>MENU</span>
+              <span className="text-[#838383] dark:text-white text-xs font-normal">MENU</span>
             </div>
             {/* Menu Options */}
             <nav className="flex flex-col gap-6 flex-1">
@@ -139,9 +137,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
                 <div key={item.label} className="relative">
                   <Link
                     href={item.href}
-                    className={contactPage
-                      ? "flex items-center justify-between w-full text-left text-black/50 dark:text-white text-2xl font-normal py-2"
-                      : "flex items-center justify-between w-full text-left text-white text-lg font-medium py-2"}
+                    className="flex items-center justify-between w-full text-left text-black/50 dark:text-white text-2xl font-normal py-2" 
                     onClick={() => setMenuOpen(false)}
                   >
                     <span>{item.label}</span>
@@ -152,7 +148,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
                       }} />
                     </span>
                   </Link>
-                  <div className={contactPage ? "absolute left-0 right-0 bottom-0 h-px bg-black/10 dark:bg-white/20" : "absolute left-0 right-0 bottom-0 h-px bg-white/20"}></div>
+                  <div className="absolute left-0 right-0 bottom-0 h-px bg-black/10 dark:bg-white/20"></div>
                 </div>
               ))}
             </nav>
