@@ -87,7 +87,7 @@ export default function ScrollTextSection() {
   };
 
   return (
-    <section ref={sectionRef} className="py-48 px-6 md:px-24 bg-white">
+    <section ref={sectionRef} className="py-20 sm:py-48 px-6 md:px-24 bg-white">
       <div className="text-center mx-auto">
         <p className="text-md md:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
           {(() => {

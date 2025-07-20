@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import "./services-section-animations.css"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 interface Service {
   id: number
@@ -11,6 +12,11 @@ interface Service {
 }
 
 export default function ServicesSection() {
+  // Touch event state
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchScrollLeft, setTouchScrollLeft] = useState(0);
+
+  const isMobile = useIsMobile()
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -90,7 +96,7 @@ export default function ServicesSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 550
+      const scrollAmount = isMobile ? 312 : 550
       const currentScroll = scrollRef.current.scrollLeft
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount
@@ -130,7 +136,7 @@ export default function ServicesSection() {
   const handleMouseUp = () => {
     setIsDragging(false)
     if (scrollRef.current) {
-      const scrollAmount = 550
+      const scrollAmount = isMobile ? 312 : 550
       const currentScroll = scrollRef.current.scrollLeft
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
@@ -153,7 +159,7 @@ export default function ServicesSection() {
   const handleMouseLeave = () => {
     setIsDragging(false)
     if (scrollRef.current) {
-      const scrollAmount = 550
+      const scrollAmount = isMobile ? 312 : 550
       const currentScroll = scrollRef.current.scrollLeft
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
@@ -173,18 +179,53 @@ export default function ServicesSection() {
     }
   }
 
+  // Touch event handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (scrollRef.current) {
+      setIsDragging(true);
+      setTouchStartX(e.touches[0].pageX - scrollRef.current.offsetLeft);
+      setTouchScrollLeft(scrollRef.current.scrollLeft);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    const walk = (x - touchStartX) * 2;
+    scrollRef.current.scrollLeft = touchScrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    if (scrollRef.current) {
+      const scrollAmount = isMobile ? 312 : 550;
+      const currentScroll = scrollRef.current.scrollLeft;
+      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
+      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
+        scrollRef.current.scrollTo({ left: snapped, behavior: "smooth" });
+      } else {
+        scrollRef.current.scrollTo({ left: maxScroll, behavior: "smooth" });
+      }
+    }
+  };
+
+  const handleTouchCancel = () => {
+    setIsDragging(false);
+  };
+
   return (
     <section ref={sectionRef} id="services" className={`py-16 bg-white transition-opacity duration-2000 ${animate ? 'opacity-100' : 'opacity-0'}`}> 
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
-        <div className={`px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
+        <div className={`px-4 sm:px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
           <div className="flex items-center">
-            <p className="text-xl text-[#676767] max-w-xl text-left">
+            <p className="text-sm sm:text-xl text-[#676767] max-w-xl text-left">
               Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
               complexities.
             </p>
-            <div className="flex justify-end ml-6 gap-2 w-full">
+            <div className="hidden sm:flex justify-end ml-6 gap-2 w-full">
               <button
                 type="button"
                 onClick={() => scroll("left")}
@@ -209,11 +250,15 @@ export default function ServicesSection() {
         <div className="relative group">
           <div
             ref={scrollRef}
-            className={`flex gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex gap-3 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} w-full max-w-full`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchCancel}
           >
             {services.map((service, index) => {
               let cardAnim = ''
@@ -224,21 +269,21 @@ export default function ServicesSection() {
               return (
                 <div
                   key={service.id}
-                  className={`flex-shrink-0 w-[526px] h-[341px] rounded-2xl p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-32" : ""} transition-all duration-2000 ${cardAnim}`}
+                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-12 sm:ml-32" : ""} transition-all duration-2000 ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                 >
                   {/* Dark overlay for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-2xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg sm:rounded-2xl"></div>
 
                   {/* Card content */}
                   <div className="relative z-10">
-                    <h3 className="text-5xl font-semibold mb-4">{service.title}</h3>
-                    <p className="text-xl mb-6 font-light leading-tight text-white/[0.77]">{service.description}</p>
+                    <h3 className="text-2xl sm:text-5xl font-semibold mb-3 sm:mb-4">{service.title}</h3>
+                    <p className="text-sm sm:text-xl mb-4 sm:mb-6 font-normal leading-tight text-white/[0.77]">{service.description}</p>
 
                     {/* Arrow button */}
                     {/* <div className="flex justify-start">
-                      <ArrowUpRight className="h-16 w-16 text-white" />
-                  </div> */}
+                        <ArrowUpRight className="h-8 w-8 sm:h-16 sm:w-16 text-white" />
+                    </div> */}
                   </div>
                 </div>
               )

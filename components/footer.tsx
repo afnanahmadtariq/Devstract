@@ -165,11 +165,11 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center items-center gap-6 md:gap-0">
             {/* Legal Links */}
             <div className="flex items-center justify-center space-x-8">
-              <a href="#" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
-                <a href="/terms-of-service">Terms of Service</a>
+              <a href="/terms-of-service" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
+                Terms of Service
               </a>
-              <a href="#" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
-                <a href="/privacy-policy">Privacy Policy</a>
+              <a href="/privacy-policy" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
+                Privacy Policy
               </a>
             </div>
 
