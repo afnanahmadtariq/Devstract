@@ -35,10 +35,17 @@ export default function HeroSection() {
       </p>
 
       {/* CTA button */}
-      <Button className="bg-white/[0.03] border border-white/30 text-white hover:bg-white/[0.07] rounded-full px-8 py-7 text-base font-normal inline-flex items-center space-x-2 mb-32">
-        <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4" />
-        <span>Start a project</span>
-      </Button>
+      <div className="group inline-block mb-32">
+        <Button
+          className="bg-white/[0.03] border border-white/30 hover:border-white/0 text-white hover:bg-white/[0.07] rounded-full px-8 py-7 text-base font-normal inline-flex items-center space-x-2 relative overflow-hidden"
+        >
+          <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <img src="/media/button.svg" alt="button border" className="w-full h-full object-fill rounded-full" style={{ transform: 'scaleY(1.06)' }} />
+          </span>
+          <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4" />
+          <span>Start a project</span>
+        </Button>
+      </div>
 
       {/* Carousel */}
       <CarouselCards />
