@@ -48,24 +48,21 @@ export default function TestimonialsSection() {
     if (clickedIndex === 0 && !isAnimating) {
       setIsAnimating(true)
       setAnimationPhase('slide-out')
-      
       // After slide-out animation completes, slide the top card to the left
       setTimeout(() => {
         setAnimationPhase('slide-left')
-        
         // After slide-left animation completes, rearrange cards and slide back
         setTimeout(() => {
           const newOrder = [...cardOrder.slice(1), clickedId]
           setCardOrder(newOrder)
           setAnimationPhase('slide-in')
-          
           // After slide-in animation completes, reset to idle
           setTimeout(() => {
             setAnimationPhase('idle')
             setIsAnimating(false)
-          }, 500)
-        }, 500)
-      }, 500)
+          }, 250)
+        }, 375)
+      }, 375)
     }
   }
 
@@ -94,34 +91,37 @@ export default function TestimonialsSection() {
                 let translateX = index * -70
                 let scale = 1 - index * 0.1
                 // Define duration based on animation phase
-                let animationDuration = 'duration-500' // default
+                let animationDuration = 'duration-300' // default
+                let opacityNow = 1
 
                 // Animation adjustments
                 if (animationPhase === 'slide-out' && index === 0) {
                   // Top card slides right and scales down
-                  animationDuration = 'duration-500'
-                  translateX = 200
+                  animationDuration = 'duration-375'
+                  translateX = 100
                   scale = 0.7
+                  opacityNow = 0.2 // Fade out the top card
                 } else if (animationPhase === 'slide-out' && index > 0) {
                   // Behind cards move left to give space and scale up
-                  animationDuration = 'duration-500'
-                  translateX = (index - 1) * -70 - 250 // Move left by additional 250px to make space
+                  animationDuration = 'duration-375'
+                  translateX = (index - 1) * -70
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-left' && index === 0) {
                   // Top card slides left to go behind the stack with lowest z-index
-                  animationDuration = 'duration-700'
-                  translateX = -150
+                  animationDuration = 'duration-250'
+                  translateX = -100
                   scale = 0.5
                   zIndex = 0 // Put it behind all other cards
+                  opacityNow = 0.2 // Fade out the top card
                 } else if (animationPhase === 'slide-left' && index > 0) {
                   // Behind cards stay in their forward positions
-                  animationDuration = 'duration-500'
+                  animationDuration = 'duration-150'
                   translateX = (index - 1) * -70
                   scale = 1 - (index - 1) * 0.1
                 } else if (animationPhase === 'slide-in' && index === cardOrder.length - 1) {
                   // Last card (previously top) slides back from right
-                  animationDuration = 'duration-500'
-                  translateX = -200
+                  animationDuration = 'duration-75'
+                  translateX = -80
                   scale = 1 - index * 0.1
                   zIndex = 0
                 }
@@ -139,6 +139,8 @@ export default function TestimonialsSection() {
                       top: '50%',
                       translate: '0 -50%',
                       transformOrigin: 'center',
+                      transition: isAnimating ? "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)" : "all 0.3s ease-out",
+                      opacity: opacityNow,
                     }}
                     onClick={() => handleCardClick(testimonial.id)}
                   >
@@ -152,9 +154,14 @@ export default function TestimonialsSection() {
                       }}
                     >
                       {/* Black inner border at bottom for active card */}
-                      {index === 0 && (
-                        <div className="absolute inset-x-0 bottom-0 h-[8px] bg-black rounded-b-xl z-20"/>
-                      )}
+                      
+                      <div
+                        className="absolute inset-x-0 bottom-0 h-[8px] bg-black rounded-b-xl z-20"
+                        style={{
+                          transition: 'opacity 1s ease-out',
+                          opacity: index === 0 ? 1 : 0,
+                        }}
+                      />
                       {/* Large image on the left */}
                       <img
                         src={testimonial.image || "/placeholder.svg"}
