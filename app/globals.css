@@ -103,6 +103,17 @@
     }
   }
 
+  @keyframes navbar-down {
+    0% {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   @keyframes hero-up {
     0% {
       transform: translateY(40px);
@@ -124,6 +135,10 @@
 
   .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
+  }
+  
+  .animate-navbar-down {
+    animation: navbar-down 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   }
 
   .animate-hero-up {

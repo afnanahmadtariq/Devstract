@@ -169,28 +169,3 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
     </>
   )
 }
-
-// Add animation styles
-if (typeof window !== 'undefined') {
-  const styleId = 'navbar-down-animation-style';
-  if (!document.getElementById(styleId)) {
-    const style = document.createElement('style');
-    style.id = styleId;
-    style.innerHTML = `
-      @keyframes navbar-down {
-        0% {
-          transform: translateY(-40px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-      .animate-navbar-down {
-        animation: navbar-down 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-      }
-    `;
-    document.head.appendChild(style);
-  }
-}
