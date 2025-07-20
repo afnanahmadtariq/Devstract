@@ -1,6 +1,7 @@
 "use client"
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef} from 'react'
+import { useIsMobile } from "@/hooks/use-mobile"
 
 interface Card {
   id: number
@@ -11,6 +12,7 @@ interface Card {
 
 export default function CarouselCards() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
 
   const cards: Card[] = [
     { id: 1, title: "Lightning Fast Delivery", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card1.svg" },
@@ -34,7 +36,7 @@ export default function CarouselCards() {
         {loopCards.map((card, idx) => (
           <div
             key={`${card.id}-${idx}`}
-            className="w-[361px] h-[390px] rounded-xl flex-shrink-0 m-2 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
+            className="w-[259px] h-[280px] sm:w-[324px] sm:h-[350px] md:w-[361px] md:h-[390px] rounded-xl flex-shrink-0 m-2 flex flex-col justify-end shadow-lg relative overflow-hidden border border-white/[0.11]"
             style={{
               backgroundColor: '#121212'
             }}
@@ -47,8 +49,8 @@ export default function CarouselCards() {
             />
             
             <div className="p-6 text-left relative z-20">              
-              <h5 className="text-white font-normal text-lg mb-1">{card.title}</h5>
-              <p className="text-white/[0.32] font-normal text-base">{card.description}</p>
+              <h5 className="text-white font-normal text-sm sm:text-lg mb-1">{card.title}</h5>
+              <p className="text-white/[0.32] font-normal text-xs sm:text-base">{card.description}</p>
             </div>
           </div>
         ))}
