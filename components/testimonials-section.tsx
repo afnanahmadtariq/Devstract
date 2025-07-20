@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
   }, [cardOrder])
 
   return (
-    <section id="testimonials" className="py-24 px-6 bg-white">
+    <section id="testimonials" className="mt-24 sm:mt-0 sm:py-24 px-0 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
@@ -237,11 +237,11 @@ export default function TestimonialsSection() {
 
           {/* Right Column - Call to Action */}
           <div className="text-center relative z-10">
-              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
               <div className="relative max-w-md mx-auto mb-8 z-10">
-                <img src="/media/line.svg" alt="Line decoration" className="absolute right-0 top-0 h-5 w-auto -mt-5" />
+                <img src="/media/line.svg" alt="Line decoration" className="absolute right-14 sm:right-0 top-0 h-[13px] sm:h-5 w-auto -mt-5" />
               </div>
-            <p className="text-xl text-[#676767] leading-tight mb-8 max-w-md mx-auto relative z-10">
+            <p className="text-sm sm:text-xl text-[#676767] leading-tight mb-8 max-w-72 sm:max-w-md mx-auto relative z-10">
               Don't just take our word for it. See what our clients have to say about their experience working with us
               and the results we've delivered.
             </p>
@@ -251,11 +251,11 @@ export default function TestimonialsSection() {
               <img 
                 src="/media/world-map.png" 
                 alt="World map background" 
-                className="w-full h-80 object-cover absolute left-0 z-0"
+                className="w-full h-full sm:h-80 object-cover absolute left-0 z-0"
               />
               <div className="relative z-10 h-64 flex items-center justify-center">
                 <Button
-                  className="text-white text-base font-normal px-8 py-6 rounded-full"
+                  className="text-white text-xs sm:text-base font-normal px-6 py-4 sm:px-8 sm:py-6 rounded-full"
                   style={{
                     background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
                     filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.48))"
