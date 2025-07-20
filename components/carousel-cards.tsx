@@ -11,10 +11,6 @@ interface Card {
 
 export default function CarouselCards() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const [isDragging, setIsDragging] = useState(false)
-  // const [startX, setStartX] = useState(0)
-  // const [scrollLeft, setScrollLeft] = useState(0)
-  const [isAnimationPaused, setIsAnimationPaused] = useState(false)
 
   const cards: Card[] = [
     { id: 1, title: "Lightning Fast Delivery", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card1.svg" },
@@ -25,75 +21,15 @@ export default function CarouselCards() {
 
   // Duplicate list for seamless looping
   const loopCards = [...cards, ...cards]
-
-  // // Mouse drag handlers
-  // const handleMouseDown = (e: React.MouseEvent) => {
-  //   setIsDragging(true)
-  //   setIsAnimationPaused(true)
-  //   setStartX(e.pageX - (scrollContainerRef.current?.offsetLeft || 0))
-  //   setScrollLeft(scrollContainerRef.current?.scrollLeft || 0)
-  // }
-
-  // const handleMouseMove = (e: React.MouseEvent) => {
-  //   if (!isDragging || !scrollContainerRef.current) return
-  //   e.preventDefault()
-  //   const x = e.pageX - (scrollContainerRef.current.offsetLeft || 0)
-  //   const walk = (x - startX) * 2 // Scroll speed multiplier
-  //   scrollContainerRef.current.scrollLeft = scrollLeft - walk
-  // }
-
-  // const handleMouseUp = () => {
-  //   setIsDragging(false)
-  //   // Resume animation after a short delay
-  //   setTimeout(() => setIsAnimationPaused(false), 1000)
-  // }
-
-  // const handleMouseLeave = () => {
-  //   setIsDragging(false)
-  //   // Resume animation after a short delay
-  //   setTimeout(() => setIsAnimationPaused(false), 1000)
-  // }
-
-  // // Touch drag handlers
-  // const handleTouchStart = (e: React.TouchEvent) => {
-  //   setIsDragging(true)
-  //   setIsAnimationPaused(true)
-  //   setStartX(e.touches[0].pageX - (scrollContainerRef.current?.offsetLeft || 0))
-  //   setScrollLeft(scrollContainerRef.current?.scrollLeft || 0)
-  // }
-
-  // const handleTouchMove = (e: React.TouchEvent) => {
-  //   if (!isDragging || !scrollContainerRef.current) return
-  //   const x = e.touches[0].pageX - (scrollContainerRef.current.offsetLeft || 0)
-  //   const walk = (x - startX) * 2 // Scroll speed multiplier
-  //   scrollContainerRef.current.scrollLeft = scrollLeft - walk
-  // }
-
-  // const handleTouchEnd = () => {
-  //   setIsDragging(false)
-  //   // Resume animation after a short delay
-  //   setTimeout(() => setIsAnimationPaused(false), 1000)
-  // }
-
   return (
     <div className="w-full overflow-hidden">
       <div 
         ref={scrollContainerRef}
-        className={`flex overflow-x-scroll scrollbar-hide cursor-grab active:cursor-grabbing select-none ${
-          !isAnimationPaused ? 'animate-scroll-left' : ''
-        }`}
+        className='flex overflow-x-scroll scrollbar-hide cursor-grab active:cursor-grabbing select-none animate-scroll-left'              
         style={{
           width: `${loopCards.length * 383}px`, // 383px = 361px card width + 22px margin
-          scrollBehavior: isDragging ? 'auto' : 'smooth',
-          animationPlayState: isAnimationPaused ? 'paused' : 'running'
+          scrollBehavior: 'smooth'
         }}
-        // onMouseDown={handleMouseDown}
-        // onMouseMove={handleMouseMove}
-        // onMouseUp={handleMouseUp}
-        // onMouseLeave={handleMouseLeave}
-        // onTouchStart={handleTouchStart}
-        // onTouchMove={handleTouchMove}
-        // onTouchEnd={handleTouchEnd}
       >
         {loopCards.map((card, idx) => (
           <div
