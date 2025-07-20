@@ -67,9 +67,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Footer Links Columns (all in one col-span-2) */}
             <div className="lg:col-span-2 flex flex-row items-center gap-8">
-              <div className="flex flex-col items-center sm:items-start w-full">
+              <div className="flex flex-col items-center md:items-start w-full">
                 <h2 className="text-sm font-normal text-[#B4B4B4] mb-6 -mt-8">Links</h2>
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center w-full mb-10 sm:mb-0">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center md:w-full mb-10 sm:mb-0">
                   {footerLinks.map((link) => (
                     <a
                       key={link.label}
