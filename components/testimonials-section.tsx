@@ -2,6 +2,7 @@
 
 import { useState, useRef, useLayoutEffect } from "react"
 import { Button } from "@/components/ui/button"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 interface Testimonial {
   id: number
@@ -12,6 +13,7 @@ interface Testimonial {
 }
 
 export default function TestimonialsSection() {
+  const isMobile = useIsMobile()
   const testimonials: Testimonial[] = [
     {
       id: 1,
@@ -212,7 +214,7 @@ export default function TestimonialsSection() {
                           className="text-[#2c2c2c] font-syne text-4xl sm:text-6xl md:text-8xl font-medium absolute left-[140px] sm:left-[160px] md:left-[235px] w-6 sm:w-7 md:w-9 h-[45px] sm:h-[55px] md:h-[70px] mt-3 sm:mt-3 md:mt-4"
                           style={{
                             top:
-                              window.innerWidth < 640 // Tailwind's 'sm' breakpoint is 640px
+                              isMobile
                                 ? 4 + (nameTitleHeights[index] ?? 50) + 2 // smaller gap for mobile
                                 : 8 + (nameTitleHeights[index] ?? 62) + 10 // default gap for desktop
                           }}
