@@ -1,14 +1,14 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import type { Metadata } from 'next'
+import { Syne } from 'next/font/google'
+import './globals.css'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
-const inter = Inter({ subsets: ["latin"] })
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -20,15 +20,24 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/D logo b.png',
-        media: '(prefers-color-scheme: light)'
+        url: '/favicon.ico',
+        type: 'image/x-icon',
+        sizes: '16x16 32x32',
       },
       {
-        url: '/images/D logo w.png',
-        media: '(prefers-color-scheme: dark)'
+        url: '/favicon-16x16.png',
+        type: 'image/png',
+        sizes: '16x16',
+      },
+      {
+        url: '/favicon-32x32.png',
+        type: 'image/png',
+        sizes: '32x32',
       }
     ],
-  }
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -37,43 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.devstract.site" />
-        <meta property="og:title" content="Devstract" />
-        <meta property="og:description" content="We build next-generation web and mobile solutions for forward-thinking businesses." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.devstract.site" />
-        <meta property="og:image" content="https://www.devstract.site/images/logo.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Devstract" />
-        <meta name="twitter:description" content="We build next-generation web and mobile solutions for forward-thinking businesses." />
-        <meta name="twitter:image" content="https://www.devstract.site/images/logo.png" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Devstract',
-            url: 'https://www.devstract.site',
-            logo: 'https://www.devstract.site/images/logo.png',
-            sameAs: [
-              'https://www.linkedin.com/company/devstract',
-              'https://twitter.com/devstract',
-            ],
-          })}
-        </script>
-      </head>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen bg-white flex flex-col">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body className={`${syne.variable} font-sans antialiased`}>{children}</body>
       <SpeedInsights/>
       <Analytics/>
     </html>
