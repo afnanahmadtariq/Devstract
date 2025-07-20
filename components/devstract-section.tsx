@@ -58,7 +58,7 @@ export default function DevstractSection() {
     }
   }, [show])
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-white">
+    <section ref={sectionRef} className="sm:py-24 px-6 bg-white">
       <div className="max-w-8xl mx-auto text-center">
         {/* Process Flow */}
         <div className="mb-8">
