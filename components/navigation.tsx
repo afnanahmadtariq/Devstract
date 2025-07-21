@@ -7,10 +7,11 @@ import { useState, useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
 
 interface NavigationProps {
-  contactPage?: boolean;
+  mainpage?: boolean;
+  disableContact?: boolean;
 }
 
-export default function Navigation({ contactPage = false }: NavigationProps) {
+export default function Navigation({ mainpage = false, disableContact = false }: NavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuClosing, setMenuClosing] = useState(false)
   const [showNav, setShowNav] = useState(false)
@@ -49,14 +50,14 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
           {/* Logo */}
           <div className="flex items-center space-x-8">
             <Link href="/" passHref>
-              <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
+              <div className={!mainpage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
                 <Image
                   src="/images/logo.svg"
                   alt="Devstract Logo"
                   width={32}
                   height={32}
                   className={
-                    contactPage
+                    !mainpage
                       ? "cursor-pointer" 
                       : "cursor-pointer filter brightness-0 invert"
                   }
@@ -66,19 +67,19 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
 
             {/* Navigation Links (Desktop) */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#home" className={contactPage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#home" className={!mainpage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Home
               </Link>
-              <Link href="/#services" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#services" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Services
               </Link>
-              <Link href="https://blog.devstract.site" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="https://blog.devstract.site" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Blog
               </Link>
-              <Link href="/about-us" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/about-us" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 About Us
               </Link>
-              <Link href="/faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/faqs" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 FAQs
               </Link>
             </div>
@@ -86,7 +87,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
+            className={!mainpage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
           >
@@ -98,7 +99,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
           </button>
 
           {/* Contact Us Button (Desktop) */}
-          {contactPage ? (
+          {disableContact ? (
             <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
               Contact Us
             </span>

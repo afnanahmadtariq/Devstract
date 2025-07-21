@@ -29,7 +29,7 @@ export default function Home() {
           aria-hidden="true"
         />
         <div className="relative z-10">
-          <Navigation />
+          <Navigation mainpage/>
           <HeroSection />
         </div>
       </div>

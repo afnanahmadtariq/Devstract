@@ -6,7 +6,7 @@ import Footer from '@/components/footer';
 export default function AboutUsPage() {
   return (
     <>
-      <Navigation contactPage />
+      <Navigation/>
       <main className="flex flex-col min-h-[70vh] bg-white dark:bg-gray-900">
         <section className="flex flex-col items-center justify-center py-8 px-4">
           <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-8 text-center">About Us</h1>
