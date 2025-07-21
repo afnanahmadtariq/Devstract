@@ -8,15 +8,35 @@ import { useState } from "react";
 const faqs = [
   {
     question: "What is Devstract?",
-    answer: "Devstract is a platform providing web development services and resources."
+    answer: "Devstract is a platform providing web development services."
   },
   {
     question: "How can I contact support?",
-    answer: "You can reach us at support@devstract.com."
+    answer: "You can reach us at contact@devstract.site or through our contact form."
   },
   {
     question: "Do you offer custom solutions?",
     answer: "Yes, we offer custom web development solutions tailored to your needs."
+  },
+  {
+    question: "What technologies do you specialize in?",
+    answer: "We specialize in modern web technologies including React, Next.js, Node.js, and Tailwind CSS."
+  },
+  {
+    question: "How long does a typical project take?",
+    answer: "Project timelines vary based on requirements, but most projects are completed within 2-6 weeks."
+  },
+  {
+    question: "Can you redesign my existing website?",
+    answer: "Absolutely! We offer website redesign services to improve both aesthetics and functionality."
+  },
+  {
+    question: "Is SEO included in your web development services?",
+    answer: "Yes, we follow SEO best practices to ensure your website is optimized for search engines."
+  },
+  {
+    question: "Do you provide ongoing support after launch?",
+    answer: "We offer ongoing maintenance and support packages to keep your website running smoothly."
   }
 ];
 

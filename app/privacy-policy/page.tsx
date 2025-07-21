@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <h2 className="text-xl font-semibold mt-6 mb-2 text-indigo-700 dark:text-indigo-400">Contact Us</h2>
             <p className="text-gray-700 dark:text-gray-200">
-              If you have any questions about this Privacy Policy, please contact us at support@devstract.com.
+              If you have any questions about this Privacy Policy, please contact us at contact@devstract.site.
             </p>
           </div>
         </section>
