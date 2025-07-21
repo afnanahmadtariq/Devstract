@@ -3,11 +3,13 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobile"
+import { useIsTab } from "@/hooks/use-tab" // or "@/components/ui/use-tab"
 
 export default function ContactSection() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const isTab = useIsTab();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,12 +48,12 @@ export default function ContactSection() {
         >
           {/* "Get in touch" heading behind the image */}
           <div
-            className="absolute inset-x-0 top-[210px] sm:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
-              transform: `translateY(${(1 - scrollProgress) * (typeof window !== "undefined" && window.innerWidth >= 768 ? 224 : 120)}px)`
+              transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : isTab ? 180 : 224)}px)`
             }}
           >
-            <h2 className="text-6xl md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
+            <h2 className="text-6xl sm:text-[7rem] md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
               Get in <span style={{
                 background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
                 backgroundClip: "text",
@@ -122,6 +124,8 @@ export default function ContactSection() {
               style={{
                 width: isMobile
                   ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // mobile width
+                  : isTab 
+                  ? `${55 + (scrollProgress > 0.91 ? scrollProgress * 180 : 0)}px` // tablet width
                   : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // desktop width
                 transition: "width 1s ease-out",
               }}
