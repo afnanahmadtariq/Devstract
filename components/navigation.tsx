@@ -12,6 +12,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ mainpage = false, disableContact = false }: NavigationProps) {
+  const [activeMenuIdx, setActiveMenuIdx] = useState<number | null>(null)
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuClosing, setMenuClosing] = useState(false)
   const [showNav, setShowNav] = useState(false)
@@ -134,24 +135,59 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 { href: "/about-us", label: "About Us" },
                 { href: "/#testimonials", label: "Testimonials" },
                 { href: "/contactus", label: "Contact Us" }
-              ].map((item, idx) => (
-                <div key={item.label} className="relative">
-                  <Link
-                    href={item.href}
-                    className="flex items-center justify-between w-full text-left text-black/50 dark:text-white text-2xl font-normal py-2" 
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <span>{item.label}</span>
-                    <span className="ml-2">
-                      <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{ 
-                        transform: "rotate(-45deg)",
-                        filter: "brightness(0.5) invert(1)"
-                      }} />
-                    </span>
-                  </Link>
-                  <div className="absolute left-0 right-0 bottom-0 h-px bg-black/10 dark:bg-white/20"></div>
-                </div>
-              ))}
+              ].map((item, idx) => {
+                const isActive = activeMenuIdx === idx;
+                return (
+                  <div key={item.label} className="relative group">
+                    <Link
+                      href={item.href}
+                      className={`flex items-center justify-between w-full text-left text-2xl font-normal py-2 ${isActive ? '' : 'text-black/50 dark:text-white/80'}`}
+                      style={isActive ? {
+                        background: "var(--primary-gradient)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                        color: "transparent"
+                      } : {}}
+                      onClick={() => {
+                        setActiveMenuIdx(idx);
+                        setTimeout(() => {
+                          setMenuOpen(false);
+                          setActiveMenuIdx(-1);
+                        }, 100);
+                      }}
+                    >
+                      <span>{item.label}</span>
+                      <span className="ml-2">
+                        {isActive ? (
+                          <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{
+                            transform: "rotate(-45deg)",
+                            filter: "none",
+                            background: "var(--primary-gradient)",
+                            WebkitMaskImage: "url('/media/small_arrow.svg')",
+                            maskImage: "url('/media/small_arrow.svg')",
+                            WebkitMaskRepeat: "no-repeat",
+                            maskRepeat: "no-repeat"
+                          }} />
+                        ) : (
+                          <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{
+                            transform: "rotate(-45deg)",
+                            filter: "brightness(0.5) invert(1)"
+                          }} />
+                        )}
+                      </span>
+                    </Link>
+                    <div
+                      className="absolute left-0 right-0 bottom-0 h-px"
+                      style={isActive ? {
+                        background: "var(--primary-gradient)"
+                      } : {
+                        background: "#0003"
+                      }}
+                    ></div>
+                  </div>
+                )
+              })}
             </nav>
             {/* Cross Button at Bottom */}
             <div className="mt-8 mb-4 flex justify-center">
