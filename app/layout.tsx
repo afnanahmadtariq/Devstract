@@ -46,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${syne.variable} font-sans antialiased`}>{children}</body>
+    <html lang="en" className="antialiased">
+      <body className={`${syne.variable} font-sans`}>{children}</body>
       <SpeedInsights/>
       <Analytics/>
     </html>
