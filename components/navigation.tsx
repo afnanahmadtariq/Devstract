@@ -35,6 +35,21 @@ export default function Navigation({ mainpage = false, disableContact = false }:
     }
   }, [menuOpen])
 
+  // Prevent scrolling/touch behind the mobile menu overlay
+  useEffect(() => {
+    if (menuOpen || menuClosing) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [menuOpen, menuClosing]);
+
   // Handle menu close with animation
   function handleCloseMenu() {
     setMenuClosing(true)
