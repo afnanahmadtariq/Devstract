@@ -61,7 +61,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
 
   return (
     <>
-      <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${showNav ? 'animate-navbar-down' : 'opacity-0'}`}>
+      <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${mainpage ? (showNav ? 'animate-navbar-down' : 'opacity-0') : ''}`}>
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-8">
