@@ -1,24 +1,71 @@
 
 "use client";
+
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import ScrollToTopButton from '@/components/scroll-to-top-button';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function AboutUsPage() {
+
+  // Refs and scroll logic for animation
+  const mainSectionRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  // Animate text up as user scrolls (0px to 400px scroll)
+  const y = useTransform(scrollY, [0, 400], [0, -120]);
+  // Animate big text sliding in from right (starts after content is out, 400px to 800px)
+  const bigTextX = useTransform(scrollY, [400, 800], ['100vw', '0vw']);
+  const bigTextOpacity = useTransform(scrollY, [400, 500, 800], [0, 1, 1]);
+
   return (
     <>
       <Navigation />
       <main className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
-        {/* Hero Section */}
-        <section className="relative flex flex-col items-center justify-center py-16 px-4 bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 text-center">We drive growth and shape the digital future.</h1>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl text-center mb-8">Devstract empowers businesses with innovative, scalable, and effective web solutions, helping them thrive in a digital-first world.</p>
-          <div className="flex flex-wrap justify-center gap-6 mt-6">
-            <img src="/images/image 3.png" alt="Teamwork" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
-            <img src="/images/image 4.png" alt="Office" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
-            <img src="/images/image 6.png" alt="Innovation" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
-          </div>
-        </section>
+        {/* Sticky Scroll Section Wrapper */}
+        <div style={{ position: 'relative', height: '2000px' /* 800px scroll + 100vh for stickiness */ }}>
+          <section
+            ref={mainSectionRef}
+            className="sticky top-0 flex flex-col items-center justify-center py-16 px-4 min-h-[100vh] bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800 bg-fixed overflow-hidden"
+            style={{ position: 'sticky', top: 0 }}
+          >
+            {/* Animated text/images wrapper */}
+            <motion.div style={{ y }} className="flex flex-col items-center w-full">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                We drive growth and shape the digital future.
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl text-center mb-8">
+                Devstract empowers businesses with innovative, scalable, and effective web solutions, helping them thrive in a digital-first world.
+              </p>
+              <div className="flex flex-wrap justify-center gap-6 mt-6">
+                <img src="/images/image 3.png" alt="Teamwork" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+                <img src="/images/image 4.png" alt="Office" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+                <img src="/images/image 6.png" alt="Innovation" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+              </div>
+            </motion.div>
+
+            {/* Big text slides in from right, scroll controlled */}
+            <motion.div
+              style={{
+                x: bigTextX,
+                opacity: bigTextOpacity,
+                zIndex: 10,
+                transform: 'translateY(-50%)',
+                position: 'absolute',
+                top: '50%',
+                left: 0,
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                pointerEvents: 'none',
+              }}
+            >
+              <span className="text-[12vw] font-extrabold text-black dark:text-indigo-800 opacity-80 whitespace-nowrap select-none drop-shadow-lg">
+                DEVSTRACT IS AMAZING. OH YEAH BABY!!!
+              </span>
+            </motion.div>
+          </section>
+        </div>
 
         {/* History & Mission */}
         <section className="py-16 px-4 bg-[#F7F7F7] dark:bg-gray-800 flex flex-col items-center">
