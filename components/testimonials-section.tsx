@@ -239,7 +239,7 @@ export default function TestimonialsSection() {
           <div className="text-center relative z-10">
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
               <div className="relative max-w-md mx-auto mb-8 z-10">
-                <img src="/media/line.svg" alt="Line decoration" className="absolute right-14 sm:right-0 top-0 h-[13px] sm:h-5 w-auto -mt-5" />
+                <img src="/media/line.svg" alt="Line decoration" className="absolute right-12 sm:right-0 top-0 h-[13px] sm:h-5 w-auto -mt-5" />
               </div>
             <p className="text-sm sm:text-xl text-[#676767] leading-tight mb-8 max-w-72 sm:max-w-md mx-auto relative z-10">
               Don't just take our word for it. See what our clients have to say about their experience working with us
