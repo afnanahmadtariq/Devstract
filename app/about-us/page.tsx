@@ -59,9 +59,9 @@ export default function AboutUsPage() {
                 Devstract empowers businesses with innovative, scalable, and effective web solutions, helping them thrive in a digital-first world.
               </p>
               <div className="flex flex-wrap justify-center gap-6 mt-6">
-                <img src="/images/image 3.png" alt="Teamwork" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
-                <img src="/images/image 4.png" alt="Office" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
-                <img src="/images/image 6.png" alt="Innovation" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Teamwork" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Office" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80" alt="Innovation" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
               </div>
             </motion.div>
 
@@ -134,15 +134,15 @@ export default function AboutUsPage() {
           <h2 className="text-3xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Recognitions & Partnerships</h2>
           <div className="flex flex-wrap justify-center gap-8 mt-4">
             <div className="flex flex-col items-center">
-              <img src="/media/award.svg" alt="Award" className="w-16 h-16 mb-2" />
+              <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=64&q=80" alt="Award" className="w-16 h-16 mb-2 rounded-full object-cover" />
               <span className="text-gray-700 dark:text-gray-200">Top B2B Company 2024</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/media/partner.svg" alt="Partner" className="w-16 h-16 mb-2" />
+              <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=64&q=80" alt="Partner" className="w-16 h-16 mb-2 rounded-full object-cover" />
               <span className="text-gray-700 dark:text-gray-200">Official Partner: AWS, Microsoft</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/media/certificate.svg" alt="Certificate" className="w-16 h-16 mb-2" />
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=64&q=80" alt="Certificate" className="w-16 h-16 mb-2 rounded-full object-cover" />
               <span className="text-gray-700 dark:text-gray-200">Certified Excellence</span>
             </div>
           </div>
@@ -153,19 +153,19 @@ export default function AboutUsPage() {
           <h2 className="text-3xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">They loved these collaborations</h2>
           <div className="flex flex-wrap justify-center gap-8 mt-8">
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 w-80 flex flex-col items-center">
-              <img src="/media/card1.svg" alt="Client 1" className="w-16 h-16 mb-4" />
+              <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=64&q=80" alt="Client 1" className="w-16 h-16 mb-4 rounded-full object-cover" />
               <p className="text-gray-700 dark:text-gray-200 mb-4 text-center">“Devstract helped us reduce missed orders by 80% and improved our product categorization precision to 95%.”</p>
               <span className="font-semibold text-indigo-700 dark:text-indigo-400">Umair Bashir</span>
               <span className="text-sm text-gray-500">Global Director IT</span>
             </div>
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 w-80 flex flex-col items-center">
-              <img src="/media/card2.svg" alt="Client 2" className="w-16 h-16 mb-4" />
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=64&q=80" alt="Client 2" className="w-16 h-16 mb-4 rounded-full object-cover" />
               <p className="text-gray-700 dark:text-gray-200 mb-4 text-center">“Customer satisfaction improved by 31% and our sales team’s productivity increased by 23% after working with Devstract.”</p>
               <span className="font-semibold text-indigo-700 dark:text-indigo-400">Nick Drogo</span>
               <span className="text-sm text-gray-500">Division Health Strategy Consultant</span>
             </div>
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 w-80 flex flex-col items-center">
-              <img src="/media/card3.svg" alt="Client 3" className="w-16 h-16 mb-4" />
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=64&q=80" alt="Client 3" className="w-16 h-16 mb-4 rounded-full object-cover" />
               <p className="text-gray-700 dark:text-gray-200 mb-4 text-center">“We achieved a 90% global user adoption rate with Devstract’s solutions.”</p>
               <span className="font-semibold text-indigo-700 dark:text-indigo-400">Geraldine Przybylko</span>
               <span className="text-sm text-gray-500">CTO, Replenium</span>
@@ -197,9 +197,9 @@ export default function AboutUsPage() {
           <h2 className="text-3xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Our Team & Culture</h2>
           <p className="max-w-2xl text-gray-700 dark:text-gray-200 text-center mb-6">At our core, we’re built on and motivated by our confidence in our talented team. We foster a culture of inclusivity, innovation, and continuous learning, supporting our clients’ success every day.</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <img src="/media/baloons.svg" alt="Team Culture" className="w-32 h-32 object-contain" />
-            <img src="/media/gears.svg" alt="Teamwork" className="w-32 h-32 object-contain" />
-            <img src="/media/gradient.svg" alt="Growth" className="w-32 h-32 object-contain" />
+            <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=300&q=80" alt="Team Culture" className="w-32 h-32 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=300&q=80" alt="Teamwork" className="w-32 h-32 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=300&q=80" alt="Growth" className="w-32 h-32 object-cover rounded-xl" />
           </div>
         </section>
 
