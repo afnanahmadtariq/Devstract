@@ -3,6 +3,8 @@
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 
+import { useState } from "react";
+
 const faqs = [
   {
     question: "What is Devstract?",
@@ -19,17 +21,46 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
     <>
       <Navigation/>
-      <main className="flex flex-col min-h-[70vh] bg-white dark:bg-gray-900">
+      <main className="flex flex-col min-h-[70vh] bg-transparent dark:bg-transparent">
         <section className="flex flex-col items-center justify-center py-8 px-4">
           <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h1>
-          <div className="w-full max-w-3xl bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-8">
+          <div className="w-full max-w-3xl">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="border-b border-gray-200 pb-6 mb-6 last:border-b-0 last:mb-0">
-                <h2 className="text-xl font-semibold mb-2 text-indigo-700 dark:text-indigo-400">{faq.question}</h2>
-                <p className="text-gray-700 dark:text-gray-200">{faq.answer}</p>
+              <div key={idx}>
+                <button
+                  className="w-full flex items-center justify-between py-5 focus:outline-none"
+                  onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+                  aria-expanded={openIdx === idx}
+                  aria-controls={`faq-answer-${idx}`}
+                >
+                  <span className="text-left text-lg font-semibold text-black dark:text-white">{faq.question}</span>
+                  <span className={`ml-4 transition-transform duration-200 ${openIdx === idx ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
+                  >
+                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <div
+                  id={`faq-answer-${idx}`}
+                  className={`overflow-hidden transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl px-4 mb-2 ${openIdx === idx ? 'max-h-40 py-4 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
+                  style={{
+                    transitionProperty: 'max-height, opacity, padding',
+                  }}
+                  aria-hidden={openIdx !== idx}
+                >
+                  <div className="transition-opacity duration-300">
+                    {faq.answer}
+                  </div>
+                </div>
+                {idx !== faqs.length - 1 && (
+                  <hr className="border-t border-gray-300 dark:border-gray-700" />
+                )}
               </div>
             ))}
           </div>
