@@ -44,10 +44,10 @@ export default function Footer() {
   }
 
   const footerLinks = [
-    { label: "Home", href: "#home" },
+    { label: "Home", href: "/#home" },
     { label: "About us", href: "/about-us" },
-    { label: "Services", href: "#services" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Services", href: "/#services" },
+    { label: "Testimonials", href: "/#testimonials" },
     { label: "FAQs", href: "/faqs" },
   ];
 
