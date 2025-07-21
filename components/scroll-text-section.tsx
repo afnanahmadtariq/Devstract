@@ -1,10 +1,12 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function ScrollTextSection() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,13 +57,13 @@ export default function ScrollTextSection() {
 
   // Responsive style for each icon
   const getGearsIconStyle = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    if (isMobile) {
       return iconMobileGears;
     }
     return iconStyle;
   };
   const getLightbulbIconStyle = () => {
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    if (isMobile) {
       return iconMobileLightbulb;
     }
     return iconStyle;

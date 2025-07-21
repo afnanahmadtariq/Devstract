@@ -96,28 +96,36 @@ export default function ServicesSection() {
     },
   ]
 
-  const scroll = (direction: "left" | "right") => {
+  // Helper function to snap scroll position
+  const snapScroll = (customScroll?: number) => {
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550
-      const currentScroll = scrollRef.current.scrollLeft
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
-      let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount
-      let snapped = Math.round(targetScroll / scrollAmount) * scrollAmount
-
+      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550;
+      const currentScroll = typeof customScroll === 'number' ? customScroll : scrollRef.current.scrollLeft;
+      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
       // Snap to whichever is closer: snapped or maxScroll
-      if (Math.abs(targetScroll - snapped) < Math.abs(targetScroll - maxScroll)) {
+      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
         scrollRef.current.scrollTo({
           left: snapped,
           behavior: "smooth",
-        })
+        });
       } else {
         scrollRef.current.scrollTo({
           left: maxScroll,
           behavior: "smooth",
-        })
+        });
       }
     }
-  }
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550;
+      const currentScroll = scrollRef.current.scrollLeft;
+      let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount;
+      snapScroll(targetScroll);
+    }
+  };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (scrollRef.current) {
@@ -136,50 +144,14 @@ export default function ServicesSection() {
   }
 
   const handleMouseUp = () => {
-    setIsDragging(false)
-    if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550
-      const currentScroll = scrollRef.current.scrollLeft
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
-      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
-
-      // Snap to whichever is closer: snapped or maxScroll
-      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
-        scrollRef.current.scrollTo({
-          left: snapped,
-          behavior: "smooth",
-        })
-      } else {
-        scrollRef.current.scrollTo({
-          left: maxScroll,
-          behavior: "smooth",
-        })
-      }
-    }
-  }
+    setIsDragging(false);
+    snapScroll();
+  };
 
   const handleMouseLeave = () => {
-    setIsDragging(false)
-    if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550
-      const currentScroll = scrollRef.current.scrollLeft
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
-      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
-
-      // Snap to whichever is closer: snapped or maxScroll
-      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
-        scrollRef.current.scrollTo({
-          left: snapped,
-          behavior: "smooth",
-        })
-      } else {
-        scrollRef.current.scrollTo({
-          left: maxScroll,
-          behavior: "smooth",
-        })
-      }
-    }
-  }
+    setIsDragging(false);
+    snapScroll();
+  };
 
   // Touch event handlers
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -199,18 +171,17 @@ export default function ServicesSection() {
 
   const handleTouchEnd = () => {
     setIsDragging(false);
-    if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550;
-      const currentScroll = scrollRef.current.scrollLeft;
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
-      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
-        scrollRef.current.scrollTo({ left: snapped, behavior: "smooth" });
-      } else {
-        scrollRef.current.scrollTo({ left: maxScroll, behavior: "smooth" });
-      }
-    }
+    snapScroll();
   };
+  // Keep adjusting scroll position on resize or device change
+  useEffect(() => {
+    snapScroll();
+    // Optionally, also listen to window resize for dynamic adjustment
+    const handleResize = () => snapScroll();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMobile, isTab]);
 
   const handleTouchCancel = () => {
     setIsDragging(false);
