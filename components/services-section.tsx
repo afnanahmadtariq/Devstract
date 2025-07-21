@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import "./services-section-animations.css"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { useIsTab } from "@/hooks/use-tab"
 
 interface Service {
   id: number
@@ -17,6 +18,7 @@ export default function ServicesSection() {
   const [touchScrollLeft, setTouchScrollLeft] = useState(0);
 
   const isMobile = useIsMobile()
+  const isTab = useIsTab()
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -96,7 +98,7 @@ export default function ServicesSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : 550
+      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550
       const currentScroll = scrollRef.current.scrollLeft
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount
@@ -136,7 +138,7 @@ export default function ServicesSection() {
   const handleMouseUp = () => {
     setIsDragging(false)
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : 550
+      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550
       const currentScroll = scrollRef.current.scrollLeft
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
@@ -159,7 +161,7 @@ export default function ServicesSection() {
   const handleMouseLeave = () => {
     setIsDragging(false)
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : 550
+      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550
       const currentScroll = scrollRef.current.scrollLeft
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount
@@ -198,7 +200,7 @@ export default function ServicesSection() {
   const handleTouchEnd = () => {
     setIsDragging(false);
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : 550;
+      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550;
       const currentScroll = scrollRef.current.scrollLeft;
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
       let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
