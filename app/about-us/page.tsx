@@ -1,19 +1,24 @@
 
 "use client";
-
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import ScrollToTopButton from '@/components/scroll-to-top-button';
-import HeroSection from '@/components/hero-section';
 
 export default function AboutUsPage() {
   return (
     <>
       <Navigation />
-
       <main className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
         {/* Hero Section */}
-        <HeroSection />
+        <section className="relative flex flex-col items-center justify-center py-16 px-4 bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 text-center">We drive growth and shape the digital future.</h1>
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl text-center mb-8">Devstract empowers businesses with innovative, scalable, and effective web solutions, helping them thrive in a digital-first world.</p>
+          <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <img src="/images/image 3.png" alt="Teamwork" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+            <img src="/images/image 4.png" alt="Office" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+            <img src="/images/image 6.png" alt="Innovation" className="w-40 h-40 object-cover rounded-3xl shadow-lg" />
+          </div>
+        </section>
 
         {/* History & Mission */}
         <section className="py-16 px-4 bg-[#F7F7F7] dark:bg-gray-800 flex flex-col items-center">
