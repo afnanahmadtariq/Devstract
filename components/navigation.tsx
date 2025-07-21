@@ -7,10 +7,12 @@ import { useState, useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
 
 interface NavigationProps {
-  contactPage?: boolean;
+  mainpage?: boolean;
+  disableContact?: boolean;
 }
 
-export default function Navigation({ contactPage = false }: NavigationProps) {
+export default function Navigation({ mainpage = false, disableContact = false }: NavigationProps) {
+  const [activeMenuIdx, setActiveMenuIdx] = useState<number | null>(null)
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuClosing, setMenuClosing] = useState(false)
   const [showNav, setShowNav] = useState(false)
@@ -49,14 +51,14 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
           {/* Logo */}
           <div className="flex items-center space-x-8">
             <Link href="/" passHref>
-              <div className={contactPage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
+              <div className={!mainpage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
                 <Image
                   src="/images/logo.svg"
                   alt="Devstract Logo"
                   width={32}
                   height={32}
                   className={
-                    contactPage
+                    !mainpage
                       ? "cursor-pointer" 
                       : "cursor-pointer filter brightness-0 invert"
                   }
@@ -66,19 +68,19 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
 
             {/* Navigation Links (Desktop) */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#home" className={contactPage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#home" className={!mainpage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Home
               </Link>
-              <Link href="/#services" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#services" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Services
               </Link>
-              <Link href="https://blog.devstract.site" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
-                Blog
-              </Link>
-              <Link href="/about-us" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/about-us" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 About Us
               </Link>
-              <Link href="/faqs" className={contactPage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#testimonials" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+                Testimonials
+              </Link>
+              <Link href="/faqs" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 FAQs
               </Link>
             </div>
@@ -86,7 +88,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className={contactPage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
+            className={!mainpage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
           >
@@ -98,7 +100,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
           </button>
 
           {/* Contact Us Button (Desktop) */}
-          {contactPage ? (
+          {disableContact ? (
             <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
               Contact Us
             </span>
@@ -117,7 +119,7 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
         <div className="fixed inset-0 z-[9999] bg-black/10 flex items-center justify-center">
           <div
             ref={menuRef}
-            className={"relative w-[96vw] max-w-[400px] h-[98vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-16 py-12"
+            className={"relative w-[90vw] h-[90vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-16 py-12"
               + (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
             }
           >
@@ -133,24 +135,59 @@ export default function Navigation({ contactPage = false }: NavigationProps) {
                 { href: "/about-us", label: "About Us" },
                 { href: "/#testimonials", label: "Testimonials" },
                 { href: "/contactus", label: "Contact Us" }
-              ].map((item, idx) => (
-                <div key={item.label} className="relative">
-                  <Link
-                    href={item.href}
-                    className="flex items-center justify-between w-full text-left text-black/50 dark:text-white text-2xl font-normal py-2" 
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <span>{item.label}</span>
-                    <span className="ml-2">
-                      <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{ 
-                        transform: "rotate(-45deg)",
-                        filter: "brightness(0.5) invert(1)"
-                      }} />
-                    </span>
-                  </Link>
-                  <div className="absolute left-0 right-0 bottom-0 h-px bg-black/10 dark:bg-white/20"></div>
-                </div>
-              ))}
+              ].map((item, idx) => {
+                const isActive = activeMenuIdx === idx;
+                return (
+                  <div key={item.label} className="relative group">
+                    <Link
+                      href={item.href}
+                      className={`flex items-center justify-between w-full text-left text-2xl font-normal py-2 ${isActive ? '' : 'text-black/50 dark:text-white/80'}`}
+                      style={isActive ? {
+                        background: "var(--primary-gradient)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                        color: "transparent"
+                      } : {}}
+                      onClick={() => {
+                        setActiveMenuIdx(idx);
+                        setTimeout(() => {
+                          setMenuOpen(false);
+                          setActiveMenuIdx(-1);
+                        }, 100);
+                      }}
+                    >
+                      <span>{item.label}</span>
+                      <span className="ml-2">
+                        {isActive ? (
+                          <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{
+                            transform: "rotate(-45deg)",
+                            filter: "none",
+                            background: "var(--primary-gradient)",
+                            WebkitMaskImage: "url('/media/small_arrow.svg')",
+                            maskImage: "url('/media/small_arrow.svg')",
+                            WebkitMaskRepeat: "no-repeat",
+                            maskRepeat: "no-repeat"
+                          }} />
+                        ) : (
+                          <Image src="/media/small_arrow.svg" alt="arrow" width={20} height={20} style={{
+                            transform: "rotate(-45deg)",
+                            filter: "brightness(0.5) invert(1)"
+                          }} />
+                        )}
+                      </span>
+                    </Link>
+                    <div
+                      className="absolute left-0 right-0 bottom-0 h-px"
+                      style={isActive ? {
+                        background: "var(--primary-gradient)"
+                      } : {
+                        background: "#0003"
+                      }}
+                    ></div>
+                  </div>
+                )
+              })}
             </nav>
             {/* Cross Button at Bottom */}
             <div className="mt-8 mb-4 flex justify-center">

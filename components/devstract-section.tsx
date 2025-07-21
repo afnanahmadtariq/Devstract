@@ -73,9 +73,9 @@ export default function DevstractSection() {
             }}
           >
             Ideation
-            <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-34 sm:h-34" />
+            <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-36 sm:h-36" />
             Planning
-            <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-34 sm:h-34" />
+            <img src="/media/arrow.svg" alt="arrow" className="w-12 h-12 sm:w-36 sm:h-36" />
             <span
               style={{
                 backgroundImage: "linear-gradient(310deg, #5A45FF 0%, #7D71FF 77%, #7C81FF 98%, #000099 150%)",

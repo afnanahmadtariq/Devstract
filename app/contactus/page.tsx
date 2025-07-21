@@ -38,7 +38,7 @@ export default function ContactUsPage() {
 
   return (
     <>
-      <Navigation contactPage />
+      <Navigation disableContact />
       <main className="flex flex-col min-h-[70vh] bg-white dark:bg-gray-900">
         <section className="flex flex-col items-center justify-center py-8 px-4">
           <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">Contact Us</h1>
@@ -109,18 +109,21 @@ export default function ContactUsPage() {
                       <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
                     </span>
                   </button>
-                  <button type="submit" disabled={sending} 
-                      className="px-10 py-4 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base font-medium w-auto min-w-[140px] mx-auto transition-colors text-white"
-                      style={{
-                        backgroundImage: 'linear-gradient(345deg, rgba(90,68,255,1.00) 25%,rgba(125,113,255,1.00) 48%,rgba(124,128,255,1.00) 58%,rgba(0,0,153,1.00) 110%)',
-                        backgroundPosition: 'center center',
-                        backgroundClip: 'padding-box',
-                        border: 'none',
-                        display: 'inline-block',
-                      }}
-                    >
-                      {sending ? 'Scheduling...' : 'Schedule Meeting'}
-                  </button>
+                  <a
+                    href="https://calendly.com/afnan-devstract/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-10 py-4 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base font-medium w-auto min-w-[140px] mx-auto transition-colors text-white text-center flex items-center justify-center"
+                    style={{
+                      backgroundImage: 'linear-gradient(345deg, rgba(90,68,255,1.00) 25%,rgba(125,113,255,1.00) 48%,rgba(124,128,255,1.00) 58%,rgba(0,0,153,1.00) 110%)',
+                      backgroundPosition: 'center center',
+                      backgroundClip: 'padding-box',
+                      border: 'none',
+                      display: 'inline-block',
+                    }}
+                  >
+                    Schedule Meeting
+                  </a>
                   {result && (
                     <div className="mt-4 text-center text-sm font-medium" style={{ color: result.includes('success') ? '#5A44FF' : '#D32F2F' }}>{result}</div>
                   )}

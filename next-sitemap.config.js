@@ -3,5 +3,5 @@ module.exports = {
   generateRobotsTxt: true, // optional
   sitemapSize: 5000, // optional: split large sitemaps
   changefreq: 'daily',
-  priority: 0.7,
+  priority: 1,
 };
