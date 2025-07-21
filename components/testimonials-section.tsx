@@ -81,7 +81,7 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
-          <div className="relative z-20">
+          <div className="relative z-20 overflow-x-hidden">
             <div className="relative h-[280px] sm:h-[320px] md:h-[415px] w-full max-w-[320px] sm:max-w-[400px] md:max-w-[574px] ml-16 sm:ml-44 md:ml-40 mb-24 md:mb-0">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
