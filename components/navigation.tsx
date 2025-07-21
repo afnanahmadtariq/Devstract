@@ -134,7 +134,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
         <div className="fixed inset-0 z-[9999] bg-black/10 flex items-center justify-center">
           <div
             ref={menuRef}
-            className={"relative w-[90vw] h-[90vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-16 py-12"
+            className={"relative w-[90vw] h-[90vh] bg-white dark:bg-[#18182a] rounded-2xl flex flex-col justify-start shadow-2xl px-12 py-12"
               + (menuClosing ? " animate-slide-out-right" : " animate-slide-in-right")
             }
           >
