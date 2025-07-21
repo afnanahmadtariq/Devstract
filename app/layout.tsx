@@ -47,9 +47,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased">
-      <body className={`${syne.variable} font-sans`}>{children}</body>
-      <SpeedInsights/>
-      <Analytics/>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Devstract',
+              url: 'https://www.devstract.site',
+              sameAs: [
+                'https://www.linkedin.com/company/devstract',
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body className={`${syne.variable} font-sans`}>
+        {children}
+      </body>
+      <SpeedInsights />
+      <Analytics />
     </html>
   )
 }
