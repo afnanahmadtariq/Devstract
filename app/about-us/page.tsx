@@ -12,18 +12,39 @@ export default function AboutUsPage() {
   // Refs and scroll logic for animation
   const mainSectionRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  // Animate text up as user scrolls (0px to 400px scroll)
-  const y = useTransform(scrollY, [0, 400], [0, -120]);
-  // Animate big text sliding in from right (starts after content is out, 400px to 800px)
-  const bigTextX = useTransform(scrollY, [400, 800], ['100vw', '0vw']);
-  const bigTextOpacity = useTransform(scrollY, [400, 500, 800], [0, 1, 1]);
+  // Animate text up as user scrolls (0px to 1000px scroll)
+  const [viewportHeight, setViewportHeight] = useState(800); // fallback for SSR
+  useEffect(() => {
+    setViewportHeight(window.innerHeight);
+  }, []);
+  const y = useTransform(scrollY, [0, 1000], [0, -viewportHeight]);
+
+  // Big text slides at a constant rate regardless of text length
+  const bigTextRef = useRef<HTMLSpanElement>(null);
+  const [textWidth, setTextWidth] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(1200); // fallback for SSR
+  useEffect(() => {
+    const updateSizes = () => {
+      setViewportWidth(window.innerWidth);
+      setTextWidth(bigTextRef.current ? bigTextRef.current.offsetWidth : 0);
+    };
+    updateSizes();
+    const resizeObserver = new window.ResizeObserver(updateSizes);
+    if (bigTextRef.current) resizeObserver.observe(bigTextRef.current);
+    window.addEventListener('resize', updateSizes);
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateSizes);
+    };
+  }, []);
+  const bigTextX = useTransform(scrollY, [0, 3500], [viewportWidth + textWidth, -textWidth]);
 
   return (
     <>
       <Navigation />
       <main className="flex flex-col min-h-screen bg-white dark:bg-gray-900">
         {/* Sticky Scroll Section Wrapper */}
-        <div style={{ position: 'relative', height: '2000px' /* 800px scroll + 100vh for stickiness */ }}>
+        <div style={{ position: 'relative', height: '3500px' }}>
           <section
             ref={mainSectionRef}
             className="sticky top-0 flex flex-col items-center justify-center py-16 px-4 min-h-[100vh] bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800 bg-fixed overflow-hidden"
@@ -45,25 +66,21 @@ export default function AboutUsPage() {
             </motion.div>
 
             {/* Big text slides in from right, scroll controlled */}
-            <motion.div
-              style={{
-                x: bigTextX,
-                opacity: bigTextOpacity,
-                zIndex: 10,
-                transform: 'translateY(-50%)',
-                position: 'absolute',
-                top: '50%',
-                left: 0,
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                pointerEvents: 'none',
-              }}
+            <div
+              className="absolute top-1/2 left-0 w-full flex justify-center pointer-events-none overflow-hidden"
+              style={{ zIndex: 10, transform: 'translateY(-50%)' }}
             >
-              <span className="text-[12vw] font-extrabold text-black dark:text-indigo-800 opacity-80 whitespace-nowrap select-none drop-shadow-lg">
+              <motion.span
+                ref={bigTextRef}
+                className="text-[12vw] font-extrabold text-black dark:text-indigo-800 opacity-80 whitespace-nowrap select-none drop-shadow-lg"
+                style={{
+                  x: bigTextX,
+                  display: 'inline-block',
+                }}
+              >
                 DEVSTRACT IS AMAZING. OH YEAH BABY!!!
-              </span>
-            </motion.div>
+              </motion.span>
+            </div>
           </section>
         </div>
 
