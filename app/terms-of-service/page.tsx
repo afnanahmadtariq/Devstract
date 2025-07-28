@@ -1,78 +1,61 @@
-
 "use client";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
-import { useRouter } from 'next/navigation';
+import LegalLayout from '@/components/legal-layout';
 
 export default function TermsOfServicePage() {
-  const router = useRouter();
-  const teamMembers = [
-    { id: 1, image: "/images/image 3.png", name: "Sarah" },
-    { id: 2, image: "/images/image 4.png", name: "Mike" },
-    { id: 3, image: "/images/image 6.png", name: "Emma" },
-    { id: 4, image: "/images/image 6.png", name: "Emma" },
-    { id: 5, image: "/images/image 6.png", name: "Emma" },
-  ]
+  const title = "Terms of Service";
+  const subtitle = "These terms govern your use of Devstract's website and services. By working with us, you agree to the terms below.";
+  const content = (
+    <>
+      <h1>1. Overview</h1>
+      <p>These Terms of Service ("Terms") apply to all users of the Devstract website and clients who engage with our software design and development services. By accessing our site or partnering with us, you agree to be bound by these Terms.</p>
+      
+      <h1>2. Services</h1>
+      <p>Devstract provides UI/UX design, frontend/backend development, product strategy, and related digital services. Specific service terms, timelines, and deliverables are outlined in individual project agreements or proposals.</p>
+      
+      <h1>3. User Responsibilities</h1>
+      <p>You agree to:</p>
+      <p>Provide accurate and complete information during project onboarding</p>
+      <p>Review and approve deliverables in a timely manner</p>
+      <p>Use our website and services in accordance with applicable laws and these Terms</p>
+      <p>You are responsible for maintaining the confidentiality of any credentials or private information related to your projects.</p>
+      
+      <h1>4. Intellectual Property</h1>
+      <p>Unless otherwise agreed in writing:</p>
+      <p>All original designs, code, and assets created by Devstract remain our intellectual property until full payment is received.</p>
+      <p>Upon full payment, ownership of agreed deliverables will transfer to the client.</p>
+      <p>Devstract reserves the right to showcase completed work in its portfolio unless otherwise requested.</p>
+      
+      <h1>5. Payments</h1>
+      <p>Project payments, milestones, and schedules are defined in individual contracts. Late payments may result in delayed delivery or temporary suspension of services.</p>
+      
+      <h1>6. Cancellations & Refunds</h1>
+      <p>Clients may cancel a project with prior written notice.</p>
+      <p>Refunds, if applicable, are determined based on the stage of the project and the work already completed.</p>
+      
+      <h1>7. Limitation of Liability</h1>
+      <p>Devstract is not liable for:</p>
+      <p>Any indirect, incidental, or consequential damages</p>
+      <p>Loss of data, revenue, or business opportunities arising from the use of our services</p>
+      <p>Our liability is limited to the total amount paid by the client for the specific project.</p>
+      
+      <h1>8. Privacy</h1>
+      <p>Please refer to our Privacy Policy to understand how we collect, use, and protect your data.</p>
+      
+      <h1>9. Changes to These Terms</h1>
+      <p>We reserve the right to update or modify these Terms at any time. Continued use of our website or services after changes indicates your acceptance of the updated Terms.</p>
+    </>
+  );
 
   return (
     <>
       <Navigation/>
-      <main className="flex flex-col min-h-[70vh] bg-white dark:bg-gray-900">
-        <section className="flex flex-col items-center justify-center py-8 px-4">
-          <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">Terms of Service</h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center mb-24">
-            These terms govern your use of Devstract’s website and services. By working with us, you agree to the terms below.
-          </p>
-          <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
-            {/* Top Portion */}
-            <div className="flex-1 bg-white dark:bg-gray-800 rounded-t-[33px] p-8 hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
-              <p className="text-[#707070] dark:text-gray-200 mt-8 text-lg text-left" style={{ position: 'relative', zIndex: 1 }}>
-                Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life with precision and passion.
-              </p>
-            </div>
-            {/* Bottom Portion */}
-            <div className="flex-1 bg-white dark:bg-gray-800 rounded-b-[33px] p-8 sm:p-16 border-2 border-[#EBEBEB]">
-              <div className="text-center max-w-3xl mx-auto">
-                <div className="flex -space-x-3 mb-6 justify-center">
-                  {[...teamMembers].reverse().map((member, index) => (
-                    <div
-                      key={member.id}
-                      className="relative"
-                      style={{
-                        zIndex: index + 1,
-                      }}
-                    >
-                      <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full overflow-hidden" style={{ border: '1px solid #ECECEC' }}>
-                        <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-lg font-normal text-[#4D4D4DC9] dark:text-white mb-8 sm:mb-12">
-                  We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
-                </p>
-                <button 
-                  className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
-                  onClick={() => router.push("/contactus")}
-                  >
-                  <span className="px-12 py-2 ml-4">
-                    Contact Us
-                  </span>
-                  <span
-                    className="inline-flex items-center justify-center w-9 h-9 rounded-full mr-1"
-                    style={{
-                      backgroundImage: 'linear-gradient(323deg, rgba(90,68,255,1.00) 0%,rgba(125,113,255,1.00) 27%,rgba(124,128,255,1.00) 48%,rgba(0,0,153,1.00) 100%)',
-                      backgroundPosition: 'center center',
-                    }}
-                  >
-                    <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+      <LegalLayout
+        title={title}
+        subtitle={subtitle}
+        content={content}
+      />
       <Footer />
     </>
   );
