@@ -29,7 +29,7 @@ export default function LegalLayout({ title, subtitle, content }: LegalLayoutPro
         </p>
         <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
           {/* Top Portion */}
-          <div className="flex-1 bg-white dark:bg-gray-800 rounded-t-[33px] p-16 hidden md:flex flex-col justify-center border-2 border-[#EBEBEB]">
+          <div className="legal-content flex-1 bg-white dark:bg-gray-800 rounded-t-[33px] p-16 hidden md:flex flex-col justify-center border-2 border-[#EBEBEB]">
             {content}
           </div>
           {/* Bottom Portion */}

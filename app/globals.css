@@ -69,12 +69,6 @@
     @apply border-border;
     user-select: none;
   }
-  /* h1{
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground;
-  }
-  p{
-    @apply text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground;
-  } */
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
@@ -83,6 +77,12 @@
   img, svg {
     user-select: none;
     pointer-events: none;
+  }
+  .legal-content h1 {
+    @apply text-2xl font-semibold;
+  }
+  .legal-content p {
+    @apply text-xl text-[#676767] leading-relaxed;
   }
 }
 
