@@ -47,7 +47,12 @@ export default function FAQPage() {
       <Navigation/>
       <main className="flex flex-col min-h-[70vh] bg-transparent dark:bg-transparent">
         <section className="flex flex-col items-center justify-center py-8 px-4">
-          <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h1>
+        <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          FAQs
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center mb-24">
+          Here are some common questions we receive from our users.
+        </p>
           <div className="w-full max-w-3xl">
             {faqs.map((faq, idx) => (
               <div key={idx}>

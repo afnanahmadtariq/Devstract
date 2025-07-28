@@ -78,6 +78,12 @@
     user-select: none;
     pointer-events: none;
   }
+  .legal-content h1 {
+    @apply text-2xl font-semibold;
+  }
+  .legal-content p {
+    @apply text-xl text-[#676767] leading-relaxed;
+  }
 }
 
 @layer utilities {
