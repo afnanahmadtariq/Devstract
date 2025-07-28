@@ -113,7 +113,7 @@ export default function ContactUsPage() {
                     href="https://calendly.com/afnan-devstract/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-10 py-4 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base font-medium w-auto min-w-[140px] mx-auto transition-colors text-white text-center flex items-center justify-center"
+                    className="px-10 py-4 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base font-normal w-auto min-w-[200px] mx-auto transition-colors text-white text-center flex items-center justify-center"
                     style={{
                       backgroundImage: 'linear-gradient(345deg, rgba(90,68,255,1.00) 25%,rgba(125,113,255,1.00) 48%,rgba(124,128,255,1.00) 58%,rgba(0,0,153,1.00) 110%)',
                       backgroundPosition: 'center center',
@@ -122,7 +122,7 @@ export default function ContactUsPage() {
                       display: 'inline-block',
                     }}
                   >
-                    Schedule Meeting
+                    Book a Call
                   </a>
                   {result && (
                     <div className="mt-4 text-center text-sm font-medium" style={{ color: result.includes('success') ? '#5A44FF' : '#D32F2F' }}>{result}</div>
