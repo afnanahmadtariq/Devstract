@@ -2,8 +2,10 @@
 "use client";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
+import { useRouter } from 'next/navigation';
 
 export default function TermsOfServicePage() {
+  const router = useRouter();
   const teamMembers = [
     { id: 1, image: "/images/image 3.png", name: "Sarah" },
     { id: 2, image: "/images/image 4.png", name: "Mike" },
@@ -49,7 +51,10 @@ export default function TermsOfServicePage() {
                 <p className="text-lg font-normal text-[#4D4D4DC9] dark:text-white mb-8 sm:mb-12">
                   We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
                 </p>
-                <button type="submit" className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-auto min-w-[140px] mx-auto transition-colors">
+                <button 
+                  className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
+                  onClick={() => router.push("/contactus")}
+                  >
                   <span className="px-12 py-2 ml-4">
                     Contact Us
                   </span>
