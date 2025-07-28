@@ -23,7 +23,7 @@ export default function TermsOfServicePage() {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center mb-24">
             These terms govern your use of Devstract’s website and services. By working with us, you agree to the terms below.
           </p>
-          <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-6xl border-2 border-[#EBEBEB] rounded-[36px]">
+          <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Top Portion */}
             <div className="flex-1 bg-white dark:bg-gray-800 rounded-t-[33px] p-8 hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
               <p className="text-[#707070] dark:text-gray-200 mt-8 text-lg text-left" style={{ position: 'relative', zIndex: 1 }}>
@@ -32,7 +32,7 @@ export default function TermsOfServicePage() {
             </div>
             {/* Bottom Portion */}
             <div className="flex-1 bg-white dark:bg-gray-800 rounded-b-[33px] p-8 sm:p-16 border-2 border-[#EBEBEB]">
-              <div className="mb-6 text-center max-w-3xl mx-auto">
+              <div className="text-center max-w-3xl mx-auto">
                 <div className="flex -space-x-3 mb-6 justify-center">
                   {[...teamMembers].reverse().map((member, index) => (
                     <div
