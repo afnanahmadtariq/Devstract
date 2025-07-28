@@ -38,12 +38,13 @@ export default function HeroSection() {
       <div className="group inline-block mb-12 sm:mb-32">
         <Button
           className="bg-white/[0.03] border border-white/30 hover:border-white/0 text-white hover:bg-white/[0.07] rounded-full px-6 py-6 sm:px-8 sm:py-7 text-sm sm:text-base font-normal inline-flex items-center space-x-2 relative overflow-hidden"
+          onClick={() => window.open("https://calendly.com/afnan-devstract/30min", "_blank")}
         >
           <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <img src="/media/button.svg" alt="button border" className="w-full h-full object-fill rounded-full" style={{ transform: 'scaleY(1.06)' }} />
           </span>
           <img src="/media/small_arrow.svg" alt="arrow" className="w-3 h-3 sm:w-4 sm:h-4" />
-          <span>Start a project</span>
+          <span className="pr-2">Work with us</span>
         </Button>
       </div>
 
