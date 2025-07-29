@@ -64,10 +64,35 @@ export default function ScrollTextSection() {
   ];
 
   const flatText = textParts.map(part => typeof part === "string" ? part : "").join("");
+  const interpolateColor = (progress: number, startColor: string, endColor: string) => {
+    const hexToRgb = (hex: string) => {
+      const bigint = parseInt(hex.slice(1), 16);
+      return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255,
+      };
+    };
+
+    const rgbToHex = (r: number, g: number, b: number) => {
+      return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    };
+
+    const startRgb = hexToRgb(startColor);
+    const endRgb = hexToRgb(endColor);
+
+    const r = Math.round(startRgb.r + (endRgb.r - startRgb.r) * progress);
+    const g = Math.round(startRgb.g + (endRgb.g - startRgb.g) * progress);
+    const b = Math.round(startRgb.b + (endRgb.b - startRgb.b) * progress);
+
+    return rgbToHex(r, g, b);
+  };
+
   const getLetterColor = (index: number) => {
     const totalLetters = flatText.length;
-    const threshold = Math.floor(animationProgress * totalLetters);
-    return index < threshold ? "#2C2C2C" : "#C2C2C2";
+    const threshold = animationProgress * totalLetters;
+    const progress = Math.min(Math.max((index - (threshold - 10)) / 10, 0), 1); // Smooth transition range
+    return interpolateColor(progress, "#2C2C2C", "#C2C2C2");
   };
 
   return (
