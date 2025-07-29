@@ -68,7 +68,7 @@ export default function AboutUsPage() {
                     “
                   </p>                  
                 </div>
-                <div style={{ position: 'relative', width: '100%' }}>
+                <div className="flex flex-col items-center" style={{ position: 'relative', width: '100%' }}>
                   <div
                     style={{
                       position: 'absolute',
@@ -132,7 +132,7 @@ export default function AboutUsPage() {
               </p>
             </div>
             {/* Bottom Portion */}
-            <div className="w-full flex flex-col md:flex-row gap-3"> 
+            <div className="w-full flex flex-col lg:flex-row gap-3"> 
               {cards.map((card, index) => (
                 <div key={index} className="flex flex-1 flex-col items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
                   <img src={card.imgSrc} alt={card.alt}/> 
