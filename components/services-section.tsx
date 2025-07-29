@@ -220,7 +220,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Scrollable carousel with hover buttons */}
-        <div className="relative group">
+        <div id="services-carousel" className="relative group">
           <div
             ref={scrollRef}
             className={`flex gap-3 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} w-full max-w-full`}
@@ -242,7 +242,7 @@ export default function ServicesSection() {
               return (
                 <div
                   key={service.id}
-                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-12 sm:ml-32" : ""} transition-all duration-2000 ${cardAnim}`}
+                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-12 sm:ml-32" : ""} transition-all duration-2000 ease-out ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                 >
                   {/* Dark overlay for better text readability */}

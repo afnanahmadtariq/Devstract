@@ -1,4 +1,3 @@
-
 "use client";
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
@@ -13,22 +12,28 @@ export default function PrivacyPolicyPage() {
       
       <h1>1. Information We Collect</h1>
       <p>We may collect the following types of information:</p>
-      <p><strong>Personal Information:</strong> Name, email address, phone number, and other contact details provided through forms or communication.</p>
-      <p><strong>Usage Data:</strong> Analytics, IP addresses, browser type, pages visited, and other technical data collected via cookies and similar technologies.</p>
-      <p><strong>Project Information:</strong> Details about your company, project requirements, and related documentation shared during our collaboration.</p>
+      <ul className="list-square marker:text-[#676767] pl-8">
+        <li><p>Personal Information: Name, email address, phone number, and other contact details provided through forms or communication.</p></li>
+        <li><p>Usage Data: Analytics, IP addresses, browser type, pages visited, and other technical data collected via cookies and similar technologies.</p></li>
+        <li><p>Project Information: Details about your company, project requirements, and related documentation shared during our collaboration.</p></li>
+      </ul>
       
       <h1>2. How We Use Your Information</h1>
       <p>We use your data to:</p>
-      <p>Communicate with you regarding inquiries, projects, or updates</p>
-      <p>Improve our website's functionality and user experience</p>
-      <p>Deliver and manage our design and development services</p>
-      <p>Maintain security and compliance with legal obligations</p>
+      <ul className="list-square marker:text-[#676767] pl-8">
+        <li><p>Communicate with you regarding inquiries, projects, or updates</p></li>
+        <li><p>Improve our website's functionality and user experience</p></li>
+        <li><p>Deliver and manage our design and development services</p></li>
+        <li><p>Maintain security and compliance with legal obligations</p></li>
+      </ul>
       
       <h1>3. Sharing Your Data</h1>
       <p>We do not sell, rent, or trade your personal information. Your data may only be shared with:</p>
-      <p>Trusted third-party tools or service providers involved in delivering our services (e.g., analytics, hosting)</p>
-      <p>Legal authorities if required by law</p>
-      
+      <ul className="list-square marker:text-[#676767] pl-8">
+        <li><p>Trusted third-party tools or service providers involved in delivering our services (e.g., analytics, hosting)</p></li>
+        <li><p>Legal authorities if required by law</p></li>
+      </ul>
+
       <h1>4. Cookies and Tracking</h1>
       <p>We use cookies to improve website functionality and gather anonymous analytics. You can manage your cookie preferences through your browser settings.</p>
       
@@ -37,9 +42,11 @@ export default function PrivacyPolicyPage() {
       
       <h1>6. Your Rights</h1>
       <p>You have the right to:</p>
-      <p>Access, update, or delete your personal information</p>
-      <p>Withdraw consent for certain uses of your data</p>
-      <p>Contact us with questions or privacy-related requests</p>
+      <ul className="list-square marker:text-[#676767] pl-8">
+        <li><p>Access, update, or delete your personal information</p></li>
+        <li><p>Withdraw consent for certain uses of your data</p></li>
+        <li><p>Contact us with questions or privacy-related requests</p></li>
+      </ul>
     </>
   );
   return (
