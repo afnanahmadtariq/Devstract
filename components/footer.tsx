@@ -60,7 +60,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-white px-6 md:px-20 lg:px-40">
+    <footer className="bg-white px-6 md:px-20 lg:px-40 mt-16">
       {/* Top Section */}
       <div className="px-0 md:px-6 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">

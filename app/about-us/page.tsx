@@ -40,24 +40,24 @@ export default function AboutUsPage() {
           </p>
           <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Top Portion */}
-            <div className="w-full flex flex-row gap-3 min-h-[36rem]">
+            <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]">
               {/* Left Side */}
-              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-20 border-2 border-[#EBEBEB]">
+              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-10 md:p-20 border-2 border-[#EBEBEB]">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mb-16"
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-8 md:mb-16"
                   style={{ backgroundImage: 'var(--primary-gradient)'}}
                 >
                   <Image
                     src="/images/logo.svg"
                     alt="Devstract Logo"
-                    width={52}
-                    height={52}
-                    className="cursor-pointer filter brightness-0 invert"
+                    width={40}
+                    height={40}
+                    className="cursor-pointer filter brightness-0 invert md:width-[52px] md:height-[52px]"
                   />
                 </div>
                 <div className="relative w-full">
                   <p 
-                    className='absolute top-0 left-0 text-[96px]'
+                    className='absolute top-0 left-0 text-6xl md:text-[96px]'
                     style={{ 
                       transform: 'translate(-100%, -30%)',
                       backgroundImage: 'var(--primary-gradient)',
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
                     “
                   </p>                  
                 </div>
-                <div style={{ position: 'relative', width: '100%' }}>
+                <div className="flex flex-col items-center" style={{ position: 'relative', width: '100%' }}>
                   <div
                     style={{
                       position: 'absolute',
@@ -81,7 +81,7 @@ export default function AboutUsPage() {
                       zIndex: 2,
                     }}
                   />
-                  <p className='text-[#494949] text-left max-w-lg text-xl font-normal leading-loose mt-4'>
+                  <p className='text-[#494949] text-left max-w-lg text-base md:text-[22px] font-normal leading-relaxed mt-4'>
                     Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life  with precision and passion.
                   </p>
                   <div
@@ -99,7 +99,7 @@ export default function AboutUsPage() {
                 </div>
               </div>
               {/* Right Side*/}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] py-20 max-w-xl border-2 border-[#EBEBEB]">
+              <div className="flex-[1.2] bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '100%' }}>
                   <img src="/media/ceo.png" alt="Devstract CEO" className="mx-auto" />
                   <div
@@ -115,15 +115,15 @@ export default function AboutUsPage() {
                     }}
                   />
                 </div>
-                <h2 className="text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
+                <h2 className="text-2xl md:text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
                   Afnan Ahmad Tariq
                 </h2>
-                <p className='text-[#BCB9B6] text-center text-xl font-normal leading-loose'>
+                <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
                   CEO Devstract
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center mt-12 py-10">
+            <div className="flex flex-col items-center justify-center md:mt-12 py-10">
               <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
                 Why Us
               </h1>
@@ -132,13 +132,13 @@ export default function AboutUsPage() {
               </p>
             </div>
             {/* Bottom Portion */}
-            <div className="w-full flex flex-row gap-3"> 
+            <div className="w-full flex flex-col lg:flex-row gap-3"> 
               {cards.map((card, index) => (
-                <div key={index} className="flex flex-1 flex-col py-6 items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
-                  <img src={card.imgSrc} alt={card.alt} /> 
-                  <div className='p-10 items-start w-full'>
-                    <h2 className="text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2> 
-                    <p className="text-xl text-[#676767] font-normal text-left">{card.description}</p> 
+                <div key={index} className="flex flex-1 flex-col items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
+                  <img src={card.imgSrc} alt={card.alt}/> 
+                  <div className='px-7 mb-7 md:px-10 mb-10 items-start w-full'>
+                    <h2 className="text-lg md:text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2> 
+                    <p className="text-lg md:text-xl text-[#676767] font-normal text-left">{card.description}</p> 
                   </div>
                 </div>
               ))}
@@ -147,7 +147,6 @@ export default function AboutUsPage() {
         </section>
       </main>
       <Footer />
-      <ScrollToTopButton />
     </>
   );
 }
