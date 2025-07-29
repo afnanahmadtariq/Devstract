@@ -3,40 +3,29 @@
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import ScrollToTopButton from '@/components/scroll-to-top-button';
-import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 
 export default function AboutUsPage() {
-
-  // Refs and scroll logic for animation
-  const mainSectionRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  // Animate text up as user scrolls (0px to 1000px scroll)
-  const [viewportHeight, setViewportHeight] = useState(800); // fallback for SSR
-  useEffect(() => {
-    setViewportHeight(window.innerHeight);
-  }, []);
-  const y = useTransform(scrollY, [0, 1000], [0, -viewportHeight]);
-
-  // Big text slides at a constant rate regardless of text length
-  const bigTextRef = useRef<HTMLSpanElement>(null);
-  const [textWidth, setTextWidth] = useState(0);
-  const [viewportWidth, setViewportWidth] = useState(1200); // fallback for SSR
-  useEffect(() => {
-    const updateSizes = () => {
-      setViewportWidth(window.innerWidth);
-      setTextWidth(bigTextRef.current ? bigTextRef.current.offsetWidth : 0);
-    };
-    updateSizes();
-    const resizeObserver = new window.ResizeObserver(updateSizes);
-    if (bigTextRef.current) resizeObserver.observe(bigTextRef.current);
-    window.addEventListener('resize', updateSizes);
-    return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener('resize', updateSizes);
-    };
-  }, []);
-  const bigTextX = useTransform(scrollY, [0, 3500], [viewportWidth + textWidth, -textWidth]);
+  const cards = [
+    {
+      imgSrc: "/media/robot-arm.svg",
+      alt: "AI Integration & Workflow Automation",
+      title: "AI Integration & Workflow Automation",
+      description: "We embed AI where it matters, from smart features in your app to backend process automation. Unlock efficiency, personalization and scale with intelligent solutions built into your stack."
+    },
+    {
+      imgSrc: "/media/rocket.svg",
+      alt: "Full-Stack MVP Execution",
+      title: "Full-Stack MVP Execution",
+      description: "From idea to working product fast. We design, build, and ship complete MVPs using modern full-stack frameworks so you can validate, iterate, and scale without delay."
+    },
+    {
+      imgSrc: "/media/bulb.svg",
+      alt: "Quality",
+      title: "Strategy-Driven & CRO-Optimized Design",
+      description: "We blend creativity with conversion. Every design decision is grounded in UX research and CRO best practices, so your product doesn't just look good, it performs."
+    }
+  ];
 
   return (
     <>
@@ -53,28 +42,91 @@ export default function AboutUsPage() {
             {/* Top Portion */}
             <div className="w-full flex flex-row gap-3 min-h-[36rem]">
               {/* Left Side */}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
-                
+              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-20 border-2 border-[#EBEBEB]">
+                <div 
+                  className="w-20 h-20 rounded-full flex items-center justify-center mb-12"
+                  style={{ backgroundImage: 'var(--primary-gradient)'}}
+                >
+                  <Image
+                    src="/images/logo.svg"
+                    alt="Devstract Logo"
+                    width={52}
+                    height={52}
+                    className="cursor-pointer filter brightness-0 invert"
+                  />
+                </div>
+                <div style={{ position: 'relative', width: '100%' }}>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '50%',
+                      background: 'linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      pointerEvents: 'none',
+                      zIndex: 2,
+                    }}
+                  />
+                  <p className='text-[#494949] text-left text-xl font-normal leading-loose mt-4'>
+                    Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life  with precision and passion.
+                  </p>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '50%',
+                      background: 'linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      pointerEvents: 'none',
+                      zIndex: 2,
+                    }}
+                  />
+                </div>
               </div>
               {/* Right Side*/}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-xl border-2 border-[#EBEBEB]">
-                  
+              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] py-20 max-w-xl border-2 border-[#EBEBEB]">
+                <div style={{ position: 'relative', width: '100%' }}>
+                  <img src="/media/ceo.png" alt="Devstract CEO" className="mx-auto" />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '50%',
+                      background: 'linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      pointerEvents: 'none',
+                      zIndex: 2,
+                    }}
+                  />
+                </div>
+                <h2 className="text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
+                  Afnan Ahmad Tariq
+                </h2>
+                <p className='text-[#BCB9B6] text-center text-xl font-normal leading-loose'>
+                  CEO Devstract
+                </p>
               </div>
             </div>
+            <div className="flex flex-col items-center justify-center mt-12 py-10">
+              <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+                Why Us
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center">
+                We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
+              </p>
+            </div>
             {/* Bottom Portion */}
-            <div className="w-full flex flex-row gap-3 min-h-96">
-              {/* Left Side */}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
-                
-              </div>
-              {/* Middle */}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
-                
-              </div>
-              {/* Right Side*/}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
-                  
-              </div>
+            <div className="w-full flex flex-row gap-3 min-h-[36rem]"> 
+              {cards.map((card, index) => (
+                <div key={index} className="flex flex-1 flex-col items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]"> 
+                  <img src={card.imgSrc} alt={card.alt} className="mb-24" /> 
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white text-left mb-4">{card.title}</h2> 
+                  <p className="text-gray-600 dark:text-gray-300 text-left">{card.description}</p> 
+                </div>
+              ))}
             </div>
           </div>
         </section>
