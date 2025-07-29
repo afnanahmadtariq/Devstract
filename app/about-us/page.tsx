@@ -44,15 +44,15 @@ export default function AboutUsPage() {
               {/* Left Side */}
               <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-10 md:p-20 border-2 border-[#EBEBEB]">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mb-8 md:mb-16"
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-8 md:mb-16"
                   style={{ backgroundImage: 'var(--primary-gradient)'}}
                 >
                   <Image
                     src="/images/logo.svg"
                     alt="Devstract Logo"
-                    width={52}
-                    height={52}
-                    className="cursor-pointer filter brightness-0 invert"
+                    width={40}
+                    height={40}
+                    className="cursor-pointer filter brightness-0 invert md:width-[52px] md:height-[52px]"
                   />
                 </div>
                 <div className="relative w-full">
@@ -81,7 +81,7 @@ export default function AboutUsPage() {
                       zIndex: 2,
                     }}
                   />
-                  <p className='text-[#494949] text-left max-w-lg text-base md:text-xl font-normal leading-loose mt-4'>
+                  <p className='text-[#494949] text-left max-w-lg text-base md:text-[22px] font-normal leading-relaxed mt-4'>
                     Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life  with precision and passion.
                   </p>
                   <div
@@ -99,7 +99,7 @@ export default function AboutUsPage() {
                 </div>
               </div>
               {/* Right Side*/}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-xl border-2 border-[#EBEBEB]">
+              <div className="flex-[1.2] bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '100%' }}>
                   <img src="/media/ceo.png" alt="Devstract CEO" className="mx-auto" />
                   <div
@@ -136,7 +136,7 @@ export default function AboutUsPage() {
               {cards.map((card, index) => (
                 <div key={index} className="flex flex-1 flex-col items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
                   <img src={card.imgSrc} alt={card.alt}/> 
-                  <div className='p-7 md:p-10 items-start w-full'>
+                  <div className='px-7 mb-7 md:px-10 mb-10 items-start w-full'>
                     <h2 className="text-lg md:text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2> 
                     <p className="text-lg md:text-xl text-[#676767] font-normal text-left">{card.description}</p> 
                   </div>
