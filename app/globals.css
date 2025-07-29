@@ -79,10 +79,10 @@
     pointer-events: none;
   }
   .legal-content h1 {
-    @apply text-2xl font-semibold leading-loose;
+    @apply text-lg font-medium leading-normal sm:text-2xl sm:font-semibold sm:leading-loose;
   }
   .legal-content p {
-    @apply text-xl font-normal text-[#676767];
+    @apply text-base text-[#676767] sm:text-xl sm:font-normal;
   }
 }
 
