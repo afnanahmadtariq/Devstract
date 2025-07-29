@@ -1,4 +1,3 @@
-
 "use client";
 
 import Navigation from '@/components/navigation';
@@ -230,7 +229,7 @@ export default function AboutUsPage() {
         <section className="py-16 px-4 flex flex-col items-center">
           <h2 className="text-3xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Ready to get started?</h2>
           <p className="text-gray-700 dark:text-gray-200 mb-6 text-center">Contact us to discuss your project or partnership. We’re excited to help you grow!</p>
-          <a href="/contactus" className="inline-block bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-indigo-800 transition">Contact Us</a>
+          <a href="/contact-us" className="inline-block bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-indigo-800 transition">Contact Us</a>
         </section>
       </main>
       <Footer />
