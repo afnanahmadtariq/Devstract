@@ -43,37 +43,11 @@ export default function ScrollTextSection() {
     margin: '0 4px',
   };
 
-  // Separate mobile styles for each icon
-  const iconMobileGears = {
-    ...iconStyle,
-    width: '2em',
-    height: '2em',
-  };
-  const iconMobileLightbulb = {
-    ...iconStyle,
-    width: '1.4em',
-    height: '1.4em',
-  };
-
-  // Responsive style for each icon
-  const getGearsIconStyle = () => {
-    if (isMobile) {
-      return iconMobileGears;
-    }
-    return iconStyle;
-  };
-  const getLightbulbIconStyle = () => {
-    if (isMobile) {
-      return iconMobileLightbulb;
-    }
-    return iconStyle;
-  };
-
   const textParts = [
     "Devstract is a next-gen ",
-    <img key="gears" src="/media/gears.svg" alt="Gears" style={getGearsIconStyle()} />, 
+    <img key="gears" src="/media/gears.svg" alt="Gears" style={{ ...iconStyle, width: '7%', height: 'auto'}} />,
     "design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design ",
-    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={getLightbulbIconStyle()} />,
+    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={{ ...iconStyle, width: '5%', height: 'auto'}} />,
     "to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
   ];
 
@@ -91,7 +65,7 @@ export default function ScrollTextSection() {
   return (
     <section ref={sectionRef} className="py-20 sm:py-48 px-6 md:px-24 bg-white">
       <div className="text-center mx-auto">
-        <p className="text-md md:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
+        <p className="text-md md:text-3xl lg:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
           {(() => {
             let globalCharIndex = 0;
             return textParts.map((part, i) => {
