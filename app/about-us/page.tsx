@@ -22,7 +22,7 @@ export default function AboutUsPage() {
     {
       imgSrc: "/media/bulb.svg",
       alt: "Quality",
-      title: "Strategy-Driven & CRO-Optimized Design",
+      title: "Strategy-Driven, CRO\u2011Optimized Design",
       description: "We blend creativity with conversion. Every design decision is grounded in UX research and CRO best practices, so your product doesn't just look good, it performs."
     }
   ];
@@ -119,12 +119,14 @@ export default function AboutUsPage() {
               </p>
             </div>
             {/* Bottom Portion */}
-            <div className="w-full flex flex-row gap-3 min-h-[36rem]"> 
+            <div className="w-full flex flex-row gap-3"> 
               {cards.map((card, index) => (
-                <div key={index} className="flex flex-1 flex-col items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]"> 
-                  <img src={card.imgSrc} alt={card.alt} className="mb-24" /> 
-                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white text-left mb-4">{card.title}</h2> 
-                  <p className="text-gray-600 dark:text-gray-300 text-left">{card.description}</p> 
+                <div key={index} className="flex flex-1 flex-col py-6 items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
+                  <img src={card.imgSrc} alt={card.alt} /> 
+                  <div className='p-10 items-start w-full'>
+                    <h2 className="text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2> 
+                    <p className="text-xl text-[#676767] font-normal text-left">{card.description}</p> 
+                  </div>
                 </div>
               ))}
             </div>
