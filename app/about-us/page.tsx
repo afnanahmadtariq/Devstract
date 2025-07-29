@@ -62,13 +62,13 @@ export default function AboutUsPage() {
                       top: 0,
                       left: 0,
                       width: '100%',
-                      height: '50%',
-                      background: 'linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      height: '30%',
+                      background: 'linear-gradient(180deg, #fff -40%, rgba(255,255,255,0) 100%)',
                       pointerEvents: 'none',
                       zIndex: 2,
                     }}
                   />
-                  <p className='text-[#494949] text-left text-xl font-normal leading-loose mt-4'>
+                  <p className='text-[#494949] text-left max-w-lg text-xl font-normal leading-loose mt-4'>
                     Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life  with precision and passion.
                   </p>
                   <div
@@ -78,7 +78,7 @@ export default function AboutUsPage() {
                       left: 0,
                       width: '100%',
                       height: '50%',
-                      background: 'linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      background: 'linear-gradient(0deg, #fff -30%, rgba(255,255,255,0) 100%)',
                       pointerEvents: 'none',
                       zIndex: 2,
                     }}
