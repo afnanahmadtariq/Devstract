@@ -44,7 +44,7 @@ export default function AboutUsPage() {
               {/* Left Side */}
               <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-20 border-2 border-[#EBEBEB]">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mb-12"
+                  className="w-20 h-20 rounded-full flex items-center justify-center mb-16"
                   style={{ backgroundImage: 'var(--primary-gradient)'}}
                 >
                   <Image
@@ -54,6 +54,19 @@ export default function AboutUsPage() {
                     height={52}
                     className="cursor-pointer filter brightness-0 invert"
                   />
+                </div>
+                <div className="relative w-full">
+                  <p 
+                    className='absolute top-0 left-0 text-[96px]'
+                    style={{ 
+                      transform: 'translate(-100%, -30%)',
+                      backgroundImage: 'var(--primary-gradient)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }}
+                  >
+                    “
+                  </p>                  
                 </div>
                 <div style={{ position: 'relative', width: '100%' }}>
                   <div
