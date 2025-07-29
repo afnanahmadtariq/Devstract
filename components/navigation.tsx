@@ -120,7 +120,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
               Contact Us
             </span>
           ) : (
-            <Link href="/contactus" passHref legacyBehavior>
+            <Link href="/contact-us" passHref legacyBehavior>
               <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
                 Contact Us
               </Button>
@@ -149,7 +149,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 { href: "/#services", label: "Services" },
                 { href: "/about-us", label: "About Us" },
                 { href: "/#testimonials", label: "Testimonials" },
-                { href: "/contactus", label: "Contact Us" }
+                { href: "/contact-us", label: "Contact Us" }
               ].map((item, idx) => {
                 const isActive = activeMenuIdx === idx;
                 return (
