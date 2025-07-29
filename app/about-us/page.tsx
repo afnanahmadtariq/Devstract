@@ -51,28 +51,28 @@ export default function AboutUsPage() {
           </p>
           <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Top Portion */}
-            <div className="w-full flex flex-row gap-3">
+            <div className="w-full flex flex-row gap-3 min-h-[36rem]">
               {/* Left Side */}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-md hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
+              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
                 
               </div>
               {/* Right Side*/}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 sm:p-16 border-2 border-[#EBEBEB]">
+              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-xl border-2 border-[#EBEBEB]">
                   
               </div>
             </div>
             {/* Bottom Portion */}
-            <div className="w-full flex flex-row gap-3">
+            <div className="w-full flex flex-row gap-3 min-h-96">
               {/* Left Side */}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-md hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
+              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
                 
               </div>
               {/* Middle */}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-md hidden md:flex flex-col items-center justify-center border-2 border-[#EBEBEB]">
+              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
                 
               </div>
               {/* Right Side*/}
-              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 sm:p-16 border-2 border-[#EBEBEB]">
+              <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 border-2 border-[#EBEBEB]">
                   
               </div>
             </div>
