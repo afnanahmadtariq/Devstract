@@ -19,9 +19,9 @@ export default function TestimonialsSection() {
       id: 1,
       name: "Marshall Clark",
       title: "CEO, TechStart Inc.",
-      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1562788869-4ed32648eb72?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
+        "TechStart Inc. has seen remarkable growth thanks to their innovative solutions. Their team is professional, and results-driven.",
     },
     {
       id: 2,
@@ -29,15 +29,15 @@ export default function TestimonialsSection() {
       title: "Founder, EcoSolutions",
       image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
+        "EcoSolutions has benefited immensely from their expertise. Their commitment to sustainability and innovation is truly inspiring.",
     },
     {
       id: 3,
       name: "Emily Rodriguez",
       title: "Marketing Director, GrowthCo",
-      image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "https://images.unsplash.com/photo-1590649613897-1d5c44ca3409?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "Get guidance based on where you are and where you're going. Interactive. Such a fine company with great people experienced.",
+        "GrowthCo's marketing strategies have reached new heights. Their creative approach and attention to detail are unmatched.",
     }
   ]
 
