@@ -43,7 +43,7 @@ export default function ScrollTextSection() {
           }
           return prev + 0.01; // Increment progress by 1% every interval
         });
-      }, 25); // Adjust interval speed as needed
+      }, 30); // Adjust interval speed as needed
 
       return () => clearInterval(interval);
     }
@@ -98,7 +98,7 @@ export default function ScrollTextSection() {
   return (
     <section ref={sectionRef} className="py-20 sm:py-48 px-6 md:px-24 bg-white">
       <div className="text-center mx-auto">
-        <p className="text-lg md:text-3xl lg:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
+        <p className="text-xl md:text-3xl lg:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
           {(() => {
             let globalCharIndex = 0;
             return textParts.map((part, i) => {
