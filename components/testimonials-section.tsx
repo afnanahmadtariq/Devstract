@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useLayoutEffect } from "react"
+import { useState, useRef, useLayoutEffect, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile"
 
@@ -44,6 +44,8 @@ export default function TestimonialsSection() {
   const [cardOrder, setCardOrder] = useState(testimonials.map((t) => t.id))
   const [isAnimating, setIsAnimating] = useState(false)
   const [animationPhase, setAnimationPhase] = useState<'idle' | 'slide-out' | 'slide-left' | 'slide-in'>('idle')
+  const [hasAnimatedIn, setHasAnimatedIn] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   const handleCardClick = (clickedId: number) => {
     const clickedIndex = cardOrder.indexOf(clickedId)
@@ -76,12 +78,47 @@ export default function TestimonialsSection() {
     )
   }, [cardOrder])
 
+  // Intersection Observer for initial animations (desktop only)
+  useEffect(() => {
+    if (!isMobile && !hasAnimatedIn && sectionRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+              setHasAnimatedIn(true)
+              observer.disconnect()
+            }
+          })
+        },
+        {
+          threshold: 0.3,
+          rootMargin: '0px 0px -100px 0px'
+        }
+      )
+
+      observer.observe(sectionRef.current)
+      return () => observer.disconnect()
+    }
+  }, [isMobile, hasAnimatedIn])
+
   return (
-    <section id="testimonials" className="mt-24 sm:mt-0 sm:py-24 px-0 sm:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section 
+      ref={sectionRef}
+      id="testimonials" 
+      className="mt-24 sm:mt-0 sm:py-24 px-0 sm:px-6 bg-white"
+    >
+      <div className="max-w-7xl mx-auto overflow-hidden">
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
-          <div className="relative z-20 overflow-x-hidden">
+          <div 
+            className={`relative z-20 overflow-x-hidden h-[110%] transition-all duration-1000 ease-out ${
+              isMobile 
+                ? '' 
+                : hasAnimatedIn 
+                  ? 'translate-x-0 translate-y-0 opacity-100' 
+                  : 'translate-x-[-200px] translate-y-[100px] opacity-0'
+            }`}
+          >
             <div className="relative h-[280px] sm:h-[320px] md:h-[415px] w-full max-w-[320px] sm:max-w-[400px] md:max-w-[574px] ml-16 sm:ml-44 md:ml-40 mb-24 md:mb-0">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
@@ -136,7 +173,7 @@ export default function TestimonialsSection() {
                 return (
                   <div
                     key={testimonial.id}
-                    className={`absolute transition-all ${animationDuration} ease-out ${
+                    className={`absolute transition-all ${animationDuration} ease-in-out ${
                       index === 0 && !isAnimating ? 'cursor-pointer' : 'cursor-default'
                     }
                     [--spacing:-40px] sm:[--spacing:-55px] md:[--spacing:-70px]
@@ -150,7 +187,7 @@ export default function TestimonialsSection() {
                       top: '50%',
                       translate: '0 -50%',
                       transformOrigin: 'center',
-                      transition: isAnimating ? "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)" : "all 0.3s ease-out",
+                      transition: isAnimating ? "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)" : "all 0.3s ease-in-out",
                       opacity: opacityNow,
                       transform: 
                         // Use responsive custom properties for different screen sizes
@@ -236,7 +273,15 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Right Column - Call to Action */}
-          <div className="text-center relative z-10">
+          <div 
+            className={`text-center relative z-10 transition-all duration-1000 ease-out ${
+              isMobile 
+                ? '' 
+                : hasAnimatedIn 
+                  ? 'translate-x-0 opacity-100' 
+                  : 'translate-x-[200px] opacity-0'
+            }`}
+          >
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
               <div className="relative max-w-md mx-auto mb-8 z-10">
                 <img src="/media/line.svg" alt="Line decoration" className="absolute right-12 sm:right-0 top-0 h-[13px] sm:h-5 w-auto -mt-5" />
