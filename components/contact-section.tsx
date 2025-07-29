@@ -31,9 +31,9 @@ export default function ContactSection() {
   }, []);
 
   const teamMembers = [
-    { id: 1, image: "/images/image 3.png", name: "Sarah" },
+    { id: 1, image: "/images/image 6.png", name: "Sarah" },
     { id: 2, image: "/images/image 4.png", name: "Mike" },
-    { id: 3, image: "/images/image 6.png", name: "Emma" },
+    { id: 3, image: "/images/image 3.png", name: "Emma" },
   ]
 
   return (
