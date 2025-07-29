@@ -4,38 +4,50 @@ import { useEffect, useState, useRef } from "react"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function ScrollTextSection() {
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [isInView, setIsInView] = useState(false)
+  const [animationProgress, setAnimationProgress] = useState(0);
   const sectionRef = useRef<HTMLElement>(null)
   const isMobile = useIsMobile()
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return
-      
-      const rect = sectionRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-      
-      // Calculate progress based on section entering viewport
-      const sectionTop = rect.top
-      const sectionHeight = rect.height
-      
-      if (sectionTop > windowHeight) {
-        // Section hasn't entered viewport yet
-        setScrollProgress(0)
-      } else if (sectionTop <= 0) {
-        // Section is fully in view or has passed
-        setScrollProgress(1)
-      } else {
-        // Section is entering viewport
-        const progress = (windowHeight - sectionTop) / windowHeight
-        setScrollProgress(Math.min(progress, 1))
-      }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+          setAnimationProgress(0); // Reset animation progress when out of view
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial calculation
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, [])
+
+  useEffect(() => {
+    if (isInView) {
+      const interval = setInterval(() => {
+        setAnimationProgress((prev) => {
+          if (prev >= 1) {
+            clearInterval(interval);
+            return 1;
+          }
+          return prev + 0.01; // Increment progress by 1% every interval
+        });
+      }, 30); // Adjust interval speed as needed
+
+      return () => clearInterval(interval);
+    }
+  }, [isInView]);
 
   const iconStyle = {
     display: 'inline',
@@ -43,55 +55,50 @@ export default function ScrollTextSection() {
     margin: '0 4px',
   };
 
-  // Separate mobile styles for each icon
-  const iconMobileGears = {
-    ...iconStyle,
-    width: '2em',
-    height: '2em',
-  };
-  const iconMobileLightbulb = {
-    ...iconStyle,
-    width: '1.4em',
-    height: '1.4em',
-  };
-
-  // Responsive style for each icon
-  const getGearsIconStyle = () => {
-    if (isMobile) {
-      return iconMobileGears;
-    }
-    return iconStyle;
-  };
-  const getLightbulbIconStyle = () => {
-    if (isMobile) {
-      return iconMobileLightbulb;
-    }
-    return iconStyle;
-  };
-
   const textParts = [
     "Devstract is a next-gen ",
-    <img key="gears" src="/media/gears.svg" alt="Gears" style={getGearsIconStyle()} />, 
+    <img key="gears" src="/media/gears.svg" alt="Gears" style={{ ...iconStyle, width: '7%', height: 'auto'}} />,
     "design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design ",
-    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={getLightbulbIconStyle()} />,
+    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={{ ...iconStyle, width: '5%', height: 'auto'}} />,
     "to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
   ];
 
-  // Flatten textParts to count total characters (excluding icons)
   const flatText = textParts.map(part => typeof part === "string" ? part : "").join("");
+  const interpolateColor = (progress: number, startColor: string, endColor: string) => {
+    const hexToRgb = (hex: string) => {
+      const bigint = parseInt(hex.slice(1), 16);
+      return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255,
+      };
+    };
+
+    const rgbToHex = (r: number, g: number, b: number) => {
+      return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    };
+
+    const startRgb = hexToRgb(startColor);
+    const endRgb = hexToRgb(endColor);
+
+    const r = Math.round(startRgb.r + (endRgb.r - startRgb.r) * progress);
+    const g = Math.round(startRgb.g + (endRgb.g - startRgb.g) * progress);
+    const b = Math.round(startRgb.b + (endRgb.b - startRgb.b) * progress);
+
+    return rgbToHex(r, g, b);
+  };
+
   const getLetterColor = (index: number) => {
     const totalLetters = flatText.length;
-    // After scrollProgress > 0.5, threshold starts from 0 and goes to 100%
-    const threshold = scrollProgress < 0.5
-      ? 0
-      : Math.floor(((scrollProgress - 0.5) / 0.5) * totalLetters);
-    return index < threshold ? "#2C2C2C" : "#C2C2C2";
+    const threshold = animationProgress * totalLetters;
+    const progress = Math.min(Math.max((index - (threshold - 10)) / 10, 0), 1); // Smooth transition range
+    return interpolateColor(progress, "#2C2C2C", "#C2C2C2");
   };
 
   return (
     <section ref={sectionRef} className="py-20 sm:py-48 px-6 md:px-24 bg-white">
       <div className="text-center mx-auto">
-        <p className="text-md md:text-[42px] font-semibold leading-[1.6] md:leading-[1.6]">
+        <p className="text-xl md:text-3xl lg:text-[42px] text-left font-semibold leading-[1.6] md:leading-[1.6]">
           {(() => {
             let globalCharIndex = 0;
             return textParts.map((part, i) => {
