@@ -79,10 +79,10 @@
     pointer-events: none;
   }
   .legal-content h1 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl font-semibold leading-loose;
   }
   .legal-content p {
-    @apply text-xl text-[#676767] leading-relaxed;
+    @apply text-xl font-normal text-[#676767];
   }
 }
 
@@ -172,18 +172,26 @@
   .contact-button:hover {
     background-color: #6355E5 !important;
   }
+
   .animate-slide-in-right {
     animation: slide-in-right 0.3s cubic-bezier(0.4,0,0.2,1);
   }
+
   @keyframes slide-in-right {
     from { transform: translateX(100%); }
     to { transform: translateX(0); }
   }
+
   .animate-slide-out-right {
     animation: slide-out-right 0.3s cubic-bezier(0.4,0,0.2,1);
   }
+
   @keyframes slide-out-right {
     from { transform: translateX(0); }
     to { transform: translateX(100%); }
+  }
+
+  .list-square {
+    list-style-type: square;
   }
 }
