@@ -11,11 +11,11 @@ interface LegalLayoutProps {
 export default function LegalLayout({ title, subtitle, content }: LegalLayoutProps) {
   const router = useRouter();
   const teamMembers = [
-    { id: 1, image: "/images/image 3.png", name: "Sarah" },
-    { id: 2, image: "/images/image 4.png", name: "Mike" },
-    { id: 3, image: "/images/image 6.png", name: "Emma" },
-    { id: 4, image: "/images/image 6.png", name: "Emma" },
-    { id: 5, image: "/images/image 6.png", name: "Emma" },
+    { id: 1, image: "https://plus.unsplash.com/premium_photo-1673957923985-b814a9dbc03d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Sarah" },
+    { id: 2, image: "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Mike" },
+    { id: 3, image: "https://images.unsplash.com/photo-1632765854612-9b02b6ec2b15?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Emma" },
+    { id: 4, image: "/images/image 4.png", name: "Emma" },
+    { id: 5, image: "/images/image 3.png", name: "Emma" },
   ];
 
   return (
