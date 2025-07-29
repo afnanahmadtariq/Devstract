@@ -220,7 +220,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Scrollable carousel with hover buttons */}
-        <div className="relative group">
+        <div id="services-carousel" className="relative group">
           <div
             ref={scrollRef}
             className={`flex gap-3 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} w-full max-w-full`}
