@@ -48,12 +48,12 @@ export default function ContactSection() {
         >
           {/* "Get in touch" heading behind the image */}
           <div
-            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
               transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : isTab ? 180 : 224)}px)`
             }}
           >
-            <h2 className="text-6xl sm:text-[7rem] md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
+            <h2 className="text-6xl sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
               Get in <span style={{
                 background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
                 backgroundClip: "text",
