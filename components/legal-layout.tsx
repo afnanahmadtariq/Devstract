@@ -55,7 +55,7 @@ export default function LegalLayout({ title, subtitle, content }: LegalLayoutPro
               </p>
               <button 
                 className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
-                onClick={() => router.push("/contactus")}
+                onClick={() => router.push("/contact-us")}
               >
                 <span className="px-12 py-2 ml-4">
                   Contact Us
