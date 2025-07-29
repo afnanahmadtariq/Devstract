@@ -29,7 +29,7 @@ export default function LegalLayout({ title, subtitle, content }: LegalLayoutPro
         </p>
         <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
           {/* Top Portion */}
-          <div className="legal-content flex-1 flex flex-col bg-white dark:bg-gray-800 rounded-t-[33px] p-16  justify-center border-2 border-[#EBEBEB]">
+          <div className="legal-content flex-1 flex flex-col bg-white dark:bg-gray-800 rounded-t-[33px] p-8 sm:p-20  justify-center border-2 border-[#EBEBEB]">
             {content}
           </div>
           {/* Bottom Portion */}
@@ -50,14 +50,14 @@ export default function LegalLayout({ title, subtitle, content }: LegalLayoutPro
                   </div>
                 ))}
               </div>
-              <p className="text-lg font-normal text-[#4D4D4DC9] dark:text-white mb-8 sm:mb-12">
+              <p className="text-sm sm:text-lg font-normal text-[#4D4D4DC9] dark:text-white mb-8 sm:mb-12">
                 We'd love to hear from you! Whether you have questions, feedback, or you're ready to start a project, our team is here to help. Reach out to us anytime — we're just a message away.
               </p>
               <button 
                 className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
                 onClick={() => router.push("/contact-us")}
               >
-                <span className="px-12 py-2 ml-4">
+                <span className="px-6 sm:px-12 py-2 ml-4">
                   Contact Us
                 </span>
                 <span
