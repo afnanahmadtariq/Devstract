@@ -3,6 +3,7 @@
 import { useState, useRef, useLayoutEffect, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { useRouter } from "next/navigation";
 
 interface Testimonial {
   id: number
@@ -13,6 +14,7 @@ interface Testimonial {
 }
 
 export default function TestimonialsSection() {
+  const router = useRouter();
   const isMobile = useIsMobile()
   const testimonials: Testimonial[] = [
     {
@@ -282,7 +284,7 @@ export default function TestimonialsSection() {
                   : 'translate-x-[200px] opacity-0'
             }`}
           >
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Hear From Others</h3>
               <div className="relative max-w-md mx-auto mb-8 z-10">
                 <img src="/media/line.svg" alt="Line decoration" className="absolute right-[3.6rem] sm:right-[3.2rem] md:right-0 top-0 h-[13px] sm:h-4 md:h-5 w-auto -mt-5" />
               </div>
@@ -301,6 +303,7 @@ export default function TestimonialsSection() {
               <div className="relative z-10 h-64 flex items-center justify-center">
                 <Button
                   className="text-white text-xs sm:text-base font-normal px-6 py-4 sm:px-8 sm:py-6 rounded-full"
+                  onClick={() => router.push("/about-us")}
                   style={{
                     background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
                     filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.80))"

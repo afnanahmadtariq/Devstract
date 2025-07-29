@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobile"
 import { useIsTab } from "@/hooks/use-tab" // or "@/components/ui/use-tab"
+import { useRouter } from "next/navigation";
 
 export default function ContactSection() {
+  const router = useRouter();
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
@@ -121,6 +123,7 @@ export default function ContactSection() {
             <div className="mb-60 sm:mb-96" />
             <Button
               className="bg-white hover:bg-gray-100 text-black rounded-full py-4 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
+              onClick={() => router.push("/contact-us")}
               style={{
                 width: isMobile
                   ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // mobile width
