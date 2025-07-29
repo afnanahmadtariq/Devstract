@@ -296,14 +296,14 @@ export default function TestimonialsSection() {
               <img 
                 src="/media/world-map.png" 
                 alt="World map background" 
-                className="w-full h-full sm:h-80 object-cover absolute left-0 z-0"
+                className="w-auto h-full sm:h-80 object-cover absolute left-1/2 transform -translate-x-1/2 z-0"
               />
               <div className="relative z-10 h-64 flex items-center justify-center">
                 <Button
                   className="text-white text-xs sm:text-base font-normal px-6 py-4 sm:px-8 sm:py-6 rounded-full"
                   style={{
                     background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
-                    filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.48))"
+                    filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.80))"
                   }}
                 >
                   Check My Eligibility
