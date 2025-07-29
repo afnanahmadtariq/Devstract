@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
       title: "Founder, EcoSolutions",
       image: "https://plus.unsplash.com/premium_photo-1661577077635-1b1948545206?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       review:
-        "EcoSolutions has benefited immensely from their expertise. Their commitment to sustainability and innovation is truly inspiring.",
+        "EcoSolutions got so much help from them. They care a lot about green and new ideas.",
     },
     {
       id: 3,
@@ -111,7 +111,7 @@ export default function TestimonialsSection() {
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
           <div 
-            className={`relative z-20 overflow-x-hidden h-[110%] transition-all duration-1000 ease-out ${
+            className={`relative z-20 mb-24 lg:mb-0 overflow-x-hidden h-[110%] transition-all duration-1000 ease-out ${
               isMobile 
                 ? '' 
                 : hasAnimatedIn 
@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
                   : 'translate-x-[-200px] translate-y-[100px] opacity-0'
             }`}
           >
-            <div className="relative h-[280px] sm:h-[320px] md:h-[415px] w-full max-w-[320px] sm:max-w-[400px] md:max-w-[574px] ml-16 sm:ml-44 md:ml-40 mb-24 md:mb-0">
+            <div className="relative h-[280px] sm:h-[320px] md:h-[415px] w-full max-w-[320px] sm:max-w-[400px] md:max-w-[574px] ml-16 sm:ml-44 md:ml-[30%] lg:ml-40">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
                 let zIndex = cardOrder.length - index
@@ -233,7 +233,7 @@ export default function TestimonialsSection() {
                       
                       {/* Name and title */}
                       <div
-                        className="absolute left-[140px] sm:left-[160px] md:left-[235px] top-4 sm:top-6 md:top-8"
+                        className="absolute left-[140px] sm:left-[180px] md:left-[235px] top-4 sm:top-6 md:top-8"
                         ref={el => {
                           nameTitleRefs.current[index] = el
                         }}
@@ -248,7 +248,7 @@ export default function TestimonialsSection() {
                       
                       {/* Large quote mark */}
                       <div
-                          className="text-[#2c2c2c] font-syne text-4xl sm:text-6xl md:text-8xl font-medium absolute left-[140px] sm:left-[160px] md:left-[235px] w-6 sm:w-7 md:w-9 h-[45px] sm:h-[55px] md:h-[70px] mt-3 sm:mt-3 md:mt-4"
+                          className="text-[#2c2c2c] font-syne text-4xl sm:text-6xl md:text-8xl font-medium absolute left-[140px] sm:left-[180px] md:left-[235px] w-6 sm:w-7 md:w-9 h-[45px] sm:h-[55px] md:h-[70px] mt-3 sm:mt-3 md:mt-4"
                           style={{
                             top:
                               isMobile
@@ -284,7 +284,7 @@ export default function TestimonialsSection() {
           >
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Here From Others</h3>
               <div className="relative max-w-md mx-auto mb-8 z-10">
-                <img src="/media/line.svg" alt="Line decoration" className="absolute right-12 sm:right-0 top-0 h-[13px] sm:h-5 w-auto -mt-5" />
+                <img src="/media/line.svg" alt="Line decoration" className="absolute right-[3.6rem] sm:right-[3.2rem] md:right-0 top-0 h-[13px] sm:h-4 md:h-5 w-auto -mt-5" />
               </div>
             <p className="text-sm sm:text-xl text-[#676767] leading-tight mb-8 max-w-72 sm:max-w-md mx-auto relative z-10">
               Don't just take our word for it. See what our clients have to say about their experience working with us
@@ -296,14 +296,14 @@ export default function TestimonialsSection() {
               <img 
                 src="/media/world-map.png" 
                 alt="World map background" 
-                className="w-full h-full sm:h-80 object-cover absolute left-0 z-0"
+                className="w-auto h-full sm:h-80 object-cover absolute left-1/2 transform -translate-x-1/2 z-0"
               />
               <div className="relative z-10 h-64 flex items-center justify-center">
                 <Button
                   className="text-white text-xs sm:text-base font-normal px-6 py-4 sm:px-8 sm:py-6 rounded-full"
                   style={{
                     background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
-                    filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.48))"
+                    filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.80))"
                   }}
                 >
                   Check My Eligibility

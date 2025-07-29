@@ -48,12 +48,12 @@ export default function ContactSection() {
         >
           {/* "Get in touch" heading behind the image */}
           <div
-            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
               transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : isTab ? 180 : 224)}px)`
             }}
           >
-            <h2 className="text-6xl sm:text-[7rem] md:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
+            <h2 className="text-6xl sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
               Get in <span style={{
                 background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
                 backgroundClip: "text",
@@ -106,7 +106,7 @@ export default function ContactSection() {
                   <path id="circle" d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
                 </defs>
                 <text className="text-xs sm:text-sm fill-black font-normal font-syne">
-                  <textPath href="#circle">Start your Journey Today Tehe</textPath>
+                  <textPath href="#circle">Start your Journey Today Now</textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
