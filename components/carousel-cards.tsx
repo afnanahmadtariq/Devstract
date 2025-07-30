@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef} from 'react'
-import { useIsMobile } from "@/hooks/use-mobile"
 
 interface Card {
   id: number
@@ -12,7 +11,6 @@ interface Card {
 
 export default function CarouselCards() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const isMobile = useIsMobile()
 
   const cards: Card[] = [
     { id: 1, title: "Lightning Fast Delivery", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card1.svg" },
