@@ -250,7 +250,7 @@ export default function ServicesSection() {
             })}
           </Slider>
           {/* Buttons below cards for small screens */}
-          <div className="flex sm:hidden justify-center mt-8 gap-24">
+          <div className="flex sm:hidden justify-center mt-8 gap-2">
             <button
               type="button"
               onClick={() => sliderRef.current?.slickPrev()} // Trigger previous slide

@@ -121,55 +121,49 @@ export default function TestimonialsSection() {
                   : 'translate-x-[-200px] translate-y-[100px] opacity-0'
             }`}
           >
-            <div className="relative h-[280px] sm:h-[320px] md:h-[415px] w-full max-w-[320px] sm:max-w-[400px] md:max-w-[574px] ml-16 sm:ml-44 md:ml-[30%] lg:ml-40">
+            <div className="relative h-[280px] sm:h-[320px] md:h-[415px] w-full max-w-[320px] sm:max-w-[400px] md:max-w-[574px] mx-auto md:ml-[30%] lg:ml-40">
               {cardOrder.map((testimonialId, index) => {
                 const testimonial = testimonials.find((t) => t.id === testimonialId)!
                 let zIndex = cardOrder.length - index
-                
-                // Responsive spacing values
-                const spacing = {
-                  mobile: -40,    // smaller spacing for mobile
-                  small: -55,     // medium spacing for small screens
-                  desktop: -70    // original spacing for desktop
-                }
+              
                 
                 // Calculate positions and scales based on animation phase
-                let translateX = index * spacing.mobile // Use mobile as base, will be adjusted by media queries
-                let scale = 1 - index * 0.1
-                // Define duration based on animation phase
-                let animationDuration = 'duration-300' // default
-                let opacityNow = 1
+                let translateX = isMobile ? 0 : index * -40; // Horizontal for larger screens, none for small screens
+                let translateY = isMobile ? index * 40 : 0; // Vertical for small screens, none for larger screens
+                let scale = 1 - index * 0.1;
+                let animationDuration = "duration-300"; // default
+                let opacityNow = 1;
 
                 // Animation adjustments
-                if (animationPhase === 'slide-out' && index === 0) {
-                  // Top card slides right and scales down - responsive values
-                  animationDuration = 'duration-375'
-                  translateX = 60 // mobile: 60px, sm: 75px, md: 100px (handled by CSS media queries)
-                  scale = 0.7
-                  opacityNow = 0.2 // Fade out the top card
-                } else if (animationPhase === 'slide-out' && index > 0) {
-                  // Behind cards move left to give space and scale up
-                  animationDuration = 'duration-375'
-                  translateX = (index - 1) * spacing.mobile
-                  scale = 1 - (index - 1) * 0.1
-                } else if (animationPhase === 'slide-left' && index === 0) {
-                  // Top card slides left to go behind the stack with lowest z-index - responsive values
-                  animationDuration = 'duration-250'
-                  translateX = -60 // mobile: -60px, sm: -75px, md: -100px
-                  scale = 0.5
-                  zIndex = 0 // Put it behind all other cards
-                  opacityNow = 0.2 // Fade out the top card
-                } else if (animationPhase === 'slide-left' && index > 0) {
-                  // Behind cards stay in their forward positions
-                  animationDuration = 'duration-150'
-                  translateX = (index - 1) * spacing.mobile
-                  scale = 1 - (index - 1) * 0.1
-                } else if (animationPhase === 'slide-in' && index === cardOrder.length - 1) {
-                  // Last card (previously top) slides back from right - responsive values
-                  animationDuration = 'duration-75'
-                  translateX = -40 // mobile: -40px, sm: -50px, md: -80px
-                  scale = 1 - index * 0.1
-                  zIndex = 0
+                if (animationPhase === "slide-out" && index === 0) {
+                  animationDuration = "duration-375";
+                  translateX = isMobile ? 0 : 60; // Horizontal for larger screens
+                  translateY = isMobile ? -60 : 0; // Vertical for small screens
+                  scale = 0.7;
+                  opacityNow = 0.2;
+                } else if (animationPhase === "slide-out" && index > 0) {
+                  animationDuration = "duration-375";
+                  translateX = isMobile ? 0 : (index - 1) * -40;
+                  translateY = isMobile ? (index - 1) * 40 : 0;
+                  scale = 1 - (index - 1) * 0.1;
+                } else if (animationPhase === "slide-left" && index === 0) {
+                  animationDuration = "duration-250";
+                  translateX = isMobile ? 0 : -60;
+                  translateY = isMobile ? 60 : 0;
+                  scale = 0.5;
+                  zIndex = 0;
+                  opacityNow = 0.2;
+                } else if (animationPhase === "slide-left" && index > 0) {
+                  animationDuration = "duration-150";
+                  translateX = isMobile ? 0 : (index - 1) * -40;
+                  translateY = isMobile ? (index - 1) * 40 : 0;
+                  scale = 1 - (index - 1) * 0.1;
+                } else if (animationPhase === "slide-in" && index === cardOrder.length - 1) {
+                  animationDuration = "duration-75";
+                  translateX = isMobile ? 0 : -40;
+                  translateY = isMobile ? -40 : 0;
+                  scale = 1 - index * 0.1;
+                  zIndex = 0;
                 }
 
                 return (
@@ -178,20 +172,36 @@ export default function TestimonialsSection() {
                     className={`absolute transition-all ${animationDuration} ease-in-out ${
                       index === 0 && !isAnimating ? 'cursor-pointer' : 'cursor-default'
                     }
-                    [--spacing:-40px] sm:[--spacing:-55px] md:[--spacing:-70px]
-                    [--slide-out:60px] sm:[--slide-out:75px] md:[--slide-out:100px]
-                    [--slide-left:-60px] sm:[--slide-left:-75px] md:[--slide-left:-100px]
-                    [--slide-in:-40px] sm:[--slide-in:-50px] md:[--slide-in:-80px]
+                    [--spacing:25px] sm:[--spacing:32px] md:[--spacing:-49px]
+                    [--slide-out:-45px] sm:[--slide-out:-52px] md:[--slide-out:79px]
+                    [--slide-left:45px] sm:[--slide-left:52px] md:[--slide-left:-79px]
+                    [--slide-in:25px] sm:[--slide-in:27px] md:[--slide-in:-59px]
                     `}
                     style={{
                       zIndex,
-                      left: 0,
-                      top: '50%',
-                      translate: '0 -50%',
-                      transformOrigin: 'center',
-                      transition: isAnimating ? "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)" : "all 0.3s ease-in-out",
+                      left: isMobile ? "50%" : 0,
+                      top: isMobile ? "0" : "50%",
+                      translate: isMobile ? "-50% 0" : "0 -50%",
+                      transformOrigin: "center",
+                      transition: isAnimating
+                        ? "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
+                        : "all 0.3s ease-in-out",
                       opacity: opacityNow,
-                      transform: 
+                      transform: isMobile
+                        ?  
+                        // For Mobile: Use fixed spacing and no horizontal translation
+                        animationPhase === 'slide-out' && index === 0 
+                          ? `translateY(var(--slide-out)) scale(${scale})`
+                        : animationPhase === 'slide-left' && index === 0
+                          ? `translateY(var(--slide-left)) scale(${scale})`
+                        : animationPhase === 'slide-in' && index === cardOrder.length - 1
+                          ? `translateY(var(--slide-in)) scale(${scale})`
+                        : animationPhase === 'slide-out' && index > 0
+                          ? `translateY(calc(${index - 1} * var(--spacing))) scale(${scale})`
+                        : animationPhase === 'slide-left' && index > 0
+                          ? `translateY(calc(${index - 1} * var(--spacing))) scale(${scale})`
+                        : `translateY(calc(${index} * var(--spacing))) scale(${scale})`
+                        :  
                         // Use responsive custom properties for different screen sizes
                         animationPhase === 'slide-out' && index === 0 
                           ? `translateX(var(--slide-out)) scale(${scale})`
@@ -262,8 +272,8 @@ export default function TestimonialsSection() {
                       </div>
 
                       {/* Review text */}
-                      <div className="absolute left-6 sm:left-6 md:left-8 top-28 sm:top-36 md:top-48 w-[240px] sm:w-[300px] md:w-[418px] h-[860px] sm:h-[80px] md:h-[198px] overflow-hidden">
-                        <p className="text-[#2c2c2c] font-syne text-lg sm:text-lg md:text-3xl font-medium leading-tight">
+                      <div className="absolute left-6 sm:left-6 md:left-8 top-28 sm:top-36 md:top-48 w-[240px] sm:w-[300px] md:w-[418px] h-[860px] sm:h-[140px] md:h-[198px] overflow-hidden">
+                        <p className="text-[#2c2c2c] font-syne text-lg sm:text-xl md:text-3xl font-medium leading-tight">
                           "{testimonial.review}"
                         </p>
                       </div>
