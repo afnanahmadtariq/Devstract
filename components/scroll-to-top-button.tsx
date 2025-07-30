@@ -6,6 +6,7 @@ import ArrowUp from "@/components/icons/ArrowUp"
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isAtBottom, setIsAtBottom] = useState(false)
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -15,6 +16,13 @@ export default function ScrollToTopButton() {
         setIsVisible(true)
       } else {
         setIsVisible(false)
+      }
+
+      // Check if the user has reached the bottom of the page
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        setIsAtBottom(true)
+      } else {
+        setIsAtBottom(false)
       }
     }
 
@@ -32,7 +40,7 @@ export default function ScrollToTopButton() {
   return (
     <Button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black text-white shadow-lg transition-all duration-300 ${
+      className={`fixed ${isAtBottom ? "bottom-20" : "bottom-8 sm:bottom-8"} right-8 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black text-white shadow-lg transition-all duration-300 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
       style={{
@@ -43,7 +51,7 @@ export default function ScrollToTopButton() {
       size="icon"
       aria-label="Scroll to top"
     >
-      <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
+      <ArrowUp className="w-4 h-4 sm:w-8 sm:h-8" />
     </Button>
   )
 }
