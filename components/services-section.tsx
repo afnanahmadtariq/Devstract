@@ -34,7 +34,7 @@ export default function ServicesSection() {
   const [animate, setAnimate] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<any>(null); // Ref for the slider
-  const [slidesToShow, setSlidesToShow] = useState(Math.max(1, Math.floor(window.innerWidth / 300)));
+  const [slidesToShow, setSlidesToShow] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
