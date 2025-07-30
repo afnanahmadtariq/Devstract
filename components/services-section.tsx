@@ -249,6 +249,35 @@ export default function ServicesSection() {
                 );
             })}
           </Slider>
+          {/* Buttons below cards for small screens */}
+          <div className="flex sm:hidden justify-center mt-8 gap-24">
+            <button
+              type="button"
+              onClick={() => sliderRef.current?.slickPrev()} // Trigger previous slide
+              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+              aria-label="Scroll left"
+            >
+              <img
+                src="/media/small_arrow.svg"
+                alt="arrow left"
+                className="w-6 h-6 rotate-180"
+                style={{ filter: "invert(100%)" }}
+              />
+            </button>
+            <button
+              type="button"
+              onClick={() => sliderRef.current?.slickNext()} // Trigger next slide
+              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+              aria-label="Scroll right"
+            >
+              <img
+                src="/media/small_arrow.svg"
+                alt="arrow right"
+                className="w-6 h-6"
+                style={{ filter: "invert(100%)" }}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>
