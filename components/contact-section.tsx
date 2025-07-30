@@ -55,12 +55,12 @@ export default function ContactSection() {
         >
           {/* "Get in touch" heading behind the image */}
           <div
-            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            className="absolute inset-x-0 top-[215px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
               transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : 224)}px)`
             }}
           >
-            <h2 className="text-6xl sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
+            <h2 className="text-[3.35rem] sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
               Get in <span style={{
                 background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
                 backgroundClip: "text",
@@ -106,7 +106,12 @@ export default function ContactSection() {
           </div>
 
           {/* Top-right circular arrow with text */}
-          <div className="absolute top-2 right-2 sm:top-4 md:top-6 sm:right-4 md:right-8 z-30">
+          <a 
+            href="https://calendly.com/afnan-devstract/30min" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="absolute top-2 right-2 sm:top-4 md:top-6 sm:right-4 md:right-8 z-30"
+          >
             <div className="relative w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32">
               <svg className="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 animate-spin-slow" viewBox="0 0 100 100">
                 <defs>
@@ -120,7 +125,7 @@ export default function ContactSection() {
                 <img src="/media/small_arrow.svg" alt="Submit" className="w-5 h-5 sm:w-8 md:w-10 sm:h-8 md:h-10 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
               </div>
             </div>
-          </div>
+          </a>
 
           {/* Main content except heading */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
@@ -136,7 +141,7 @@ export default function ContactSection() {
                 transition: "width 1s ease-out",
               }}
             >
-              <span className="m-2 sm:m-3 whitespace-nowrap">
+              <span className="m-2 sm:m-4 whitespace-nowrap">
                 Bring your ideas to life
               </span>
               <span
