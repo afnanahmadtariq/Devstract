@@ -112,7 +112,7 @@ export default function ContactSection() {
                 <defs>
                   <path id="circle" d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
                 </defs>
-                <text className="text-xs sm:text-sm fill-black font-normal font-syne">
+                <text className="text-sm sm:text-sm fill-black font-normal font-syne">
                   <textPath href="#circle">Start your Journey Today Now</textPath>
                 </text>
               </svg>
