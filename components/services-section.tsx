@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import "./services-section-animations.css"
-import { useIsMobile } from "@/hooks/use-mobile"
-import { useIsTab } from "@/hooks/use-tab"
 
 interface Service {
   id: number
@@ -12,13 +10,27 @@ interface Service {
   image: string
 }
 
+function checkSmallScreen() {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 640; // Tailwind's sm breakpoint
+  }
+  return false;
+}
+
+function checkMediumScreen() {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 768; // Tailwind's md breakpoint
+  }
+  return false;
+}
+
 export default function ServicesSection() {
   // Touch event state
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchScrollLeft, setTouchScrollLeft] = useState(0);
 
-  const isMobile = useIsMobile()
-  const isTab = useIsTab()
+  const isSmallScreen= checkSmallScreen()
+  const isMediumScreen = checkMediumScreen()
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -99,7 +111,7 @@ export default function ServicesSection() {
   // Helper function to snap scroll position
   const snapScroll = (customScroll?: number) => {
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550;
+      const scrollAmount = isSmallScreen? 312 : isMediumScreen ? 424 : 550;
       const currentScroll = typeof customScroll === 'number' ? customScroll : scrollRef.current.scrollLeft;
       const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
       let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
@@ -120,7 +132,7 @@ export default function ServicesSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = isMobile ? 312 : isTab ? 424 : 550;
+      const scrollAmount = isSmallScreen? 312 : isMediumScreen ? 424 : 550;
       const currentScroll = scrollRef.current.scrollLeft;
       let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount;
       snapScroll(targetScroll);
@@ -181,7 +193,7 @@ export default function ServicesSection() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile, isTab]);
+  }, [isSmallScreen, isMediumScreen]);
 
   const handleTouchCancel = () => {
     setIsDragging(false);
@@ -191,7 +203,7 @@ export default function ServicesSection() {
     <section ref={sectionRef} id="services" className={`py-16 bg-white transition-opacity duration-2000 ${animate ? 'opacity-100' : 'opacity-0'}`}> 
       <div className="mx-auto">
         {/* Left-aligned heading and description */}
-        <div className={`px-4 sm:px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
+        <div className={`px-4 sm:px-8 lg:px-28 ml-6 mb-12 slide-from-left${animate ? ' show' : ''}`}> 
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-4 text-left">Our Services</h2>
           <div className="flex items-center">
             <p className="text-sm sm:text-xl text-[#676767] max-w-xl text-left">
@@ -242,7 +254,7 @@ export default function ServicesSection() {
               return (
                 <div
                   key={service.id}
-                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-12 sm:ml-32" : ""} transition-all duration-2000 ease-out ${cardAnim}`}
+                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-12 lg:ml-32" : ""} transition-all duration-2000 ease-out ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                 >
                   {/* Dark overlay for better text readability */}
