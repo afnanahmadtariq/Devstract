@@ -127,7 +127,7 @@ export default function ContactSection() {
             {/* Spacer for heading */}
             <div className="mb-60 sm:mb-96" />
             <Button
-              className="bg-white hover:bg-gray-100 text-black rounded-full py-4 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
+              className="bg-white hover:bg-gray-100 text-black rounded-full py-6 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
               onClick={() => router.push("/contact-us")}
               style={{
                 width: isSmallScreen()
@@ -142,11 +142,11 @@ export default function ContactSection() {
               <span
                 className="flex items-center justify-center rounded-full"
                 style={{
-                  width: isSmallScreen() ? 32 : 42,
-                  height: isSmallScreen() ? 32 : 42,
+                  width: isSmallScreen() ? 36 : 42,
+                  height: isSmallScreen() ? 36 : 42,
                   background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
                   flexShrink: 0,
-                  marginRight: isSmallScreen() ? -8 : -5,
+                  marginRight: isSmallScreen() ? -9 : -5,
                 }}
               >
                 <img
