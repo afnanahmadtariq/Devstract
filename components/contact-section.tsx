@@ -131,12 +131,12 @@ export default function ContactSection() {
               onClick={() => router.push("/contact-us")}
               style={{
                 width: isSmallScreen()
-                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // small screen width
-                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // larger screen width
+                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 170 : 0)}px` // small screen width
+                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 230 : 0)}px`, // larger screen width
                 transition: "width 1s ease-out",
               }}
             >
-              <span className="m-2 sm:m-4 whitespace-nowrap">
+              <span className="m-2 sm:m-3 whitespace-nowrap">
                 Bring your ideas to life
               </span>
               <span

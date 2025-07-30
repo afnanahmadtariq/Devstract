@@ -145,7 +145,7 @@
   }
 
   .animate-spin-slow {
-    animation: spin-slow 20s linear infinite;
+    animation: spin-slow 50s linear infinite;
   }
   
   .animate-navbar-down {
