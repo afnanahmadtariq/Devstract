@@ -262,8 +262,8 @@ export default function ServicesSection() {
 
                   {/* Card content */}
                   <div className="relative z-10">
-                    <h3 className="text-2xl sm:text-5xl font-semibold mb-3 sm:mb-4">{service.title}</h3>
-                    <p className="text-sm sm:text-xl mb-4 sm:mb-6 font-normal leading-tight text-white/[0.77]">{service.description}</p>
+                    <h3 className="text-2xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4">{service.title}</h3>
+                    <p className="text-sm sm:text-lg md:text-xl mb-4 sm:mb-6 font-normal leading-tight text-white/[0.77]">{service.description}</p>
 
                     {/* Arrow button */}
                     {/* <div className="flex justify-start">
