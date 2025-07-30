@@ -65,8 +65,8 @@ export default function TestimonialsSection() {
         setTimeout(() => {
           setAnimationPhase('idle')
           setIsAnimating(false)
-        }, 250)
-      }, 375)
+        }, 200) // faster timeout for slide-in completion
+      }, 300) // faster timeout for slide-out
     }
   }
 
@@ -131,35 +131,35 @@ export default function TestimonialsSection() {
                 let translateX = isMobile ? 0 : index * -40; // Horizontal for larger screens, none for small screens
                 let translateY = isMobile ? index * 40 : 0; // Vertical for small screens, none for larger screens
                 let scale = 1 - index * 0.1;
-                let animationDuration = "duration-300"; // default
+                let animationDuration = "duration-250"; // default
                 let opacityNow = 1;
 
                 // Animation adjustments
                 if (animationPhase === "slide-out" && index === 0) {
-                  animationDuration = "duration-375";
+                  animationDuration = "duration-300"; // faster slide-out
                   translateX = isMobile ? 0 : 60; // Horizontal for larger screens
                   translateY = isMobile ? -60 : 0; // Vertical for small screens
                   scale = 0.7;
                   opacityNow = 0.2;
                 } else if (animationPhase === "slide-out" && index > 0) {
-                  animationDuration = "duration-375";
+                  animationDuration = "duration-300"; // faster slide-out for other cards
                   translateX = isMobile ? 0 : (index - 1) * -40;
                   translateY = isMobile ? (index - 1) * 40 : 0;
                   scale = 1 - (index - 1) * 0.1;
                 } else if (animationPhase === "slide-left" && index === 0) {
-                  animationDuration = "duration-250";
+                  animationDuration = "duration-200"; // faster slide-left
                   translateX = isMobile ? 0 : -60;
                   translateY = isMobile ? 60 : 0;
                   scale = 0.5;
                   zIndex = 0;
                   opacityNow = 0.2;
                 } else if (animationPhase === "slide-left" && index > 0) {
-                  animationDuration = "duration-150";
+                  animationDuration = "duration-100"; // faster slide-left for behind cards
                   translateX = isMobile ? 0 : (index - 1) * -40;
                   translateY = isMobile ? (index - 1) * 40 : 0;
                   scale = 1 - (index - 1) * 0.1;
                 } else if (animationPhase === "slide-in" && index === cardOrder.length - 1) {
-                  animationDuration = "duration-75";
+                  animationDuration = "duration-50"; // faster slide-in
                   translateX = isMobile ? 0 : -40;
                   translateY = isMobile ? -40 : 0;
                   scale = 1 - index * 0.1;
