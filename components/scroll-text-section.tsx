@@ -57,9 +57,9 @@ export default function ScrollTextSection() {
 
   const textParts = [
     "Devstract is a next-gen ",
-    <img key="gears" src="/media/gears.svg" alt="Gears" style={{ ...iconStyle, width: '7%', height: 'auto'}} />,
+    <img key="gears" src="/media/gears.svg" alt="Gears" style={{ ...iconStyle, width: 'auto', height: '1.35em' }} />,
     "design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design ",
-    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={{ ...iconStyle, width: '5%', height: 'auto'}} />,
+    <img key="lightbulb" src="/media/light-bulb.svg" alt="Lightbulb" style={{ ...iconStyle, width: 'auto', height: '1.35em' }} />,
     "to build modern, user-centric solutions that help brands grow, engage, and lead in their industries."
   ];
 
