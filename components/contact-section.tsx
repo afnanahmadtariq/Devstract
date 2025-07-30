@@ -6,6 +6,13 @@ import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobi
 import { useIsTab } from "@/hooks/use-tab" // or "@/components/ui/use-tab"
 import { useRouter } from "next/navigation";
 
+function isSmallScreen() {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 640; // Tailwind's sm breakpoint
+  }
+  return false;
+}
+
 export default function ContactSection() {
   const router = useRouter();
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -52,7 +59,7 @@ export default function ContactSection() {
           <div
             className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
-              transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : isTab ? 180 : 224)}px)`
+              transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : 224)}px)`
             }}
           >
             <h2 className="text-6xl sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
@@ -125,11 +132,9 @@ export default function ContactSection() {
               className="bg-white hover:bg-gray-100 text-black rounded-full py-4 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
               onClick={() => router.push("/contact-us")}
               style={{
-                width: isMobile
-                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // mobile width
-                  : isTab 
-                  ? `${55 + (scrollProgress > 0.91 ? scrollProgress * 180 : 0)}px` // tablet width
-                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // desktop width
+                width: isSmallScreen()
+                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // small screen width
+                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // larger screen width
                 transition: "width 1s ease-out",
               }}
             >
@@ -139,11 +144,11 @@ export default function ContactSection() {
               <span
                 className="flex items-center justify-center rounded-full"
                 style={{
-                  width: isMobile ? 32 : 42,
-                  height: isMobile ? 32 : 42,
+                  width: isSmallScreen() ? 32 : 42,
+                  height: isSmallScreen() ? 32 : 42,
                   background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
                   flexShrink: 0,
-                  marginRight: isMobile ? -8 : -5,
+                  marginRight: isSmallScreen() ? -8 : -5,
                 }}
               >
                 <img

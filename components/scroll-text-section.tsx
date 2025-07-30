@@ -1,13 +1,11 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function ScrollTextSection() {
   const [isInView, setIsInView] = useState(false)
   const [animationProgress, setAnimationProgress] = useState(0);
   const sectionRef = useRef<HTMLElement>(null)
-  const isMobile = useIsMobile()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
