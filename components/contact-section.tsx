@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobile"
-import { useIsTab } from "@/hooks/use-tab" // or "@/components/ui/use-tab"
 import { useRouter } from "next/navigation";
 
 function isSmallScreen() {
@@ -18,7 +17,6 @@ export default function ContactSection() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-  const isTab = useIsTab();
 
   useEffect(() => {
     const handleScroll = () => {
