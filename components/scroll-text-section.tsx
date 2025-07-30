@@ -94,9 +94,9 @@ export default function ScrollTextSection() {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-48 px-6 md:px-24 bg-white">
+    <section ref={sectionRef} className="py-20 sm:py-48 px-6 lg:px-24 bg-white">
       <div className="text-center mx-auto">
-        <p className="text-xl md:text-3xl lg:text-[42px] text-center font-semibold leading-[1.6] md:leading-[1.6]">
+        <p className="text-xl sm:text-3xl lg:text-[42px] text-center font-semibold leading-[1.6] md:leading-[1.6]">
           {(() => {
             let globalCharIndex = 0;
             return textParts.map((part, i) => {
