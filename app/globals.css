@@ -74,6 +74,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
   #services-carousel {
+    overflow: hidden; /* Prevent content from spilling out */
+    width: 100%; /* Ensure it spans the full width */
     user-select: none;
   }
   .legal-content h1 {
@@ -191,5 +193,12 @@
 
   .list-square {
     list-style-type: square;
+  }
+
+  /* Example for customizing slide alignment */
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
