@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import "./services-section-animations.css"
-// Removed react-slick and slick-carousel imports
 
 interface Service {
   id: number
@@ -11,24 +10,7 @@ interface Service {
   image: string
 }
 
-function checkSmallScreen() {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 640; // Tailwind's sm breakpoint
-  }
-  return false;
-}
-
-function checkMediumScreen() {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 768; // Tailwind's md breakpoint
-  }
-  return false;
-}
-
 export default function ServicesSection() {
-  const isSmallScreen = checkSmallScreen()
-  const isMediumScreen = checkMediumScreen()
-  const scrollRef = useRef<HTMLDivElement>(null)
   const [animate, setAnimate] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null); // Ref for the scrollable carousel
@@ -50,8 +32,6 @@ export default function ServicesSection() {
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // No need for slidesToShow or react-slick responsive logic
 
   const services: Service[] = [
     {
@@ -105,38 +85,6 @@ export default function ServicesSection() {
     },
   ]
 
-  // Helper function to snap scroll position
-  const snapScroll = (customScroll?: number) => {
-    if (scrollRef.current) {
-      const scrollAmount = isSmallScreen? 312 : isMediumScreen ? 424 : 550;
-      const currentScroll = typeof customScroll === 'number' ? customScroll : scrollRef.current.scrollLeft;
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
-      // Snap to whichever is closer: snapped or maxScroll
-      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
-        scrollRef.current.scrollTo({
-          left: snapped,
-          behavior: "smooth",
-        });
-      } else {
-        scrollRef.current.scrollTo({
-          left: maxScroll,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  // Keep adjusting scroll position on resize or device change
-  useEffect(() => {
-    snapScroll();
-    // Optionally, also listen to window resize for dynamic adjustment
-    const handleResize = () => snapScroll();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSmallScreen, isMediumScreen]);
-
   // Enable mouse wheel horizontal scroll for carousel
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -151,8 +99,6 @@ export default function ServicesSection() {
     carousel.addEventListener("wheel", onWheel, { passive: false });
     return () => carousel.removeEventListener("wheel", onWheel);
   }, []);
-
-  // No sliderSettings needed
 
   return (
     <section
