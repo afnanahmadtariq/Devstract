@@ -53,7 +53,7 @@ export default function FAQPage() {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-full sm:max-w-4xl text-center mb-10 sm:mb-24 px-1">
             Here are some common questions we receive from our users.
           </p>
-          <div className="w-full max-w-full sm:max-w-3xl px-2">
+          <div className="w-full max-w-full sm:max-w-3xl px-3">
             {faqs.map((faq, idx) => (
               <div key={idx}>
                 <button
@@ -73,7 +73,7 @@ export default function FAQPage() {
                 </button>
                 <div
                   id={`faq-answer-${idx}`}
-                  className={`overflow-hidden transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl px-2 sm:px-4 mb-2 ${openIdx === idx ? 'max-h-40 py-3 sm:py-4 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
+                  className={`overflow-hidden transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl px-3 sm:px-4 mb-2 ${openIdx === idx ? 'max-h-40 py-3 sm:py-4 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
                   style={{
                     transitionProperty: 'max-height, opacity, padding',
                   }}

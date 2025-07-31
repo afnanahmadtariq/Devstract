@@ -166,6 +166,7 @@ export default function ServicesSection() {
     swipeToSlide: true,
     draggable: true,
     touchMove: true,
+    cssEase: "cubic-bezier(0.4,0,0.2,1)",
   };
 
   return (
