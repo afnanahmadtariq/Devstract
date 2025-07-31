@@ -74,7 +74,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
   #services-carousel {
-    user-select: none; /* Prevent text selection */
     overflow: hidden; /* Prevent content from spilling out */
     width: 100%; /* Ensure it spans the full width */
     user-select: none;

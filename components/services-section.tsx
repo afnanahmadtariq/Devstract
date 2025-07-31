@@ -12,6 +12,9 @@ interface Service {
 
 export default function ServicesSection() {
   const [animate, setAnimate] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null); // Ref for the scrollable carousel
 
@@ -100,6 +103,30 @@ export default function ServicesSection() {
     return () => carousel.removeEventListener("wheel", onWheel);
   }, []);
 
+  // Handle mouse drag scroll
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll-fast
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -166,10 +193,14 @@ export default function ServicesSection() {
         <div id="services-carousel" className="relative group">
           <div
             ref={carouselRef}
-            className="flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-32"
+            className={`flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-32 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
             style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
             tabIndex={0}
             aria-label="Services carousel"
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
           >
             {services.map((service, index) => {
               let cardAnim = "";
