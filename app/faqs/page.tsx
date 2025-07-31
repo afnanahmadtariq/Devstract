@@ -46,40 +46,40 @@ export default function FAQPage() {
     <>
       <Navigation/>
       <main className="flex flex-col min-h-[70vh] bg-transparent dark:bg-transparent">
-        <section className="flex flex-col items-center justify-center py-8 px-4">
-        <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          FAQs
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center mb-24">
-          Here are some common questions we receive from our users.
-        </p>
-          <div className="w-full max-w-3xl">
+        <section className="flex flex-col items-center justify-center py-6 px-2 sm:py-8 sm:px-4">
+          <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
+            FAQs
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-full sm:max-w-4xl text-center mb-10 sm:mb-24 px-1">
+            Here are some common questions we receive from our users.
+          </p>
+          <div className="w-full max-w-full sm:max-w-3xl px-3">
             {faqs.map((faq, idx) => (
               <div key={idx}>
                 <button
-                  className="w-full flex items-center justify-between py-5 focus:outline-none"
+                  className="w-full flex items-center justify-between py-4 sm:py-5 focus:outline-none"
                   onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                   aria-expanded={openIdx === idx}
                   aria-controls={`faq-answer-${idx}`}
                 >
-                  <span className="text-left text-lg font-semibold text-black dark:text-white">{faq.question}</span>
-                  <span className={`ml-4 transition-transform duration-200 ${openIdx === idx ? 'rotate-180' : ''}`}
+                  <span className="text-left text-base xs:text-lg sm:text-lg font-semibold text-black dark:text-white">{faq.question}</span>
+                  <span className={`ml-2 sm:ml-4 transition-transform duration-200 ${openIdx === idx ? 'rotate-180' : ''}`}
                     aria-hidden="true"
                   >
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <svg width="22" height="22" className="sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
                 </button>
                 <div
                   id={`faq-answer-${idx}`}
-                  className={`overflow-hidden transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl px-4 mb-2 ${openIdx === idx ? 'max-h-40 py-4 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
+                  className={`overflow-hidden transition-all duration-300 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl px-3 sm:px-4 mb-2 ${openIdx === idx ? 'max-h-40 py-3 sm:py-4 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
                   style={{
                     transitionProperty: 'max-height, opacity, padding',
                   }}
                   aria-hidden={openIdx !== idx}
                 >
-                  <div className="transition-opacity duration-300">
+                  <div className="transition-opacity duration-300 text-sm xs:text-base sm:text-base">
                     {faq.answer}
                   </div>
                 </div>

@@ -28,18 +28,13 @@ function checkMediumScreen() {
 }
 
 export default function ServicesSection() {
-  // Touch event state
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [touchScrollLeft, setTouchScrollLeft] = useState(0);
-
-  const isSmallScreen= checkSmallScreen()
+  const isSmallScreen = checkSmallScreen()
   const isMediumScreen = checkMediumScreen()
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
   const [animate, setAnimate] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<any>(null); // Ref for the slider
+  const [slidesToShow, setSlidesToShow] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +52,25 @@ export default function ServicesSection() {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        const totalWidth = 526 + 30; // idth + gap Include gap in the calculation
+        setSlidesToShow(Math.max(1, window.innerWidth / totalWidth));
+      } else if (window.innerWidth >= 640) {
+        const totalWidth = 400 + 24; // width + gap Include gap in the calculation
+        setSlidesToShow(Math.max(1, window.innerWidth / totalWidth));
+      }
+      else {
+        setSlidesToShow(1);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initial calculation
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const services: Service[] = [
@@ -133,75 +147,6 @@ export default function ServicesSection() {
     }
   };
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const scrollAmount = isSmallScreen? 312 : isMediumScreen ? 424 : 550;
-      const currentScroll = scrollRef.current.scrollLeft;
-      let targetScroll = direction === "left" ? currentScroll - scrollAmount : currentScroll + scrollAmount;
-      snapScroll(targetScroll);
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (scrollRef.current) {
-      setIsDragging(true)
-      setStartX(e.pageX - scrollRef.current.offsetLeft)
-      setScrollLeft(scrollRef.current.scrollLeft)
-    }
-  }
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return
-    e.preventDefault()
-    const x = e.pageX - scrollRef.current.offsetLeft
-    const walk = (x - startX) * 2
-    scrollRef.current.scrollLeft = scrollLeft - walk
-  }
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    snapScroll();
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    snapScroll();
-  };
-
-  // Touch event handlers
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (scrollRef.current) {
-      setIsDragging(true);
-      setTouchStartX(e.touches[0].pageX - scrollRef.current.offsetLeft);
-      setTouchScrollLeft(scrollRef.current.scrollLeft);
-    }
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
-    const walk = (x - touchStartX) * 2;
-    scrollRef.current.scrollLeft = touchScrollLeft - walk; // Smooth drag without snapping
-  };
-
-  const handleTouchEnd = () => {
-    if (!scrollRef.current) return;
-
-    const scrollAmount = isSmallScreen ? 312 : isMediumScreen ? 424 : 550;
-    const currentScroll = scrollRef.current.scrollLeft;
-    const diff = currentScroll - touchScrollLeft;
-
-    // Determine direction and snap to the next or previous card
-    if (Math.abs(diff) > scrollAmount / 4) {
-      const targetScroll = diff > 0 ? touchScrollLeft + scrollAmount : touchScrollLeft - scrollAmount;
-      snapScroll(targetScroll);
-    } else {
-      snapScroll(touchScrollLeft); // Snap back to the original position if the scroll is minimal
-    }
-
-    setIsDragging(false);
-  };
-
   // Keep adjusting scroll position on resize or device change
   useEffect(() => {
     snapScroll();
@@ -212,19 +157,16 @@ export default function ServicesSection() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSmallScreen, isMediumScreen]);
 
-  const handleTouchCancel = () => {
-    setIsDragging(false);
-  };
-
-  const isMobile = checkSmallScreen();
-
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow,
     slidesToScroll: 1,
     swipeToSlide: true,
+    draggable: true,
+    touchMove: true,
+    cssEase: "cubic-bezier(0.4,0,0.2,1)",
   };
 
   return (
@@ -249,7 +191,7 @@ export default function ServicesSection() {
             <div className="hidden sm:flex justify-end ml-6 gap-2 w-full">
               <button
                 type="button"
-                onClick={() => scroll("left")}
+                onClick={() => sliderRef.current?.slickPrev()} // Trigger previous slide
                 className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
                 aria-label="Scroll left"
               >
@@ -262,7 +204,7 @@ export default function ServicesSection() {
               </button>
               <button
                 type="button"
-                onClick={() => scroll("right")}
+                onClick={() => sliderRef.current?.slickNext()} // Trigger next slide
                 className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
                 aria-label="Scroll right"
               >
@@ -278,12 +220,18 @@ export default function ServicesSection() {
         </div>
 
         {/* Scrollable carousel with hover buttons */}
-        {isMobile ? (
-          <Slider {...sliderSettings}>
-            {services.map((service) => (
-              <div key={service.id} className="p-4">
+        <div id="services-carousel" className="relative group">
+          <Slider ref={sliderRef} {...sliderSettings}>
+            {services.map((service, index) => {
+                let cardAnim = "";
+                if (index === 0) cardAnim = `slide-from-left${animate ? " show" : ""}`;
+                else if (index === 1) cardAnim = `slide-from-right${animate ? " show" : ""}`;
+                else if (index === 2) cardAnim = `slide-from-far-right${animate ? " show" : ""}`;
+                else cardAnim = animate ? "opacity-100" : "opacity-0";
+                return (
+              <div key={service.id}>
                 <div
-                  className="w-full h-[200px] sm:h-[260px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden bg-cover bg-center"
+                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mx-auto sm:mx-12 lg:mx-32 transition-all duration-2000 ease-out ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg sm:rounded-2xl"></div>
@@ -294,56 +242,46 @@ export default function ServicesSection() {
                     <p className="text-sm sm:text-lg md:text-xl mb-4 sm:mb-6 font-normal leading-tight text-white/[0.77]">
                       {service.description}
                     </p>
+                    {/* Arrow button */}
+                    {/* <div className="flex justify-start">
+                        <ArrowUpRight className="h-8 w-8 sm:h-16 sm:w-16 text-white" />
+                    </div> */}
                   </div>
                 </div>
               </div>
-            ))}
-          </Slider>
-        ) : (
-          <div id="services-carousel" className="relative group">
-            <div
-              ref={scrollRef}
-              className={`flex gap-3 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 ${isDragging ? "cursor-grabbing" : "cursor-grab"} w-full max-w-full`}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onTouchCancel={handleTouchCancel}
-            >
-              {services.map((service, index) => {
-                let cardAnim = "";
-                if (index === 0) cardAnim = `slide-from-left${animate ? " show" : ""}`;
-                else if (index === 1) cardAnim = `slide-from-right${animate ? " show" : ""}`;
-                else if (index === 2) cardAnim = `slide-from-far-right${animate ? " show" : ""}`;
-                else cardAnim = animate ? "opacity-100" : "opacity-0";
-                return (
-                  <div
-                    key={service.id}
-                    className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative overflow-hidden group cursor-pointer bg-cover bg-center ${index === 0 ? "ml-12 lg:ml-32" : ""} transition-all duration-2000 ease-out ${cardAnim}`}
-                    style={{ backgroundImage: `url(${service.image})` }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg sm:rounded-2xl"></div>
-                    <div className="relative z-10">
-                      <h3 className="text-2xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm sm:text-lg md:text-xl mb-4 sm:mb-6 font-normal leading-tight text-white/[0.77]">
-                        {service.description}
-                      </p>
-                      {/* Arrow button */}
-                      {/* <div className="flex justify-start">
-                          <ArrowUpRight className="h-8 w-8 sm:h-16 sm:w-16 text-white" />
-                      </div> */}
-                    </div>
-                  </div>
                 );
-              })}
-            </div>
+            })}
+          </Slider>
+          {/* Buttons below cards for small screens */}
+          <div className="flex sm:hidden justify-center mt-8 gap-2">
+            <button
+              type="button"
+              onClick={() => sliderRef.current?.slickPrev()} // Trigger previous slide
+              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+              aria-label="Scroll left"
+            >
+              <img
+                src="/media/small_arrow.svg"
+                alt="arrow left"
+                className="w-6 h-6 rotate-180"
+                style={{ filter: "invert(100%)" }}
+              />
+            </button>
+            <button
+              type="button"
+              onClick={() => sliderRef.current?.slickNext()} // Trigger next slide
+              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+              aria-label="Scroll right"
+            >
+              <img
+                src="/media/small_arrow.svg"
+                alt="arrow right"
+                className="w-6 h-6"
+                style={{ filter: "invert(100%)" }}
+              />
+            </button>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

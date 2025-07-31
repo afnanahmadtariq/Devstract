@@ -55,12 +55,12 @@ export default function ContactSection() {
         >
           {/* "Get in touch" heading behind the image */}
           <div
-            className="absolute inset-x-0 top-[210px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
+            className="absolute inset-x-0 top-[215px] sm:top-[280px] md:top-[240px] lg:top-[185px] flex flex-col items-center justify-center text-center z-10 pointer-events-none"
             style={{
               transform: `translateY(${(1 - scrollProgress) * (isMobile ? 120 : 224)}px)`
             }}
           >
-            <h2 className="text-6xl sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
+            <h2 className="text-[3.35rem] sm:text-[7rem] md:text-[10rem] lg:text-[14rem] font-bold text-[#383838] leading-none whitespace-nowrap">
               Get in <span style={{
                 background: "var(--Primary-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 65.7%, #7C81FF 81.62%, #009 140.45%))",
                 backgroundClip: "text",
@@ -106,33 +106,38 @@ export default function ContactSection() {
           </div>
 
           {/* Top-right circular arrow with text */}
-          <div className="absolute top-2 right-2 sm:top-6 sm:right-8 z-30">
-            <div className="relative w-16 h-16 sm:w-32 sm:h-32">
-              <svg className="w-16 h-16 sm:w-32 sm:h-32 animate-spin-slow" viewBox="0 0 100 100">
+          <a 
+            href="https://calendly.com/afnan-devstract/30min" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="absolute top-2 right-2 sm:top-4 md:top-6 sm:right-4 md:right-8 z-30"
+          >
+            <div className="relative w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32">
+              <svg className="w-16 h-16 sm:w-24 md:w-32 sm:h-24 md:h-32 animate-spin-slow" viewBox="0 0 100 100">
                 <defs>
                   <path id="circle" d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0" />
                 </defs>
-                <text className="text-xs sm:text-sm fill-black font-normal font-syne">
-                  <textPath href="#circle">Start your Journey Today Now</textPath>
+                <text className="text-sm sm:text-sm fill-black font-normal font-syne">
+                  <textPath href="#circle">Schedule a Meeting with Us🤝</textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <img src="/media/small_arrow.svg" alt="Submit" className="w-5 h-5 sm:w-10 sm:h-10 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
+                <img src="/media/small_arrow.svg" alt="Submit" className="w-5 h-5 sm:w-8 md:w-10 sm:h-8 md:h-10 transform -rotate-45" style={{ filter: 'brightness(0)' }} />
               </div>
             </div>
-          </div>
+          </a>
 
           {/* Main content except heading */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
             {/* Spacer for heading */}
             <div className="mb-60 sm:mb-96" />
             <Button
-              className="bg-white hover:bg-gray-100 text-black rounded-full py-4 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
+              className="bg-white hover:bg-gray-100 text-black rounded-full py-6 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
               onClick={() => router.push("/contact-us")}
               style={{
                 width: isSmallScreen()
-                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 160 : 0)}px` // small screen width
-                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 215 : 0)}px`, // larger screen width
+                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 170 : 0)}px` // small screen width
+                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 230 : 0)}px`, // larger screen width
                 transition: "width 1s ease-out",
               }}
             >
@@ -142,11 +147,11 @@ export default function ContactSection() {
               <span
                 className="flex items-center justify-center rounded-full"
                 style={{
-                  width: isSmallScreen() ? 32 : 42,
-                  height: isSmallScreen() ? 32 : 42,
+                  width: isSmallScreen() ? 36 : 42,
+                  height: isSmallScreen() ? 36 : 42,
                   background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
                   flexShrink: 0,
-                  marginRight: isSmallScreen() ? -8 : -5,
+                  marginRight: isSmallScreen() ? -9 : -5,
                 }}
               >
                 <img
