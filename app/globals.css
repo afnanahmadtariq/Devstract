@@ -74,6 +74,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   #services-carousel {
+    user-select: none; /* Prevent text selection */
     overflow: hidden; /* Prevent content from spilling out */
     width: 100%; /* Ensure it spans the full width */
     user-select: none;
@@ -195,10 +196,11 @@
     list-style-type: square;
   }
 
-  /* Example for customizing slide alignment */
-  .slick-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Webkit */
   }
 }

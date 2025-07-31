@@ -2,9 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import "./services-section-animations.css"
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// Removed react-slick and slick-carousel imports
 
 interface Service {
   id: number
@@ -33,8 +31,7 @@ export default function ServicesSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [animate, setAnimate] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<any>(null); // Ref for the slider
-  const [slidesToShow, setSlidesToShow] = useState(1);
+  const carouselRef = useRef<HTMLDivElement>(null); // Ref for the scrollable carousel
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,24 +51,7 @@ export default function ServicesSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        const totalWidth = 526 + 30; // idth + gap Include gap in the calculation
-        setSlidesToShow(Math.max(1, window.innerWidth / totalWidth));
-      } else if (window.innerWidth >= 640) {
-        const totalWidth = 400 + 24; // width + gap Include gap in the calculation
-        setSlidesToShow(Math.max(1, window.innerWidth / totalWidth));
-      }
-      else {
-        setSlidesToShow(1);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial calculation
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // No need for slidesToShow or react-slick responsive logic
 
   const services: Service[] = [
     {
@@ -157,17 +137,22 @@ export default function ServicesSection() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSmallScreen, isMediumScreen]);
 
-  const sliderSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    draggable: true,
-    touchMove: true,
-    cssEase: "cubic-bezier(0.4,0,0.2,1)",
-  };
+  // Enable mouse wheel horizontal scroll for carousel
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      carousel.scrollBy({ left: e.deltaY, behavior: "smooth" });
+    };
+
+    carousel.addEventListener("wheel", onWheel, { passive: false });
+    return () => carousel.removeEventListener("wheel", onWheel);
+  }, []);
+
+  // No sliderSettings needed
 
   return (
     <section
@@ -191,7 +176,13 @@ export default function ServicesSection() {
             <div className="hidden sm:flex justify-end ml-6 gap-2 w-full">
               <button
                 type="button"
-                onClick={() => sliderRef.current?.slickPrev()} // Trigger previous slide
+                onClick={() => {
+                  if (carouselRef.current) {
+                    const card = carouselRef.current.querySelector('.snap-center');
+                    const cardWidth = card ? card.clientWidth + 32 : 350; // 32px = mx-2*2
+                    carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                  }
+                }} // Trigger previous slide
                 className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
                 aria-label="Scroll left"
               >
@@ -204,7 +195,13 @@ export default function ServicesSection() {
               </button>
               <button
                 type="button"
-                onClick={() => sliderRef.current?.slickNext()} // Trigger next slide
+                onClick={() => {
+                  if (carouselRef.current) {
+                    const card = carouselRef.current.querySelector('.snap-center');
+                    const cardWidth = card ? card.clientWidth + 32 : 350;
+                    carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                  }
+                }}// Trigger next slide
                 className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
                 aria-label="Scroll right"
               >
@@ -219,20 +216,27 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Scrollable carousel with hover buttons */}
+        {/* Scrollable carousel with scroll snap */}
         <div id="services-carousel" className="relative group">
-          <Slider ref={sliderRef} {...sliderSettings}>
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-32"
+            style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
+            tabIndex={0}
+            aria-label="Services carousel"
+          >
             {services.map((service, index) => {
-                let cardAnim = "";
-                if (index === 0) cardAnim = `slide-from-left${animate ? " show" : ""}`;
-                else if (index === 1) cardAnim = `slide-from-right${animate ? " show" : ""}`;
-                else if (index === 2) cardAnim = `slide-from-far-right${animate ? " show" : ""}`;
-                else cardAnim = animate ? "opacity-100" : "opacity-0";
-                return (
-              <div key={service.id}>
+              let cardAnim = "";
+              if (index === 0) cardAnim = `slide-from-left${animate ? " show" : ""}`;
+              else if (index === 1) cardAnim = `slide-from-right${animate ? " show" : ""}`;
+              else if (index === 2) cardAnim = `slide-from-far-right${animate ? " show" : ""}`;
+              else cardAnim = animate ? "opacity-100" : "opacity-0";
+              return (
                 <div
-                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mx-auto sm:mx-12 lg:mx-32 transition-all duration-2000 ease-out ${cardAnim}`}
+                  key={service.id}
+                  className={`flex-shrink-0 z-1 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-6 lg:mr-8 transition-all duration-2000 ease-out snap-center ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
+                  tabIndex={-1}
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg sm:rounded-2xl"></div>
                   <div className="relative z-10">
@@ -248,15 +252,20 @@ export default function ServicesSection() {
                     </div> */}
                   </div>
                 </div>
-              </div>
                 );
             })}
-          </Slider>
-          {/* Buttons below cards for small screens */}
+          </div>
+          {/* Scroll buttons for carousel */}
           <div className="flex sm:hidden justify-center mt-8 gap-2">
             <button
               type="button"
-              onClick={() => sliderRef.current?.slickPrev()} // Trigger previous slide
+              onClick={() => {
+                if (carouselRef.current) {
+                  const card = carouselRef.current.querySelector('.snap-center');
+                  const cardWidth = card ? card.clientWidth + 32 : 350; // 32px = mx-2*2
+                  carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                }
+              }}
               className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
               aria-label="Scroll left"
             >
@@ -269,7 +278,13 @@ export default function ServicesSection() {
             </button>
             <button
               type="button"
-              onClick={() => sliderRef.current?.slickNext()} // Trigger next slide
+              onClick={() => {
+                if (carouselRef.current) {
+                  const card = carouselRef.current.querySelector('.snap-center');
+                  const cardWidth = card ? card.clientWidth + 32 : 350;
+                  carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+              }}
               className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
               aria-label="Scroll right"
             >
