@@ -53,7 +53,7 @@ export default function FAQPage() {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-full sm:max-w-4xl text-center mb-10 sm:mb-24 px-1">
             Here are some common questions we receive from our users.
           </p>
-          <div className="w-full max-w-full sm:max-w-3xl px-3">
+          <div className="w-full max-w-full sm:max-w-3xl px-8">
             {faqs.map((faq, idx) => (
               <div key={idx}>
                 <button
