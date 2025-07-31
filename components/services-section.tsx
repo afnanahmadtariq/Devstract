@@ -164,6 +164,8 @@ export default function ServicesSection() {
     slidesToShow,
     slidesToScroll: 1,
     swipeToSlide: true,
+    draggable: true,
+    touchMove: true,
   };
 
   return (
