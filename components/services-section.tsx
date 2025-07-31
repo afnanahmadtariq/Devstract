@@ -10,13 +10,62 @@ interface Service {
   image: string
 }
 
+function checkSmallScreen() {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 640; // Tailwind's sm breakpoint
+  }
+  return false;
+}
+
+function checkMediumScreen() {
+  if (typeof window !== "undefined") {
+    return window.innerWidth < 768; // Tailwind's md breakpoint
+  }
+  return false;
+}
+
 export default function ServicesSection() {
+  const isSmallScreen = checkSmallScreen()
+  const isMediumScreen = checkMediumScreen()
+  const scrollRef = useRef<HTMLDivElement>(null)
   const [animate, setAnimate] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null); // Ref for the scrollable carousel
+
+  // Helper function to snap scroll position
+  const snapScroll = (customScroll?: number) => {
+    if (scrollRef.current) {
+      const scrollAmount = isSmallScreen? 312 : isMediumScreen ? 424 : 550;
+      const currentScroll = typeof customScroll === 'number' ? customScroll : scrollRef.current.scrollLeft;
+      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
+      // Snap to whichever is closer: snapped or maxScroll
+      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
+        scrollRef.current.scrollTo({
+          left: snapped,
+          behavior: "smooth",
+        });
+      } else {
+        scrollRef.current.scrollTo({
+          left: maxScroll,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  // Keep adjusting scroll position on resize or device change
+  useEffect(() => {
+    snapScroll();
+    // Optionally, also listen to window resize for dynamic adjustment
+    const handleResize = () => snapScroll();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSmallScreen, isMediumScreen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -193,7 +242,7 @@ export default function ServicesSection() {
         <div id="services-carousel" className="relative group">
           <div
             ref={carouselRef}
-            className={`flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-32 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-12 lg:pl-32 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
             style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
             tabIndex={0}
             aria-label="Services carousel"
