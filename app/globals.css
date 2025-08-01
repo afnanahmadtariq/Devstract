@@ -136,6 +136,31 @@
     }
   }
 
+  @keyframes mailLoop {
+
+    0% {
+      left: -1.5rem;
+      opacity: 1;
+    }
+    90.9% {
+      left: 0.75rem;
+      opacity: 1;
+    }
+    95% {
+      left: 0.75rem;
+      opacity: 1;
+    }
+    100% {
+      left: 0.75rem;
+      opacity: 0;
+    }
+  }
+
+  .animate-mail-loop {
+    position: relative;
+    animation: mailLoop 2.5s cubic-bezier(0.42,0,0.58,1) infinite;
+  }
+
   .animate-scroll-left {
     animation: scroll-left 40s linear infinite;
   }
