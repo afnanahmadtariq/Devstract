@@ -120,8 +120,7 @@ export default function DevstractSection() {
         {/* Descriptive Text */}
         <div  ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-sm sm:text-2xl text-gray-600 leading-relaxed font-syne">
-            Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
-            complexities.
+            Empowering businesses with innovative software solutions tailored to their unique challenges and goals.
           </p>
         </div>
       </div>
