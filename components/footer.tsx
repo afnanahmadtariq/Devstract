@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { ArrowUpRight, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
@@ -54,11 +54,11 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
-    { icon: Twitter, href: "https://x.com/devstract", label: "Twitter" },
-    { icon: Instagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/devstract", label: "LinkedIn" },
-    { icon: Youtube, href: "https://www.youtube.com/@DevstractStudio", label: "YouTube" },
+    { icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
+    { icon: FaTwitter, href: "https://x.com/devstract", label: "Twitter" },
+    { icon: FaInstagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/devstract", label: "LinkedIn" },
+    { icon: FaYoutube, href: "https://www.youtube.com/@DevstractStudio", label: "YouTube" },
   ]
 
   return (
@@ -189,11 +189,11 @@ export default function Footer() {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-8 h-8 border border-black/[0.1] rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-gray-100"
+                    className="w-9 h-9 border border-black/[0.1] rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-gray-100"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <IconComponent className="w-4 h-4" style={{ color: 'white', fill: 'black' }} />
+                    <IconComponent className="w-4 h-4" color="black" />
                   </a>
                 )
               })}

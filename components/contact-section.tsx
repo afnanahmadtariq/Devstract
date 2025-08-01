@@ -3,20 +3,15 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobile"
+import { useIsSmallScreen } from "@/hooks/use-small-screen"
 import { useRouter } from "next/navigation";
-
-function isSmallScreen() {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 640; // Tailwind's sm breakpoint
-  }
-  return false;
-}
 
 export default function ContactSection() {
   const router = useRouter();
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const isSmallScreen = useIsSmallScreen();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,7 +130,7 @@ export default function ContactSection() {
               className="bg-white hover:bg-gray-100 text-black rounded-full py-6 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
               onClick={() => router.push("/contact-us")}
               style={{
-                width: isSmallScreen()
+                width: isSmallScreen
                   ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 170 : 0)}px` // small screen width
                   : `${65 + (scrollProgress > 0.91 ? scrollProgress * 227 : 0)}px`, // larger screen width
                 transition: "width 1s ease-out",
@@ -145,13 +140,10 @@ export default function ContactSection() {
                 Bring your ideas to life
               </span>
               <span
-                className="flex items-center justify-center rounded-full"
+                className="flex items-center justify-center rounded-full w-9 sm:w-[42px] h-9 sm:h-[42px] -mr-[9px] sm:-mr-[5px]"
                 style={{
-                  width: isSmallScreen() ? 36 : 42,
-                  height: isSmallScreen() ? 36 : 42,
                   background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
                   flexShrink: 0,
-                  marginRight: isSmallScreen() ? -9 : -5,
                 }}
               >
                 <img
