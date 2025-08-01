@@ -1,17 +1,19 @@
 "use client"
 
 import React, { useRef, useState } from 'react';
+import { MdOutlineError } from "react-icons/md";
+import { GiCheckMark } from "react-icons/gi";
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 
 export default function ContactUsPage() {
   const formRef = useRef<HTMLFormElement>(null);
-  const [sending, setSending] = useState(false);
+  const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success' | 'error'>("error");
   const [result, setResult] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSending(true);
+    setButtonState('sending');
     setResult(null);
     if (!formRef.current) return;
     const formData = new FormData(formRef.current);
@@ -27,14 +29,21 @@ export default function ContactUsPage() {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error('Failed to send');
+      setButtonState('success');
       setResult('Message sent successfully!');
       formRef.current.reset();
     } catch (error) {
+      setButtonState('error');
       setResult('Failed to send message. Please try again.');
-    } finally {
-      setSending(false);
     }
   };
+
+  const handleEmailFocus = () => {
+    if (buttonState !== 'idle') {
+      setButtonState('idle')
+      setResult(null)
+    }
+  }
 
   return (
     <>
@@ -72,7 +81,7 @@ export default function ContactUsPage() {
                 <div className="mb-6 text-center max-w-sm mx-auto">
                     <p className="text-lg sm:text-2xl font-semibold text-gray-900 dark:text-white mb-8 sm:mb-12">Let’s Connect 🚀 We’re just a message away reach out 🤝</p>
                 </div>
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              <form ref={formRef} onSubmit={handleSubmit} onFocus={handleEmailFocus} className="space-y-6 sm:space-y-8">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1 text-left">Name</label>
                   <input id="name" name="name" type="text" autoComplete="name" required className="appearance-none rounded-full relative block w-full px-6 py-3 sm:px-8 sm:py-4 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Your Name" />
@@ -86,7 +95,11 @@ export default function ContactUsPage() {
                   <textarea id="message" name="message" rows={6} required className="appearance-none rounded-[2rem] relative block w-full px-6 py-5 sm:px-8 sm:py-6 sm:mb-12 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Your Message" />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-center items-center w-full">
-                  <button type="submit" disabled={sending} className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors">
+                  <button 
+                    type="submit" 
+                    disabled={buttonState === 'sending' || buttonState === 'success' || buttonState === 'error'} 
+                    className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
+                                      >
                     <span
                       className="px-4 py-2 ml-4 bg-clip-text text-transparent"
                       style={{
@@ -97,16 +110,45 @@ export default function ContactUsPage() {
                         display: 'inline-block',
                       }}
                     >
-                      {sending ? 'Sending...' : 'Send Message'}
+                      {buttonState === 'sending' ? 'Sending...' : buttonState === 'success' ? 'Message Sent' : buttonState === 'error' ? 'Sending Failed' : 'Send Message'}
                     </span>
                     <span
-                      className="inline-flex items-center justify-center w-10 h-10 rounded-full"
+                      className="inline-flex items-center justify-center rounded-full"
                       style={{
-                        backgroundImage: 'linear-gradient(323deg, rgba(90,68,255,1.00) 0%,rgba(125,113,255,1.00) 27%,rgba(124,128,255,1.00) 48%,rgba(0,0,153,1.00) 100%)',
+                        width: buttonState === 'idle' ? 40 : 35,
+                        height: buttonState === 'idle' ? 40 : 35,
+                        marginRight: buttonState === 'idle' ? 0 : 3,
+                        backgroundImage: buttonState === 'idle' ? 'linear-gradient(323deg, rgba(90,68,255,1.00) 0%,rgba(125,113,255,1.00) 27%,rgba(124,128,255,1.00) 48%,rgba(0,0,153,1.00) 100%)' : 'none',
                         backgroundPosition: 'center center',
+                        border: buttonState !== 'idle' ? buttonState === 'error' ? '2px solid #D32F2F' : '2px solid #5A44FF' : 'none',
+                        boxSizing: 'border-box',
                       }}
                     >
-                      <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
+                      {/* Arrow animation */}
+                      {buttonState === 'idle' && (
+                        <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
+                      )}
+                      {/* Loading spinner */}
+                      {buttonState === 'sending' && (
+                        <span className="w-5 h-5 flex items-center justify-center">
+                          <svg className="animate-spin" width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="9" stroke="#5A44FF" strokeWidth="2" fill="none" opacity="0.4" />
+                            <path d="M10 1a9 9 0 0 1 9 9" stroke="#5A44FF" strokeWidth="2" fill="none" />
+                          </svg>
+                        </span>
+                      )}
+                      {/* Success tick animation */}
+                      {buttonState === 'success' && (
+                        <span className="w-5 h-5 flex items-center justify-center">
+                          <GiCheckMark size={50} color="#5A44FF" className="animate-[tick_0.5s_ease]" />
+                        </span>
+                      )}
+                      {/* Error cross animation */}
+                      {buttonState === 'error' && (
+                        <span className="w-8 h-8 flex items-center justify-center">
+                          <MdOutlineError size={50} color="#D32F2F" className="animate-[cross_0.5s_ease]"/>
+                        </span>
+                      )}
                     </span>
                   </button>
                   <a
@@ -124,9 +166,6 @@ export default function ContactUsPage() {
                   >
                     Book a Call
                   </a>
-                  {result && (
-                    <div className="mt-4 text-center text-sm font-medium" style={{ color: result.includes('success') ? '#5A44FF' : '#D32F2F' }}>{result}</div>
-                  )}
                 </div>
               </form>
             </div>
