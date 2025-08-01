@@ -158,21 +158,31 @@ export default function ServicesSection() {
     setIsDragging(true);
     setStartX(e.pageX - carouselRef.current.offsetLeft);
     setScrollLeft(carouselRef.current.scrollLeft);
+    // Disable scroll snap while dragging
+    carouselRef.current.style.scrollSnapType = 'none';
   };
 
   const handleMouseLeave = () => {
     setIsDragging(false);
+    // Re-enable scroll snap after dragging
+    if (carouselRef.current) {
+      carouselRef.current.style.scrollSnapType = 'x mandatory';
+    }
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    // Re-enable scroll snap after dragging
+    if (carouselRef.current) {
+      carouselRef.current.style.scrollSnapType = 'x mandatory';
+    }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !carouselRef.current) return;
     e.preventDefault();
     const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll-fast
+    const walk = (x - startX); // Scroll-fast
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
 
@@ -201,7 +211,7 @@ export default function ServicesSection() {
                 onClick={() => {
                   if (carouselRef.current) {
                     const card = carouselRef.current.querySelector('.snap-center');
-                    const cardWidth = card ? card.clientWidth + 32 : 350; // 32px = mx-2*2
+                    const cardWidth = card ? card.clientWidth + 20 : 350;
                     carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
                   }
                 }} // Trigger previous slide
@@ -220,7 +230,7 @@ export default function ServicesSection() {
                 onClick={() => {
                   if (carouselRef.current) {
                     const card = carouselRef.current.querySelector('.snap-center');
-                    const cardWidth = card ? card.clientWidth + 32 : 350;
+                    const cardWidth = card ? card.clientWidth + 20 : 350;
                     carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
                   }
                 }}// Trigger next slide
@@ -243,7 +253,7 @@ export default function ServicesSection() {
           <div
             ref={carouselRef}
             className={`flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-12 lg:pl-32 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-            style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
+            style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: isDragging ? 'auto' : 'smooth' }}
             tabIndex={0}
             aria-label="Services carousel"
             onMouseDown={handleMouseDown}
@@ -260,7 +270,7 @@ export default function ServicesSection() {
               return (
                 <div
                   key={service.id}
-                  className={`flex-shrink-0 z-1 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-6 lg:mr-8 transition-all duration-2000 ease-out snap-center ${cardAnim}`}
+                  className={`flex-shrink-0 z-1 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-all duration-2000 ease-out ${isDragging ? '' : 'snap-center'} ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                   tabIndex={-1}
                 >
@@ -288,7 +298,7 @@ export default function ServicesSection() {
               onClick={() => {
                 if (carouselRef.current) {
                   const card = carouselRef.current.querySelector('.snap-center');
-                  const cardWidth = card ? card.clientWidth + 32 : 350; // 32px = mx-2*2
+                  const cardWidth = card ? card.clientWidth + 20 : 350;
                   carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
                 }
               }}
@@ -307,7 +317,7 @@ export default function ServicesSection() {
               onClick={() => {
                 if (carouselRef.current) {
                   const card = carouselRef.current.querySelector('.snap-center');
-                  const cardWidth = card ? card.clientWidth + 32 : 350;
+                  const cardWidth = card ? card.clientWidth + 20 : 350;
                   carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
                 }
               }}
