@@ -15,6 +15,7 @@ export default function ServicesSection() {
   const [animate, setAnimate] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [containerWidth, setContainerWidth] = useState(0)
+  const [dragOffset, setDragOffset] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
 
@@ -134,6 +135,13 @@ export default function ServicesSection() {
       }
     }
     
+    // Set final drag offset for snap-back animation
+    if (newIndex === currentIndex) {
+      setDragOffset(offset) // Keep the drag position for snap-back
+    } else {
+      setDragOffset(0) // Reset for slide transition
+    }
+    
     setCurrentIndex(newIndex)
   }
 
@@ -206,7 +214,9 @@ export default function ServicesSection() {
             drag="x"
             dragConstraints={dragConstraints}
             onDragEnd={handleDragEnd}
-            animate={{ x: -currentIndex * cardWidth }}
+            animate={{ 
+              x: -currentIndex * cardWidth + dragOffset 
+            }}
             transition={{
               type: "spring",
               damping: 25,
@@ -214,6 +224,7 @@ export default function ServicesSection() {
               duration: 0.6
             }}
             whileTap={{ cursor: "grabbing" }}
+            onAnimationComplete={() => setDragOffset(0)}
           >
             {services.map((service, index) => {
               let cardAnim = ""
