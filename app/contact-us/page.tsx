@@ -6,12 +6,15 @@ import { GiCheckMark } from "react-icons/gi";
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { useIsSmallScreen } from '@/hooks/use-small-screen';
+import { useToast } from '@/hooks/use-toast';
+import { Toaster } from '@/components/ui/toaster';
 
 export default function ContactUsPage() {
   const formRef = useRef<HTMLFormElement>(null);
   const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success' | 'error'>("idle");
   const [result, setResult] = useState<string | null>(null);
   const isSmallScreen = useIsSmallScreen();
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,10 +36,20 @@ export default function ContactUsPage() {
       if (!res.ok) throw new Error('Failed to send');
       setButtonState('success');
       setResult('Message sent successfully!');
+      toast({
+        title: 'Success!',
+        description: 'Your message has been sent successfully.',
+        variant: 'default',
+      });
       formRef.current.reset();
     } catch (error) {
       setButtonState('error');
       setResult('Failed to send message. Please try again.');
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again.',
+        variant: 'destructive',
+      });
     }
   };
 
@@ -49,6 +62,7 @@ export default function ContactUsPage() {
 
   return (
     <>
+      <Toaster />
       <Navigation disableContact />
       <main className="flex flex-col min-h-[70vh] bg-white dark:bg-gray-900">
         <section className="flex flex-col items-center justify-center py-8 px-4">
