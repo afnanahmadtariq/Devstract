@@ -57,51 +57,51 @@ export default function ServicesSection() {
   const services: Service[] = [
     {
       id: 1,
-      title: "Ai Automation",
+      title: "MVP Design & Development",
       description:
-        "Get guidance based on where you are and where you're going. Interactive.",
+        "Transform your ideas into reality with our expert MVP design and development services, tailored to meet your business goals.",
       image: "/media/unsplash_1.png"
     },
     {
       id: 2,
-      title: "LLM Fine Tuning",
+      title: "UX Re\u2011Engineering",
       description:
-        "Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal complexities.",
+        "Enhance user satisfaction by reimagining and optimizing your product's user experience for seamless interaction.",
       image: "/media/unsplash_2.png"
     },
     {
       id: 3,
-      title: "MVP design & development",
+      title: "AI Integration",
       description:
-        "Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal complexities.",
+        "Leverage the power of artificial intelligence to automate processes, gain insights, and drive innovation in your business.",
       image: "/media/unsplash_3.png"
     },
     {
       id: 4,
-      title: "AI Integration",
+      title: "IT Consulting",
       description:
-        "Get guidance based on where you are and where you're going. Interactive.",
+        "Receive expert guidance and strategic IT solutions to align technology with your business objectives.",
       image: "/media/unsplash_4.png"
     },
     {
       id: 5,
-      title: "UX re-engineering",
+      title: "Mobile App Development",
       description:
-        "Get guidance based on where you are and where you're going. Interactive.",
+        "Create user\u2011friendly and feature\u2011rich mobile applications to engage your audience and expand your reach.",
       image: "/media/unsplash_5.png"
     },
     {
       id: 6,
-      title: "Product designing",
+      title: "Product Designing",
       description:
-        "Get guidance based on where you are and where you're going. Interactive.",
+        "Design innovative and visually appealing products that resonate with your target audience and stand out in the market.",
       image: "/media/unsplash_6.png"
     },
     {
       id: 7,
-      title: "Full-stack Development",
+      title: "Full\u2011stack Development",
       description:
-        "Get guidance based on where you are and where you're going. Interactive.",
+        "Build robust and scalable web applications with our comprehensive full\u2011stack development expertise.",
       image: "/media/unsplash_7.png"
     },
   ]
@@ -170,8 +170,7 @@ export default function ServicesSection() {
           </h2>
           <div className="flex items-center">
             <p className="text-sm sm:text-xl text-[#676767] max-w-xl text-left">
-              Get audience based on where you are and where you're going. Interactive country-based Q&A simplify legal
-              complexities.
+              Explore our range of services designed to meet your unique business needs and drive success.
             </p>
             <div className="hidden sm:flex justify-end ml-6 gap-2 w-full">
               <button

@@ -136,7 +136,7 @@ export default function AboutUsPage() {
               {cards.map((card, index) => (
                 <div key={index} className="flex flex-1 flex-col items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
                   <img src={card.imgSrc} alt={card.alt}/> 
-                  <div className='px-7 mb-7 md:px-10 mb-10 items-start w-full'>
+                  <div className='px-7 mb-7 md:px-10 md:mb-10 items-start w-full'>
                     <h2 className="text-lg md:text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2> 
                     <p className="text-lg md:text-xl text-[#676767] font-normal text-left">{card.description}</p> 
                   </div>
