@@ -10,23 +10,7 @@ interface Service {
   image: string
 }
 
-function checkSmallScreen() {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 640; // Tailwind's sm breakpoint
-  }
-  return false;
-}
-
-function checkMediumScreen() {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 768; // Tailwind's md breakpoint
-  }
-  return false;
-}
-
 export default function ServicesSection() {
-  const isSmallScreen = checkSmallScreen()
-  const isMediumScreen = checkMediumScreen()
   const scrollRef = useRef<HTMLDivElement>(null)
   const [animate, setAnimate] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
@@ -34,38 +18,6 @@ export default function ServicesSection() {
   const [scrollLeft, setScrollLeft] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null); // Ref for the scrollable carousel
-
-  // Helper function to snap scroll position
-  const snapScroll = (customScroll?: number) => {
-    if (scrollRef.current) {
-      const scrollAmount = isSmallScreen? 312 : isMediumScreen ? 424 : 550;
-      const currentScroll = typeof customScroll === 'number' ? customScroll : scrollRef.current.scrollLeft;
-      const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-      let snapped = Math.round(currentScroll / scrollAmount) * scrollAmount;
-      // Snap to whichever is closer: snapped or maxScroll
-      if (Math.abs(currentScroll - snapped) < Math.abs(currentScroll - maxScroll)) {
-        scrollRef.current.scrollTo({
-          left: snapped,
-          behavior: "smooth",
-        });
-      } else {
-        scrollRef.current.scrollTo({
-          left: maxScroll,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-
-  // Keep adjusting scroll position on resize or device change
-  useEffect(() => {
-    snapScroll();
-    // Optionally, also listen to window resize for dynamic adjustment
-    const handleResize = () => snapScroll();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSmallScreen, isMediumScreen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -164,6 +116,37 @@ export default function ServicesSection() {
 
   const handleMouseLeave = () => {
     setIsDragging(false);
+    if (!carouselRef.current) return;
+    // find all cards:
+    const cards = Array.from(carouselRef.current.querySelectorAll('.snap-center')) as HTMLElement[];
+    // compute distances to center:
+    const { left: carouselLeft, width: carouselWidth } = carouselRef.current.getBoundingClientRect();
+    let closest: HTMLElement | null = null;
+    let minDelta = Infinity;
+    cards.forEach(card => {
+      const { left, width } = card.getBoundingClientRect();
+      const cardCenter = left + width/2;
+      const viewportCenter = carouselLeft + carouselWidth/2;
+      const delta = Math.abs(cardCenter - viewportCenter);
+      if (delta < minDelta) {
+        minDelta = delta;
+        closest = card;
+      }
+    });
+    if (closest) {
+      // Scroll the carousel to center the closest card
+      const closestElement = closest as HTMLElement;
+      const cardRect = closestElement.getBoundingClientRect();
+      const carouselRect = carouselRef.current.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const carouselCenter = carouselRect.left + carouselRect.width / 2;
+      const scrollOffset = cardCenter - carouselCenter;
+      
+      carouselRef.current.scrollBy({
+        left: scrollOffset,
+        behavior: 'smooth'
+      });
+    }
     // Re-enable scroll snap after dragging
     if (carouselRef.current) {
       carouselRef.current.style.scrollSnapType = 'x mandatory';
@@ -172,17 +155,47 @@ export default function ServicesSection() {
 
   const handleMouseUp = () => {
     setIsDragging(false);
-    // Re-enable scroll snap after dragging
-    if (carouselRef.current) {
-      carouselRef.current.style.scrollSnapType = 'x mandatory';
+    if (!carouselRef.current) return;
+    // find all cards:
+    const cards = Array.from(carouselRef.current.querySelectorAll('.snap-center')) as HTMLElement[];
+    // compute distances to center:
+    const { left: carouselLeft, width: carouselWidth } = carouselRef.current.getBoundingClientRect();
+    let closest: HTMLElement | null = null;
+    let minDelta = Infinity;
+    cards.forEach(card => {
+      const { left, width } = card.getBoundingClientRect();
+      const cardCenter = left + width/2;
+      const viewportCenter = carouselLeft + carouselWidth/2;
+      const delta = Math.abs(cardCenter - viewportCenter);
+      if (delta < minDelta) {
+        minDelta = delta;
+        closest = card;
+      }
+    });
+    if (closest) {
+      // Scroll the carousel to center the closest card
+      const closestElement = closest as HTMLElement;
+      const cardRect = closestElement.getBoundingClientRect();
+      const carouselRect = carouselRef.current.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const carouselCenter = carouselRect.left + carouselRect.width / 2;
+      const scrollOffset = cardCenter - carouselCenter;
+      
+      carouselRef.current.scrollBy({
+        left: scrollOffset,
+        behavior: 'smooth'
+      });
     }
+    // Re-enable scroll snap after dragging
+    carouselRef.current.style.scrollSnapType = 'x mandatory';
   };
+
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !carouselRef.current) return;
     e.preventDefault();
     const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX); // Scroll-fast
+    const walk = (x - startX);
     carouselRef.current.scrollLeft = scrollLeft - walk;
   };
 
@@ -270,7 +283,7 @@ export default function ServicesSection() {
               return (
                 <div
                   key={service.id}
-                  className={`flex-shrink-0 z-1 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-all duration-2000 ease-out ${isDragging ? '' : 'snap-center'} ${cardAnim}`}
+                  className={`flex-shrink-0 z-1 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-all duration-2000 ease-out snap-center ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                   tabIndex={-1}
                 >
