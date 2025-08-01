@@ -97,7 +97,7 @@ export default function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={handleEmailFocus}
                     placeholder="Enter your email"
-                    className="w-full px-6 py-3 pr-28 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                    className="w-full px-6 py-3 pr-28 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm"
                     required
                   />
                   <button

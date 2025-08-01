@@ -75,18 +75,18 @@ export default function ContactUsPage() {
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1 text-left">Name</label>
-                  <input id="name" name="name" type="text" autoComplete="name" required className="appearance-none rounded-full relative block w-full px-6 py-3 sm:px-8 sm:py-4 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Your Name" />
+                  <input id="name" name="name" type="text" autoComplete="name" required className="appearance-none rounded-full relative block w-full px-6 py-3 sm:px-8 sm:py-4 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Your Name" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1 text-left">Email address</label>
-                  <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-full relative block w-full px-6 py-3 sm:px-8 sm:py-4 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Email address" />
+                  <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-full relative block w-full px-6 py-3 sm:px-8 sm:py-4 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Email address" />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1 text-left">Message</label>
-                  <textarea id="message" name="message" rows={6} required className="appearance-none rounded-[2rem] relative block w-full px-6 py-5 sm:px-8 sm:py-6 sm:mb-12 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Your Message" />
+                  <textarea id="message" name="message" rows={6} required className="appearance-none rounded-[2rem] relative block w-full px-6 py-5 sm:px-8 sm:py-6 sm:mb-12 border border-[rgba(0,0,0,0.07)] dark:border-[rgba(0,0,0,0.07)] placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm sm:text-base" placeholder="Your Message" />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-6 sm:gap-0 justify-center items-center w-full">
-                  <button type="submit" disabled={sending} className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-auto min-w-[140px] mx-auto transition-colors">
+                  <button type="submit" disabled={sending} className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors">
                     <span
                       className="px-4 py-2 ml-4 bg-clip-text text-transparent"
                       style={{
