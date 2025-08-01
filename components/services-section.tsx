@@ -202,7 +202,7 @@ export default function ServicesSection() {
         <div id="services-carousel" className="relative overflow-hidden">
           <motion.div
             ref={carouselRef}
-            className="flex cursor-grab active:cursor-grabbing pl-6 sm:pl-12 lg:pl-32"
+            className="flex cursor-grab active:cursor-grabbing pl-[30px] sm:pl-12 lg:pl-32"
             drag="x"
             dragConstraints={dragConstraints}
             onDragEnd={handleDragEnd}
