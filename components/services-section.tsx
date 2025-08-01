@@ -11,7 +11,6 @@ interface Service {
 }
 
 export default function ServicesSection() {
-  const scrollRef = useRef<HTMLDivElement>(null)
   const [animate, setAnimate] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
