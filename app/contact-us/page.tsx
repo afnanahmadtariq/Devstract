@@ -12,14 +12,12 @@ import { Toaster } from '@/components/ui/toaster';
 export default function ContactUsPage() {
   const formRef = useRef<HTMLFormElement>(null);
   const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success' | 'error'>("idle");
-  const [result, setResult] = useState<string | null>(null);
   const isSmallScreen = useIsSmallScreen();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setButtonState('sending');
-    setResult(null);
     if (!formRef.current) return;
     const formData = new FormData(formRef.current);
     const data = {
@@ -35,7 +33,6 @@ export default function ContactUsPage() {
       });
       if (!res.ok) throw new Error('Failed to send');
       setButtonState('success');
-      setResult('Message sent successfully!');
       toast({
         title: 'Success!',
         description: 'Your message has been sent successfully.',
@@ -44,7 +41,6 @@ export default function ContactUsPage() {
       formRef.current.reset();
     } catch (error) {
       setButtonState('error');
-      setResult('Failed to send message. Please try again.');
       toast({
         title: 'Error',
         description: 'Failed to send message. Please try again.',
@@ -56,7 +52,6 @@ export default function ContactUsPage() {
   const handleEmailFocus = () => {
     if (buttonState !== 'idle') {
       setButtonState('idle')
-      setResult(null)
     }
   }
 
@@ -70,9 +65,9 @@ export default function ContactUsPage() {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center mb-24">
             We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
           </p>
-          <div className="w-full bg-[#F7F7F7] flex flex-col md:flex-row justify-center items-stretch p-3 gap-3 max-w-6xl border-2 border-[#EBEBEB] rounded-[36px]">
+          <div className="w-full bg-[#F7F7F7] flex flex-col lg:flex-row justify-center items-stretch p-3 gap-3 max-w-6xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Left Side (info and image) */}
-            <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 max-w-md flex flex-col items-center justify-center border-2 border-[#EBEBEB] md:order-none order-2">
+            <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 lg:max-w-md flex flex-col items-center justify-center border-2 border-[#EBEBEB] order-2 lg:order-none">
               <img src="/media/baloons.svg" alt="Balloons" className="w-48 h-48 md:w-64 md:h-64 mb-6" />
               <div style={{ position: 'relative', width: '100%' }}>
                 <div
