@@ -9,7 +9,7 @@ import { useIsSmallScreen } from '@/hooks/use-small-screen';
 
 export default function ContactUsPage() {
   const formRef = useRef<HTMLFormElement>(null);
-  const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success' | 'error'>("sending");
+  const [buttonState, setButtonState] = useState<'idle' | 'sending' | 'success' | 'error'>("idle");
   const [result, setResult] = useState<string | null>(null);
   const isSmallScreen = useIsSmallScreen();
 
@@ -145,13 +145,13 @@ export default function ContactUsPage() {
                       {/* Success tick animation */}
                       {buttonState === 'success' && (
                         <span className="w-5 h-5 flex items-center justify-center">
-                          <GiCheckMark size={50} color="#5A44FF" className="animate-[tick_0.5s_ease]" />
+                          <GiCheckMark size={50} color="#5A44FF"/>
                         </span>
                       )}
                       {/* Error cross animation */}
                       {buttonState === 'error' && (
                         <span className="w-8 h-8 flex items-center justify-center">
-                          <MdOutlineError size={50} color="#D32F2F" className="animate-[cross_0.5s_ease]"/>
+                          <MdOutlineError size={50} color="#D32F2F"/>
                         </span>
                       )}
                     </span>

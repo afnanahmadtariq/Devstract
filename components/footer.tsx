@@ -3,6 +3,8 @@
 import type React from "react"
 import { useState } from "react"
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
+import { GiCheckMark } from "react-icons/gi"
+import { MdOutlineError } from "react-icons/md"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
@@ -126,20 +128,14 @@ export default function Footer() {
                     )}
                     {/* Success tick animation */}
                     {buttonState === 'success' && (
-                      <span className="w-4 h-4 flex items-center justify-center">
-                        <svg width="16" height="16" viewBox="0 0 16 16">
-                          <circle cx="8" cy="8" r="7" stroke="#5A44FF" strokeWidth="2" fill="none" opacity="0.2" />
-                          <path d="M4 8l3 3 5-5" stroke="#5A44FF" strokeWidth="2" fill="none" className="animate-[tick_0.5s_ease]" />
-                        </svg>
+                      <span className="w-5 h-5 flex items-center justify-center">
+                        <GiCheckMark size={50} color="#5A44FF"/>
                       </span>
                     )}
                     {/* Error cross animation */}
                     {buttonState === 'error' && (
-                      <span className="w-4 h-4 flex items-center justify-center">
-                        <svg width="16" height="16" viewBox="0 0 16 16">
-                          <circle cx="8" cy="8" r="7" stroke="#D32F2F" strokeWidth="2" fill="none" opacity="0.2" />
-                          <path d="M5 5l6 6M11 5l-6 6" stroke="#D32F2F" strokeWidth="2" fill="none" className="animate-[cross_0.5s_ease]" />
-                        </svg>
+                      <span className="w-7 h-7 flex items-center justify-center">
+                        <MdOutlineError size={50} color="#D32F2F"/>
                       </span>
                     )}
                   </button>
