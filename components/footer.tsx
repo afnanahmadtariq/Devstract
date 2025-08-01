@@ -45,10 +45,12 @@ export default function Footer() {
 
   const footerLinks = [
     { label: "Home", href: "/#home" },
-    { label: "About us", href: "/about-us" },
     { label: "Services", href: "/#services" },
     { label: "Testimonials", href: "/#testimonials" },
+    { label: "About us", href: "/about-us" },
     { label: "FAQs", href: "/faqs" },
+    { label: "Contact Us", href: "/contact-us" },
+    { label: "Blog", href: "https://blog.devstract.site", target: "_blank", rel: "noopener noreferrer" },
   ];
 
   const socialLinks = [

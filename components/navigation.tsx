@@ -89,11 +89,11 @@ export default function Navigation({ mainpage = false, disableContact = false }:
               <Link href="/#services" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Services
               </Link>
-              <Link href="/about-us" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
-                About Us
-              </Link>
               <Link href="/#testimonials" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 Testimonials
+              </Link>
+              <Link href="/about-us" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+                About Us
               </Link>
               <Link href="/faqs" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
                 FAQs
@@ -139,8 +139,8 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             }
           >
             {/* Heading */}
-            <div className="mb-8">
-              <span className="text-[#838383] dark:text-white text-xs font-normal">MENU</span>
+            <div>
+              <span className="text-[#a1a1a1] dark:text-white text-xs font-normal">MENU</span>
             </div>
             {/* Menu Options */}
             <nav className="flex flex-col gap-6 flex-1">
@@ -149,6 +149,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 { href: "/#services", label: "Services" },
                 { href: "/about-us", label: "About Us" },
                 { href: "/#testimonials", label: "Testimonials" },
+                { href: "/faqs", label: "FAQs" },
                 { href: "/contact-us", label: "Contact Us" }
               ].map((item, idx) => {
                 const isActive = activeMenuIdx === idx;
