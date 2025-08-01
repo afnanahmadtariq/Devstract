@@ -2,18 +2,19 @@
 
 import type React from "react"
 import { useState } from "react"
+import { useToast } from "../hooks/use-toast"
+import { Toaster } from "./ui/toaster"
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
 import { GiCheckMark } from "react-icons/gi"
 import { MdOutlineError } from "react-icons/md"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
-  const [subscribeStatus, setSubscribeStatus] = useState<string | null>(null)
   const [buttonState, setButtonState] = useState<'idle' | 'loading' | 'success' | 'error'>("idle")
+  const { toast } = useToast()
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubscribeStatus(null)
     setButtonState('loading')
     if (!email) return
     try {
@@ -23,17 +24,29 @@ export default function Footer() {
         body: JSON.stringify({ email }),
       })
       if (res.ok) {
-        setSubscribeStatus('Subscribed successfully!')
         setButtonState('success')
         setEmail("")
+        toast({
+          title: "Success!",
+          description: "You have subscribed successfully.",
+          variant: "default",
+        })
       } else {
         const data = await res.json()
-        setSubscribeStatus(data.error || 'Subscription failed.')
         setButtonState('error')
+        toast({
+          title: "Error",
+          description: data.error || 'Subscription failed.',
+          variant: "destructive",
+        })
       }
     } catch {
-      setSubscribeStatus('Subscription failed.')
       setButtonState('error')
+      toast({
+        title: "Error",
+        description: 'Subscription failed.',
+        variant: "destructive",
+      })
     }
   }
 
@@ -41,7 +54,6 @@ export default function Footer() {
   const handleEmailFocus = () => {
     if (buttonState !== 'idle') {
       setButtonState('idle')
-      setSubscribeStatus(null)
     }
   }
 
@@ -64,7 +76,9 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-white px-6 md:px-20 lg:px-40 mt-16">
+    <>
+      <Toaster />
+      <footer className="bg-white px-6 md:px-20 lg:px-40 mt-16">
       {/* Top Section */}
       <div className="px-0 md:px-6 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
@@ -140,10 +154,6 @@ export default function Footer() {
                     )}
                   </button>
                 </div>
-                {/* Status message below input, only for error */}
-                {buttonState === 'error' && subscribeStatus && (
-                  <div className="text-xs mt-2 text-center" style={{ color: '#D32F2F' }}>{subscribeStatus}</div>
-                )}
               </form>
             </div>
           </div>
@@ -197,6 +207,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   )
 }
