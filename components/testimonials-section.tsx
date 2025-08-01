@@ -294,7 +294,7 @@ export default function TestimonialsSection() {
                   : 'translate-x-[200px] opacity-0'
             }`}
           >
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">Hear From Others</h3>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative z-10">About Our Company</h3>
               <div className="relative max-w-[17.5rem] sm:max-w-[21.5rem] md:max-w-[27.5rem] mx-auto z-10 flex justify-end">
                 <img 
                   src="/media/line.svg" 
@@ -303,8 +303,7 @@ export default function TestimonialsSection() {
                 />
               </div>
             <p className="text-sm sm:text-xl text-[#676767] leading-tight mb-8 max-w-72 sm:max-w-md mx-auto relative z-10">
-              Don't just take our word for it. See what our clients have to say about their experience working with us
-              and the results we've delivered.
+              Discover who we are, our values, and how we strive to make a difference in the industry.
             </p>
 
             {/* Button on background */}
@@ -323,7 +322,7 @@ export default function TestimonialsSection() {
                     filter: "drop-shadow(0px 0px 68.3px rgba(85, 0, 255, 0.80))"
                   }}
                 >
-                  Check My Eligibility
+                  Learn More About Us
                 </Button>
               </div>
             </div>
