@@ -137,7 +137,7 @@ export default function ContactSection() {
               style={{
                 width: isSmallScreen()
                   ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 170 : 0)}px` // small screen width
-                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 230 : 0)}px`, // larger screen width
+                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 227 : 0)}px`, // larger screen width
                 transition: "width 1s ease-out",
               }}
             >

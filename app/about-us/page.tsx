@@ -36,7 +36,7 @@ export default function AboutUsPage() {
             About Us
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center mb-24">
-            We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
+            Discover who we are and what drives us. At Devstract, we’re passionate about building digital solutions that make a difference. Learn more about our mission, values, and the team behind your next big idea.
           </p>
           <div className="w-full bg-[#F7F7F7] flex flex-col justify-center items-stretch p-3 gap-3 max-w-7xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Top Portion */}
@@ -128,7 +128,7 @@ export default function AboutUsPage() {
                 Why Us
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center">
-                We’d love to hear from you! Whether you have questions, feedback, or you’re ready to start a project, our team is here to help. Reach out to us anytime — we’re just a message away.
+                Choose Devstract for expertise, innovation, and a commitment to your success. We combine technical excellence with creative vision to deliver results that set you apart from the competition.
               </p>
             </div>
             {/* Bottom Portion */}
