@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { motion, AnimatePresence, PanInfo } from "framer-motion"
 import "./services-section-animations.css"
 
 interface Service {
@@ -12,29 +13,45 @@ interface Service {
 
 export default function ServicesSection() {
   const [animate, setAnimate] = useState(false)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null); // Ref for the scrollable carousel
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [containerWidth, setContainerWidth] = useState(0)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
+
+  const CARD_WIDTH = {
+    mobile: 316, // 300px + 20px margin
+    tablet: 420, // 400px + 20px margin  
+    desktop: 546 // 526px + 20px margin
+  }
 
   useEffect(() => {
     const handleScroll = () => {
       if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+        const rect = sectionRef.current.getBoundingClientRect()
+        const windowHeight = window.innerHeight
 
-        // Check if section is in view
         if (rect.top < windowHeight && rect.bottom > 0) {
           setTimeout(() => setAnimate(true), 100)
         }
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const handleResize = () => {
+      if (carouselRef.current) {
+        setContainerWidth(carouselRef.current.offsetWidth)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize)
+    handleScroll()
+    handleResize()
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   const services: Service[] = [
     {
@@ -88,115 +105,46 @@ export default function ServicesSection() {
     },
   ]
 
-  // Enable mouse wheel horizontal scroll for carousel
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
+  // Get current card width based on screen size
+  const getCurrentCardWidth = () => {
+    if (typeof window === 'undefined') return CARD_WIDTH.desktop
+    if (window.innerWidth < 640) return CARD_WIDTH.mobile
+    if (window.innerWidth < 768) return CARD_WIDTH.tablet
+    return CARD_WIDTH.desktop
+  }
 
-    const onWheel = (e: WheelEvent) => {
-      if (e.deltaY === 0) return;
-      e.preventDefault();
-      carousel.scrollBy({ left: e.deltaY, behavior: "smooth" });
-    };
+  // Calculate drag constraints
+  const cardWidth = getCurrentCardWidth()
+  const maxScroll = (services.length - 1) * cardWidth
+  const dragConstraints = { left: -maxScroll, right: 0 }
 
-    carousel.addEventListener("wheel", onWheel, { passive: false });
-    return () => carousel.removeEventListener("wheel", onWheel);
-  }, []);
-
-  // Handle mouse drag scroll
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!carouselRef.current) return;
-    setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
-    setScrollLeft(carouselRef.current.scrollLeft);
-    // Disable scroll snap while dragging
-    carouselRef.current.style.scrollSnapType = 'none';
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    if (!carouselRef.current) return;
-    // find all cards:
-    const cards = Array.from(carouselRef.current.querySelectorAll('.snap-center')) as HTMLElement[];
-    // compute distances to center:
-    const { left: carouselLeft, width: carouselWidth } = carouselRef.current.getBoundingClientRect();
-    let closest: HTMLElement | null = null;
-    let minDelta = Infinity;
-    cards.forEach(card => {
-      const { left, width } = card.getBoundingClientRect();
-      const cardCenter = left + width/2;
-      const viewportCenter = carouselLeft + carouselWidth/2;
-      const delta = Math.abs(cardCenter - viewportCenter);
-      if (delta < minDelta) {
-        minDelta = delta;
-        closest = card;
+  // Handle drag end - snap to nearest card
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const offset = info.offset.x
+    const velocity = info.velocity.x
+    
+    let newIndex = currentIndex
+    
+    // Determine direction and calculate new index
+    if (Math.abs(offset) > cardWidth / 3 || Math.abs(velocity) > 500) {
+      if (offset > 0 && currentIndex > 0) {
+        newIndex = currentIndex - 1
+      } else if (offset < 0 && currentIndex < services.length - 1) {
+        newIndex = currentIndex + 1
       }
-    });
-    if (closest) {
-      // Scroll the carousel to center the closest card
-      const closestElement = closest as HTMLElement;
-      const cardRect = closestElement.getBoundingClientRect();
-      const carouselRect = carouselRef.current.getBoundingClientRect();
-      const cardCenter = cardRect.left + cardRect.width / 2;
-      const carouselCenter = carouselRect.left + carouselRect.width / 2;
-      const scrollOffset = cardCenter - carouselCenter;
-      
-      carouselRef.current.scrollBy({
-        left: scrollOffset,
-        behavior: 'smooth'
-      });
     }
-    // Re-enable scroll snap after dragging
-    if (carouselRef.current) {
-      carouselRef.current.style.scrollSnapType = 'x mandatory';
+    
+    setCurrentIndex(newIndex)
+  }
+
+  // Navigate to specific card
+  const goToSlide = (direction: 'prev' | 'next') => {
+    if (direction === 'prev' && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    } else if (direction === 'next' && currentIndex < services.length - 1) {
+      setCurrentIndex(currentIndex + 1)
     }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    if (!carouselRef.current) return;
-    // find all cards:
-    const cards = Array.from(carouselRef.current.querySelectorAll('.snap-center')) as HTMLElement[];
-    // compute distances to center:
-    const { left: carouselLeft, width: carouselWidth } = carouselRef.current.getBoundingClientRect();
-    let closest: HTMLElement | null = null;
-    let minDelta = Infinity;
-    cards.forEach(card => {
-      const { left, width } = card.getBoundingClientRect();
-      const cardCenter = left + width/2;
-      const viewportCenter = carouselLeft + carouselWidth/2;
-      const delta = Math.abs(cardCenter - viewportCenter);
-      if (delta < minDelta) {
-        minDelta = delta;
-        closest = card;
-      }
-    });
-    if (closest) {
-      // Scroll the carousel to center the closest card
-      const closestElement = closest as HTMLElement;
-      const cardRect = closestElement.getBoundingClientRect();
-      const carouselRect = carouselRef.current.getBoundingClientRect();
-      const cardCenter = cardRect.left + cardRect.width / 2;
-      const carouselCenter = carouselRect.left + carouselRect.width / 2;
-      const scrollOffset = cardCenter - carouselCenter;
-      
-      carouselRef.current.scrollBy({
-        left: scrollOffset,
-        behavior: 'smooth'
-      });
-    }
-    // Re-enable scroll snap after dragging
-    carouselRef.current.style.scrollSnapType = 'x mandatory';
-  };
-
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX);
-    carouselRef.current.scrollLeft = scrollLeft - walk;
-  };
+  }
 
   return (
     <section
@@ -220,15 +168,10 @@ export default function ServicesSection() {
             <div className="hidden sm:flex justify-end ml-6 gap-2 w-full">
               <button
                 type="button"
-                onClick={() => {
-                  if (carouselRef.current) {
-                    const card = carouselRef.current.querySelector('.snap-center');
-                    const cardWidth = card ? card.clientWidth + 20 : 350;
-                    carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-                  }
-                }} // Trigger previous slide
-                className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
-                aria-label="Scroll left"
+                onClick={() => goToSlide('prev')}
+                disabled={currentIndex === 0}
+                className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] disabled:opacity-50 disabled:cursor-not-allowed rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+                aria-label="Previous slide"
               >
                 <img
                   src="/media/small_arrow.svg"
@@ -239,15 +182,10 @@ export default function ServicesSection() {
               </button>
               <button
                 type="button"
-                onClick={() => {
-                  if (carouselRef.current) {
-                    const card = carouselRef.current.querySelector('.snap-center');
-                    const cardWidth = card ? card.clientWidth + 20 : 350;
-                    carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                  }
-                }}// Trigger next slide
-                className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
-                aria-label="Scroll right"
+                onClick={() => goToSlide('next')}
+                disabled={currentIndex === services.length - 1}
+                className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] disabled:opacity-50 disabled:cursor-not-allowed rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+                aria-label="Next slide"
               >
                 <img
                   src="/media/small_arrow.svg"
@@ -260,29 +198,34 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Scrollable carousel with scroll snap */}
-        <div id="services-carousel" className="relative group">
-          <div
+        {/* Framer Motion draggable carousel */}
+        <div id="services-carousel" className="relative overflow-hidden">
+          <motion.div
             ref={carouselRef}
-            className={`flex overflow-x-auto z-0 scroll-smooth snap-x snap-mandatory hide-scrollbar pl-6 sm:pl-12 lg:pl-32 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-            style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: isDragging ? 'auto' : 'smooth' }}
-            tabIndex={0}
-            aria-label="Services carousel"
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
+            className="flex cursor-grab active:cursor-grabbing pl-6 sm:pl-12 lg:pl-32"
+            drag="x"
+            dragConstraints={dragConstraints}
+            onDragEnd={handleDragEnd}
+            animate={{ x: -currentIndex * cardWidth }}
+            transition={{
+              type: "spring",
+              damping: 25,
+              stiffness: 200,
+              duration: 0.6
+            }}
+            whileTap={{ cursor: "grabbing" }}
           >
             {services.map((service, index) => {
-              let cardAnim = "";
-              if (index === 0) cardAnim = `slide-from-left${animate ? " show" : ""}`;
-              else if (index === 1) cardAnim = `slide-from-right${animate ? " show" : ""}`;
-              else if (index === 2) cardAnim = `slide-from-far-right${animate ? " show" : ""}`;
-              else cardAnim = animate ? "opacity-100" : "opacity-0";
+              let cardAnim = ""
+              if (index === 0) cardAnim = `slide-from-left${animate ? " show" : ""}`
+              else if (index === 1) cardAnim = `slide-from-right${animate ? " show" : ""}`
+              else if (index === 2) cardAnim = `slide-from-far-right${animate ? " show" : ""}`
+              else cardAnim = animate ? "opacity-100" : "opacity-0"
+              
               return (
-                <div
+                <motion.div
                   key={service.id}
-                  className={`flex-shrink-0 z-1 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-all duration-2000 ease-out snap-center ${cardAnim}`}
+                  className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-opacity duration-2000 ease-out ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
                   tabIndex={-1}
                 >
@@ -299,23 +242,19 @@ export default function ServicesSection() {
                         <ArrowUpRight className="h-8 w-8 sm:h-16 sm:w-16 text-white" />
                     </div> */}
                   </div>
-                </div>
-                );
+                </motion.div>
+              )
             })}
-          </div>
-          {/* Scroll buttons for carousel */}
+          </motion.div>
+          
+          {/* Mobile scroll buttons */}
           <div className="flex sm:hidden justify-center mt-8 gap-2">
             <button
               type="button"
-              onClick={() => {
-                if (carouselRef.current) {
-                  const card = carouselRef.current.querySelector('.snap-center');
-                  const cardWidth = card ? card.clientWidth + 20 : 350;
-                  carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-                }
-              }}
-              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
-              aria-label="Scroll left"
+              onClick={() => goToSlide('prev')}
+              disabled={currentIndex === 0}
+              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] disabled:opacity-50 disabled:cursor-not-allowed rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+              aria-label="Previous slide"
             >
               <img
                 src="/media/small_arrow.svg"
@@ -326,15 +265,10 @@ export default function ServicesSection() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                if (carouselRef.current) {
-                  const card = carouselRef.current.querySelector('.snap-center');
-                  const cardWidth = card ? card.clientWidth + 20 : 350;
-                  carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                }
-              }}
-              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
-              aria-label="Scroll right"
+              onClick={() => goToSlide('next')}
+              disabled={currentIndex === services.length - 1}
+              className="bg-[#FAFAFA] border border-[#E2E2E2] hover:bg-[#F0F0F0] disabled:opacity-50 disabled:cursor-not-allowed rounded-full px-3 py-3 text-base font-normal inline-flex items-center"
+              aria-label="Next slide"
             >
               <img
                 src="/media/small_arrow.svg"
