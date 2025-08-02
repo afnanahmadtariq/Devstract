@@ -42,7 +42,7 @@ export default function AboutUsPage() {
             {/* Top Portion */}
             <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]">
               {/* Left Side */}
-              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-10 md:px-[4.5rem] md:py-16 border-2 border-[#EBEBEB]">
+              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-9 md:px-[4.5rem] md:py-16 border-2 border-[#EBEBEB]">
                 <div 
                   className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-8 md:mb-16"
                   style={{ backgroundImage: 'var(--primary-gradient)'}}
