@@ -67,7 +67,7 @@ export default function ContactUsPage() {
           </p>
           <div className="w-full bg-[#F7F7F7] flex flex-col lg:flex-row justify-center items-stretch p-3 gap-3 max-w-6xl border-2 border-[#EBEBEB] rounded-[36px]">
             {/* Left Side (info and image) */}
-            <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 lg:max-w-md flex flex-col items-center justify-center border-2 border-[#EBEBEB] order-2 lg:order-none">
+            <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] px-6 py-8 sm:p-8 lg:max-w-md flex flex-col items-center justify-center border-2 border-[#EBEBEB] order-2 lg:order-none">
               <img src="/media/baloons.svg" alt="Balloons" className="w-48 h-48 md:w-64 md:h-64 mb-6" />
               <div style={{ position: 'relative', width: '100%' }}>
                 <div
@@ -90,7 +90,7 @@ export default function ContactUsPage() {
             {/* Right Side (Form) */}
             <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] p-8 sm:p-16 border-2 border-[#EBEBEB]">
                 <div className="mb-6 text-center max-w-sm mx-auto">
-                    <p className="text-lg sm:text-2xl font-semibold text-gray-900 dark:text-white mb-8 sm:mb-12">Let’s Connect 🚀 We’re just a message away reach out 🤝</p>
+                    <p className="text-lg sm:text-2xl font-semibold text-gray-900 dark:text-white mb-8 sm:mb-12">Let’s Connect 📫 We’re just a message away reach out 🤝</p>
                 </div>
               <form ref={formRef} onSubmit={handleSubmit} onFocus={handleEmailFocus} className="space-y-6 sm:space-y-8">
                 <div>
