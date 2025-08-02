@@ -13,10 +13,10 @@ export default function CarouselCards() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const cards: Card[] = [
-    { id: 1, title: "Lightning Fast Delivery", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card1.svg" },
-    { id: 2, title: "Any integration you can imagine", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card2.svg" },
-    { id: 3, title: "Solutions that drives revenue", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card3.svg" },
-    { id: 4, title: "Security-First Engineering", description: "Fast. Efficient. Reliable. Try us and see the difference.", image: "/media/card4.svg" },
+    { id: 1, title: "Lightning Fast Delivery", description: "Get your projects delivered on time, every time. Experience true speed.", image: "/media/card1.svg" },
+    { id: 2, title: "Any integration you can imagine", description: "Seamlessly connect with any tool or platform. Limitless integration options.", image: "/media/card2.svg" },
+    { id: 3, title: "Solutions that drives revenue", description: "Boost your business growth with strategies that maximize your profits.", image: "/media/card3.svg" },
+    { id: 4, title: "Security-First Engineering", description: "Protect your data with robust, security-focused development at every step.", image: "/media/card4.svg" },
   ]
 
   // Duplicate list for seamless looping

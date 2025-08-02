@@ -3,20 +3,20 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useIsMobile } from "@/hooks/use-mobile" // or "@/components/ui/use-mobile"
+import { useIsSmallScreen } from "@/hooks/use-small-screen"
 import { useRouter } from "next/navigation";
-
-function isSmallScreen() {
-  if (typeof window !== "undefined") {
-    return window.innerWidth < 640; // Tailwind's sm breakpoint
-  }
-  return false;
-}
 
 export default function ContactSection() {
   const router = useRouter();
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const isSmallScreen = useIsSmallScreen();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,36 +131,36 @@ export default function ContactSection() {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 z-30 pointer-events-none">
             {/* Spacer for heading */}
             <div className="mb-60 sm:mb-96" />
-            <Button
-              className="bg-white hover:bg-gray-100 text-black rounded-full py-6 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
-              onClick={() => router.push("/contact-us")}
-              style={{
-                width: isSmallScreen()
-                  ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 170 : 0)}px` // small screen width
-                  : `${65 + (scrollProgress > 0.91 ? scrollProgress * 230 : 0)}px`, // larger screen width
-                transition: "width 1s ease-out",
-              }}
-            >
-              <span className="m-2 sm:m-4 whitespace-nowrap">
-                Bring your ideas to life
-              </span>
-              <span
-                className="flex items-center justify-center rounded-full"
+            {hasMounted && (
+                <Button
+                className="bg-white hover:bg-gray-100 text-black rounded-full py-6 sm:py-7 text-xs sm:text-base font-semibold justify-end pointer-events-auto overflow-hidden"
+                onClick={() => router.push("/contact-us")}
                 style={{
-                  width: isSmallScreen() ? 36 : 42,
-                  height: isSmallScreen() ? 36 : 42,
-                  background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
-                  flexShrink: 0,
-                  marginRight: isSmallScreen() ? -9 : -5,
+                  width: isSmallScreen
+                    ? `${48 + (scrollProgress > 0.91 ? scrollProgress * 170 : 0)}px` // small screen width
+                    : `${65 + (scrollProgress > 0.91 ? scrollProgress * 227 : 0)}px`, // larger screen width
+                  transition: "width 1s ease-out",
                 }}
               >
-                <img
-                  src="/media/small_arrow.svg"
-                  alt="arrow"
-                  className="w-3 h-3 sm:w-4 sm:h-4 transform -rotate-45"
-                />
-              </span>
-            </Button>
+                <span className="m-2 sm:m-4 whitespace-nowrap">
+                  Bring your ideas to life
+                </span>
+                <span
+                  className="flex items-center justify-center rounded-full w-9 sm:w-[42px] h-9 sm:h-[42px] -mr-[9px] sm:-mr-[5px]"
+                  style={{
+                    background: "var(--Blue-gradient, linear-gradient(326deg, #5A45FF 25.92%, #7D71FF 45.7%, #7C81FF 61.62%, #009 100.45%))",
+                    flexShrink: 0,
+                  }}
+                >
+                  <img
+                    src="/media/small_arrow.svg"
+                    alt="arrow"
+                    className="w-3 h-3 sm:w-4 sm:h-4 transform -rotate-45"
+                  />
+                </span>
+              </Button>
+            )}
+
           </div>
         </div>
       </div>

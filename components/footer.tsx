@@ -2,16 +2,19 @@
 
 import type React from "react"
 import { useState } from "react"
-import { ArrowUpRight, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
+import { useToast } from "../hooks/use-toast"
+import { Toaster } from "./ui/toaster"
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
+import { GiCheckMark } from "react-icons/gi"
+import { MdOutlineError } from "react-icons/md"
 
 export default function Footer() {
   const [email, setEmail] = useState("")
-  const [subscribeStatus, setSubscribeStatus] = useState<string | null>(null)
   const [buttonState, setButtonState] = useState<'idle' | 'loading' | 'success' | 'error'>("idle")
+  const { toast } = useToast()
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubscribeStatus(null)
     setButtonState('loading')
     if (!email) return
     try {
@@ -21,17 +24,29 @@ export default function Footer() {
         body: JSON.stringify({ email }),
       })
       if (res.ok) {
-        setSubscribeStatus('Subscribed successfully!')
         setButtonState('success')
         setEmail("")
+        toast({
+          title: "Success!",
+          description: "You have subscribed successfully.",
+          variant: "default",
+        })
       } else {
         const data = await res.json()
-        setSubscribeStatus(data.error || 'Subscription failed.')
         setButtonState('error')
+        toast({
+          title: "Error",
+          description: data.error || 'Subscription failed.',
+          variant: "destructive",
+        })
       }
     } catch {
-      setSubscribeStatus('Subscription failed.')
       setButtonState('error')
+      toast({
+        title: "Error",
+        description: 'Subscription failed.',
+        variant: "destructive",
+      })
     }
   }
 
@@ -39,28 +54,31 @@ export default function Footer() {
   const handleEmailFocus = () => {
     if (buttonState !== 'idle') {
       setButtonState('idle')
-      setSubscribeStatus(null)
     }
   }
 
   const footerLinks = [
     { label: "Home", href: "/#home" },
-    { label: "About us", href: "/about-us" },
     { label: "Services", href: "/#services" },
     { label: "Testimonials", href: "/#testimonials" },
+    { label: "About us", href: "/about-us" },
     { label: "FAQs", href: "/faqs" },
+    { label: "Contact Us", href: "/contact-us" },
+    { label: "Blog", href: "https://blog.devstract.site", target: "_blank", rel: "noopener noreferrer" },
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
-    { icon: Twitter, href: "https://x.com/devstract", label: "Twitter" },
-    { icon: Instagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/devstract", label: "LinkedIn" },
-    { icon: Youtube, href: "https://www.youtube.com/@DevstractStudio", label: "YouTube" },
+    { icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
+    { icon: FaTwitter, href: "https://x.com/devstract", label: "Twitter" },
+    { icon: FaInstagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/devstract", label: "LinkedIn" },
+    { icon: FaYoutube, href: "https://www.youtube.com/@DevstractStudio", label: "YouTube" },
   ]
 
   return (
-    <footer className="bg-white px-6 md:px-20 lg:px-40 mt-16">
+    <>
+      <Toaster />
+      <footer className="bg-white px-6 md:px-20 lg:px-40 mt-16">
       {/* Top Section */}
       <div className="px-0 md:px-6 py-8 md:py-12">
         <div className="max-w-7xl mx-auto">
@@ -95,7 +113,7 @@ export default function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={handleEmailFocus}
                     placeholder="Enter your email"
-                    className="w-full px-6 py-3 pr-28 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                    className="w-full px-6 py-3 pr-28 bg-white border border-gray-200 rounded-full text-black placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:z-10 text-sm"
                     required
                   />
                   <button
@@ -124,28 +142,18 @@ export default function Footer() {
                     )}
                     {/* Success tick animation */}
                     {buttonState === 'success' && (
-                      <span className="w-4 h-4 flex items-center justify-center">
-                        <svg width="16" height="16" viewBox="0 0 16 16">
-                          <circle cx="8" cy="8" r="7" stroke="#5A44FF" strokeWidth="2" fill="none" opacity="0.2" />
-                          <path d="M4 8l3 3 5-5" stroke="#5A44FF" strokeWidth="2" fill="none" className="animate-[tick_0.5s_ease]" />
-                        </svg>
+                      <span className="w-5 h-5 flex items-center justify-center">
+                        <GiCheckMark size={50} color="#5A44FF"/>
                       </span>
                     )}
                     {/* Error cross animation */}
                     {buttonState === 'error' && (
-                      <span className="w-4 h-4 flex items-center justify-center">
-                        <svg width="16" height="16" viewBox="0 0 16 16">
-                          <circle cx="8" cy="8" r="7" stroke="#D32F2F" strokeWidth="2" fill="none" opacity="0.2" />
-                          <path d="M5 5l6 6M11 5l-6 6" stroke="#D32F2F" strokeWidth="2" fill="none" className="animate-[cross_0.5s_ease]" />
-                        </svg>
+                      <span className="w-7 h-7 flex items-center justify-center">
+                        <MdOutlineError size={50} color="#D32F2F"/>
                       </span>
                     )}
                   </button>
                 </div>
-                {/* Status message below input, only for error */}
-                {buttonState === 'error' && subscribeStatus && (
-                  <div className="text-xs mt-2 text-center" style={{ color: '#D32F2F' }}>{subscribeStatus}</div>
-                )}
               </form>
             </div>
           </div>
@@ -165,10 +173,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center items-center gap-6 md:gap-0">
             {/* Legal Links */}
             <div className="flex items-center justify-center space-x-8">
-              <a href="/terms-of-service" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
+              <a href="/terms-of-service" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm underline-animation">
                 Terms of Service
               </a>
-              <a href="/privacy-policy" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm">
+              <a href="/privacy-policy" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm underline-animation">
                 Privacy Policy
               </a>
             </div>
@@ -187,11 +195,11 @@ export default function Footer() {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-8 h-8 border border-black/[0.1] rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-gray-100"
+                    className="w-9 h-9 border border-black/[0.1] rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-gray-100"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <IconComponent className="w-4 h-4" style={{ color: 'white', fill: 'black' }} />
+                    <IconComponent className="w-4 h-4" color="black" />
                   </a>
                 )
               })}
@@ -199,6 +207,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   )
 }
