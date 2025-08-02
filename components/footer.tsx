@@ -4,7 +4,8 @@ import type React from "react"
 import { useState } from "react"
 import { useToast } from "../hooks/use-toast"
 import { Toaster } from "./ui/toaster"
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
+import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa"
+import { BsInstagram, BsTwitterX } from "react-icons/bs"
 import { GiCheckMark } from "react-icons/gi"
 import { MdOutlineError } from "react-icons/md"
 
@@ -69,8 +70,8 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=61576742266650", label: "Facebook" },
-    { icon: FaTwitter, href: "https://x.com/devstract", label: "Twitter" },
-    { icon: FaInstagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
+    { icon: BsTwitterX,  href: "https://x.com/devstract", label: "Twitter/X" },
+    { icon: BsInstagram, href: "https://www.instagram.com/devstract/", label: "Instagram" },
     { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/devstract", label: "LinkedIn" },
     { icon: FaYoutube, href: "https://www.youtube.com/@DevstractStudio", label: "YouTube" },
   ]
