@@ -42,7 +42,7 @@ export default function AboutUsPage() {
             {/* Top Portion */}
             <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]">
               {/* Left Side */}
-              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-10 md:p-20 border-2 border-[#EBEBEB]">
+              <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-10 md:px-[4.5rem] md:py-16 border-2 border-[#EBEBEB]">
                 <div 
                   className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-8 md:mb-16"
                   style={{ backgroundImage: 'var(--primary-gradient)'}}
@@ -81,8 +81,9 @@ export default function AboutUsPage() {
                       zIndex: 2,
                     }}
                   />
-                  <p className='text-[#494949] text-left max-w-lg text-base md:text-[22px] font-normal leading-relaxed mt-4'>
-                    Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life  with precision and passion.
+                  <p className='text-[#494949] text-left max-w-xl text-base md:text-[22px] font-normal leading-relaxed mt-4'>
+                    At Devstract, we’re not just a design and development company — we’re your creative technology partner. We fuse cutting-edge technology with creative design to craft modern, user-focused solutions that help brands grow, engage, and lead.
+                    From sleek websites and powerful applications to seamless user experiences, we bring ideas to life with precision, strategy, and passion. Our mission is to help you stand out in a digital world by delivering products that are as impactful as they are beautifully designed.
                   </p>
                   <div
                     style={{
@@ -99,7 +100,7 @@ export default function AboutUsPage() {
                 </div>
               </div>
               {/* Right Side*/}
-              <div className="flex-[1.2] bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+              <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '100%' }}>
                   <img src="/media/ceo.png" alt="Devstract CEO" className="mx-auto" />
                   <div

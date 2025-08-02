@@ -83,7 +83,7 @@ export default function ContactUsPage() {
                   }}
                 />
                 <p className="text-[#707070] dark:text-gray-200 mt-8 text-base md:text-lg text-left" style={{ position: 'relative', zIndex: 1 }}>
-                  Devstract is a next-gen design and development company focused on crafting innovative digital experiences. We blend cutting-edge technology with creative design to build modern, user-centric solutions that help brands grow, engage, and lead in their industries. Whether it's sleek web design, powerful applications, or seamless user experiences — we bring your ideas to life with precision and passion.
+                  At Devstract, we're committed to turning your ideas into impactful solutions. When you reach out to us, you're not just starting a project, you're beginning a partnership focused on innovation, growth, and lasting results. Whether you're looking to enhance your brand, connect with your audience, or lead in your space, we're here to help you make it happen. Don’t wait, your next big success starts with a simple message.
                 </p>
               </div>
             </div>
