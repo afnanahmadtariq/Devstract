@@ -228,6 +228,55 @@
     display: none; /* Chrome/Safari/Webkit */
   }
 
+  .slide-from-left {
+    transform: translateX(-80px);
+    opacity: 0;
+    transition: all 3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .slide-from-left.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .slide-from-right {
+    transform: translateX(80px);
+    opacity: 0;
+    transition: all 3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .slide-from-right.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .slide-from-far-right {
+    transform: translateX(200px);
+    opacity: 0;
+    transition: all 3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .slide-from-far-right.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .devstract-slide {
+    opacity: 0;
+    transform: translateX(-400px);
+    transition: opacity 2.5s cubic-bezier(0.4,0,0.2,1), transform 4s cubic-bezier(0.4,0,0.2,1);
+  }
+  .devstract-slide.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .devstract-gradient-animate {
+    --gradient-angle: 0deg;
+    background: linear-gradient(var(--gradient-angle), #2C2C2C 0%,#2C2C2C 53.5%,#d1d1d1 53.7%,#929292 100%);
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    /* Prevents background from showing outside text */
+    display: inline-block;
+  }
+
   /* Underline animation for footer links */
   .underline-animation {
     position: relative;

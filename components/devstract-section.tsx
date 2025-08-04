@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import "./devstract-section-animations.css"
 
 export default function DevstractSection() {
   const [gradientAngle, setGradientAngle] = useState(0)
