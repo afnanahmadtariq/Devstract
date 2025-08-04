@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { motion, AnimatePresence, PanInfo } from "framer-motion"
-import "./services-section-animations.css"
+import { motion, PanInfo } from "framer-motion"
 
 interface Service {
   id: number

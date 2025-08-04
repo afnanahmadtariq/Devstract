@@ -113,7 +113,7 @@ export default function TestimonialsSection() {
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           {/* Left Column - Card Stack */}
           <div 
-            className={`relative z-20 mb-24 lg:mb-0 overflow-x-hidden h-[110%] transition-all duration-1000 ease-out ${
+            className={`relative z-20 mb-24 lg:mb-0 overflow-x-hidden transition-all duration-1000 ease-out ${
               isMobile 
                 ? '' 
                 : hasAnimatedIn 
