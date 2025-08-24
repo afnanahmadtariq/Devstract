@@ -273,7 +273,6 @@
     -webkit-background-clip: text !important;
     color: transparent !important;
     -webkit-text-fill-color: transparent !important;
-    /* Prevents background from showing outside text */
     display: inline-block;
   }
 
