@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import CarouselCards from "@/components/carousel-cards"
 import { useEffect, useRef, useState } from "react"
 import type React from "react"
 
@@ -81,10 +80,6 @@ export default function HeroSection() {
         Building Beyond <br /> Boundaries
       </h1>
 
-      {/* Sub-heading */}
-      {/* <p className="text-lg sm:text-xl text-white/[0.53] mb-8 max-w-2xl">
-        Fast. Efficient. Reliable. Try us and see the difference.
-      </p> */}
       <img
         src="/media/bg-2.png"
         alt="Gradient Background"
@@ -110,16 +105,11 @@ export default function HeroSection() {
              active:scale-[0.98]"
           onClick={() => window.open('https://calendly.com/afnan-devstract/30min', '_blank')}
         >
-          {/* <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <img src="/media/button.svg" alt="button border" className="w-full h-full object-fill rounded-full" style={{ transform: 'scaleY(1.06)' }} />
-          </span> */}
           <img src="/media/small_arrow.svg" alt="arrow" className="w-3 h-3 sm:w-4 sm:h-4 filter invert group-hover:invert-0" />
           <span className="pr-2">Work with us</span>
         </Button>
       </div>
 
-      {/* Carousel */}
-      {/* <CarouselCards /> */}
     </section>
   )
 }

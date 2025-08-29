@@ -97,7 +97,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
           {/* Logo */}
           <div className="flex items-center space-x-8">
             <Link href="/" passHref>
-              <div className={!mainpage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}>
+              <div className={!mainpage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] texture-overlay"}>
                 <Image
                   src="/images/logo.svg"
                   alt="Devstract Logo"
@@ -138,7 +138,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 hidden md:flex">
               <div
                 ref={centerNavRef}
-                className={`relative pointer-events-auto flex items-center space-x-1 bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full`}
+                className={`relative pointer-events-auto flex items-center space-x-1 bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full texture-overlay`}
                 onMouseLeave={() => setCenterActiveIdx(0)}
               >
                 {highlight && (
@@ -195,7 +195,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             </span>
           ) : (
             <Link href="/contact-us" passHref legacyBehavior>
-              <Button className={`text-white px-6 py-[26px] font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%]' : 'contact-button'}`}>
+              <Button className={`text-white px-6 py-[26px] font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay' : 'contact-button'}`}>
                 {mainpage && (
                   <Image
                     src="/media/phone.svg"
