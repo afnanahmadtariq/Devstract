@@ -70,27 +70,27 @@ export default function HeroSection() {
       <img
         src="/media/bg.png"
         alt="Gradient Background"
-        className={`absolute inset-4 w-[calc(100vw-2rem)] h-screen object-cover object-top z-0 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] sm:h-screen rounded-2xl object-cover object-top z-0 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg1Ref}
         style={{ willChange: "transform", transition: "transform 150ms ease-out, opacity 1000ms ease" }}
         aria-hidden="true"
       />
       {/* Main heading */}
-      <h1 className="absolute top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-10 text-white leading-10">
+      <h1 className="absolute top-1/3 sm:top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-10 text-white leading-10">
         Building Beyond <br /> Boundaries
       </h1>
 
       <img
         src="/media/bg-2.png"
         alt="Gradient Background"
-        className={`absolute inset-4 w-[calc(100vw-2rem)] h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] sm:h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg2Ref}
         style={{ willChange: "transform", transition: "transform 150ms ease-out, opacity 1000ms ease" }}
         aria-hidden="true"
       />
 
       
-      <h1 className="absolute top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-10">
+      <h1 className="absolute top-1/3 sm:top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-10">
         Building Beyond <br /> Boundaries
       </h1>
 

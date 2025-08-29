@@ -176,7 +176,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
 
           {/* Mobile Menu Button */}
           <button
-            className={!mainpage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/10"}
+            className={!mainpage ? "md:hidden flex items-center justify-center w-12 h-12 rounded-full bg-black/5 dark:bg-white/10" : "md:hidden flex items-center justify-center w-12 h-12 rounded-full filter brightness-0 invert bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)]"}
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
           >
