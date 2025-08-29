@@ -60,9 +60,33 @@
   }
 }
 
+/* Texture overlay utility for subtle noise/texture effect */
+.texture-overlay {
+  position: relative;
+}
+.texture-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/media/texture.svg');
+  background-position: center;
+  background-size: 1000px 1000px;
+  background-repeat: no-repeat;
+  opacity: 1;
+  border-radius: inherit;
+  mix-blend-mode: multiply; 
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Webkit */
   }
 
   * {
