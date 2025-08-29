@@ -17,6 +17,10 @@ export default function Navigation({ mainpage = false, disableContact = false }:
   const [menuClosing, setMenuClosing] = useState(false)
   const [showNav, setShowNav] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
+  const [centerActiveIdx, setCenterActiveIdx] = useState<number>(0)
+  const [highlight, setHighlight] = useState<{ left: number; width: number; height: number } | null>(null)
+  const centerNavRef = useRef<HTMLDivElement>(null)
+  const centerLinkRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
   useEffect(() => {
     setShowNav(true)
@@ -35,7 +39,6 @@ export default function Navigation({ mainpage = false, disableContact = false }:
     }
   }, [menuOpen])
 
-  // Prevent scrolling/touch behind the mobile menu overlay
   useEffect(() => {
     if (menuOpen || menuClosing) {
       document.body.style.overflow = "hidden";
@@ -50,19 +53,47 @@ export default function Navigation({ mainpage = false, disableContact = false }:
     };
   }, [menuOpen, menuClosing]);
 
-  // Handle menu close with animation
   function handleCloseMenu() {
     setMenuClosing(true)
     setTimeout(() => {
       setMenuOpen(false)
       setMenuClosing(false)
-    }, 300) // match animation duration
+    }, 300) 
   }
+
+  useEffect(() => {
+    if (!mainpage) return
+    const update = () => {
+      const container = centerNavRef.current
+      const link = centerLinkRefs.current[centerActiveIdx]
+      if (container && link) {
+        const cRect = container.getBoundingClientRect()
+        const lRect = link.getBoundingClientRect()
+        setHighlight({
+          left: lRect.left - cRect.left,
+          width: lRect.width,
+          height: lRect.height,
+        })
+      }
+    }
+
+    // Defer to next frame to ensure layout is settled
+    const raf = requestAnimationFrame(update)
+    const ro = new ResizeObserver(() => update())
+    if (centerNavRef.current) ro.observe(centerNavRef.current)
+    window.addEventListener('resize', update)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      ro.disconnect()
+      window.removeEventListener('resize', update)
+    }
+  }, [mainpage, centerActiveIdx, showNav])
 
   return (
     <>
       <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${mainpage ? (showNav ? 'animate-navbar-down absolute z-10' : 'opacity-0') : ''}`}>
-        <div className={`flex items-center ${mainpage ? 'justify-between w-full' : 'justify-between'}`}>
+        <div className={`relative flex items-center ${mainpage ? 'justify-between w-full px-4 pt-2' : 'justify-between'}`}>
           {/* Logo */}
           <div className="flex items-center space-x-8">
             <Link href="/" passHref>
@@ -80,26 +111,68 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 />
               </div>
             </Link>
-
-            {/* Navigation Links (Desktop) */}
-            <div className={`hidden md:flex items-center space-x-8 ${mainpage? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full mx-auto' : ''}`}>
-              <Link href="/" className={!mainpage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
-                Home
-              </Link>
-              <Link href="/#services" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
-                Services
-              </Link>
-              <Link href="/#testimonials" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
-                Testimonials
-              </Link>
-              <Link href="/about-us" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
-                About Us
-              </Link>
-              <Link href="/faqs" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
-                FAQs
-              </Link>
-            </div>
+            {/* Navigation Links (Desktop) - only inside left group when NOT on main page */}
+            {!mainpage && (
+              <div className="hidden md:flex items-center space-x-8">
+                <Link href="/" className="text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base">
+                  Home
+                </Link>
+                <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  Services
+                </Link>
+                <Link href="/#testimonials" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  Testimonials
+                </Link>
+                <Link href="/about-us" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  About Us
+                </Link>
+                <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  FAQs
+                </Link>
+              </div>
+            )}
           </div>
+
+          {/* Centered Navigation Links (Desktop) - only on main page */}
+          {mainpage && (
+            <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 hidden md:flex">
+              <div
+                ref={centerNavRef}
+                className={`relative pointer-events-auto flex items-center space-x-1 bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full`}
+                onMouseLeave={() => setCenterActiveIdx(0)}
+              >
+                {highlight && (
+                  <div
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full bg-white transition-all duration-300 ease-out shadow-sm z-0"
+                    style={{ left: highlight.left, width: highlight.width, height: highlight.height }}
+                    aria-hidden
+                  />
+                )}
+                {[
+                  { href: '/', label: 'Home' },
+                  { href: '/#services', label: 'Services' },
+                  { href: '/#testimonials', label: 'Testimonials' },
+                  { href: '/about-us', label: 'About Us' },
+                  { href: '/faqs', label: 'FAQs' },
+                ].map((item, idx) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    ref={(el) => {
+                      centerLinkRefs.current[idx] = el
+                    }}
+                    onMouseEnter={() => setCenterActiveIdx(idx)}
+                    onFocus={() => setCenterActiveIdx(idx)}
+                    className={`relative z-10 px-8 py-[6px] rounded-full font-normal transition-colors text-base ${
+                      centerActiveIdx === idx ? 'text-black' : 'text-white'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Mobile Menu Button */}
           <button
@@ -114,14 +187,25 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             </svg>
           </button>
 
-          {/* Contact Us Button (Desktop) */}
+          {/* Contact Us Button (Desktop) */
+          }
           {disableContact ? (
             <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
               Contact Us
             </span>
           ) : (
             <Link href="/contact-us" passHref legacyBehavior>
-              <Button className={`text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%]' : 'contact-button'}`}>
+              <Button className={`text-white px-6 py-[26px] font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%]' : 'contact-button'}`}>
+                {mainpage && (
+                  <Image
+                    src="/media/phone.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                    aria-hidden="true"
+                    className="filter brightness-0 invert"
+                  />
+                )}
                 Contact Us
               </Button>
             </Link>
