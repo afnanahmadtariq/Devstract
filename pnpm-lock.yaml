@@ -171,6 +171,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
+      tailwindcss-text-fill-stroke:
+        specifier: 2.0.0-beta.3
+        version: 2.0.0-beta.3
       typescript:
         specifier: ^5
         version: 5.8.3
@@ -1374,6 +1377,11 @@ packages:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
 
+  flat@6.0.1:
+    resolution: {integrity: sha512-/3FfIa8mbrg3xE7+wAhWeV+bd7L2Mof+xtZb5dRDKZ+wDvYJK4WDYeIOuOhre5Yv5aQObZrlbRmk3RTSiuQBtw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   foreground-child@3.3.1:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
@@ -1884,6 +1892,9 @@ packages:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
+
+  tailwindcss-text-fill-stroke@2.0.0-beta.3:
+    resolution: {integrity: sha512-0VsRedUeTyNbSTkqqgwdym14iB0zSuX4m1cMtgOgLwywqAAUnhQnYLxrEhnmJVSy2SyMZpgSV0HHP76D9uo/IA==}
 
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
@@ -3124,6 +3135,8 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
 
+  flat@6.0.1: {}
+
   foreground-child@3.3.1:
     dependencies:
       cross-spawn: 7.0.6
@@ -3587,6 +3600,13 @@ snapshots:
   tailwindcss-animate@1.0.7(tailwindcss@3.4.17):
     dependencies:
       tailwindcss: 3.4.17
+
+  tailwindcss-text-fill-stroke@2.0.0-beta.3:
+    dependencies:
+      flat: 6.0.1
+      tailwindcss: 3.4.17
+    transitivePeerDependencies:
+      - ts-node
 
   tailwindcss@3.4.17:
     dependencies:

@@ -61,8 +61,8 @@ export default function Navigation({ mainpage = false, disableContact = false }:
 
   return (
     <>
-      <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${mainpage ? (showNav ? 'animate-navbar-down' : 'opacity-0') : ''}`}>
-        <div className="flex items-center justify-between">
+      <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${mainpage ? (showNav ? 'animate-navbar-down absolute z-10' : 'opacity-0') : ''}`}>
+        <div className={`flex items-center ${mainpage ? 'justify-between w-full' : 'justify-between'}`}>
           {/* Logo */}
           <div className="flex items-center space-x-8">
             <Link href="/" passHref>
@@ -82,20 +82,20 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             </Link>
 
             {/* Navigation Links (Desktop) */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#home" className={!mainpage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+            <div className={`hidden md:flex items-center space-x-8 ${mainpage? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full mx-auto' : ''}`}>
+              <Link href="/" className={!mainpage ? "text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
                 Home
               </Link>
-              <Link href="/#services" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#services" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
                 Services
               </Link>
-              <Link href="/#testimonials" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/#testimonials" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
                 Testimonials
               </Link>
-              <Link href="/about-us" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/about-us" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
                 About Us
               </Link>
-              <Link href="/faqs" className={!mainpage ? "text-black/50 dark:text-white/80 hover:text-black font-normal transition-colors text-base" : "text-white/50 hover:text-white font-normal transition-colors text-base"}>
+              <Link href="/faqs" className={!mainpage ? "text-black/50 hover:text-black font-normal transition-colors text-base" : "text-white hover:text-black hover:bg-white px-3 py-[6px] rounded-full font-normal transition-colors text-base"}>
                 FAQs
               </Link>
             </div>
@@ -121,7 +121,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             </span>
           ) : (
             <Link href="/contact-us" passHref legacyBehavior>
-              <Button className="contact-button text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex">
+              <Button className={`text-white px-6 py-5 font-syne font-light rounded-full border-0 hidden md:inline-flex ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%]' : 'contact-button'}`}>
                 Contact Us
               </Button>
             </Link>
@@ -145,7 +145,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             {/* Menu Options */}
             <nav className="flex flex-col gap-6 flex-1">
               {[
-                { href: "/#home", label: "Home" },
+                { href: "/", label: "Home" },
                 { href: "/#services", label: "Services" },
                 { href: "/about-us", label: "About Us" },
                 { href: "/#testimonials", label: "Testimonials" },
@@ -157,7 +157,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                   <div key={item.label} className="relative group">
                     <Link
                       href={item.href}
-                      className={`flex items-center justify-between w-full text-left text-2xl font-normal py-2 ${isActive ? '' : 'text-black/50 dark:text-white/80'}`}
+                      className={`flex items-center justify-between w-full text-left text-2xl font-normal py-2 ${isActive ? '' : 'text-black/50'}`}
                       style={isActive ? {
                         background: "var(--primary-gradient)",
                         WebkitBackgroundClip: "text",

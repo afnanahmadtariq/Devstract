@@ -2,54 +2,124 @@
 
 import { Button } from "@/components/ui/button"
 import CarouselCards from "@/components/carousel-cards"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import type React from "react"
 
 export default function HeroSection() {
   const [showHero, setShowHero] = useState(false)
+  const bg1Ref = useRef<HTMLImageElement | null>(null)
+  const bg2Ref = useRef<HTMLImageElement | null>(null)
+  const rafIdRef = useRef<number | null>(null)
+  const tickingRef = useRef(false)
+  const targetRef = useRef({ x: 0, y: 0 })
+
   useEffect(() => {
     setShowHero(true)
+    return () => {
+      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
+    }
   }, [])
+
+  const applyParallax = () => {
+    tickingRef.current = false
+    const { x, y } = targetRef.current
+    const max1 = 10 
+    const max2 = 20 
+    const t1x = x * max1
+    const t1y = y * max1
+    const t2x = x * max2
+    const t2y = y * max2
+
+    if (bg1Ref.current) {
+      bg1Ref.current.style.transform = `translate3d(${t1x}px, ${t1y}px, 0)`
+    }
+    if (bg2Ref.current) {
+      bg2Ref.current.style.transform = `translate3d(${t2x}px, ${t2y}px, 0)`
+    }
+  }
+
+  const requestTick = () => {
+    if (!tickingRef.current) {
+      tickingRef.current = true
+      rafIdRef.current = requestAnimationFrame(applyParallax)
+    }
+  }
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    // Normalize to [-1, 1]
+    const nx = (x / rect.width) * 2 - 1
+    const ny = (y / rect.height) * 2 - 1
+    targetRef.current = { x: nx, y: ny }
+    requestTick()
+  }
+
+  const handleMouseLeave = () => {
+    targetRef.current = { x: 0, y: 0 }
+    requestTick()
+  }
+
   return (
     <section
       id="home"
-      className={`w-full flex flex-col items-center justify-center text-center py-2 mt-12 sm:mt-24 transition-opacity duration-3000 ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
+      className={`inset-0 top-0 w-full h-screen flex flex-col items-center justify-center text-center p-8 transition-opacity duration-3000 ${showHero ? 'animate-hero-up' : 'opacity-0'}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
+      <img
+        src="/media/bg.png"
+        alt="Gradient Background"
+        className={`absolute inset-4 w-[calc(100vw-2rem)] h-screen object-cover object-top z-0 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
+        ref={bg1Ref}
+        style={{ willChange: "transform", transition: "transform 150ms ease-out, opacity 1000ms ease" }}
+        aria-hidden="true"
+      />
       {/* Main heading */}
-      <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium mb-6 text-white leading-tight max-w-7xl">
-        The <span
-          className="bg-clip-text text-transparent"
-          style={{
-            background: "linear-gradient(-8deg, #5A45FF 20%, #CCCEFF 48%, #5A45FF 80%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
-          }}
-        >
-        Next GEN</span> Software Design and 
-        <br />
-        Development Agency
+      <h1 className="absolute top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-10 text-white leading-10">
+        Building Beyond <br /> Boundaries
       </h1>
 
       {/* Sub-heading */}
-      <p className="text-lg sm:text-xl text-white/[0.53] mb-8 max-w-2xl">
+      {/* <p className="text-lg sm:text-xl text-white/[0.53] mb-8 max-w-2xl">
         Fast. Efficient. Reliable. Try us and see the difference.
-      </p>
+      </p> */}
+      <img
+        src="/media/bg-2.png"
+        alt="Gradient Background"
+        className={`absolute inset-4 w-[calc(100vw-2rem)] h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
+        ref={bg2Ref}
+        style={{ willChange: "transform", transition: "transform 150ms ease-out, opacity 1000ms ease" }}
+        aria-hidden="true"
+      />
+
+      
+      <h1 className="absolute top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-10">
+        Building Beyond <br /> Boundaries
+      </h1>
 
       {/* CTA button */}
-      <div className="group inline-block mb-12 sm:mb-32">
+      <div className="group inline-block z-30 mt-[20rem] sm:mt-[26rem]">
         <Button
-          className="bg-white/[0.03] border border-white/30 hover:border-white/0 text-white hover:bg-white/[0.07] rounded-full px-6 py-6 sm:px-8 sm:py-7 text-sm sm:text-base font-normal inline-flex items-center space-x-2 relative overflow-hidden"
-          onClick={() => window.open("https://calendly.com/afnan-devstract/30min", "_blank")}
+          className="group bg-white text-black border border-white/30 rounded-full px-6 py-6 sm:px-8 sm:py-7
+             text-sm sm:text-base font-normal inline-flex items-center space-x-2 relative overflow-hidden
+             transition-all duration-300 ease-out
+             hover:bg-transparent hover:text-white hover:border-white/60 hover:backdrop-blur-sm
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60
+             active:scale-[0.98]"
+          onClick={() => window.open('https://calendly.com/afnan-devstract/30min', '_blank')}
         >
-          <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <img src="/media/button.svg" alt="button border" className="w-full h-full object-fill rounded-full" style={{ transform: 'scaleY(1.06)' }} />
-          </span>
-          <img src="/media/small_arrow.svg" alt="arrow" className="w-3 h-3 sm:w-4 sm:h-4" />
+          </span> */}
+          <img src="/media/small_arrow.svg" alt="arrow" className="w-3 h-3 sm:w-4 sm:h-4 filter invert group-hover:invert-0" />
           <span className="pr-2">Work with us</span>
         </Button>
       </div>
 
       {/* Carousel */}
-      <CarouselCards />
+      {/* <CarouselCards /> */}
     </section>
   )
 }
