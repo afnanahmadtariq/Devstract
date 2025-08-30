@@ -76,8 +76,19 @@ export default function HeroSection() {
         aria-hidden="true"
       />
       {/* Main heading */}
-      <h1 className="absolute top-1/3 sm:top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-10 text-white leading-10">
+      <h1 className="absolute top-1/3 lg:top-36 text-4xl sm:text-5xl md:text-8xl lg:text-[9rem] font-bold z-10 text-white leading-10">
         Building Beyond <br /> Boundaries
+        <span
+          aria-hidden="true"
+          className="inline-block align-baseline ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full relative"
+          style={{
+            background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
+            // Strong outer glow for reliability across browsers
+            boxShadow: "0 0 24px rgba(85, 0, 255, 0.5), 0 0 64px rgba(85, 0, 255, 0.55)",
+            // Subtle drop-shadow to accent edges
+            filter: "drop-shadow(0 0 12px rgba(85, 0, 255, 0.6))"
+          }}
+        />
       </h1>
 
       <img
@@ -90,12 +101,21 @@ export default function HeroSection() {
       />
 
       
-      <h1 className="absolute top-1/3 sm:top-36 text-4xl sm:text-5xl md:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-10">
+      <h1 className="absolute top-1/3 lg:top-36 text-4xl sm:text-5xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-10">
         Building Beyond <br /> Boundaries
+        <span
+          aria-hidden="true"
+          className="inline-block align-baseline ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full relative"
+          style={{
+            background: "linear-gradient(350deg, #5A45FF 20%, #7D71FF 47%, #7C81FF 58%, #000099 120%)",
+            boxShadow: "0 0 24px rgba(85, 0, 255, 0.5), 0 0 64px rgba(85, 0, 255, 0.55)",
+            filter: "drop-shadow(0 0 12px rgba(85, 0, 255, 0.6))"
+          }}
+        />
       </h1>
 
       {/* CTA button */}
-      <div className="group inline-block z-30 mt-[20rem] sm:mt-[26rem]">
+      <div className="group inline-block z-30 mt-[20rem] sm:mt-[28rem]">
         <Button
           className="group bg-white text-black border border-white/30 rounded-full px-6 py-6 sm:px-8 sm:py-7
              text-sm sm:text-base font-normal inline-flex items-center space-x-2 relative overflow-hidden
