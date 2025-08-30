@@ -92,10 +92,10 @@ export default function Navigation({ mainpage = false, disableContact = false }:
 
   return (
     <>
-      <nav className={`w-full px-8 py-8 transition-opacity duration-3000 ${mainpage ? (showNav ? 'animate-navbar-down absolute z-10' : 'opacity-0') : ''}`}>
+      <nav className={`w-full px-4 lg:px-8 py-8 transition-opacity duration-3000 ${mainpage ? (showNav ? 'animate-navbar-down absolute z-10' : 'opacity-0') : ''}`}>
         <div className={`relative flex items-center ${mainpage ? 'justify-between w-full px-4 pt-2' : 'justify-between'}`}>
           {/* Logo */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center">
             <Link href="/" passHref>
               <div className={!mainpage ? "w-14 h-14 flex items-center justify-center" : "w-14 h-14 bg-white/[8%] backdrop-blur rounded-full flex items-center justify-center shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] texture-overlay"}>
                 <Image
@@ -111,34 +111,14 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 />
               </div>
             </Link>
-            {/* Navigation Links (Desktop) - only inside left group when NOT on main page */}
-            {!mainpage && (
-              <div className="hidden md:flex items-center space-x-8">
-                <Link href="/" className="text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base">
-                  Home
-                </Link>
-                <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  Services
-                </Link>
-                <Link href="/#testimonials" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  Testimonials
-                </Link>
-                <Link href="/about-us" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  About Us
-                </Link>
-                <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  FAQs
-                </Link>
-              </div>
-            )}
           </div>
 
-          {/* Centered Navigation Links (Desktop) - only on main page */}
-          {mainpage && (
+          {/* Centered Navigation Links (Desktop) */}
+          {mainpage ? (
             <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 hidden md:flex">
               <div
                 ref={centerNavRef}
-                className={`relative pointer-events-auto flex items-center space-x-1 bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full texture-overlay`}
+                className={`relative pointer-events-auto flex items-center bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full texture-overlay`}
                 onMouseLeave={() => setCenterActiveIdx(0)}
               >
                 {highlight && (
@@ -163,7 +143,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                     }}
                     onMouseEnter={() => setCenterActiveIdx(idx)}
                     onFocus={() => setCenterActiveIdx(idx)}
-                    className={`relative z-10 px-8 py-[6px] rounded-full font-normal transition-colors text-base ${
+                    className={`relative px-4 lg:px-7 py-[6px] rounded-full font-normal transition-colors text-base whitespace-nowrap ${
                       centerActiveIdx === idx ? 'text-black' : 'text-white'
                     }`}
                   >
@@ -172,7 +152,25 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 ))}
               </div>
             </div>
-          )}
+          ) : (
+              <div className="hidden md:flex items-center space-x-8">
+                <Link href="/" className="text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base">
+                  Home
+                </Link>
+                <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  Services
+                </Link>
+                <Link href="/#testimonials" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  Testimonials
+                </Link>
+                <Link href="/about-us" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  About Us
+                </Link>
+                <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  FAQs
+                </Link>
+              </div>
+            )}
 
           {/* Mobile Menu Button */}
           <button
@@ -187,15 +185,14 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             </svg>
           </button>
 
-          {/* Contact Us Button (Desktop) */
-          }
+          {/* Contact Us Button (Desktop) */}
           {disableContact ? (
             <span className="hidden md:inline-flex px-6 py-5 font-syne font-light rounded-full border-0 text-black dark:text-white bg-transparent cursor-default opacity-70 select-none">
               Contact Us
             </span>
           ) : (
             <Link href="/contact-us" passHref legacyBehavior>
-              <Button className={`text-white px-6 py-[26px] font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay' : 'contact-button'}`}>
+              <Button className={`text-white font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay px-6 py-[26px]' : 'contact-button px-6'}`}>
                 {mainpage && (
                   <Image
                     src="/media/phone.svg"
