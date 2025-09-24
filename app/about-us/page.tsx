@@ -102,7 +102,7 @@ export default function AboutUsPage() {
               {/* Right Side*/}
               <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
-                  <img src="/media/ceo.png" alt="Devstract CEO" className="mx-auto"/>
+                  <img src="/media/afnan.png" alt="Devstract CEO" className="mx-auto"/>
                   <div
                     style={{
                       position: 'absolute',
@@ -117,10 +117,69 @@ export default function AboutUsPage() {
                   />
                 </div>
                 <h2 className="text-2xl md:text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
-                  James Bond
+                  Afnan Ahmad Tariq
                 </h2>
                 <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
                   CEO Devstract
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center md:mt-12 py-10">
+              <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+                Meet the Team
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center">
+                Our team is a blend of creative designers, skilled developers, and strategic thinkers. Together, we bring diverse perspectives and expertise to every project, ensuring innovative solutions that drive success.
+              </p>
+            </div>
+            {/* Team */}
+            <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]">
+              {/* Left Side */}
+              <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+                <div style={{ position: 'relative', width: '60%' }}>
+                  <img src="/media/ali.jpeg" alt="Devstract COO" className="mx-auto"/>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '50%',
+                      background: 'linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      pointerEvents: 'none',
+                      zIndex: 2,
+                    }}
+                  />
+                </div>
+                <h2 className="text-2xl md:text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
+                  Syed Ali Akbar
+                </h2>
+                <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
+                  COO Devstract
+                </p>
+              </div>
+              {/* Right Side*/}
+              <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+                <div style={{ position: 'relative', width: '60%' }}>
+                  <img src="/media/usman.png" alt="Devstract CTO" className="mx-auto"/>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '50%',
+                      background: 'linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%)',
+                      pointerEvents: 'none',
+                      zIndex: 2,
+                    }}
+                  />
+                </div>
+                <h2 className="text-2xl md:text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
+                  Usman Ahmed
+                </h2>
+                <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
+                  CTO Devstract
                 </p>
               </div>
             </div>
