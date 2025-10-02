@@ -106,7 +106,7 @@ export default function AboutUsPage() {
                   <div
                     style={{
                       position: 'absolute',
-                      bottom: 0,
+                      bottom: -1,
                       left: 0,
                       width: '100%',
                       height: '50%',
@@ -141,7 +141,7 @@ export default function AboutUsPage() {
                   <div
                     style={{
                       position: 'absolute',
-                      bottom: 0,
+                      bottom: -1,
                       left: 0,
                       width: '100%',
                       height: '50%',
@@ -155,7 +155,7 @@ export default function AboutUsPage() {
                   Syed Ali Akbar
                 </h2>
                 <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
-                  COO Devstract
+                  COO / Operations Head
                 </p>
               </div>
               {/* Right Side*/}
@@ -165,7 +165,7 @@ export default function AboutUsPage() {
                   <div
                     style={{
                       position: 'absolute',
-                      bottom: 0,
+                      bottom: -1,
                       left: 0,
                       width: '100%',
                       height: '50%',
@@ -179,7 +179,7 @@ export default function AboutUsPage() {
                   Usman Ahmed
                 </h2>
                 <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
-                  CTO Devstract
+                  CTO / Tech Lead
                 </p>
               </div>
             </div>
