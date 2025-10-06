@@ -69,6 +69,9 @@ export default function ContactUsPage() {
             {/* Left Side (info and image) */}
             <div className="flex-1 bg-white dark:bg-gray-800 rounded-[33px] px-6 py-8 sm:p-8 lg:max-w-md flex flex-col items-center justify-center border-2 border-[#EBEBEB] order-2 lg:order-none">
               <img src="/media/baloons.svg" alt="Balloons" className="w-48 h-48 md:w-64 md:h-64 mb-6" />
+              <div className="text-gray-700 dark:text-gray-300 text-center mt-4">
+                Email: <a href="mailto:contact@devstract.site" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact@devstract.site</a>
+              </div>
               <div style={{ position: 'relative', width: '100%' }}>
                 <div
                   style={{
