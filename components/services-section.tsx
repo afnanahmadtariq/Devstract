@@ -2,19 +2,24 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, PanInfo } from "framer-motion"
+import { useRouter } from "next/navigation"
+import { ArrowUpRight } from "lucide-react"
 
 interface Service {
   id: number
   title: string
   description: string
   image: string
+  url: string
 }
 
 export default function ServicesSection() {
+  const router = useRouter()
   const [animate, setAnimate] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [containerWidth, setContainerWidth] = useState(0)
   const [dragOffset, setDragOffset] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
 
@@ -59,49 +64,56 @@ export default function ServicesSection() {
       title: "MVP Design & Development",
       description:
         "Transform your ideas into reality with our expert MVP design and development services, tailored to meet your business goals.",
-      image: "/media/unsplash_1.png"
+      image: "/media/unsplash_1.png",
+      url: "/services/mvp-design-development"
     },
     {
       id: 2,
       title: "UX Re\u2011Engineering",
       description:
         "Enhance user satisfaction by reimagining and optimizing your product's user experience for seamless interaction.",
-      image: "/media/unsplash_2.png"
+      image: "/media/unsplash_2.png",
+      url: "/services/ux-reengineering"
     },
     {
       id: 3,
       title: "AI Integration",
       description:
         "Leverage the power of artificial intelligence to automate processes, gain insights, and drive innovation in your business.",
-      image: "/media/unsplash_3.png"
+      image: "/media/unsplash_3.png",
+      url: "/services/ai-integration"
     },
     {
       id: 4,
       title: "IT Consulting",
       description:
         "Receive expert guidance and strategic IT solutions to align technology with your business objectives.",
-      image: "/media/unsplash_4.png"
+      image: "/media/unsplash_4.png",
+      url: "/services/it-consulting"
     },
     {
       id: 5,
       title: "Mobile App Development",
       description:
         "Create user\u2011friendly and feature\u2011rich mobile applications to engage your audience and expand your reach.",
-      image: "/media/unsplash_5.png"
+      image: "/media/unsplash_5.png",
+      url: "/services/mobile-app-development"
     },
     {
       id: 6,
       title: "Product Designing",
       description:
         "Design innovative and visually appealing products that resonate with your target audience and stand out in the market.",
-      image: "/media/unsplash_6.png"
+      image: "/media/unsplash_6.png",
+      url: "/services/product-designing"
     },
     {
       id: 7,
       title: "Full\u2011stack Development",
       description:
         "Build robust and scalable web applications with our comprehensive full\u2011stack development expertise.",
-      image: "/media/unsplash_7.png"
+      image: "/media/unsplash_7.png",
+      url: "/services/full-stack-development"
     },
   ]
 
@@ -123,6 +135,14 @@ export default function ServicesSection() {
     const offset = info.offset.x
     const velocity = info.velocity.x
     
+    // Check if user actually dragged (not just a click)
+    if (Math.abs(offset) > 5 || Math.abs(velocity) > 50) {
+      setIsDragging(true);
+    } else {
+      setIsDragging(false);
+    }
+
+    
     let newIndex = currentIndex
     
     // Determine direction and calculate new index
@@ -142,6 +162,9 @@ export default function ServicesSection() {
     }
     
     setCurrentIndex(newIndex)
+    
+    // Reset dragging state after a short delay
+    setTimeout(() => setIsDragging(false), 100)
   }
 
   // Navigate to specific card
@@ -236,7 +259,20 @@ export default function ServicesSection() {
                   key={service.id}
                   className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-opacity duration-2000 ease-out ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
-                  tabIndex={-1}
+                  onClick={() => {
+                    if (!isDragging) {
+                      router.push(service.url)
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Navigate to ${service.title}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      router.push(service.url)
+                    }
+                  }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg sm:rounded-2xl"></div>
                   <div className="relative z-10">
@@ -247,9 +283,9 @@ export default function ServicesSection() {
                       {service.description}
                     </p>
                     {/* Arrow button */}
-                    {/* <div className="flex justify-start">
+                    <div className="flex justify-start">
                         <ArrowUpRight className="h-8 w-8 sm:h-16 sm:w-16 text-white" />
-                    </div> */}
+                    </div>
                   </div>
                 </motion.div>
               )
