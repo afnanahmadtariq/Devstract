@@ -6,6 +6,7 @@ import type React from "react"
 
 export default function HeroSection() {
   const [showHero, setShowHero] = useState(false)
+  const [isLessThanLg, setIsLessThanLg] = useState(false)
   const bg1Ref = useRef<HTMLImageElement | null>(null)
   const bg2Ref = useRef<HTMLImageElement | null>(null)
   const rafIdRef = useRef<number | null>(null)
@@ -14,8 +15,12 @@ export default function HeroSection() {
 
   useEffect(() => {
     setShowHero(true)
+    const checkSize = () => setIsLessThanLg(window.innerWidth < 1024)
+    checkSize()
+    window.addEventListener('resize', checkSize)
     return () => {
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
+      window.removeEventListener('resize', checkSize)
     }
   }, [])
 
@@ -70,7 +75,7 @@ export default function HeroSection() {
       <img
         src="/media/bg.png"
         alt="Gradient Background"
-        className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] sm:h-screen rounded-2xl object-cover object-top z-0 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] rounded-2xl object-cover object-top z-0 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg1Ref}
         style={{ willChange: "transform", transition: "transform 150ms ease-out, opacity 1000ms ease" }}
         aria-hidden="true"
@@ -92,7 +97,7 @@ export default function HeroSection() {
       </h1>
 
       <img
-        src="/media/bg-2.png"
+        src={isLessThanLg ? "/media/bg-2 m.png" : "/media/bg-2.png"}
         alt="Gradient Background"
         className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] sm:h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg2Ref}
