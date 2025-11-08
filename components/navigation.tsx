@@ -131,9 +131,9 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 {[
                   { href: '/', label: 'Home' },
                   { href: '/#services', label: 'Services' },
-                  { href: '/#testimonials', label: 'Testimonials' },
                   { href: '/about-us', label: 'About Us' },
                   { href: '/faqs', label: 'FAQs' },
+                  { href: 'https://blog.devstract.site/', label: 'Blog' },
                 ].map((item, idx) => (
                   <Link
                     key={item.label}
@@ -160,14 +160,14 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
                   Services
                 </Link>
-                <Link href="/#testimonials" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  Testimonials
-                </Link>
                 <Link href="/about-us" className="text-black/50 hover:text-black font-normal transition-colors text-base">
                   About Us
                 </Link>
                 <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
                   FAQs
+                </Link>
+                <Link href="https://blog.devstract.site/" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                  Blog
                 </Link>
               </div>
             )}
@@ -229,9 +229,9 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 { href: "/", label: "Home" },
                 { href: "/#services", label: "Services" },
                 { href: "/about-us", label: "About Us" },
-                { href: "/#testimonials", label: "Testimonials" },
                 { href: "/faqs", label: "FAQs" },
-                { href: "/contact-us", label: "Contact Us" }
+                { href: "/contact-us", label: "Contact Us" },
+                { href: "https://blog.devstract.site/", label: "Blog" }
               ].map((item, idx) => {
                 const isActive = activeMenuIdx === idx;
                 return (
