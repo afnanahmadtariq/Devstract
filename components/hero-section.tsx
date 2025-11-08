@@ -6,7 +6,7 @@ import type React from "react"
 
 export default function HeroSection() {
   const [showHero, setShowHero] = useState(false)
-  const [isLessThanLg, setIsLessThanLg] = useState(false)
+  const [isLessThanXl, setIsLessThanXl] = useState(false)
   const bg1Ref = useRef<HTMLImageElement | null>(null)
   const bg2Ref = useRef<HTMLImageElement | null>(null)
   const rafIdRef = useRef<number | null>(null)
@@ -17,7 +17,7 @@ export default function HeroSection() {
     setShowHero(true)
     const checkSize = () => {
       const width = window.innerWidth
-      setIsLessThanLg(width < 1280)
+      setIsLessThanXl(width < 1280)
     }
     checkSize()
     window.addEventListener('resize', checkSize)
@@ -85,7 +85,7 @@ export default function HeroSection() {
       />
       {/* Main heading */}
       <h1 className="absolute top-1/3 md:top-48 lg:top-32 xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-10 text-white leading-normal">
-        Building{isLessThanLg ? <br /> : ' '} Beyond <br /> Boundaries
+        Building{isLessThanXl ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
           className="inline-block align-baseline ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full relative"
@@ -100,7 +100,7 @@ export default function HeroSection() {
       </h1>
 
       <img
-        src={isLessThanLg ? "/media/bg-2 m.png" : "/media/bg-2.png"}
+        src={isLessThanXl ? "/media/bg-2 m.png" : "/media/bg-2.png"}
         alt="Gradient Background"
         className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] xl:h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg2Ref}
@@ -110,7 +110,7 @@ export default function HeroSection() {
 
       
       <h1 className="absolute top-1/3 md:top-48 lg:top-32 xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-normal">
-        Building{isLessThanLg ? <br /> : ' '} Beyond <br /> Boundaries
+        Building{isLessThanXl ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
           className="inline-block align-baseline ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full relative"
