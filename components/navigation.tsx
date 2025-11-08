@@ -115,7 +115,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
 
           {/* Centered Navigation Links (Desktop) */}
           {mainpage ? (
-            <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 hidden md:flex">
+            <div className="pointer-events-none absolute left-1/2 -translate-x-[calc(50%+2rem)] lg:-translate-x-1/2 hidden md:flex">
               <div
                 ref={centerNavRef}
                 className={`relative pointer-events-auto flex items-center bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] px-3 py-3 rounded-full texture-overlay`}
