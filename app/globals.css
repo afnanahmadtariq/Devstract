@@ -321,4 +321,69 @@
   .underline-animation:hover::after {
     transform: scaleX(1);
   }
+
+  /* Disable hover effects on devices that don't support hover (e.g., touch screens) */
+  @media (hover: none) {
+    /* Disable all hover background and color changes */
+    *:hover {
+      background-color: inherit !important;
+      color: inherit !important;
+    }
+
+    /* Disable specific hover effects from custom classes */
+    .contact-button:hover {
+      background-color: #7567FE !important;
+    }
+
+    .underline-animation:hover::after {
+      transform: scaleX(0) !important;
+    }
+
+    /* Disable Tailwind hover utilities */
+    .hover\:bg-indigo-50:hover,
+    .hover\:bg-indigo-900:hover,
+    .hover\:bg-transparent:hover,
+    .hover\:text-white:hover,
+    .hover\:border-white\/60:hover,
+    .hover\:backdrop-blur-sm:hover,
+    .hover\:text-black:hover,
+    .hover\:bg-white\/\[15\%\]:hover,
+    .hover\:bg-\[\#F0F0F0\]:hover,
+    .hover\:bg-white\/30:hover,
+    .hover\:bg-muted:hover,
+    .hover\:text-muted-foreground:hover,
+    .hover\:bg-accent:hover,
+    .hover\:text-accent-foreground:hover,
+    .hover\:bg-secondary:hover,
+    .hover\:text-foreground:hover,
+    .hover\:underline:hover,
+    .hover\:bg-primary\/90:hover,
+    .hover\:bg-destructive\/90:hover,
+    .hover\:bg-secondary\/80:hover,
+    .hover\:bg-sidebar-accent:hover,
+    .hover\:text-sidebar-accent-foreground:hover,
+    .hover\:bg-sidebar:hover,
+    .hover\:bg-muted\/50:hover {
+      background-color: inherit !important;
+      color: inherit !important;
+      border-color: inherit !important;
+      text-decoration: inherit !important;
+      backdrop-filter: inherit !important;
+    }
+
+    /* Disable group-hover effects */
+    .group:hover .group-hover\:invert-0,
+    .group:hover .group-hover\:translate-x-0,
+    .group:hover .group-hover\:opacity-100 {
+      filter: inherit !important;
+      transform: inherit !important;
+      opacity: inherit !important;
+    }
+
+    /* Keep hover styles for focused elements (accessibility) */
+    *:focus:hover {
+      background-color: revert !important;
+      color: revert !important;
+    }
+  }
 }

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+
 // Return 410 Gone status for all requests to /contactus
 // This tells search engines that this page has been permanently removed
 export async function GET(req: NextRequest) {

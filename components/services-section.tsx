@@ -2,15 +2,19 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, PanInfo } from "framer-motion"
+import { useRouter } from "next/navigation"
+import { ArrowUpRight } from "lucide-react"
 
 interface Service {
   id: number
   title: string
   description: string
   image: string
+  url: string
 }
 
 export default function ServicesSection() {
+  const router = useRouter()
   const [animate, setAnimate] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [containerWidth, setContainerWidth] = useState(0)
@@ -56,52 +60,59 @@ export default function ServicesSection() {
   const services: Service[] = [
     {
       id: 1,
-      title: "MVP Design & Development",
+      title: "MVP Development",
       description:
         "Transform your ideas into reality with our expert MVP design and development services, tailored to meet your business goals.",
-      image: "/media/unsplash_1.png"
+      image: "/media/unsplash_1.png",
+      url: "/services/mvp-design-development"
     },
     {
       id: 2,
-      title: "UX Re\u2011Engineering",
+      title: "UX Engineering",
       description:
         "Enhance user satisfaction by reimagining and optimizing your product's user experience for seamless interaction.",
-      image: "/media/unsplash_2.png"
+      image: "/media/unsplash_2.png",
+      url: "/services/ux-reengineering"
     },
     {
       id: 3,
       title: "AI Integration",
       description:
         "Leverage the power of artificial intelligence to automate processes, gain insights, and drive innovation in your business.",
-      image: "/media/unsplash_3.png"
+      image: "/media/unsplash_3.png",
+      url: "/services/ai-integration"
     },
     {
       id: 4,
       title: "IT Consulting",
       description:
         "Receive expert guidance and strategic IT solutions to align technology with your business objectives.",
-      image: "/media/unsplash_4.png"
+      image: "/media/unsplash_4.png",
+      url: "/services/it-consulting"
     },
     {
       id: 5,
-      title: "Mobile App Development",
+      title: "Mobile Apps",
       description:
         "Create user\u2011friendly and feature\u2011rich mobile applications to engage your audience and expand your reach.",
-      image: "/media/unsplash_5.png"
+      image: "/media/unsplash_5.png",
+      url: "/services/mobile-app-development"
     },
     {
       id: 6,
-      title: "Product Designing",
+      title: "Product Design",
       description:
         "Design innovative and visually appealing products that resonate with your target audience and stand out in the market.",
-      image: "/media/unsplash_6.png"
+      image: "/media/unsplash_6.png",
+      url: "/services/product-designing"
     },
     {
       id: 7,
-      title: "Full\u2011stack Development",
+      title: "Full\u2011stack",
       description:
         "Build robust and scalable web applications with our comprehensive full\u2011stack development expertise.",
-      image: "/media/unsplash_7.png"
+      image: "/media/unsplash_7.png",
+      url: "/services/full-stack-development"
     },
   ]
 
@@ -236,7 +247,6 @@ export default function ServicesSection() {
                   key={service.id}
                   className={`flex-shrink-0 w-[300px] h-[200px] sm:w-[400px] sm:h-[260px] md:w-[526px] md:h-[341px] rounded-lg sm:rounded-2xl p-6 sm:p-10 text-white relative group cursor-pointer bg-cover bg-center mr-4 sm:mr-5 transition-opacity duration-2000 ease-out ${cardAnim}`}
                   style={{ backgroundImage: `url(${service.image})` }}
-                  tabIndex={-1}
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-black to-transparent rounded-lg sm:rounded-2xl"></div>
                   <div className="relative z-10">
@@ -247,9 +257,18 @@ export default function ServicesSection() {
                       {service.description}
                     </p>
                     {/* Arrow button */}
-                    {/* <div className="flex justify-start">
-                        <ArrowUpRight className="h-8 w-8 sm:h-16 sm:w-16 text-white" />
-                    </div> */}
+                    <div className="flex items-center rounded-full overflow-hidden">
+                      <button
+                        className="flex items-center justify-start gap-2 px-6 py-1 rounded-full hover:bg-white/30 transform max-sm:translate-x-0 sm:-translate-x-[calc(100%-5rem)] group-hover:translate-x-0 transition-transform duration-300"
+                        onClick={() => router.push(service.url)}
+                        aria-label={`View details for ${service.title}`}
+                      >
+                        <span className="text-sm sm:text-lg md:text-xl font-normal text-white/[0.77]">
+                          View Details
+                        </span>
+                        <ArrowUpRight className="h-8 w-8 sm:h-12 sm:w-12" />
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               )
