@@ -60,7 +60,7 @@ export default function ServicesSection() {
   const services: Service[] = [
     {
       id: 1,
-      title: "MVP Design & Development",
+      title: "MVP Development",
       description:
         "Transform your ideas into reality with our expert MVP design and development services, tailored to meet your business goals.",
       image: "/media/unsplash_1.png",
@@ -68,7 +68,7 @@ export default function ServicesSection() {
     },
     {
       id: 2,
-      title: "UX Re\u2011Engineering",
+      title: "UX Engineering",
       description:
         "Enhance user satisfaction by reimagining and optimizing your product's user experience for seamless interaction.",
       image: "/media/unsplash_2.png",
@@ -92,7 +92,7 @@ export default function ServicesSection() {
     },
     {
       id: 5,
-      title: "Mobile App Development",
+      title: "Mobile Apps",
       description:
         "Create user\u2011friendly and feature\u2011rich mobile applications to engage your audience and expand your reach.",
       image: "/media/unsplash_5.png",
@@ -100,7 +100,7 @@ export default function ServicesSection() {
     },
     {
       id: 6,
-      title: "Product Designing",
+      title: "Product Design",
       description:
         "Design innovative and visually appealing products that resonate with your target audience and stand out in the market.",
       image: "/media/unsplash_6.png",
@@ -108,7 +108,7 @@ export default function ServicesSection() {
     },
     {
       id: 7,
-      title: "Full\u2011stack Development",
+      title: "Full\u2011stack",
       description:
         "Build robust and scalable web applications with our comprehensive full\u2011stack development expertise.",
       image: "/media/unsplash_7.png",
