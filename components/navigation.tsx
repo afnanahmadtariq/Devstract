@@ -143,6 +143,8 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                     }}
                     onMouseEnter={() => setCenterActiveIdx(idx)}
                     onFocus={() => setCenterActiveIdx(idx)}
+                    target={item.label === 'Blog' ? '_blank' : undefined}
+                    rel={item.label === 'Blog' ? 'noopener noreferrer' : undefined}
                     className={`relative px-4 lg:px-7 py-[6px] rounded-full font-normal transition-colors text-base whitespace-nowrap ${
                       centerActiveIdx === idx ? 'text-black' : 'text-white'
                     }`}
@@ -166,7 +168,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
                   FAQs
                 </Link>
-                <Link href="https://blog.devstract.site/" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                <Link href="https://blog.devstract.site/" target="_blank" rel="noopener noreferrer" className="text-black/50 hover:text-black font-normal transition-colors text-base">
                   Blog
                 </Link>
               </div>
@@ -238,6 +240,8 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                   <div key={item.label} className="relative group">
                     <Link
                       href={item.href}
+                      target={item.label === 'Blog' ? '_blank' : undefined}
+                      rel={item.label === 'Blog' ? 'noopener noreferrer' : undefined}
                       className={`flex items-center justify-between w-full text-left text-2xl font-normal py-2 ${isActive ? '' : 'text-black/50'}`}
                       style={isActive ? {
                         background: "var(--primary-gradient)",
