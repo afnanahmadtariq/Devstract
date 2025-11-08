@@ -99,7 +99,7 @@ export default function HeroSection() {
       <img
         src={isLessThanLg ? "/media/bg-2 m.png" : "/media/bg-2.png"}
         alt="Gradient Background"
-        className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] sm:h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] lg:h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg2Ref}
         style={{ willChange: "transform", transition: "transform 150ms ease-out, opacity 1000ms ease" }}
         aria-hidden="true"
