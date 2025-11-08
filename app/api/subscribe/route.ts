@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { MongoClient } from 'mongodb';
 
-export const runtime = 'edge';
-
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB || 'testing';
 
