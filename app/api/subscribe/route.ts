@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Pool } from '@neondatabase/serverless';
+import { neon } from '@neondatabase/serverless';
 
 export const runtime = 'edge';
 
 export async function POST(req: NextRequest) {
-  const connectionString = process.env.DATABASE_URL;
+  const databaseUrl = process.env.DATABASE_URL;
   
-  if (!connectionString) {
+  if (!databaseUrl) {
     return NextResponse.json({ error: 'Database connection string not set.' }, { status: 500 });
   }
 
@@ -17,26 +17,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid email.' }, { status: 400 });
     }
 
-    const pool = new Pool({ connectionString });
+    const sql = neon(databaseUrl);
     
     // Check if email already exists
-    const existingResult = await pool.query(
-      'SELECT email FROM subscribers WHERE email = $1',
-      [email]
-    );
+    const existingResult = await sql`
+      SELECT email FROM subscribers WHERE email = ${email}
+    `;
     
-    if (existingResult.rows.length > 0) {
-      await pool.end();
+    if (existingResult.length > 0) {
       return NextResponse.json({ error: 'Email already subscribed.' }, { status: 409 });
     }
     
     // Insert new subscriber
-    await pool.query(
-      'INSERT INTO subscribers (email, subscribed_at) VALUES ($1, $2)',
-      [email, new Date()]
-    );
+    await sql`
+      INSERT INTO subscribers (email, subscribed_at) 
+      VALUES (${email}, ${new Date().toISOString()})
+    `;
     
-    await pool.end();
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Subscription error:', error);
