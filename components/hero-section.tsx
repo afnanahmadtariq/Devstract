@@ -84,7 +84,7 @@ export default function HeroSection() {
         aria-hidden="true"
       />
       {/* Main heading */}
-      <h1 className="absolute top-1/3 md:top-48 lg:top-32 xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-10 text-white leading-normal">
+      <h1 className="absolute top-1/3 md:top-1/4 lg:[top:calc(25%-3rem)] xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-10 text-white leading-normal">
         Building{isLessThanXl ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
@@ -108,8 +108,8 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
-      
-      <h1 className="absolute top-1/3 md:top-48 lg:top-32 xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-normal">
+
+      <h1 className="absolute top-1/3 md:top-1/4 lg:[top:calc(25%-3rem)] xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-normal">
         Building{isLessThanXl ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
