@@ -7,6 +7,7 @@ import type React from "react"
 export default function HeroSection() {
   const [showHero, setShowHero] = useState(false)
   const [isLessThanLg, setIsLessThanLg] = useState(false)
+  const [isLessThanMd, setIsLessThanMd] = useState(false)
   const bg1Ref = useRef<HTMLImageElement | null>(null)
   const bg2Ref = useRef<HTMLImageElement | null>(null)
   const rafIdRef = useRef<number | null>(null)
@@ -15,7 +16,10 @@ export default function HeroSection() {
 
   useEffect(() => {
     setShowHero(true)
-    const checkSize = () => setIsLessThanLg(window.innerWidth < 1024)
+    const checkSize = () => {
+      setIsLessThanLg(window.innerWidth < 1024)
+      setIsLessThanMd(window.innerWidth < 768)
+    }
     checkSize()
     window.addEventListener('resize', checkSize)
     return () => {
@@ -81,8 +85,8 @@ export default function HeroSection() {
         aria-hidden="true"
       />
       {/* Main heading */}
-      <h1 className="absolute top-1/3 lg:top-36 text-4xl sm:text-5xl md:text-8xl lg:text-[9rem] font-bold z-10 text-white leading-10">
-        Building Beyond <br /> Boundaries
+      <h1 className="absolute top-1/3 lg:top-36 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-10 text-white leading-normal">
+        Building{isLessThanMd ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
           className="inline-block align-baseline ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full relative"
@@ -106,8 +110,8 @@ export default function HeroSection() {
       />
 
       
-      <h1 className="absolute top-1/3 lg:top-36 text-4xl sm:text-5xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-10">
-        Building Beyond <br /> Boundaries
+      <h1 className="absolute top-1/3 lg:top-36 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-normal">
+        Building{isLessThanMd ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
           className="inline-block align-baseline ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 rounded-full relative"
