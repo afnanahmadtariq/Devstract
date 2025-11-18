@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "IT Consulting | Devstract",
+  title: "Integration Services | Devstract",
   description:
-    "Receive expert guidance and strategic IT solutions to align technology with business objectives. Transform your IT infrastructure with expert consulting.",
+    "Integrate payment gateways, WhatsApp, chatbots, and CRMs into your business systems.",
 };
 
-export default function ITConsulting() {
+export default function IntegrationServices() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function ITConsulting() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  IT Consulting
+                  Integration Services
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Receive expert guidance and strategic IT solutions to align
-                technology with business objectives
+                Integrate payment gateways, WhatsApp, chatbots, and CRMs into your business systems.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function ITConsulting() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_4.png"
-                alt="IT Consulting"
+                src="/media/unsplash_6.png"
+                alt="Integration Services"
                 fill
                 className="object-cover"
               />
@@ -60,101 +59,93 @@ export default function ITConsulting() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                Strategic IT Guidance
+                Seamless System Integration
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                In today's digital landscape, technology decisions can make or
-                break your business. Our IT consulting services provide the
-                strategic guidance you need to make informed decisions about
-                your technology investments.
+                Connect your business systems for streamlined operations and enhanced functionality. Our integration services ensure that your various tools and platforms work together seamlessly, providing a unified experience for your team and customers.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Whether you're planning a digital transformation, modernizing
-                legacy systems, or optimizing your IT infrastructure, our
-                experienced consultants bring deep technical expertise and
-                business acumen to help you achieve your goals efficiently and
-                cost-effectively.
+                From payment processing to customer communication, we handle the complex technical work so you can focus on growing your business.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Consulting Services */}
+        {/* Integration Types */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our Consulting Services
+              Our Integration Solutions
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Digital Transformation
+                  Payment Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Navigate your digital transformation journey with a clear
-                  roadmap, technology selection, and change management support.
+                <p className="text-[#676767] mb-4">
+                  Secure and reliable payment processing for your business applications.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Stripe integration</li>
+                  <li>PayPal integration</li>
+                  <li>Local payment gateways</li>
+                  <li>Subscription systems</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Technology Strategy
+                  WhatsApp Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Develop a comprehensive IT strategy aligned with your business
-                  goals, ensuring technology drives competitive advantage.
+                <p className="text-[#676767] mb-4">
+                  WhatsApp Business API integration with automation workflows for enhanced customer communication.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Automated messaging</li>
+                  <li>Customer support workflows</li>
+                  <li>Order notifications</li>
+                  <li>Marketing campaigns</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Infrastructure Assessment
+                  Chatbot Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Evaluate your current IT infrastructure, identify
-                  inefficiencies, and recommend optimizations for performance and
-                  cost.
+                <p className="text-[#676767] mb-4">
+                  Embed AI chatbots into your existing systems for intelligent customer interactions.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Website integration</li>
+                  <li>CRM system integration</li>
+                  <li>POS system integration</li>
+                  <li>Mobile app integration</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Cloud Migration
+                  CRM Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Plan and execute seamless cloud migrations with minimal
-                  disruption, optimizing costs and improving scalability.
+                <p className="text-[#676767] mb-4">
+                  Connect and synchronize data across your CRM systems and other business tools.
                 </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Security & Compliance
-                </h3>
-                <p className="text-[#676767]">
-                  Strengthen your security posture, ensure regulatory compliance,
-                  and protect your organization from cyber threats.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Vendor Selection
-                </h3>
-                <p className="text-[#676767]">
-                  Get expert guidance on selecting the right technology vendors
-                  and solutions for your specific needs and budget.
-                </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>HubSpot integration</li>
+                  <li>Zoho CRM integration</li>
+                  <li>Pipedrive integration</li>
+                  <li>Custom CRM integration</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Approach */}
+        {/* Process */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our Consulting Approach
+              Our Integration Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -164,11 +155,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Business & IT Assessment
+                      Requirements Analysis
                     </h3>
                     <p className="text-[#676767]">
-                      We begin by understanding your business objectives, current
-                      IT landscape, pain points, and opportunities for improvement.
+                      We analyze your current systems and identify the integration requirements and goals.
                     </p>
                   </div>
                 </div>
@@ -179,12 +169,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Analysis & Recommendations
+                      API & System Assessment
                     </h3>
                     <p className="text-[#676767]">
-                      Our experts analyze your systems, processes, and
-                      infrastructure to identify gaps and provide actionable
-                      recommendations.
+                      We evaluate the APIs and technical capabilities of the systems to be integrated.
                     </p>
                   </div>
                 </div>
@@ -195,11 +183,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Strategic Roadmap
+                      Development & Testing
                     </h3>
                     <p className="text-[#676767]">
-                      We develop a comprehensive roadmap with clear milestones,
-                      priorities, and timelines aligned with your business goals.
+                      Our team develops the integration solution and thoroughly tests it for reliability and security.
                     </p>
                   </div>
                 </div>
@@ -210,27 +197,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Implementation Support
+                      Deployment & Monitoring
                     </h3>
                     <p className="text-[#676767]">
-                      We don't just provide recommendations—we help you implement
-                      them, ensuring successful execution and knowledge transfer.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#7567FE] flex items-center justify-center text-white font-bold text-xl">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Ongoing Partnership
-                    </h3>
-                    <p className="text-[#676767]">
-                      Technology evolves rapidly. We provide ongoing advisory
-                      services to help you stay ahead of the curve and adapt to
-                      change.
+                      We deploy the integration and provide ongoing monitoring and support to ensure optimal performance.
                     </p>
                   </div>
                 </div>
@@ -243,11 +213,10 @@ export default function ITConsulting() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Need Expert IT Guidance?
+              Ready to Connect Your Systems?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Let's discuss your technology challenges and explore how we can
-              help you achieve your business objectives.
+              Discover how seamless integrations can transform your business operations. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"

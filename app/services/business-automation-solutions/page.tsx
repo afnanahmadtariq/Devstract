@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "AI Integration | Devstract",
+  title: "Business Automation Solutions | Devstract",
   description:
-    "Leverage artificial intelligence to automate processes, gain insights, and drive innovation. Transform your business with intelligent AI solutions.",
+    "Design intelligent automation agents tailored to business operations, reducing manual workload and streamlining repetitive processes.",
 };
 
-export default function AIIntegration() {
+export default function BusinessAutomationSolutions() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function AIIntegration() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  AI Integration
+                  Business Automation Solutions
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Leverage artificial intelligence to automate processes, gain
-                insights, and drive innovation
+                Design intelligent automation agents tailored to business operations, reducing manual workload and streamlining repetitive processes.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function AIIntegration() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_3.png"
-                alt="AI Integration"
+                src="/media/unsplash_1.png"
+                alt="Business Automation Solutions"
                 fill
                 className="object-cover"
               />
@@ -60,89 +59,67 @@ export default function AIIntegration() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                Harness the Power of AI
+                AI Automation Agent for Businesses
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                Artificial Intelligence is transforming how businesses operate.
-                From automating repetitive tasks to uncovering insights hidden
-                in your data, AI can give your organization a significant
-                competitive advantage.
+                We design intelligent automation agents tailored to business operations. These agents reduce manual workload and streamline repetitive processes, allowing your team to focus on strategic tasks.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Our AI integration services help you identify opportunities for
-                AI implementation, select the right technologies, and seamlessly
-                integrate intelligent features into your existing systems. We
-                make AI accessible, practical, and aligned with your business
-                objectives.
+                Our automation solutions leverage cutting-edge AI to handle complex workflows, integrate with existing systems, and adapt to your business needs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* AI Solutions */}
+        {/* Use Cases */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our AI Solutions
+              Automation Use Cases
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Natural Language Processing
+                  Inventory & Order Processing
                 </h3>
                 <p className="text-[#676767]">
-                  Implement chatbots, sentiment analysis, document processing,
-                  and language translation to enhance customer interactions.
+                  Automate inventory tracking, order fulfillment, and supply chain management to reduce errors and improve efficiency.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Machine Learning Models
+                  Customer Support Automation
                 </h3>
                 <p className="text-[#676767]">
-                  Build custom ML models for prediction, classification,
-                  recommendation systems, and pattern recognition.
+                  Handle customer inquiries, ticket routing, and basic support tasks with intelligent AI agents.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Computer Vision
+                  Document & Record Automation
                 </h3>
                 <p className="text-[#676767]">
-                  Enable image recognition, object detection, facial
-                  recognition, and visual quality control in your applications.
+                  Automate document processing, data entry, and record management across your organization.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Predictive Analytics
+                  Employee Assistance Bots
                 </h3>
                 <p className="text-[#676767]">
-                  Forecast trends, optimize operations, and make data-driven
-                  decisions with advanced predictive models.
+                  Provide internal support for employees with AI-powered assistants for HR queries, policy lookups, and task automation.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Process Automation
+                  Daily Workflow Automation
                 </h3>
                 <p className="text-[#676767]">
-                  Automate repetitive tasks, streamline workflows, and free up
-                  your team to focus on high-value activities.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  AI-Powered Search
-                </h3>
-                <p className="text-[#676767]">
-                  Implement intelligent search capabilities with semantic
-                  understanding and personalized results.
+                  Streamline routine tasks like scheduling, reporting, and data synchronization across departments.
                 </p>
               </div>
             </div>
@@ -153,7 +130,7 @@ export default function AIIntegration() {
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our AI Integration Process
+              Our Automation Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -163,11 +140,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Discovery & Use Case Identification
+                      Process Analysis
                     </h3>
                     <p className="text-[#676767]">
-                      We analyze your business processes to identify high-impact
-                      opportunities where AI can deliver measurable value and ROI.
+                      We analyze your current workflows to identify automation opportunities and prioritize high-impact areas.
                     </p>
                   </div>
                 </div>
@@ -178,12 +154,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Data Assessment & Preparation
+                      Agent Design & Development
                     </h3>
                     <p className="text-[#676767]">
-                      We evaluate your data quality and availability, then
-                      prepare and structure the data needed to train effective AI
-                      models.
+                      Our team designs and builds custom automation agents using advanced AI and integration technologies.
                     </p>
                   </div>
                 </div>
@@ -194,11 +168,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Model Development & Training
+                      Integration & Testing
                     </h3>
                     <p className="text-[#676767]">
-                      Our AI experts develop and train models using state-of-the-art
-                      frameworks, ensuring optimal accuracy and performance.
+                      We integrate the automation agents with your existing systems and thoroughly test for reliability and performance.
                     </p>
                   </div>
                 </div>
@@ -209,11 +182,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Integration & Deployment
+                      Deployment & Training
                     </h3>
                     <p className="text-[#676767]">
-                      We seamlessly integrate AI capabilities into your existing
-                      systems and deploy them to production with proper monitoring.
+                      We deploy the automation solutions and provide training to ensure smooth adoption by your team.
                     </p>
                   </div>
                 </div>
@@ -227,8 +199,7 @@ export default function AIIntegration() {
                       Monitoring & Optimization
                     </h3>
                     <p className="text-[#676767]">
-                      Post-deployment, we continuously monitor model performance,
-                      retrain as needed, and optimize to maintain accuracy over time.
+                      Continuous monitoring and optimization to ensure the automation agents perform optimally and adapt to changing needs.
                     </p>
                   </div>
                 </div>
@@ -241,11 +212,10 @@ export default function AIIntegration() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Ready to Embrace AI?
+              Ready to Automate Your Business?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Discover how AI can transform your business operations. Let's
-              explore the possibilities together.
+              Discover how AI automation can transform your operations. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"
