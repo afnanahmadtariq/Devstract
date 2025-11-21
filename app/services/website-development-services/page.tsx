@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "MVP Design & Development | Devstract",
+  title: "Website Development Services | Devstract",
   description:
-    "Transform your ideas into reality with expert MVP design and development services. Launch your product faster with our proven methodology.",
+    "Fix, enhance, and redesign websites with modern interfaces, focusing on performance and user experience.",
 };
 
-export default function MVPDesignDevelopment() {
+export default function WebsiteDevelopmentServices() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function MVPDesignDevelopment() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  MVP Design & Development
+                  Website Development Services
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Transform your ideas into reality with expert MVP design and
-                development services
+                Fix, enhance, and redesign websites with modern interfaces, focusing on performance and user experience.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function MVPDesignDevelopment() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_1.png"
-                alt="MVP Design & Development"
+                src="/media/unsplash_4.png"
+                alt="Website Development Services"
                 fill
                 className="object-cover"
               />
@@ -60,100 +59,65 @@ export default function MVPDesignDevelopment() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                What is MVP Development?
+                Professional Website Development
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                A Minimum Viable Product (MVP) is the fastest path from idea to
-                market. We help startups and enterprises build the core features
-                needed to validate their product concept, gather user feedback,
-                and iterate quickly based on real-world data.
+                Whether you need to fix existing issues or completely redesign your website, our team provides comprehensive development services to ensure your online presence is modern, fast, and user-friendly.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Our MVP development approach focuses on delivering maximum value
-                with minimum complexity, allowing you to test your assumptions,
-                save time and resources, and make data-driven decisions about
-                your product's future.
+                We focus on performance optimization, user experience improvements, and cutting-edge technologies to give your website the competitive edge it needs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Key Benefits */}
+        {/* Services */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Why Choose Our MVP Services?
+              Our Website Services
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Fast Time to Market
+                  Website Fixing & Enhancement
                 </h3>
-                <p className="text-[#676767]">
-                  Launch your product in weeks, not months. Get to market
-                  quickly and start gathering valuable user feedback.
+                <p className="text-[#676767] mb-4">
+                  Fix broken sections, speed issues, bugs, and UI/UX problems to restore and improve your website's functionality.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Bug fixes and error resolution</li>
+                  <li>Performance optimization</li>
+                  <li>UI/UX improvements</li>
+                  <li>Security updates</li>
+                  <li>Mobile responsiveness fixes</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Cost-Effective Development
+                  Website Redesign
                 </h3>
-                <p className="text-[#676767]">
-                  Focus your budget on essential features that matter most to
-                  your users. Avoid wasting resources on unnecessary
-                  functionality.
+                <p className="text-[#676767] mb-4">
+                  Complete redesign with a modern, clean, fast interface that reflects your brand and engages your audience.
                 </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  User-Centric Approach
-                </h3>
-                <p className="text-[#676767]">
-                  Build exactly what your users need. Validate assumptions early
-                  and iterate based on real feedback.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Scalable Architecture
-                </h3>
-                <p className="text-[#676767]">
-                  We build MVPs with growth in mind. Our architecture ensures
-                  your product can scale as your user base expands.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Agile Methodology
-                </h3>
-                <p className="text-[#676767]">
-                  Benefit from iterative development cycles, regular updates,
-                  and the flexibility to adapt to changing requirements.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Expert Team
-                </h3>
-                <p className="text-[#676767]">
-                  Work with experienced developers, designers, and product
-                  strategists who understand the startup ecosystem.
-                </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Modern design principles</li>
+                  <li>Improved user experience</li>
+                  <li>Enhanced performance</li>
+                  <li>Mobile-first approach</li>
+                  <li>SEO-friendly structure</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Process */}
+        {/* Process */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our MVP Development Process
+              Our Development Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -163,12 +127,10 @@ export default function MVPDesignDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Discovery & Planning
+                      Analysis & Planning
                     </h3>
                     <p className="text-[#676767]">
-                      We start by understanding your vision, target audience,
-                      and business goals. Together, we define the core features
-                      that will make your MVP successful.
+                      We analyze your current website, identify issues, and plan the improvements or redesign approach.
                     </p>
                   </div>
                 </div>
@@ -179,12 +141,10 @@ export default function MVPDesignDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Design & Prototyping
+                      Design & Development
                     </h3>
                     <p className="text-[#676767]">
-                      Our designers create intuitive user interfaces and
-                      interactive prototypes, ensuring a seamless user
-                      experience from day one.
+                      Our team creates modern designs and develops the website using the latest technologies and best practices.
                     </p>
                   </div>
                 </div>
@@ -195,12 +155,10 @@ export default function MVPDesignDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Agile Development
+                      Testing & Optimization
                     </h3>
                     <p className="text-[#676767]">
-                      We build your MVP using modern technologies and best
-                      practices. You'll receive regular updates and can provide
-                      feedback throughout the process.
+                      We thoroughly test the website for functionality, performance, and user experience, then optimize for speed and SEO.
                     </p>
                   </div>
                 </div>
@@ -211,28 +169,10 @@ export default function MVPDesignDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Testing & Quality Assurance
+                      Launch & Support
                     </h3>
                     <p className="text-[#676767]">
-                      Rigorous testing ensures your MVP is stable, secure, and
-                      ready for real users. We handle all aspects of QA before
-                      launch.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#7567FE] flex items-center justify-center text-white font-bold text-xl">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Launch & Iteration
-                    </h3>
-                    <p className="text-[#676767]">
-                      We help you launch your MVP and provide ongoing support.
-                      Based on user feedback, we'll help you iterate and add new
-                      features.
+                      We launch your improved website and provide ongoing support to ensure everything runs smoothly.
                     </p>
                   </div>
                 </div>
@@ -245,11 +185,10 @@ export default function MVPDesignDevelopment() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Ready to Build Your MVP?
+              Ready to Improve Your Website?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Let's turn your idea into a successful product. Schedule a
-              consultation with our team today.
+              Discover how we can fix, enhance, or redesign your website. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"

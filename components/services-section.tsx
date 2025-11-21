@@ -60,59 +60,59 @@ export default function ServicesSection() {
   const services: Service[] = [
     {
       id: 1,
-      title: "MVP Development",
+      title: "Automation Agents",
       description:
-        "Transform your ideas into reality with our expert MVP design and development services, tailored to meet your business goals.",
+        "Design intelligent automation agents tailored to business operations, reducing manual workload and streamlining repetitive processes.",
       image: "/media/unsplash_1.png",
-      url: "/services/mvp-design-development"
+      url: "/services/business-automation-solutions"
     },
     {
       id: 2,
-      title: "UX Engineering",
+      title: "AI Websites",
       description:
-        "Enhance user satisfaction by reimagining and optimizing your product's user experience for seamless interaction.",
+        "Upgrade websites with intelligent search and personalized chatbots for better user engagement and support.",
       image: "/media/unsplash_2.png",
-      url: "/services/ux-reengineering"
+      url: "/services/ai-powered-website-enhancements"
     },
     {
       id: 3,
-      title: "AI Integration",
+      title: "Engagement Systems",
       description:
-        "Leverage the power of artificial intelligence to automate processes, gain insights, and drive innovation in your business.",
+        "Build WhatsApp chatbots and client portals for enhanced customer interaction and business management.",
       image: "/media/unsplash_3.png",
-      url: "/services/ai-integration"
+      url: "/services/communication-engagement-systems"
     },
     {
       id: 4,
-      title: "IT Consulting",
+      title: "Web Development",
       description:
-        "Receive expert guidance and strategic IT solutions to align technology with your business objectives.",
+        "Fix, enhance, and redesign websites with modern interfaces, focusing on performance and user experience.",
       image: "/media/unsplash_4.png",
-      url: "/services/it-consulting"
+      url: "/services/website-development-services"
     },
     {
       id: 5,
-      title: "Mobile Apps",
+      title: "Business Tools",
       description:
-        "Create user\u2011friendly and feature\u2011rich mobile applications to engage your audience and expand your reach.",
+        "Customizable POS systems and admin dashboards for tracking sales, inventory, and business KPIs.",
       image: "/media/unsplash_5.png",
-      url: "/services/mobile-app-development"
+      url: "/services/business-management-tools"
     },
     {
       id: 6,
-      title: "Product Design",
+      title: "Integrations Suite",
       description:
-        "Design innovative and visually appealing products that resonate with your target audience and stand out in the market.",
+        "Integrate payment gateways, WhatsApp, chatbots, and CRMs into your business systems.",
       image: "/media/unsplash_6.png",
-      url: "/services/product-designing"
+      url: "/services/integration-services"
     },
     {
       id: 7,
-      title: "Full\u2011stack",
+      title: "Product Management",
       description:
-        "Build robust and scalable web applications with our comprehensive full\u2011stack development expertise.",
+        "Help upload, structure, and optimize product listings across CRMs, eCommerce stores, and business systems.",
       image: "/media/unsplash_7.png",
-      url: "/services/full-stack-development"
+      url: "/services/product-management-services"
     },
   ]
 
