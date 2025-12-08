@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "AI Integration | Devstract",
+  title: "Website Development Services | Devstract",
   description:
-    "Leverage artificial intelligence to automate processes, gain insights, and drive innovation. Transform your business with intelligent AI solutions.",
+    "Fix, enhance, and redesign websites with modern interfaces, focusing on performance and user experience.",
 };
 
-export default function AIIntegration() {
+export default function WebsiteDevelopmentServices() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function AIIntegration() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  AI Integration
+                  Website Development Services
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Leverage artificial intelligence to automate processes, gain
-                insights, and drive innovation
+                Fix, enhance, and redesign websites with modern interfaces, focusing on performance and user experience.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function AIIntegration() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_3.png"
-                alt="AI Integration"
+                src="/media/website.png"
+                alt="Website Development Services"
                 fill
                 className="object-cover"
               />
@@ -60,100 +59,65 @@ export default function AIIntegration() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                Harness the Power of AI
+                Professional Website Development
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                Artificial Intelligence is transforming how businesses operate.
-                From automating repetitive tasks to uncovering insights hidden
-                in your data, AI can give your organization a significant
-                competitive advantage.
+                Whether you need to fix existing issues or completely redesign your website, our team provides comprehensive development services to ensure your online presence is modern, fast, and user-friendly.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Our AI integration services help you identify opportunities for
-                AI implementation, select the right technologies, and seamlessly
-                integrate intelligent features into your existing systems. We
-                make AI accessible, practical, and aligned with your business
-                objectives.
+                We focus on performance optimization, user experience improvements, and cutting-edge technologies to give your website the competitive edge it needs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* AI Solutions */}
+        {/* Services */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our AI Solutions
+              Our Website Services
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Natural Language Processing
+                  Website Fixing & Enhancement
                 </h3>
-                <p className="text-[#676767]">
-                  Implement chatbots, sentiment analysis, document processing,
-                  and language translation to enhance customer interactions.
+                <p className="text-[#676767] mb-4">
+                  Fix broken sections, speed issues, bugs, and UI/UX problems to restore and improve your website's functionality.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Bug fixes and error resolution</li>
+                  <li>Performance optimization</li>
+                  <li>UI/UX improvements</li>
+                  <li>Security updates</li>
+                  <li>Mobile responsiveness fixes</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Machine Learning Models
+                  Website Redesign
                 </h3>
-                <p className="text-[#676767]">
-                  Build custom ML models for prediction, classification,
-                  recommendation systems, and pattern recognition.
+                <p className="text-[#676767] mb-4">
+                  Complete redesign with a modern, clean, fast interface that reflects your brand and engages your audience.
                 </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Computer Vision
-                </h3>
-                <p className="text-[#676767]">
-                  Enable image recognition, object detection, facial
-                  recognition, and visual quality control in your applications.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Predictive Analytics
-                </h3>
-                <p className="text-[#676767]">
-                  Forecast trends, optimize operations, and make data-driven
-                  decisions with advanced predictive models.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Process Automation
-                </h3>
-                <p className="text-[#676767]">
-                  Automate repetitive tasks, streamline workflows, and free up
-                  your team to focus on high-value activities.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  AI-Powered Search
-                </h3>
-                <p className="text-[#676767]">
-                  Implement intelligent search capabilities with semantic
-                  understanding and personalized results.
-                </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Modern design principles</li>
+                  <li>Improved user experience</li>
+                  <li>Enhanced performance</li>
+                  <li>Mobile-first approach</li>
+                  <li>SEO-friendly structure</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Process */}
+        {/* Process */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our AI Integration Process
+              Our Development Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -163,11 +127,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Discovery & Use Case Identification
+                      Analysis & Planning
                     </h3>
                     <p className="text-[#676767]">
-                      We analyze your business processes to identify high-impact
-                      opportunities where AI can deliver measurable value and ROI.
+                      We analyze your current website, identify issues, and plan the improvements or redesign approach.
                     </p>
                   </div>
                 </div>
@@ -178,12 +141,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Data Assessment & Preparation
+                      Design & Development
                     </h3>
                     <p className="text-[#676767]">
-                      We evaluate your data quality and availability, then
-                      prepare and structure the data needed to train effective AI
-                      models.
+                      Our team creates modern designs and develops the website using the latest technologies and best practices.
                     </p>
                   </div>
                 </div>
@@ -194,11 +155,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Model Development & Training
+                      Testing & Optimization
                     </h3>
                     <p className="text-[#676767]">
-                      Our AI experts develop and train models using state-of-the-art
-                      frameworks, ensuring optimal accuracy and performance.
+                      We thoroughly test the website for functionality, performance, and user experience, then optimize for speed and SEO.
                     </p>
                   </div>
                 </div>
@@ -209,26 +169,10 @@ export default function AIIntegration() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Integration & Deployment
+                      Launch & Support
                     </h3>
                     <p className="text-[#676767]">
-                      We seamlessly integrate AI capabilities into your existing
-                      systems and deploy them to production with proper monitoring.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#7567FE] flex items-center justify-center text-white font-bold text-xl">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Monitoring & Optimization
-                    </h3>
-                    <p className="text-[#676767]">
-                      Post-deployment, we continuously monitor model performance,
-                      retrain as needed, and optimize to maintain accuracy over time.
+                      We launch your improved website and provide ongoing support to ensure everything runs smoothly.
                     </p>
                   </div>
                 </div>
@@ -241,11 +185,10 @@ export default function AIIntegration() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Ready to Embrace AI?
+              Ready to Improve Your Website?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Discover how AI can transform your business operations. Let's
-              explore the possibilities together.
+              Discover how we can fix, enhance, or redesign your website. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"

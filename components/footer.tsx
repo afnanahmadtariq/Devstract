@@ -180,6 +180,9 @@ export default function Footer() {
               <a href="/privacy-policy" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm underline-animation">
                 Privacy Policy
               </a>
+              <a href="/attributions" className="text-[#0A142F] hover:text-black transition-colors duration-200 text-sm underline-animation">
+                Credits
+              </a>
             </div>
 
             {/* Logo */}

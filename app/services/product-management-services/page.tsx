@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development | Devstract",
+  title: "Product Management Services | Devstract",
   description:
-    "Create user-friendly and feature-rich mobile applications to engage your audience. Build native and cross-platform apps that users love.",
+    "Help upload, structure, and optimize product listings across CRMs, eCommerce stores, and business systems.",
 };
 
-export default function MobileAppDevelopment() {
+export default function ProductManagementServices() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function MobileAppDevelopment() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  Mobile App Development
+                  Product Management Services
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Create user-friendly and feature-rich mobile applications to
-                engage your audience
+                Help upload, structure, and optimize product listings across CRMs, eCommerce stores, and business systems.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function MobileAppDevelopment() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_5.png"
-                alt="Mobile App Development"
+                src="/media/product.jpg"
+                alt="Product Management Services"
                 fill
                 className="object-cover"
               />
@@ -60,192 +59,87 @@ export default function MobileAppDevelopment() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                Build Apps Users Love
+                Streamlined Product Management
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                Mobile devices are how your customers interact with the world.
-                A well-designed mobile app can transform your business by
-                providing seamless access to your services, increasing customer
-                engagement, and opening new revenue streams.
+                Efficiently manage your product catalog across multiple platforms. Our product management services ensure that your products are accurately represented, properly categorized, and optimized for maximum visibility and sales.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Our mobile app development team creates high-performance,
-                intuitive applications for iOS and Android. Whether you need a
-                native app for maximum performance or a cross-platform solution
-                for faster time-to-market, we deliver apps that exceed user
-                expectations.
+                From initial data preparation to final optimization, we handle the entire process of uploading and structuring product listings in CRMs, eCommerce stores, and other business systems.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Development Approaches */}
+        {/* Services */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our Mobile Development Services
+              Our Product Management Solutions
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Native iOS Development
+                  Data Preparation
                 </h3>
                 <p className="text-[#676767]">
-                  Build powerful iOS apps using Swift and SwiftUI, leveraging
-                  the full capabilities of Apple's ecosystem for optimal
-                  performance.
+                  Clean, format, and standardize your product data for seamless uploading across platforms.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Native Android Development
+                  CRM Product Upload
                 </h3>
                 <p className="text-[#676767]">
-                  Create feature-rich Android apps with Kotlin and Jetpack
-                  Compose, optimized for the diverse Android device ecosystem.
+                  Upload and structure product listings in CRM systems like HubSpot, Zoho, and Pipedrive.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Cross-Platform Development
+                  E-commerce Integration
                 </h3>
                 <p className="text-[#676767]">
-                  Deploy to both iOS and Android from a single codebase using
-                  React Native or Flutter, reducing development time and costs.
+                  Optimize product listings for eCommerce platforms with proper categorization and SEO.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  UI/UX Design
+                  Image Optimization
                 </h3>
                 <p className="text-[#676767]">
-                  Design beautiful, intuitive interfaces following platform
-                  guidelines while maintaining your unique brand identity.
+                  Process and optimize product images for web display and fast loading times.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Backend Integration
+                  Category Structuring
                 </h3>
                 <p className="text-[#676767]">
-                  Connect your app to robust backend services, APIs, and
-                  databases for seamless data synchronization and real-time
-                  updates.
+                  Create logical category hierarchies and tagging systems for better product organization.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  App Store Optimization
+                  SEO Optimization
                 </h3>
                 <p className="text-[#676767]">
-                  We handle app store submissions, optimization, and ongoing
-                  updates to ensure your app reaches your target audience.
+                  Optimize product descriptions and metadata for search engines and platform algorithms.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Key Features */}
+        {/* Process */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              What We Deliver
-            </h2>
-            <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7567FE] mt-2"></div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#202020]">
-                      High Performance
-                    </h3>
-                    <p className="text-[#676767]">
-                      Apps optimized for speed, responsiveness, and efficient
-                      battery usage across all devices.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7567FE] mt-2"></div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#202020]">
-                      Offline Functionality
-                    </h3>
-                    <p className="text-[#676767]">
-                      Smart caching and local storage ensure your app works even
-                      without internet connectivity.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7567FE] mt-2"></div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#202020]">
-                      Push Notifications
-                    </h3>
-                    <p className="text-[#676767]">
-                      Keep users engaged with timely, relevant push notifications
-                      and in-app messaging.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7567FE] mt-2"></div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#202020]">
-                      Security & Privacy
-                    </h3>
-                    <p className="text-[#676767]">
-                      Implement robust security measures including encryption,
-                      secure authentication, and data protection.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7567FE] mt-2"></div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#202020]">
-                      Analytics Integration
-                    </h3>
-                    <p className="text-[#676767]">
-                      Track user behavior, app performance, and key metrics to
-                      make data-driven improvements.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7567FE] mt-2"></div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 text-[#202020]">
-                      Scalable Architecture
-                    </h3>
-                    <p className="text-[#676767]">
-                      Build for growth with architecture that scales seamlessly as
-                      your user base expands.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Process */}
-        <section className="px-6 md:px-20 lg:px-40 py-12">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our Development Process
+              Our Product Management Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -255,11 +149,10 @@ export default function MobileAppDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Discovery & Strategy
+                      Data Assessment
                     </h3>
                     <p className="text-[#676767]">
-                      We define your app's goals, target audience, core features,
-                      and platform strategy through collaborative workshops.
+                      We review your existing product data and identify areas for improvement and standardization.
                     </p>
                   </div>
                 </div>
@@ -270,11 +163,10 @@ export default function MobileAppDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Design & Prototyping
+                      Data Cleaning & Preparation
                     </h3>
                     <p className="text-[#676767]">
-                      Our designers create wireframes, mockups, and interactive
-                      prototypes that bring your app vision to life.
+                      Our team cleans, formats, and enriches your product data for optimal platform performance.
                     </p>
                   </div>
                 </div>
@@ -285,11 +177,10 @@ export default function MobileAppDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Development & Integration
+                      Upload & Integration
                     </h3>
                     <p className="text-[#676767]">
-                      Using agile methodology, we build your app in sprints,
-                      integrating all necessary features and third-party services.
+                      We upload products to your chosen platforms and ensure proper integration with existing systems.
                     </p>
                   </div>
                 </div>
@@ -300,11 +191,10 @@ export default function MobileAppDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Testing & Quality Assurance
+                      Optimization & Testing
                     </h3>
                     <p className="text-[#676767]">
-                      Comprehensive testing across devices, OS versions, and
-                      scenarios ensures a bug-free, smooth user experience.
+                      We optimize listings for visibility and test all functionality to ensure everything works perfectly.
                     </p>
                   </div>
                 </div>
@@ -315,11 +205,10 @@ export default function MobileAppDevelopment() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Launch & Support
+                      Ongoing Management
                     </h3>
                     <p className="text-[#676767]">
-                      We handle app store submission, launch marketing support,
-                      and provide ongoing maintenance and feature updates.
+                      We provide ongoing support for product updates, new listings, and performance monitoring.
                     </p>
                   </div>
                 </div>
@@ -332,11 +221,10 @@ export default function MobileAppDevelopment() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Ready to Build Your Mobile App?
+              Ready to Optimize Your Product Catalog?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Let's create a mobile experience that delights your users and
-              drives business growth. Get in touch today.
+              Discover how professional product management can boost your sales and efficiency. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"

@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "UX Re-Engineering | Devstract",
+  title: "Integration Services | Devstract",
   description:
-    "Enhance user satisfaction by reimagining and optimizing your product's user experience. Transform your digital product with expert UX redesign.",
+    "Integrate payment gateways, WhatsApp, chatbots, and CRMs into your business systems.",
 };
 
-export default function UXReEngineering() {
+export default function IntegrationServices() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function UXReEngineering() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  UX Re-Engineering
+                  Integration Services
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Enhance user satisfaction by reimagining and optimizing your
-                product's user experience
+                Integrate payment gateways, WhatsApp, chatbots, and CRMs into your business systems.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function UXReEngineering() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_2.png"
-                alt="UX Re-Engineering"
+                src="/media/integration.jpg"
+                alt="Integration Services"
                 fill
                 className="object-cover"
               />
@@ -60,98 +59,93 @@ export default function UXReEngineering() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                Transform Your User Experience
+                Seamless System Integration
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                Is your product struggling with user engagement, high bounce
-                rates, or poor conversion? UX re-engineering is the solution.
-                We analyze your existing product, identify pain points, and
-                redesign the experience to delight your users.
+                Connect your business systems for streamlined operations and enhanced functionality. Our integration services ensure that your various tools and platforms work together seamlessly, providing a unified experience for your team and customers.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Our holistic approach combines user research, data analysis, and
-                design expertise to create intuitive, accessible, and engaging
-                digital experiences that drive business results.
+                From payment processing to customer communication, we handle the complex technical work so you can focus on growing your business.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Key Benefits */}
+        {/* Integration Types */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Benefits of UX Re-Engineering
+              Our Integration Solutions
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Increased User Satisfaction
+                  Payment Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Create delightful experiences that keep users coming back.
-                  Improve satisfaction scores and build brand loyalty.
+                <p className="text-[#676767] mb-4">
+                  Secure and reliable payment processing for your business applications.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Stripe integration</li>
+                  <li>PayPal integration</li>
+                  <li>Local payment gateways</li>
+                  <li>Subscription systems</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Higher Conversion Rates
+                  WhatsApp Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Optimize user flows and eliminate friction points to boost
-                  conversions and achieve your business goals.
+                <p className="text-[#676767] mb-4">
+                  WhatsApp Business API integration with automation workflows for enhanced customer communication.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Automated messaging</li>
+                  <li>Customer support workflows</li>
+                  <li>Order notifications</li>
+                  <li>Marketing campaigns</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Reduced Support Costs
+                  Chatbot Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Intuitive design means fewer user errors and support tickets.
-                  Save time and resources with self-explanatory interfaces.
+                <p className="text-[#676767] mb-4">
+                  Embed AI chatbots into your existing systems for intelligent customer interactions.
                 </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>Website integration</li>
+                  <li>CRM system integration</li>
+                  <li>POS system integration</li>
+                  <li>Mobile app integration</li>
+                </ul>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Competitive Advantage
+                  CRM Integrations
                 </h3>
-                <p className="text-[#676767]">
-                  Stand out in the market with superior user experience. Win
-                  customers by making their lives easier.
+                <p className="text-[#676767] mb-4">
+                  Connect and synchronize data across your CRM systems and other business tools.
                 </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Data-Driven Insights
-                </h3>
-                <p className="text-[#676767]">
-                  Make informed decisions based on user behavior analytics,
-                  heatmaps, and usability testing results.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Accessibility Compliance
-                </h3>
-                <p className="text-[#676767]">
-                  Ensure your product is usable by everyone, meeting WCAG
-                  standards and expanding your potential audience.
-                </p>
+                <ul className="text-[#676767] list-disc list-inside space-y-1">
+                  <li>HubSpot integration</li>
+                  <li>Zoho CRM integration</li>
+                  <li>Pipedrive integration</li>
+                  <li>Custom CRM integration</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Process */}
+        {/* Process */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our UX Re-Engineering Process
+              Our Integration Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -161,12 +155,10 @@ export default function UXReEngineering() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      UX Audit & Analysis
+                      Requirements Analysis
                     </h3>
                     <p className="text-[#676767]">
-                      We conduct a comprehensive audit of your existing product,
-                      analyzing user flows, pain points, and opportunities for
-                      improvement using analytics and user feedback.
+                      We analyze your current systems and identify the integration requirements and goals.
                     </p>
                   </div>
                 </div>
@@ -177,12 +169,10 @@ export default function UXReEngineering() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      User Research
+                      API & System Assessment
                     </h3>
                     <p className="text-[#676767]">
-                      Through interviews, surveys, and usability testing, we
-                      gain deep insights into your users' needs, behaviors, and
-                      expectations.
+                      We evaluate the APIs and technical capabilities of the systems to be integrated.
                     </p>
                   </div>
                 </div>
@@ -193,12 +183,10 @@ export default function UXReEngineering() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Strategy & Information Architecture
+                      Development & Testing
                     </h3>
                     <p className="text-[#676767]">
-                      We develop a UX strategy and restructure your information
-                      architecture to ensure content is organized logically and
-                      intuitively.
+                      Our team develops the integration solution and thoroughly tests it for reliability and security.
                     </p>
                   </div>
                 </div>
@@ -209,44 +197,10 @@ export default function UXReEngineering() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Wireframing & Prototyping
+                      Deployment & Monitoring
                     </h3>
                     <p className="text-[#676767]">
-                      We create detailed wireframes and interactive prototypes,
-                      allowing you to visualize and test the new experience
-                      before development begins.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#7567FE] flex items-center justify-center text-white font-bold text-xl">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Visual Design & Implementation
-                    </h3>
-                    <p className="text-[#676767]">
-                      Our designers craft beautiful, on-brand interfaces while
-                      our developers implement the redesign with pixel-perfect
-                      precision.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#7567FE] flex items-center justify-center text-white font-bold text-xl">
-                    6
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Testing & Optimization
-                    </h3>
-                    <p className="text-[#676767]">
-                      Post-launch, we monitor user behavior, conduct A/B tests,
-                      and continuously optimize the experience based on real-world
-                      data.
+                      We deploy the integration and provide ongoing monitoring and support to ensure optimal performance.
                     </p>
                   </div>
                 </div>
@@ -259,11 +213,10 @@ export default function UXReEngineering() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Ready to Transform Your UX?
+              Ready to Connect Your Systems?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Let's reimagine your product's user experience together. Schedule
-              a UX audit consultation today.
+              Discover how seamless integrations can transform your business operations. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"

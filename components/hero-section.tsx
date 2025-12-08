@@ -100,7 +100,7 @@ export default function HeroSection() {
       </h1>
 
       <img
-        src={isLessThanXl ? "/media/bg-2 m.png" : "/media/bg-2.png"}
+        src={isLessThanXl ? "/media/bg-2_m.png" : "/media/bg-2.png"}
         alt="Gradient Background"
         className={`absolute inset-4 w-[calc(100vw-2rem)] h-[calc(100vh-2rem)] xl:h-screen object-cover object-top z-20 pointer-events-none transition-opacity duration-1000 ${showHero ? "opacity-100" : "opacity-0"}`}
         ref={bg2Ref}

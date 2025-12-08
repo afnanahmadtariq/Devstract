@@ -6,12 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "IT Consulting | Devstract",
+  title: "Business Automation Solutions | Devstract",
   description:
-    "Receive expert guidance and strategic IT solutions to align technology with business objectives. Transform your IT infrastructure with expert consulting.",
+    "Design intelligent automation agents tailored to business operations, reducing manual workload and streamlining repetitive processes.",
 };
 
-export default function ITConsulting() {
+export default function BusinessAutomationSolutions() {
   return (
     <>
       <Navigation />
@@ -30,12 +30,11 @@ export default function ITConsulting() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  IT Consulting
+                  Business Automation Solutions
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-[#676767] max-w-3xl mx-auto">
-                Receive expert guidance and strategic IT solutions to align
-                technology with business objectives
+                Design intelligent automation agents tailored to business operations, reducing manual workload and streamlining repetitive processes.
               </p>
             </div>
           </div>
@@ -46,8 +45,8 @@ export default function ITConsulting() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_4.png"
-                alt="IT Consulting"
+                src="/media/automation.jpg"
+                alt="Business Automation Solutions"
                 fill
                 className="object-cover"
               />
@@ -60,101 +59,78 @@ export default function ITConsulting() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-                Strategic IT Guidance
+                AI Automation Agent for Businesses
               </h2>
               <p className="text-[#494949] text-lg leading-relaxed mb-6">
-                In today's digital landscape, technology decisions can make or
-                break your business. Our IT consulting services provide the
-                strategic guidance you need to make informed decisions about
-                your technology investments.
+                We design intelligent automation agents tailored to business operations. These agents reduce manual workload and streamline repetitive processes, allowing your team to focus on strategic tasks.
               </p>
               <p className="text-[#494949] text-lg leading-relaxed">
-                Whether you're planning a digital transformation, modernizing
-                legacy systems, or optimizing your IT infrastructure, our
-                experienced consultants bring deep technical expertise and
-                business acumen to help you achieve your goals efficiently and
-                cost-effectively.
+                Our automation solutions leverage cutting-edge AI to handle complex workflows, integrate with existing systems, and adapt to your business needs.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Consulting Services */}
+        {/* Use Cases */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our Consulting Services
+              Automation Use Cases
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Digital Transformation
+                  Inventory & Order Processing
                 </h3>
                 <p className="text-[#676767]">
-                  Navigate your digital transformation journey with a clear
-                  roadmap, technology selection, and change management support.
+                  Automate inventory tracking, order fulfillment, and supply chain management to reduce errors and improve efficiency.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Technology Strategy
+                  Customer Support Automation
                 </h3>
                 <p className="text-[#676767]">
-                  Develop a comprehensive IT strategy aligned with your business
-                  goals, ensuring technology drives competitive advantage.
+                  Handle customer inquiries, ticket routing, and basic support tasks with intelligent AI agents.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Infrastructure Assessment
+                  Document & Record Automation
                 </h3>
                 <p className="text-[#676767]">
-                  Evaluate your current IT infrastructure, identify
-                  inefficiencies, and recommend optimizations for performance and
-                  cost.
+                  Automate document processing, data entry, and record management across your organization.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Cloud Migration
+                  Employee Assistance Bots
                 </h3>
                 <p className="text-[#676767]">
-                  Plan and execute seamless cloud migrations with minimal
-                  disruption, optimizing costs and improving scalability.
+                  Provide internal support for employees with AI-powered assistants for HR queries, policy lookups, and task automation.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
                 <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Security & Compliance
+                  Daily Workflow Automation
                 </h3>
                 <p className="text-[#676767]">
-                  Strengthen your security posture, ensure regulatory compliance,
-                  and protect your organization from cyber threats.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-[#EBEBEB] rounded-[33px] p-8">
-                <h3 className="text-xl font-bold mb-4 text-[#202020]">
-                  Vendor Selection
-                </h3>
-                <p className="text-[#676767]">
-                  Get expert guidance on selecting the right technology vendors
-                  and solutions for your specific needs and budget.
+                  Streamline routine tasks like scheduling, reporting, and data synchronization across departments.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Approach */}
+        {/* Our Process */}
         <section className="px-6 md:px-20 lg:px-40 py-12">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#202020]">
-              Our Consulting Approach
+              Our Automation Process
             </h2>
             <div className="bg-[#F7F7F7] border-2 border-[#EBEBEB] rounded-[36px] p-6 md:p-10">
               <div className="space-y-8">
@@ -164,11 +140,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Business & IT Assessment
+                      Process Analysis
                     </h3>
                     <p className="text-[#676767]">
-                      We begin by understanding your business objectives, current
-                      IT landscape, pain points, and opportunities for improvement.
+                      We analyze your current workflows to identify automation opportunities and prioritize high-impact areas.
                     </p>
                   </div>
                 </div>
@@ -179,12 +154,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Analysis & Recommendations
+                      Agent Design & Development
                     </h3>
                     <p className="text-[#676767]">
-                      Our experts analyze your systems, processes, and
-                      infrastructure to identify gaps and provide actionable
-                      recommendations.
+                      Our team designs and builds custom automation agents using advanced AI and integration technologies.
                     </p>
                   </div>
                 </div>
@@ -195,11 +168,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Strategic Roadmap
+                      Integration & Testing
                     </h3>
                     <p className="text-[#676767]">
-                      We develop a comprehensive roadmap with clear milestones,
-                      priorities, and timelines aligned with your business goals.
+                      We integrate the automation agents with your existing systems and thoroughly test for reliability and performance.
                     </p>
                   </div>
                 </div>
@@ -210,11 +182,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Implementation Support
+                      Deployment & Training
                     </h3>
                     <p className="text-[#676767]">
-                      We don't just provide recommendations—we help you implement
-                      them, ensuring successful execution and knowledge transfer.
+                      We deploy the automation solutions and provide training to ensure smooth adoption by your team.
                     </p>
                   </div>
                 </div>
@@ -225,12 +196,10 @@ export default function ITConsulting() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-[#202020]">
-                      Ongoing Partnership
+                      Monitoring & Optimization
                     </h3>
                     <p className="text-[#676767]">
-                      Technology evolves rapidly. We provide ongoing advisory
-                      services to help you stay ahead of the curve and adapt to
-                      change.
+                      Continuous monitoring and optimization to ensure the automation agents perform optimally and adapt to changing needs.
                     </p>
                   </div>
                 </div>
@@ -243,11 +212,10 @@ export default function ITConsulting() {
         <section className="px-6 md:px-20 lg:px-40 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#202020]">
-              Need Expert IT Guidance?
+              Ready to Automate Your Business?
             </h2>
             <p className="text-lg text-[#676767] mb-8">
-              Let's discuss your technology challenges and explore how we can
-              help you achieve your business objectives.
+              Discover how AI automation can transform your operations. Let's explore the possibilities together.
             </p>
             <Link
               href="/contact-us"
