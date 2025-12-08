@@ -25,3 +25,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dynamically generated files
+public/sitemap*.xml
+public/robots.txt
