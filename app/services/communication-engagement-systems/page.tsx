@@ -45,7 +45,7 @@ export default function CommunicationEngagementSystems() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_3.png"
+                src="/media/system.png"
                 alt="Communication & Engagement Systems"
                 fill
                 className="object-cover"

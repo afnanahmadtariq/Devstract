@@ -63,7 +63,7 @@ export default function ServicesSection() {
       title: "Automation Agents",
       description:
         "Design intelligent automation agents tailored to business operations, reducing manual workload and streamlining repetitive processes.",
-      image: "/media/unsplash_1.png",
+      image: "/media/automation.jpg",
       url: "/services/business-automation-solutions"
     },
     {
@@ -71,7 +71,7 @@ export default function ServicesSection() {
       title: "AI Websites",
       description:
         "Upgrade websites with intelligent search and personalized chatbots for better user engagement and support.",
-      image: "/media/unsplash_2.png",
+      image: "media/ai.jpg",
       url: "/services/ai-powered-website-enhancements"
     },
     {
@@ -79,7 +79,7 @@ export default function ServicesSection() {
       title: "Engagement Systems",
       description:
         "Build WhatsApp chatbots and client portals for enhanced customer interaction and business management.",
-      image: "/media/unsplash_3.png",
+      image: "/media/system.png",
       url: "/services/communication-engagement-systems"
     },
     {
@@ -87,7 +87,7 @@ export default function ServicesSection() {
       title: "Web Development",
       description:
         "Fix, enhance, and redesign websites with modern interfaces, focusing on performance and user experience.",
-      image: "/media/unsplash_4.png",
+      image: "/media/website.png",
       url: "/services/website-development-services"
     },
     {
@@ -95,7 +95,7 @@ export default function ServicesSection() {
       title: "Business Tools",
       description:
         "Customizable POS systems and admin dashboards for tracking sales, inventory, and business KPIs.",
-      image: "/media/unsplash_5.png",
+      image: "/media/tools.jpg",
       url: "/services/business-management-tools"
     },
     {
@@ -103,7 +103,7 @@ export default function ServicesSection() {
       title: "Integrations Suite",
       description:
         "Integrate payment gateways, WhatsApp, chatbots, and CRMs into your business systems.",
-      image: "/media/unsplash_6.png",
+      image: "/media/integration.jpg",
       url: "/services/integration-services"
     },
     {
@@ -111,7 +111,7 @@ export default function ServicesSection() {
       title: "Product Management",
       description:
         "Help upload, structure, and optimize product listings across CRMs, eCommerce stores, and business systems.",
-      image: "/media/unsplash_7.png",
+      image: "/media/product.jpg",
       url: "/services/product-management-services"
     },
   ]

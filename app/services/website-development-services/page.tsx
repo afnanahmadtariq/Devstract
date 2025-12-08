@@ -45,7 +45,7 @@ export default function WebsiteDevelopmentServices() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_4.png"
+                src="/media/website.png"
                 alt="Website Development Services"
                 fill
                 className="object-cover"

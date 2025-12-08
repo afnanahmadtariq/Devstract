@@ -45,7 +45,7 @@ export default function AIPoweredWebsiteEnhancements() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_2.png"
+                src="/media/ai.jpg"
                 alt="AI-Powered Website Enhancements"
                 fill
                 className="object-cover"

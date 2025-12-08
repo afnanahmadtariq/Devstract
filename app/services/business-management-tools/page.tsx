@@ -45,7 +45,7 @@ export default function BusinessManagementTools() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_5.png"
+                src="/media/tools.jpg"
                 alt="Business Management Tools"
                 fill
                 className="object-cover"

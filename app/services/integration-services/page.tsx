@@ -45,7 +45,7 @@ export default function IntegrationServices() {
           <div className="max-w-5xl mx-auto">
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/media/unsplash_6.png"
+                src="/media/integration.jpg"
                 alt="Integration Services"
                 fill
                 className="object-cover"
