@@ -124,18 +124,18 @@ export default function AboutUsPage() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center md:mt-12 py-10">
+            {/* <div className="flex flex-col items-center justify-center md:mt-12 py-10">
               <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
                 Meet the Team
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center">
                 Our team is a blend of creative designers, skilled developers, and strategic thinkers. Together, we bring diverse perspectives and expertise to every project, ensuring innovative solutions that drive success.
               </p>
-            </div>
+            </div> */}
             {/* Team */}
-            <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]">
+            {/* <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]"> */}
               {/* Left Side */}
-              <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+              {/* <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
                   <img src="/media/ali.jpeg" alt="Devstract COO" className="mx-auto"/>
                   <div
@@ -157,9 +157,9 @@ export default function AboutUsPage() {
                 <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
                   COO / Operations Head
                 </p>
-              </div>
+              </div> */}
               {/* Right Side*/}
-              <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+              {/* <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
                   <img src="/media/usman.png" alt="Devstract CTO" className="mx-auto"/>
                   <div
@@ -181,8 +181,8 @@ export default function AboutUsPage() {
                 <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
                   CTO / Tech Lead
                 </p>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             <div className="flex flex-col items-center justify-center md:mt-12 py-10">
               <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
                 Why Us
