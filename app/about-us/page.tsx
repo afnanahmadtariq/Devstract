@@ -43,9 +43,9 @@ export default function AboutUsPage() {
             <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]">
               {/* Left Side */}
               <div className="flex-1 flex flex-col items-center bg-white dark:bg-gray-800 rounded-[33px] p-9 md:px-[4.5rem] md:py-16 border-2 border-[#EBEBEB]">
-                <div 
+                <div
                   className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-8 md:mb-16"
-                  style={{ backgroundImage: 'var(--primary-gradient)'}}
+                  style={{ backgroundImage: 'var(--primary-gradient)' }}
                 >
                   <Image
                     src="/images/logo.svg"
@@ -56,9 +56,9 @@ export default function AboutUsPage() {
                   />
                 </div>
                 <div className="relative w-full">
-                  <p 
+                  <p
                     className='absolute top-0 left-0 text-6xl md:text-[96px]'
-                    style={{ 
+                    style={{
                       transform: 'translate(-100%, -30%)',
                       backgroundImage: 'var(--primary-gradient)',
                       WebkitBackgroundClip: 'text',
@@ -66,7 +66,7 @@ export default function AboutUsPage() {
                     }}
                   >
                     “
-                  </p>                  
+                  </p>
                 </div>
                 <div className="flex flex-col items-center" style={{ position: 'relative', width: '100%' }}>
                   <div
@@ -102,7 +102,7 @@ export default function AboutUsPage() {
               {/* Right Side*/}
               <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
-                  <img src="/media/afnan.png" alt="Devstract CEO" className="mx-auto"/>
+                  <img src="/media/afnan.png" alt="Devstract CEO" className="mx-auto" />
                   <div
                     style={{
                       position: 'absolute',
@@ -134,8 +134,8 @@ export default function AboutUsPage() {
             </div> */}
             {/* Team */}
             {/* <div className="w-full flex flex-col lg:flex-row gap-3 min-h-[36rem]"> */}
-              {/* Left Side */}
-              {/* <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+            {/* Left Side */}
+            {/* <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
                   <img src="/media/ali.jpeg" alt="Devstract COO" className="mx-auto"/>
                   <div
@@ -158,8 +158,8 @@ export default function AboutUsPage() {
                   COO / Operations Head
                 </p>
               </div> */}
-              {/* Right Side*/}
-              {/* <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
+            {/* Right Side*/}
+            {/* <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
                   <img src="/media/usman.png" alt="Devstract CTO" className="mx-auto"/>
                   <div
@@ -184,21 +184,21 @@ export default function AboutUsPage() {
               </div> */}
             {/* </div> */}
             <div className="flex flex-col items-center justify-center md:mt-12 py-10">
-              <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+              <h2 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
                 Why Us
-              </h1>
+              </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl text-center">
                 Choose Devstract for expertise, innovation, and a commitment to your success. We combine technical excellence with creative vision to deliver results that set you apart from the competition.
               </p>
             </div>
             {/* Bottom Portion */}
-            <div className="w-full flex flex-col lg:flex-row gap-3"> 
+            <div className="w-full flex flex-col lg:flex-row gap-3">
               {cards.map((card, index) => (
-                <div key={index} className="flex flex-1 flex-col items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]"> 
-                  <img src={card.imgSrc} alt={card.alt}/> 
+                <div key={index} className="flex flex-1 flex-col items-center justify-start bg-white dark:bg-gray-800 rounded-[33px] border-2 border-[#EBEBEB]">
+                  <img src={card.imgSrc} alt={card.alt} />
                   <div className='px-7 mb-7 md:px-10 md:mb-10 items-start w-full'>
-                    <h2 className="text-lg md:text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2> 
-                    <p className="text-lg md:text-xl text-[#676767] font-normal text-left">{card.description}</p> 
+                    <h2 className="text-lg md:text-xl font-semibold text-black dark:text-white text-left mb-4">{card.title}</h2>
+                    <p className="text-lg md:text-xl text-[#676767] font-normal text-left">{card.description}</p>
                   </div>
                 </div>
               ))}

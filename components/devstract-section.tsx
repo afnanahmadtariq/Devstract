@@ -91,7 +91,7 @@ export default function DevstractSection() {
         </div>
 
         {/* Main Brand Name */}
-        <h1
+        <h2
           className={`text-center font-syne font-bold text-5xl sm:text-8xl md:text-9xl lg:text-[12rem] relative mx-auto leading-tight origin-center devstract-slide${show ? ' show' : ''} ${show ? 'devstract-gradient-animate' : ''}`}
           // @ts-ignore: Allow custom CSS property for gradient angle
           style={{
@@ -105,19 +105,19 @@ export default function DevstractSection() {
           }}
         >
           Devstract
-        </h1>
+        </h2>
 
         {/* Devstract Effect SVG */}
         <div className="flex justify-center">
-          <img 
-            src="/media/devstract-effect.svg" 
-            alt="Devstract Effect" 
+          <img
+            src="/media/devstract-effect.svg"
+            alt="Devstract Effect"
             className="w-auto h-auto max-w-full"
           />
         </div>
 
         {/* Descriptive Text */}
-        <div  ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div ref={textRef} className={`max-w-4xl mx-auto transition-all duration-2000 ${textShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-sm sm:text-2xl text-gray-600 leading-relaxed font-syne">
             Empowering businesses with innovative software solutions tailored to their unique challenges and goals.
           </p>

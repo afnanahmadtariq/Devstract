@@ -30,8 +30,8 @@ export default function HeroSection() {
   const applyParallax = () => {
     tickingRef.current = false
     const { x, y } = targetRef.current
-    const max1 = 10 
-    const max2 = 20 
+    const max1 = 10
+    const max2 = 20
     const t1x = x * max1
     const t1y = y * max1
     const t2x = x * max2
@@ -109,7 +109,7 @@ export default function HeroSection() {
       />
 
 
-      <h1 className="absolute top-1/3 md:top-1/4 lg:[top:calc(25%-3rem)] xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-normal">
+      <div aria-hidden="true" className="absolute top-1/3 md:top-1/4 lg:[top:calc(25%-3rem)] xl:top-1/3 text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold z-30 text-fill-transparent text-stroke-white text-stroke leading-normal">
         Building{isLessThanXl ? <br /> : ' '} Beyond <br /> Boundaries
         <span
           aria-hidden="true"
@@ -120,7 +120,7 @@ export default function HeroSection() {
             filter: "drop-shadow(0 0 12px rgba(85, 0, 255, 0.6))"
           }}
         />
-      </h1>
+      </div>
 
       {/* CTA button */}
       <div className="group inline-block z-30 mt-[20rem] sm:mt-[28rem]">
