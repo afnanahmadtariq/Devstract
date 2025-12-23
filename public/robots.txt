@@ -4,7 +4,7 @@ Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
 # Host
-Host: https://blog.devstract.site
+Host: https://www.devstract.site
 
 # Sitemaps
-Sitemap: https://blog.devstract.site/sitemap.xml
+Sitemap: https://www.devstract.site/sitemap.xml
