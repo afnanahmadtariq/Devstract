@@ -102,7 +102,7 @@
     width: 100%; /* Ensure it spans the full width */
     user-select: none;
   }
-  .legal-content h1 {
+  .legal-content h2 {
     @apply text-lg font-medium leading-normal sm:text-2xl sm:font-semibold sm:leading-loose;
   }
   .legal-content p {
