@@ -8,35 +8,63 @@ import { useState } from "react";
 const faqs = [
   {
     question: "What is Devstract?",
-    answer: "Devstract is a platform providing web development services."
+    answer: "Devstract is a premier digital solutions agency specializing in AI-powered website enhancements, business automation, custom web/mobile development, and strategic digital growth. We help businesses transform their operations through cutting-edge technology."
   },
   {
-    question: "How can I contact support?",
-    answer: "You can reach us at contact@devstract.site or through our contact form."
+    question: "What specific services do you offer?",
+    answer: "We offer a comprehensive suite of services including AI-Powered Website Enhancements (search, chatbots), Business Automation Solutions (workflow agents), Custom Web & Mobile App Development, Internal Business Management Tools, System Integrations, and Digital Growth Strategies."
   },
   {
-    question: "Do you offer custom solutions?",
-    answer: "Yes, we offer custom web development solutions tailored to your needs."
+    question: "How can AI automation benefit my business?",
+    answer: "AI automation can drastically reduce manual workload by handling repetitive tasks like data entry, customer support inquiries, and inventory management. Our custom agents operate 24/7, ensuring efficiency and consistency while freeing up your team for strategic work."
   },
   {
-    question: "What technologies do you specialize in?",
-    answer: "We specialize in modern web technologies including React, Next.js, Node.js, and Tailwind CSS."
+    question: "Can you build custom ChatGPT-like bots for my company?",
+    answer: "Yes! We design personalized AI chatbots trained on your specific business data. These can serve as customer support agents, internal knowledge bases for employees, or lead generation assistants that understand your products and services deeply."
+  },
+  {
+    question: "What is Intelligent Search for websites?",
+    answer: "Our Intelligent Search solution upgrades your website's search bar to understand user intent, semantics, and context. It delivers highly accurate results, personalized recommendations, and can even handle voice queries, significantly improving user experience and conversion rates."
+  },
+  {
+    question: "Do you offer WhatsApp Business automation?",
+    answer: "Absolutely. We provide complete WhatsApp Business integration and automation, allowing you to send automated notifications, handle customer queries via chat, and even manage orders directly through WhatsApp, meeting your customers where they are."
+  },
+  {
+    question: "Can you integrate our existing software tools?",
+    answer: "Yes, we specialize in System Integrations. Whether you use CRM software, ERP systems, payment gateways, or marketing tools, we can connect them to create a unified, automated data flow across your entire organization."
+  },
+  {
+    question: "Do you build internal tools for employee management?",
+    answer: "We build custom internal portals, dashboards, and management tools tailored to your organization's workflows. From HR systems to inventory trackers, we create secure, efficient tools that fit your exact operational needs."
+  },
+  {
+    question: "Do you develop mobile applications?",
+    answer: "Yes, we develop high-performance mobile applications for both iOS and Android using modern cross-platform frameworks. This ensures a seamless native experience while maintaining cost-efficiency and faster time-to-market."
+  },
+  {
+    question: "Do you help startups with MVP development?",
+    answer: "We specialize in helping startups go from idea to launch. Our MVP (Minimum Viable Product) development service focuses on building the core features you need to validate your market quickly, with scalable architecture to grow as you succeed."
+  },
+  {
+    question: "How do you approach Conversion Rate Optimization (CRO)?",
+    answer: "Our CRO strategies are data-driven and AI-enhanced. We analyze user behavior, optimize UI/UX flows, and implement smart features like AI-driven checkout assistance to reduce friction and maximize the percentage of visitors who become customers."
+  },
+  {
+    question: "What is AIO (Artificial Intelligence Optimization)?",
+    answer: "AIO is the new standard for digital visibility, going beyond traditional SEO. It involves optimizing your content and digital presence to be recognized and recommended by AI search engines and answer engines (like ChatGPT, Perplexity, and Gemini), ensuring you stay relevant in the AI era."
   },
   {
     question: "How long does a typical project take?",
-    answer: "Project timelines vary based on requirements, but most projects are completed within 2-6 weeks."
+    answer: "Timelines vary by complexity. A standard business website might take 2-4 weeks, while a complex AI automation system or custom mobile app could take 8-12 weeks. We provide detailed roadmaps and regular updates throughout the process."
   },
   {
-    question: "Can you redesign my existing website?",
-    answer: "Absolutely! We offer website redesign services to improve both aesthetics and functionality."
+    question: "Do you provide support after the project is finished?",
+    answer: "Yes, we offer flexible ongoing support and maintenance packages. Whether you need technical updates, content changes, or monitoring of your AI agents, we ensure your digital assets continue to perform optimally long after launch."
   },
   {
-    question: "Is SEO included in your web development services?",
-    answer: "Yes, we follow SEO best practices to ensure your website is optimized for search engines."
-  },
-  {
-    question: "Do you provide ongoing support after launch?",
-    answer: "We offer ongoing maintenance and support packages to keep your website running smoothly."
+    question: "How do I get started with Devstract?",
+    answer: "Simply visit our 'Contact Us' page or use the form below. We'll schedule a free consultation to discuss your needs, assess your current digital state, and propose a tailored solution to help you achieve your business goals."
   }
 ];
 
@@ -44,7 +72,7 @@ export default function FAQPage() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
     <>
-      <Navigation/>
+      <Navigation />
       <main className="flex flex-col min-h-[70vh] bg-transparent dark:bg-transparent">
         <section className="flex flex-col items-center justify-center py-6 px-2 sm:py-8 sm:px-4">
           <h1 className="text-5xl md:text-6xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
@@ -67,7 +95,7 @@ export default function FAQPage() {
                     aria-hidden="true"
                   >
                     <svg width="22" height="22" className="sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                 </button>
