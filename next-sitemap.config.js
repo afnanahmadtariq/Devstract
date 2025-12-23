@@ -4,4 +4,5 @@ module.exports = {
   sitemapSize: 5000, // optional: split large sitemaps
   changefreq: 'daily',
   priority: 1,
+  outDir: 'out',
 };
