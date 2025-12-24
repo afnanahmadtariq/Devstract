@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Syne } from 'next/font/google'
 import './globals.css'
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
 
 const syne = Syne({
   subsets: ['latin'],
@@ -81,8 +79,6 @@ export default function RootLayout({
       <body className={`${syne.variable} font-sans`}>
         {children}
       </body>
-      <SpeedInsights />
-      <Analytics />
     </html>
   )
 }
