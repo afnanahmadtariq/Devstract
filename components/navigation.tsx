@@ -5,11 +5,31 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { ChevronDown } from "lucide-react"
 
 interface NavigationProps {
   mainpage?: boolean;
   disableContact?: boolean;
 }
+
+const topics = [
+  { label: "AI & Automation", slug: "ai-automation", description: "Smart tools & workflows for the future" },
+  { label: "Startup & MVP", slug: "startup-mvp", description: "Build fast, validate faster" },
+  { label: "Digital Growth", slug: "digital-growth", description: "Scale your reach and revenue" },
+  { label: "Technical Deep-Dive", slug: "technical-deep-dive", description: "Master complex systems & architecture" },
+  { label: "Mobile & Apps", slug: "mobile-apps", description: "Native & cross-platform guides" },
+  { label: "Developer Insights", slug: "developer-insights", description: "Productivity tips & best practices" }
+] as const
+
+const topicLinks = [
+  { label: "All Articles", href: "/blog/all", description: "" },
+  ...topics.map((topic) => ({
+    label: topic.label,
+    href: `/blog/${topic.slug}`,
+    description: topic.description
+  }))
+]
 
 export default function Navigation({ mainpage = false, disableContact = false }: NavigationProps) {
   const [activeMenuIdx, setActiveMenuIdx] = useState<number | null>(null)
@@ -158,6 +178,76 @@ export default function Navigation({ mainpage = false, disableContact = false }:
               <Link href="/" className="text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base">
                 Home
               </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    id="topics-dropdown-trigger"
+                    type="button"
+                    className="flex items-center gap-1 text-black/50 hover:text-black font-normal transition-colors text-base focus-visible:outline-none"
+                  >
+                    Topics
+                    <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  alignOffset={-200}
+                  className="w-full max-w-[640px] bg-white/95 rounded-3xl backdrop-blur-sm shadow-xl border border-black/10 dark:border-white/10 dark:bg-[#1e1e33]/95"
+                >
+                  <div className="flex flex-col md:flex-row gap-4 p-4 min-h-[280px]">
+                    <div className="grid grid-cols-2 gap-3 flex-1">
+                      {topicLinks.slice(1).map((topic) => (
+                        <DropdownMenuItem
+                          key={topic.label}
+                          asChild
+                          className="p-0"
+                        >
+                          <Link
+                            href={topic.href}
+                            prefetch={false}
+                            className="group relative flex h-full border border-black/10 bg-white/80 text-left transition-all hover:border-black/20 hover:shadow-lg cursor-pointer overflow-hidden"
+                          >
+                            {/* Text content on the left */}
+                            <div className="flex flex-col justify-between p-4 flex-1 pr-8">
+                              <span className="text-sm font-medium text-black">{topic.label}</span>
+                              <span className="mt-2 text-xs text-black/60">{topic.description}</span>
+                            </div>
+
+                            {/* Arrow that slides in from right on hover */}
+                            <div className="absolute right-0 top-0 bottom-0 w-12 bg-indigo-400 dark:bg-white/10 flex items-center justify-center transform translate-x-full opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 rounded-r-[1rem]">
+                              <Image
+                                src="/media/small_arrow.svg"
+                                alt="arrow"
+                                width={16}
+                                height={16}
+                                style={{ transform: "rotate(-45deg)" }}
+                              />
+                            </div>
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                    <div className="flex md:w-[180px]">
+                      <DropdownMenuItem asChild className="p-0 flex-1 flex">
+                        <Link
+                          href={topicLinks[0].href}
+                          prefetch={false}
+                          className="flex h-full flex-col cursor-pointer justify-between gradient-card transition-[background-position,transform] duration-500 ease-in-out focus-visible:outline-none px-5 py-4 text-left text-white"
+                        >
+                          <div>
+                            <span className="text-sm font-semibold text-white tracking-wide">All Articles</span>
+                            <p className="mt-2 text-xs text-white/80">Explore every story and resource in one place.</p>
+                          </div>
+                          <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium text-white ">
+                            Browse everything
+                            <Image src="/media/small_arrow.svg" alt="arrow" width={16} height={16} style={{ transform: "rotate(-45deg)", filter: "brightness(0) invert(1)" }} />
+                          </span>
+                        </Link>
+                      </DropdownMenuItem>
+                    </div>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
                 Services
               </Link>
@@ -193,7 +283,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             </span>
           ) : (
             <Link href="/contact-us" passHref legacyBehavior>
-              <Button className={`text-white font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay px-6 py-[26px]' : 'contact-button px-6'}`}>
+              <Button className={`text-white font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay px-6 py-[26px]' : 'gradient-card px-6 py-[24px]'}`}>
                 {mainpage && (
                   <Image
                     src="/media/phone.svg"
@@ -205,6 +295,17 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                   />
                 )}
                 Contact Us
+                {!mainpage && (
+                  <Image
+                    src="/media/small_arrow.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                    aria-hidden="true"
+                    className="filter brightness-0 invert w-4 h-4"
+                    style={{ transform: "rotate(-45deg)" }}
+                  />
+                )}
               </Button>
             </Link>
           )}
@@ -228,6 +329,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             <nav className="flex flex-col gap-6 flex-1">
               {[
                 { href: "/", label: "Home" },
+                { href: "/blog/all", label: "Topics" },
                 { href: "/#services", label: "Services" },
                 { href: "/about-us", label: "About Us" },
                 { href: "/faqs", label: "FAQs" },

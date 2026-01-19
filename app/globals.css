@@ -214,14 +214,6 @@
     display: none;
   }
 
-  .contact-button {
-    background-color: #7567FE !important;
-  }
-
-  .contact-button:hover {
-    background-color: #6355E5 !important;
-  }
-
   .animate-slide-in-right {
     animation: slide-in-right 0.3s cubic-bezier(0.4,0,0.2,1);
   }
@@ -349,11 +341,6 @@
     *:hover {
       background-color: inherit !important;
       color: inherit !important;
-    }
-
-    /* Disable specific hover effects from custom classes */
-    .contact-button:hover {
-      background-color: #7567FE !important;
     }
 
     .underline-animation:hover::after {
