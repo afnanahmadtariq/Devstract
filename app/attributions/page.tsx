@@ -37,6 +37,42 @@ export default function AttributionsPage() {
         // Add more icon attributions as needed
       ],
     },
+    {
+      category: "Illustrations & Icons",
+      items: [
+        {
+          source: "Storyset",
+          description: "Work illustrations",
+          link: "https://storyset.com/work",
+          license: "Storyset License",
+        },
+        {
+          source: "Storyset",
+          description: "Technology illustrations",
+          link: "https://storyset.com/technology",
+          license: "Storyset License",
+        },
+        {
+          source: "Storyset",
+          description: "Online illustrations",
+          link: "https://storyset.com/online",
+          license: "Storyset License",
+        },
+        {
+          source: "Storyset",
+          description: "Business illustrations",
+          link: "https://storyset.com/business",
+          license: "Storyset License",
+        },
+        {
+          source: "Freepik",
+          description: "Teamwork concept illustration by pikisuperstar",
+          link: "https://www.freepik.com/free-vector/teamwork-concept-background-3d_6144599.htm#fromView=image_search_similar&page=1&position=21&uuid=1f70ea6c-d168-4e46-8d21-f4f234bdefc3&query=integration",
+          license: "Freepik License",
+        },
+        // Add more icon attributions as needed
+      ],
+    },
   ]
 
   return (
