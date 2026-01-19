@@ -28,7 +28,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   const formattedDate = formatDate(post.publishedAt, "short")
 
   return (
-    <Link href={`/${post.categorySlug}/${post.slug}`} className="block h-full" aria-label={`Read ${post.title}`}>
+    <Link href={`/blog/${post.categorySlug}/${post.slug}`} className="block h-full" aria-label={`Read ${post.title}`}>
       <Card className="group h-full flex flex-col rounded-[28px] border-2 border-[#EBEBEB] bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
         <CardContent className="p-0 flex-1 flex flex-col">
           <div className="relative h-56 overflow-hidden rounded-t-[26px] flex-shrink-0">

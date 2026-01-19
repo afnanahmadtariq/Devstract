@@ -85,7 +85,7 @@ export default function FeaturedArticlesSlider({ layout = 'default', className, 
                     </p>
                   </div>
                   <Link
-                    href={`/${article.categorySlug}/${article.slug}`}
+                    href={`/blog/${article.categorySlug}/${article.slug}`}
                     className="max-w-fit group/btn inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-white/10 px-1 py-1 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/15"
                     aria-label={`Read more about ${article.title}`}
                   >

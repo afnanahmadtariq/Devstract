@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       title: "Blog | Devstract - Tech Insights & Development Guides",
       description: "Explore in-depth articles on AI, web development, startups, and modern tech. Expert insights for founders, developers, and tech leaders.",
       alternates: {
-        canonical: "https://blog.devstract.site/all/",
+        canonical: "https://devstract.site/blog/all/",
       },
       openGraph: {
         title: "Blog | Devstract",
         description: "Explore in-depth articles on AI, web development, startups, and modern tech.",
-        url: "https://blog.devstract.site/all/",
+        url: "https://devstract.site/blog/all/",
         type: 'website',
       }
     }
@@ -53,12 +53,12 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     title: `${categoryInfo.name} Articles | Devstract Blog`,
     description: `Explore our ${categoryInfo.name} articles. In-depth guides, tutorials, and insights for developers and tech leaders.`,
     alternates: {
-      canonical: `https://blog.devstract.site/${category}/`,
+      canonical: `https://devstract.site/blog/${category}/`,
     },
     openGraph: {
       title: `${categoryInfo.name} Articles | Devstract Blog`,
       description: `Explore our ${categoryInfo.name} articles. In-depth guides, tutorials, and insights.`,
-      url: `https://blog.devstract.site/${category}/`,
+      url: `https://devstract.site/blog/${category}/`,
       type: 'website',
     }
   }

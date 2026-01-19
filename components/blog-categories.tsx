@@ -67,7 +67,7 @@ export default async function BlogCategories() {
           {categoriesWithCounts.map((category) => (
             <Link
               key={category.slug}
-              href={`/${category.slug.toLowerCase()}`}
+              href={`/blog/${category.slug.toLowerCase()}`}
               aria-label={`Browse ${category.name} articles`}
             >
               <Card className="group flex h-full flex-col overflow-hidden rounded-[20px] border-2 border-[#EBEBEB] bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">

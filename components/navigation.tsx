@@ -58,7 +58,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
     setTimeout(() => {
       setMenuOpen(false)
       setMenuClosing(false)
-    }, 300) 
+    }, 300)
   }
 
   useEffect(() => {
@@ -105,7 +105,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                   height={32}
                   className={
                     !mainpage
-                      ? "cursor-pointer" 
+                      ? "cursor-pointer"
                       : "cursor-pointer filter brightness-0 invert"
                   }
                 />
@@ -133,7 +133,7 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                   { href: '/#services', label: 'Services' },
                   { href: '/about-us', label: 'About Us' },
                   { href: '/faqs', label: 'FAQs' },
-                  { href: 'https://blog.devstract.site/', label: 'Blog' },
+                  { href: '/blog', label: 'Blog' },
                 ].map((item, idx) => (
                   <Link
                     key={item.label}
@@ -143,11 +143,10 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                     }}
                     onMouseEnter={() => setCenterActiveIdx(idx)}
                     onFocus={() => setCenterActiveIdx(idx)}
-                    target={item.label === 'Blog' ? '_blank' : undefined}
-                    rel={item.label === 'Blog' ? 'noopener noreferrer' : undefined}
-                    className={`relative px-4 lg:px-7 py-[6px] rounded-full font-normal transition-colors text-base whitespace-nowrap ${
-                      centerActiveIdx === idx ? 'text-black' : 'text-white'
-                    }`}
+                    target={undefined}
+                    rel={undefined}
+                    className={`relative px-4 lg:px-7 py-[6px] rounded-full font-normal transition-colors text-base whitespace-nowrap ${centerActiveIdx === idx ? 'text-black' : 'text-white'
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -155,24 +154,24 @@ export default function Navigation({ mainpage = false, disableContact = false }:
               </div>
             </div>
           ) : (
-              <div className="hidden md:flex items-center space-x-8">
-                <Link href="/" className="text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base">
-                  Home
-                </Link>
-                <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  Services
-                </Link>
-                <Link href="/about-us" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  About Us
-                </Link>
-                <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  FAQs
-                </Link>
-                <Link href="https://blog.devstract.site/" target="_blank" rel="noopener noreferrer" className="text-black/50 hover:text-black font-normal transition-colors text-base">
-                  Blog
-                </Link>
-              </div>
-            )}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/" className="text-black/50 dark:text-white hover:text-black font-normal transition-colors text-base">
+                Home
+              </Link>
+              <Link href="/#services" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                Services
+              </Link>
+              <Link href="/about-us" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                About Us
+              </Link>
+              <Link href="/faqs" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                FAQs
+              </Link>
+              <Link href="/blog" className="text-black/50 hover:text-black font-normal transition-colors text-base">
+                Blog
+              </Link>
+            </div>
+          )}
 
           {/* Mobile Menu Button */}
           <button
@@ -181,9 +180,9 @@ export default function Navigation({ mainpage = false, disableContact = false }:
             aria-label="Open menu"
           >
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="5" y1="7" x2="19" y2="7" stroke="currentColor" strokeLinecap="round"/>
-              <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeLinecap="round"/>
-              <line x1="5" y1="17" x2="19" y2="17" stroke="currentColor" strokeLinecap="round"/>
+              <line x1="5" y1="7" x2="19" y2="7" stroke="currentColor" strokeLinecap="round" />
+              <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeLinecap="round" />
+              <line x1="5" y1="17" x2="19" y2="17" stroke="currentColor" strokeLinecap="round" />
             </svg>
           </button>
 
@@ -233,15 +232,15 @@ export default function Navigation({ mainpage = false, disableContact = false }:
                 { href: "/about-us", label: "About Us" },
                 { href: "/faqs", label: "FAQs" },
                 { href: "/contact-us", label: "Contact Us" },
-                { href: "https://blog.devstract.site/", label: "Blog" }
+                { href: "/blog", label: "Blog" }
               ].map((item, idx) => {
                 const isActive = activeMenuIdx === idx;
                 return (
                   <div key={item.label} className="relative group">
                     <Link
                       href={item.href}
-                      target={item.label === 'Blog' ? '_blank' : undefined}
-                      rel={item.label === 'Blog' ? 'noopener noreferrer' : undefined}
+                      target={undefined}
+                      rel={undefined}
                       className={`flex items-center justify-between w-full text-left text-2xl font-normal py-2 ${isActive ? '' : 'text-black/50'}`}
                       style={isActive ? {
                         background: "var(--primary-gradient)",

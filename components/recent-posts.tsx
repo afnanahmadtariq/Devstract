@@ -33,7 +33,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {recentPosts.map((post) => (
-            <Link key={post.id} href={`/${post.categorySlug}/${post.slug}`} className="block" aria-label={`Read ${post.title}`}>
+            <Link key={post.id} href={`/blog/${post.categorySlug}/${post.slug}`} className="block" aria-label={`Read ${post.title}`}>
               <Card className="group hover:shadow-2xl transition-all duration-500 border-2 border-[#EBEBEB] hover:-translate-y-2 rounded-[20px] bg-white overflow-hidden cursor-pointer">
                 {/* Image Section */}
                 <div className="relative h-48 overflow-hidden">
@@ -100,7 +100,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 
         <div className="text-center mt-12">
           <Link
-            href="/all"
+            href="/blog/all"
             className="group flex items-center gap-2 p-1 border-2 hover:border-indigo-600 rounded-full text-base font-medium bg-transparent transition-colors min-w-[160px] mx-auto cursor-pointer w-fit"
           >
             <span className="px-4 py-3">

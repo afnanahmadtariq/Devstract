@@ -31,7 +31,7 @@ export default function RelatedPosts({ currentPostId, allPosts }: RelatedPostsPr
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedPosts.map((post) => (
-              <Link key={post.id} href={`/${post.categorySlug}/${post.slug}`}>
+              <Link key={post.id} href={`/blog/${post.categorySlug}/${post.slug}`}>
                 <Card className="group hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-indigo-200 hover:-translate-y-2 rounded-xl bg-white overflow-hidden min-h-[400px] flex flex-col">
                   {/* Image Section */}
                   <div className="relative h-32 overflow-hidden">
@@ -44,22 +44,22 @@ export default function RelatedPosts({ currentPostId, allPosts }: RelatedPostsPr
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  
+
                   <CardContent className="p-5 flex flex-col h-full">
                     <div className="mb-3">
                       <Badge className="bg-indigo-100 text-indigo-600 hover:bg-indigo-200 border border-indigo-200 text-xs font-medium">
                         {post.category}
                       </Badge>
                     </div>
-                    
+
                     <h3 className="text-2xl font-bold mb-3 group-hover:text-indigo-600 transition-colors leading-tight line-clamp-2">
                       {post.title}
                     </h3>
-                    
+
                     <div className="text-gray-600 mb-4 text-base leading-relaxed flex-grow line-clamp-3">
                       {post.excerpt}
                     </div>
-                    
+
                     <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
                       <div className="flex items-center gap-1 min-w-0 flex-1">
                         <User className="h-3 w-3 flex-shrink-0" />

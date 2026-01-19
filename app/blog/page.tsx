@@ -66,7 +66,7 @@ export default async function BlogHome() {
 
               <div className="mt-8 flex flex-wrap items-center gap-4 justify-center lg:justify-start">
                 <Link
-                  href="/all"
+                  href="/blog/all"
                   className="group flex items-center gap-2 rounded-full border-2 border-indigo-600 bg-white px-2 py-1 text-sm font-semibold text-indigo-600 shadow-[0_25px_55px_-25px_rgba(79,70,229,0.65)] transition-all duration-300 hover:shadow-[0_30px_70px_-28px_rgba(79,70,229,0.75)] dark:bg-indigo-500/20 dark:text-indigo-100"
                 >
                   <span className="px-6 py-2">Explore articles</span>
@@ -82,7 +82,7 @@ export default async function BlogHome() {
                   </span>
                 </Link>
                 <Link
-                  href="#newsletter"
+                  href="/blog#newsletter"
                   className="group flex items-center gap-2 rounded-full border-2 border-[#EBEBEB] bg-white/90 px-2 py-1 text-sm font-semibold text-gray-700 shadow-sm backdrop-blur transition-all duration-300 hover:border-indigo-500 hover:text-indigo-600"
                 >
                   <span className="px-6 py-2">Join the newsletter</span>

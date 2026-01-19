@@ -50,11 +50,11 @@ export default function BlogListingContent({ allPosts, initialCategory }: BlogLi
     const handlePopState = () => {
       // When user clicks back/forward, sync category from URL
       const path = window.location.pathname
-      if (path === '/all') {
+      if (path === '/blog/all') {
         setSelectedCategory("All")
       } else {
         // Find matching category from path
-        const slug = path.replace('/', '')
+        const slug = path.replace('/blog/', '')
         const matchedCategory = categories.find(cat => categoryToSlug(cat) === slug)
         if (matchedCategory) {
           setSelectedCategory(matchedCategory)
@@ -76,7 +76,7 @@ export default function BlogListingContent({ allPosts, initialCategory }: BlogLi
     setCurrentPage(1)
 
     // Update URL without full navigation (shallow update)
-    const newPath = category === "All" ? "/all" : `/${categoryToSlug(category)}`
+    const newPath = category === "All" ? "/blog/all" : `/blog/${categoryToSlug(category)}`
     window.history.pushState(null, '', newPath)
   }
 
@@ -122,7 +122,7 @@ export default function BlogListingContent({ allPosts, initialCategory }: BlogLi
                   setSelectedCategory("All")
                   setSearchQuery("")
                   setCurrentPage(1)
-                  window.history.pushState(null, '', '/all')
+                  window.history.pushState(null, '', '/blog/all')
                 }}
                 className="self-start inline-flex items-center gap-2 rounded-full border-2 border-indigo-600 bg-white px-1 py-1 pl-4 text-sm font-semibold text-indigo-600 transition-all duration-300 hover:bg-indigo-50"
               >
@@ -190,7 +190,7 @@ export default function BlogListingContent({ allPosts, initialCategory }: BlogLi
                   setSelectedCategory("All")
                   setSearchQuery("")
                   setCurrentPage(1)
-                  window.history.pushState(null, '', '/all')
+                  window.history.pushState(null, '', '/blog/all')
                 }}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-indigo-600 bg-white px-1 py-1 pl-5 text-sm font-semibold text-indigo-600 transition-all duration-300 hover:bg-indigo-50"
               >
@@ -209,7 +209,7 @@ export default function BlogListingContent({ allPosts, initialCategory }: BlogLi
                 </span>
               </button>
               <Link
-                href="/#newsletter"
+                href="/blog#newsletter"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#EBEBEB] px-6 py-2 text-sm font-semibold text-gray-600 transition-colors hover:border-indigo-500 hover:text-indigo-600"
               >
                 Get fresh articles

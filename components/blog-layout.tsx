@@ -66,7 +66,7 @@ export default function BlogLayout({ title, subtitle, content, category, excerpt
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
           <span className="text-gray-300">/</span>
-          <a href="/all" className="hover:text-blue-600 transition-colors">Blog</a>
+          <a href="/blog/all" className="hover:text-blue-600 transition-colors">Blog</a>
           <span className="text-gray-300">/</span>
           <Badge variant="secondary" className="bg-blue-100 text-blue-600 hover:bg-blue-200">
             {category}
