@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { Badge } from "@/components/ui/badge"
 import { User, Calendar, Clock, Share2 } from 'lucide-react';
 import { JSX } from 'react';
@@ -64,13 +65,23 @@ export default function BlogLayout({ title, subtitle, content, category, excerpt
       <header className="flex flex-col items-center justify-center py-8 px-4">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
+          <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
           <span className="text-gray-300">/</span>
-          <a href="/blog/all" className="hover:text-blue-600 transition-colors">Blog</a>
+          <Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
           <span className="text-gray-300">/</span>
-          <Badge variant="secondary" className="bg-blue-100 text-blue-600 hover:bg-blue-200">
-            {category}
-          </Badge>
+          <Link
+            href={`/blog/${category
+              .toLowerCase()
+              .replace(/&/g, '')
+              .replace(/\s+/g, '-')
+              .replace(/--+/g, '-')
+              .replace(/^-|-$/g, '')}`}
+            className="hover:opacity-80 transition-opacity"
+          >
+            <Badge variant="secondary" className="bg-blue-100 text-blue-600 hover:bg-blue-200 cursor-pointer">
+              {category}
+            </Badge>
+          </Link>
         </nav>
 
         {/* Main Title */}
