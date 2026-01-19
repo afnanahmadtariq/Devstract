@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
-  const postUrl = `https://devstract.site/blog/${category}/${slug}/`
+  const postUrl = `https://www.devstract.site/blog/${category}/${slug}/`
 
   // Construct base open graph config
   const openGraphConfig: any = {
@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  const postUrl = `https://devstract.site/blog/${category}/${slug}/`
+  const postUrl = `https://www.devstract.site/blog/${category}/${slug}/`
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: 'Devstract',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://devstract.site/logo.png',
+        url: 'https://www.devstract.site/logo.png',
       },
     },
     mainEntityOfPage: {
