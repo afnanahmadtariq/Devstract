@@ -322,6 +322,27 @@
     transform: scaleX(1);
   }
 
+  /* Gradient card with hover animation */
+  .gradient-card {
+    background: linear-gradient(135deg, #2727ff 0%, #7c4dff 45%, #ff6584 100%);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    transition: background-position 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .gradient-card:hover,
+  .gradient-card:focus-visible {
+    background-position: 100% 50%;
+  }
+
+  /* Hide scrollbar since we're using custom draggable indicator */
+  .custom-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Webkit */
+  }
+
   /* Disable hover effects on devices that don't support hover (e.g., touch screens) */
   @media (hover: none) {
     /* Disable all hover background and color changes */

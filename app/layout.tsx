@@ -9,6 +9,7 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.devstract.site'),
   title: {
     default: "Devstract",
     template: "%s | Devstract",
