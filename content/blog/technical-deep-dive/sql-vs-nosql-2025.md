@@ -24,7 +24,7 @@ bottom_cta:
   title: "Need High-Performance Backends?"
   description: "From microservices to high-concurrency systems, we build the robust engines that power your applications."
   button_text: "Build Your Backend"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # SQL vs NoSQL in 2025: The Definitive Database Guide

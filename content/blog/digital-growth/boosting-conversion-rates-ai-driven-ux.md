@@ -21,7 +21,7 @@ bottom_cta:
   title: "Transform Your User Experience"
   description: "Devstract builds high-converting, AI-enhanced interfaces that turn visitors into loyal customers."
   button_text: "Upgrade Your UX"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Boosting Conversion Rates with AI-Driven UX Design

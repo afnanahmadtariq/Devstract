@@ -21,7 +21,7 @@ bottom_cta:
   title: "Turn Ideas into Income"
   description: "Have a unique dataset or workflow? We help you package it into a premium GPT that generates revenue."
   button_text: "Partner with Us"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Monetizing Your Expertise: Revenue Sharing in the GPT Store

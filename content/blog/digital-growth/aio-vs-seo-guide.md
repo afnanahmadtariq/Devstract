@@ -14,7 +14,7 @@ bottom_cta:
   title: "Don't Disappear from the Web"
   description: "Traditional SEO is not enough. We implement AIO strategies to ensure your business exists in the age of AI answers."
   button_text: "Future-Proof Your Brand"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The End of SEO? Why AIO (Artificial Intelligence Optimization) is the New Standard

@@ -21,7 +21,7 @@ bottom_cta:
   title: "Secure Your Internal Data"
   description: "We build private, SOC2-compliant GPTs for internal teams. Your data stays yours; the efficiency becomes ours to build."
   button_text: "Build an Internal Tool"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Top 7 Use Cases for Internal Company GPTs

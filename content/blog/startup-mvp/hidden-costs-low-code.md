@@ -24,7 +24,7 @@ bottom_cta:
   title: "Trapped in Low-Code? We Can Help."
   description: "Migrate from platform lock-in to custom, scalable solutions. We rescue companies from the 'Low-Code Cliff' with modern tech stacks."
   button_text: "Get a Free Assessment"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Hidden Costs of Low-Code Platforms for Enterprise

@@ -23,7 +23,7 @@ bottom_cta:
   title: "Work with Confident Engineers?"
   description: "Our team has been there, grown through it, and now delivers exceptional work. Lets tackle your most challenging projects together."
   button_text: "Start Your Project"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Overcoming Imposter Syndrome: The Developer's Silent Epidemic (2025)

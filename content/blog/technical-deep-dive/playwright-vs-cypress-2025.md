@@ -25,7 +25,7 @@ bottom_cta:
   title: "Streamline Your Deployment?"
   description: "Automate your pipelines and improve developer experience with our robust DevOps and Platform Engineering solutions."
   button_text: "Improve Efficiency"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Playwright vs Cypress: The End-to-End Testing Showdown (2025)

@@ -23,7 +23,7 @@ bottom_cta:
   title: "Transform Your Digital Presence?"
   description: "Drive engagement and conversions with consistent, professional UX. We design and implement scalable UI systems that grow with your business."
   button_text: "Optimize Your UX"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Design Systems 101: Building Scalable UI Architecture (2025)

@@ -23,7 +23,7 @@ bottom_cta:
   title: "Choosing Your Tech Stack?"
   description: "Don't guess—let us help you pick the right framework for your MVP. We build fast, scalable web applications with the latest tools."
   button_text: "Get Expert Guidance"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Astro vs Next.js: The 2025 Framework Showdown

@@ -23,7 +23,7 @@ bottom_cta:
   title: "Building Your First Product?"
   description: "Start with a solid foundation. We architect modular systems that scale from MVP to enterprise without the complexity tax."
   button_text: "Get Architecture Advice"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Death of Microservices: The Rise of the Modular Monolith (2025)

@@ -21,7 +21,7 @@ bottom_cta:
   title: "Why Choose? Do Both."
   description: "We help modern brands build a unified commerce strategy that dominates both the App Store and the AI Store."
   button_text: "Build Your Omnichannel Strategy"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # ChatGPT Merchants vs. Shopify Shop App: Which Wins?

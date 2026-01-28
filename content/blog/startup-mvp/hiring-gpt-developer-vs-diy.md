@@ -21,7 +21,7 @@ bottom_cta:
   title: "Get What You Pay For"
   description: "Don't risk your brand reputation on a hobbyist project. Hire professional engineers to build robust, scalable AI agents."
   button_text: "Get a Quote"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Hiring a GPT Developer vs. DIY: What You Get for Your Money

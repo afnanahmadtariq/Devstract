@@ -25,7 +25,7 @@ bottom_cta:
   title: "Need Scalable Architecture?"
   description: "Future-proof your software. We design and implement robust, scalable architectures that grow with your business."
   button_text: "Consult an Architect"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Rise of Local-First Software: A Paradigm Shift in Architecture (2025)

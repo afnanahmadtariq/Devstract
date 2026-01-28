@@ -24,7 +24,7 @@ bottom_cta:
   title: "Have a Vision?"
   description: "Let's turn your ideas into reality. Our team of full-stack experts is ready to tackle your most challenging projects."
   button_text: "Start Your Project"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # WhatsApp Business Automation: The Complete Integration Guide (2025)

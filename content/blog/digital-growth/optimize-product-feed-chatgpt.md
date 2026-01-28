@@ -21,7 +21,7 @@ bottom_cta:
   title: "Audit Your AI Readiness"
   description: "Is your product data messy? We clean, structure, and optimize your feeds to ensure maximum visibility in ChatGPT."
   button_text: "Get a Free Data Audit"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # How to Optimize Your Product Feed for ChatGPT Recommendations

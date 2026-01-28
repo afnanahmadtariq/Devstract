@@ -21,7 +21,7 @@ bottom_cta:
   title: "Automate the Loop"
   description: "Ready to step away from the keyboard? We build autonomous agents that monitor, plan, and execute tasks independently."
   button_text: "Build an Agent"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # From Chatbot to Agent: Building Autonomous Workflows in the Store

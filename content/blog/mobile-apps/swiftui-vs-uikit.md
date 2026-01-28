@@ -23,7 +23,7 @@ bottom_cta:
   title: "Building a Mobile App?"
   description: "Native or Cross-platform? We build high-performance mobile apps that users love on iOS and Android."
   button_text: "Launch Your App"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # SwiftUI vs UIKit: The Transition Guide for iOS Developers (2025)

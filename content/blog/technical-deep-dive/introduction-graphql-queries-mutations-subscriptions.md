@@ -23,7 +23,7 @@ bottom_cta:
   title: "Modernize Your API?"
   description: "Leverage the flexibility of GraphQL. We design efficient schemas and performant resolvers for your data layer."
   button_text: "Upgrade Your API"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # GraphQL Introduction: A Comprehensive Guide to Queries, Mutations, and Subscriptions (2025)

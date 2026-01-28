@@ -23,7 +23,7 @@ bottom_cta:
   title: "Ready to Launch Your MVP?"
   description: "From idea to launch in 4 weeks. We're your technical co-founder, building scalable MVPs with AI, automation, and modern frameworks."
   button_text: "Launch Your MVP"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Ultimate MVP Guide for 2025: Building Fast with AI & Automation

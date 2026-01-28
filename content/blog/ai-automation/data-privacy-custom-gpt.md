@@ -14,7 +14,7 @@ bottom_cta:
   title: "Audit Your AI Security"
   description: "Unsure if your current AI setup is secure? Our security team conducts full penetration testing and compliance audits for Custom GPTs."
   button_text: "Verify Your Security"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Data Privacy in the AI Era: Ensuring Your Custom GPT is Compliant

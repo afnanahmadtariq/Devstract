@@ -14,7 +14,7 @@ bottom_cta:
   title: "Build the Future Now"
   description: "Don't wait for 2026. We are building next-generation AI agents today. Be the first in your industry to adopt."
   button_text: "Innovate with Us"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Future of the GPT Store (2026 Prediction)

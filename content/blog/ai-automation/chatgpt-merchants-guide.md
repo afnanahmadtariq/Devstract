@@ -21,7 +21,7 @@ bottom_cta:
   title: "Launch Your Store on ChatGPT"
   description: "We help brands integrate with the new ChatGPT Merchants API for seamless AI checkout. Get your products recommended by the world's smartest AI."
   button_text: "Integrate Your Store"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # ChatGPT Merchants: The New Way to Sell Directly in AI Context
@@ -72,4 +72,4 @@ Are you ready to sell where your customers are thinking?
 
 ---
 
-_Ready to integrate? [Contact our AI Commerce team](https://www.devstract.site/contact-us) to get started._
+_Ready to integrate? [Contact our AI Commerce team](/contact-us) to get started._

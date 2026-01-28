@@ -21,7 +21,7 @@ bottom_cta:
   title: "Building a SaaS Product?"
   description: "From data-heavy dashboards to marketing sites, we help you pick the right stack and build it fast. Let's launch your product."
   button_text: "Start Your Project"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Next.js vs Remix: The Full Stack Framework War (2025)

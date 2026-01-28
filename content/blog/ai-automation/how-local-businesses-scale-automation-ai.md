@@ -21,7 +21,7 @@ bottom_cta:
   title: "Ready to Automate Your Business?"
   description: "Devstract helps local businesses scale with smart automation and AI tools. Save time and grow your revenue."
   button_text: "Get Started"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # How Local Businesses Can Scale with Automation and AI

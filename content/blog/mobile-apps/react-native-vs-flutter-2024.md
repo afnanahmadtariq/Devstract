@@ -25,7 +25,7 @@ bottom_cta:
   title: "Launch Your Mobile App?"
   description: "Whether React Native or Flutter, we build mobile apps that delight users. From concept to App Store, were your mobile development partner."
   button_text: "Launch Your App"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # React Native vs Flutter: The 2025 Cross-Platform Benchmark

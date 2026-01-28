@@ -21,7 +21,7 @@ bottom_cta:
   title: "Build the Future of Mobile"
   description: "Devstract creates stunning, high-performance mobile apps. Let's build something award-winning together."
   button_text: "Start Your App"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Mobile App Development Trends to Watch in 2025

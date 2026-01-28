@@ -23,7 +23,7 @@ bottom_cta:
   title: "Elevate Your User Experience?"
   description: "Great software needs great design. We implement intuitive, accessible, and engaging user interfaces."
   button_text: "Design with Us"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Web Accessibility (A11y) Masterclass: Building for Every User

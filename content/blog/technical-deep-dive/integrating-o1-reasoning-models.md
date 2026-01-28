@@ -21,7 +21,7 @@ bottom_cta:
   title: "Upgrade to Heavy Reasoning"
   description: "Does your AI struggle with complex math or multi-step logic? integrating the o1 model can solve that."
   button_text: "Upgrade Your AI Model"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Integrating OpenAI's 'o1' Reasoning Models into Your Custom GPT

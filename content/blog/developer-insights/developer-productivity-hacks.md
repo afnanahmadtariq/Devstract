@@ -22,7 +22,7 @@ bottom_cta:
   title: "Scale Your Engineering Team"
   description: "Devstract provides high-performance engineering partners to help your team ship faster without burnout."
   button_text: "Hire Developers"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Developer Productivity Hacks: Achieving Flow State in 2025

@@ -26,7 +26,7 @@ bottom_cta:
   title: "Boost Your Team's Productivity?"
   description: "We help engineering teams optimize their workflows, tooling, and practices for maximum efficiency."
   button_text: "Optimize Workflow"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Ultimate Terminal Workflow Guide: Neovim, Tmux, and Zsh (2025)

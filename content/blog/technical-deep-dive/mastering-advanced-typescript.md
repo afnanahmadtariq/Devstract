@@ -21,7 +21,7 @@ bottom_cta:
   title: "Need Type-Safe Code?"
   description: "We bring scalability and maintainability to your JavaScript codebases with expert TypeScript engineering."
   button_text: "Improve Code Quality"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Mastering Advanced TypeScript: A Deep Dive for Senior Developers (2025)

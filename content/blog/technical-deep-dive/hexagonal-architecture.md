@@ -23,7 +23,7 @@ bottom_cta:
   title: "Need Scalable Architecture?"
   description: "Future-proof your software. We design and implement robust, scalable architectures that grow with your business."
   button_text: "Consult an Architect"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Hexagonal Architecture (Ports and Adapters): Building Testable Systems (2025)

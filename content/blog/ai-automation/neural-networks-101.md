@@ -23,7 +23,7 @@ bottom_cta:
   title: "Ready to Build Your Own AI Solutions?"
   description: "Leverage the power of LLMs and autonomous agents. We specialize in building custom AI workflows that drive real business value."
   button_text: "Start Your AI Project"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Neural Networks 101: A Mathematical Deep Dive for Developers (2025)

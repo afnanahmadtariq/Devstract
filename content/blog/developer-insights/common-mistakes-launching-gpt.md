@@ -21,7 +21,7 @@ bottom_cta:
   title: "Launch with Confidence"
   description: "Skip the rookie mistakes. Launch a polished, secure, and engaging GPT on day one with our expert guidance."
   button_text: "Consult an Expert"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Common Mistakes to Avoid When Launching Your First GPT

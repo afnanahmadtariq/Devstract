@@ -23,7 +23,7 @@ bottom_cta:
   title: "Boost Engagement & Conversions?"
   description: "Small details make big differences. We create delightful micro-interactions that keep users engaged and drive conversions."
   button_text: "Design with Us"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Power of Micro-Interactions: Designing for Delight

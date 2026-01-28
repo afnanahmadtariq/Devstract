@@ -21,7 +21,7 @@ bottom_cta:
   title: "Optimize Your Spend"
   description: "Are your API bills exploding? We audit and optimize AI architecture to reduce costs by up to 40%."
   button_text: "Get a Cost Audit"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Hidden Costs of Managing a Top-Tier GPT

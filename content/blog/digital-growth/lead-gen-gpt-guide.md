@@ -21,7 +21,7 @@ bottom_cta:
   title: "Build Your Lead Engines"
   description: "We turn your expertise into an automated lead generation machine. Capture, qualify, and convert while you sleep."
   button_text: "Start Capturing Leads"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # How to Build a Lead Generation GPT (That Actually Works)

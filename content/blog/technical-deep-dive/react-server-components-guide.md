@@ -23,7 +23,7 @@ bottom_cta:
   title: "Need React Experts?"
   description: "From Next.js to Remix, we build fast, SEO-friendly, and interactive web applications using the latest React ecosystem."
   button_text: "Hire React Developers"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # React Server Components (RSC): The Definitive Guide (2025)

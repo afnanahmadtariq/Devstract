@@ -23,7 +23,7 @@ bottom_cta:
   title: "Building a Mobile App?"
   description: "Native or Cross-platform? We build high-performance mobile apps that users love on iOS and Android."
   button_text: "Launch Your App"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Swift vs Kotlin: The 2025 Benchmark (iOS vs Android)

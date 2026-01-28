@@ -23,7 +23,7 @@ bottom_cta:
   title: "Streamline Your Deployment?"
   description: "Automate your pipelines and improve developer experience with our robust DevOps and Platform Engineering solutions."
   button_text: "Improve Efficiency"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # The Rise of Platform Engineering: DevOps 2.0 (2025 Guide)

@@ -22,7 +22,7 @@ bottom_cta:
   title: "Need Enterprise-Grade Architecture?"
   description: "Devstract designs and builds scalable systems that grow with your business. No internal team required."
   button_text: "Consult with Architects"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Building Scalable Architecture Without an In-House Team

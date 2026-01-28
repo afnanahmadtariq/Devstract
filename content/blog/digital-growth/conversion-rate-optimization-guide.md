@@ -24,7 +24,7 @@ bottom_cta:
   title: "Need Pixel-Perfect Styling?"
   description: "We craft beautiful, responsive, and accessible user interfaces that leave a lasting impression."
   button_text: "Hire UI Experts"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Conversion Rate Optimization: The Definitive 2025 Growth Playbook

@@ -22,7 +22,7 @@ bottom_cta:
   title: "Don't Let Your Idea Stay Just an Idea"
   description: "Devstract helps founders build and validate MVPs in record time. Let's turn your vision into reality."
   button_text: "Build Your MVP"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Why Rapid MVP Development is Crucial for Startups in 2025

@@ -14,7 +14,7 @@ bottom_cta:
   title: "Want These Results?"
   description: "Stop losing customers to slow checkout flows. Let us build your friction-free AI sales channel today."
   button_text: "View Our Case Studies"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Case Study: Increasing Conversion Rates by 40% with AI-Driven Checkout

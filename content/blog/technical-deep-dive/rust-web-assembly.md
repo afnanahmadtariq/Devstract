@@ -23,7 +23,7 @@ bottom_cta:
   title: "Need Performance & Safety?"
   description: "Harness the power of Rust for your critical systems. We deliver memory-safe, blazing fast solutions."
   button_text: "Build with Rust"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Rust and WebAssembly (WASM): The Future of High-Performance Web (2025)

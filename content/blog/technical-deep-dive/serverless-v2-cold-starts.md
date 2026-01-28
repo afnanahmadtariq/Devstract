@@ -25,7 +25,7 @@ bottom_cta:
   title: "Optimize Your Cloud Infrastructure?"
   description: "Reduce costs and improve reliability. We help you navigate the complexities of AWS, Azure, and Google Cloud."
   button_text: "Optimize Now"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Serverless v2: Are Cold Starts Finally Solved? (2025 Deep Dive)

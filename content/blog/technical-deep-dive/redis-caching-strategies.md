@@ -23,7 +23,7 @@ bottom_cta:
   title: "Scale to Millions of Users?"
   description: "We architect scalable, high-performance backends that handle millions of requests. From caching to microservices, we have you covered."
   button_text: "Build Your Backend"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # Redis Caching Strategies: The Performance Engineer's Playbook (2025)

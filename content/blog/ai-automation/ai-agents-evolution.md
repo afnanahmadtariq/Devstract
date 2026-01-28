@@ -24,7 +24,7 @@ bottom_cta:
   title: "Automate Your Business with AI?"
   description: "From intelligent chatbots to autonomous workflows, we build AI solutions that automate operations and drive growth. Lets turn your ideas into intelligent software."
   button_text: "Start Your Project"
-  url: "https://www.devstract.site/contact-us"
+  url: "/contact-us"
 ---
 
 # AI Agents: The Definitive Guide to Autonomous Software (2025)
