@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from "next/link"
 import { useState } from "react"
 import { useToast } from "../hooks/use-toast"
 import { Toaster } from "./ui/toaster"
@@ -90,13 +91,13 @@ export default function Footer() {
                   <h2 className="text-sm font-normal text-[#B4B4B4] mb-6 -mt-8">Links</h2>
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center md:w-full mb-10 sm:mb-0">
                     {footerLinks.map((link) => (
-                      <a
+                      <Link
                         key={link.label}
                         href={link.href}
                         className="text-base font-normal text-black hover:text-purple-600 transition-colors duration-200"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

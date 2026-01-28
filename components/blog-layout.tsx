@@ -138,9 +138,11 @@ export default function BlogLayout({ title, subtitle, content, category, excerpt
                   <p className="text-sm sm:text-lg font-normal text-[#4D4D4DC9] dark:text-white mb-8 sm:mb-12">
                     {bottomCta.description}
                   </p>
-                  <button
-                    className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
-                    onClick={() => window.open(bottomCta.url, "_blank")}
+                  <Link
+                    href={bottomCta.url}
+                    className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors inline-flex"
+                    target={bottomCta.url.startsWith('http') ? "_blank" : undefined}
+                    rel={bottomCta.url.startsWith('http') ? "noopener noreferrer" : undefined}
                   >
                     <span className="px-6 sm:px-12 py-2 ml-4">
                       {bottomCta.buttonText}
@@ -154,7 +156,7 @@ export default function BlogLayout({ title, subtitle, content, category, excerpt
                     >
                       <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
                     </span>
-                  </button>
+                  </Link>
                 </>
               ) : (
                 <>
@@ -176,9 +178,9 @@ export default function BlogLayout({ title, subtitle, content, category, excerpt
                   <p className="text-sm sm:text-lg font-normal text-[#4D4D4DC9] dark:text-white mb-8 sm:mb-12">
                     We&apos;d love to hear from you! Whether you have questions, feedback, or you&apos;re ready to start a project, our team is here to help. Reach out to us anytime — we&apos;re just a message away.
                   </p>
-                  <button
-                    className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors"
-                    onClick={() => window.open("https://www.devstract.site/contact-us", "_blank")}
+                  <Link
+                    href="/contact-us"
+                    className="group flex items-center gap-2 p-1 border border-indigo-600 rounded-full text-sm sm:text-base font-medium bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-900 w-auto min-w-[140px] mx-auto transition-colors inline-flex"
                   >
                     <span className="px-6 sm:px-12 py-2 ml-4">
                       Contact Us
@@ -192,7 +194,7 @@ export default function BlogLayout({ title, subtitle, content, category, excerpt
                     >
                       <img src="/media/small_arrow.svg" alt="arrow" className="w-4 h-4 -rotate-45" />
                     </span>
-                  </button>
+                  </Link>
                 </>
               )}
             </div>
