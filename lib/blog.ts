@@ -15,6 +15,7 @@ export interface BlogPost {
   image: string;
   slug: string;
   tags: string[];
+  lastModified?: Date;
   bottomCta?: {
     title: string;
     description: string;
@@ -83,6 +84,10 @@ function parsePost(fullPath: string): BlogPost {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
+  // Get file modification time
+  const stats = fs.statSync(fullPath);
+  const lastModified = stats.mtime;
+
   // Get category from frontmatter or map from folder
   const category = data.category || folderToCategoryMap[folderName] || folderName;
   const categorySlug = categoryToSlug(category);
@@ -100,6 +105,7 @@ function parsePost(fullPath: string): BlogPost {
     image: data.image,
     slug,
     tags: data.tags || [],
+    lastModified,
     bottomCta: data.bottom_cta ? {
       title: data.bottom_cta.title,
       description: data.bottom_cta.description,
