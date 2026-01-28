@@ -5,4 +5,5 @@ module.exports = {
   changefreq: 'daily',
   priority: 1,
   outDir: 'out',
+  trailingSlash: false,
 };
