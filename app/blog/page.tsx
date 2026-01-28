@@ -26,7 +26,7 @@ export default async function BlogHome() {
     "whatsapp-crm-integration-guide",
     "developer-productivity-hacks",
     "conversion-rate-optimization-guide",
-    "mobile-apps-trends-2025",
+    "mobile-app-retail-2026",
     "hidden-costs-low-code",
     "building-scalable-architecture-without-in-house-team",
   ];
