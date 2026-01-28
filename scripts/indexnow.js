@@ -27,19 +27,20 @@ async function generateKey() {
 }
 
 async function getUrlsFromSitemap() {
-  // Try out/ first (static export), then fall back to public/
-  // Use sitemap-0.xml which contains actual URLs (sitemap.xml is just an index)
-  let sitemapPath = path.join(__dirname, '../out/sitemap-0.xml');
-  if (!fs.existsSync(sitemapPath)) {
-    sitemapPath = path.join(__dirname, '../public/sitemap-0.xml');
-  }
-  // Fallback to sitemap.xml if sitemap-0.xml doesn't exist
-  if (!fs.existsSync(sitemapPath)) {
-    sitemapPath = path.join(__dirname, '../out/sitemap.xml');
-  }
+  // Prioritize sitemap.xml (standard Next.js output), then fallback to sitemap-0.xml (legacy/split)
+  let sitemapPath = path.join(__dirname, '../out/sitemap.xml');
+
   if (!fs.existsSync(sitemapPath)) {
     sitemapPath = path.join(__dirname, '../public/sitemap.xml');
   }
+
+  if (!fs.existsSync(sitemapPath)) {
+    sitemapPath = path.join(__dirname, '../out/sitemap-0.xml');
+  }
+  if (!fs.existsSync(sitemapPath)) {
+    sitemapPath = path.join(__dirname, '../public/sitemap-0.xml');
+  }
+
   if (!fs.existsSync(sitemapPath)) {
     console.error('Error: sitemap not found in out/ or public/. Run `pnpm build` first.');
     return [];
