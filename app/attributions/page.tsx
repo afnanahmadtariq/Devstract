@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Attributions | Devstract Blog",
@@ -135,14 +136,12 @@ export default function AttributionsPage() {
           </h3>
           <p className="text-gray-700">
             If you believe any content on this site should be attributed or removed, please{" "}
-            <a
-              href="https://www.devstract.site/contact-us"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact-us"
               className="text-[#5A44FF] hover:underline font-medium"
             >
               contact us
-            </a>
+            </Link>
             , and we'll address it promptly.
           </p>
         </div>
