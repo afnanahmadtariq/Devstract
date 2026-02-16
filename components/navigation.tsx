@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
@@ -292,31 +291,29 @@ export default function Navigation({ mainpage = false, disableContact = false }:
               Contact Us
             </span>
           ) : (
-            <Link href="/contact-us" passHref legacyBehavior>
-              <Button className={`text-white font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay px-6 py-[26px]' : 'gradient-card px-6 py-[24px]'}`}>
-                {mainpage && (
-                  <Image
-                    src="/media/phone.svg"
-                    alt=""
-                    width={16}
-                    height={16}
-                    aria-hidden="true"
-                    className="filter brightness-0 invert"
-                  />
-                )}
-                Contact Us
-                {!mainpage && (
-                  <Image
-                    src="/media/small_arrow.svg"
-                    alt=""
-                    width={16}
-                    height={16}
-                    aria-hidden="true"
-                    className="filter brightness-0 invert w-4 h-4"
-                    style={{ transform: "rotate(-45deg)" }}
-                  />
-                )}
-              </Button>
+            <Link href="/contact-us" className={`text-white font-syne font-light rounded-full border-0 hidden md:inline-flex items-center gap-2 ${mainpage ? 'bg-white/[8%] backdrop-blur shadow-[inset_-1px_-1px_1px_rgba(0,0,0,0.13),inset_1px_1px_4px_rgba(255,255,255,0.18)] hover:bg-white/[15%] texture-overlay px-6 py-[14px]' : 'gradient-card px-6 py-[12px]'}`}>
+              {mainpage && (
+                <Image
+                  src="/media/phone.svg"
+                  alt=""
+                  width={16}
+                  height={16}
+                  aria-hidden="true"
+                  className="filter brightness-0 invert"
+                />
+              )}
+              Contact Us
+              {!mainpage && (
+                <Image
+                  src="/media/small_arrow.svg"
+                  alt=""
+                  width={16}
+                  height={16}
+                  aria-hidden="true"
+                  className="filter brightness-0 invert w-4 h-4"
+                  style={{ transform: "rotate(-45deg)" }}
+                />
+              )}
             </Link>
           )}
         </div>
