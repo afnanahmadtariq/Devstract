@@ -102,7 +102,7 @@ export default function AboutUsPage() {
               {/* Right Side*/}
               <div className="flex-[1.2] flex flex-col  items-center justify-center bg-white dark:bg-gray-800 rounded-[33px] py-10 md:py-20 max-w-4xl border-2 border-[#EBEBEB]">
                 <div style={{ position: 'relative', width: '60%' }}>
-                  <img src="/media/afnan.png" alt="Devstract CEO" className="mx-auto" />
+                  <img src="/media/ceo.png" alt="Devstract CEO" className="mx-auto" />
                   <div
                     style={{
                       position: 'absolute',
@@ -117,7 +117,7 @@ export default function AboutUsPage() {
                   />
                 </div>
                 <h2 className="text-2xl md:text-[32px] font-bold text-[#494949] dark:text-white text-center mb-4 mt-8">
-                  Afnan Ahmad Tariq
+                  James Bond
                 </h2>
                 <p className='text-[#BCB9B6] text-center text-base md:text-xl font-normal leading-loose'>
                   CEO Devstract
