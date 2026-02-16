@@ -2,7 +2,7 @@
 title: "Boost Team Productivity with Custom Internal Tools"
 metaTitle: "Custom Internal Tools for Productivity"
 excerpt: "Stop running your business on spreadsheets. Learn how custom internal dashboards and admin panels can unlock massive productivity gains for your team."
-category: "AI Automation"
+category: "AI & Automation"
 author: "Devstract Team"
 publishedAt: "2026-01-29"
 readTime: "8 min read"
@@ -78,4 +78,4 @@ We built them a simple mobile-friendly web app.
 
 Your team is your most valuable asset. Don't handicap them with bad tools. Investing in internal software is investing in your company's speed and sanity.
 
-Ready to digitize your operations? **Devstract** builds secure, efficient internal tools tailored to your business needs.
+Ready to digitize your operations? **Devstract** builds secure, efficient internal tools tailored to your business needs. (Related: [Top 7 Internal GPT Use Cases](/blog/ai-automation/internal-company-gpt-use-cases) and [Custom CRM vs Off-the-Shelf](/blog/startup-mvp/custom-crm-vs-off-shelf))

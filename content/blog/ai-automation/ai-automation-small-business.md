@@ -2,7 +2,7 @@
 title: "How AI Can Automate Your Small Business Operations"
 metaTitle: "Automating Small Business Operations with AI"
 excerpt: "Discover how AI automation can save your small business hours of manual work, reduce errors, and boost profitability starting today."
-category: "AI Automation"
+category: "AI & Automation"
 author: "Devstract Team"
 publishedAt: "2026-01-29"
 readTime: "8 min read"
@@ -80,4 +80,4 @@ However, for seamless integration that fits your unique processes, working with 
 
 The future of small business is automated. By embracing these tools now, you gain a competitive edge that allows you to scale faster and serve your customers better.
 
-Don't let manual work hold you back. Start automating today.
+Don't let manual work hold you back. Start automating today. (See also: [Internal Tools for Productivity](/blog/ai-automation/internal-tools-productivity) and [Top 7 Internal GPT Use Cases](/blog/ai-automation/internal-company-gpt-use-cases))

@@ -2,7 +2,7 @@
 title: "Is Your Tech Stack Ready for Growth? Signs You Need to Scale"
 metaTitle: "Scalable Tech Stack: Preparing for Growth"
 excerpt: "Growth is great, until your website crashes. Learn the warning signs of a fragile tech stack and how to build an architecture that scales with you."
-category: "Technical Deep Dive"
+category: "Technical Deep-Dive"
 author: "Devstract Team"
 publishedAt: "2026-01-29"
 readTime: "12 min read"
@@ -70,4 +70,4 @@ We helped a client who ran a flash-sale e-commerce site. Their WordPress site cr
 
 You don't need Google-scale infrastructure on Day 1. But you do need a roadmap. Building on a modern stack (like the T3 Stack or Next.js + Supabase) gives you a solid foundation that is easy to scale when the time comes.
 
-Worried about your infrastructure? **Devstract** provides architectural reviews and scalability consulting to ensure you're ready for the big leagues.
+Worried about your infrastructure? **Devstract** provides architectural reviews and scalability consulting to ensure you're ready for the big leagues. (Related: [SaaS MVP Guide](/blog/startup-mvp/saas-mvp-guide) and [E-commerce Checkout Optimization](/blog/digital-growth/ecommerce-checkout-optimization))

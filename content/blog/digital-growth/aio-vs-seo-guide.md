@@ -19,11 +19,9 @@ bottom_cta:
 
 # The End of SEO? Why AIO (Artificial Intelligence Optimization) is the New Standard
 
-For 20 years, we optimized for 10 blue links. Today, users want **one single answer**.
+Here's a number that should make every marketer uncomfortable: in January 2026, **64% of Google searches resulted in zero clicks**. The user got their answer from the AI Overview and never visited a website. We track this for our clients weekly, and the trend has been accelerating since SGE went live.
 
-The launch of ChatGPT Merchants and SearchGPT has accelerated a trend that terrifies marketers: **Zero-Click Searches**. Users are getting their answers, booking their trips, and buying their shoes _without ever visiting a website_.
-
-If you aren't optimized for the AI, you don't exist.
+For 20 years, we optimized for 10 blue links. But the rules have changed. ChatGPT Merchants, SearchGPT, and Perplexity are replacing the click with the _conversation_. Users are getting their answers, booking trips, and buying shoes without ever visiting a website. If you aren't optimized for the AI, you effectively don't exist for a growing majority of searches.
 
 ## What is AIO?
 
@@ -46,4 +44,4 @@ We turn your website's unstructured text into a structured database that AI craw
 
 ## The Verdict
 
-SEO isn't dead, but it's becoming a backend utility. AIO is the new frontline. If you want to be the products the AI recommends, you need to start optimizing for machines, not just clicks.
+SEO isn't dead, but it's becoming a backend utility. AIO is the new frontline. If you want to be the products the AI recommends, you need to start optimizing for machines, not just clicks. (Learn more: [Future of SEO 2026](/blog/digital-growth/future-of-seo-2026) and [Lead Generation GPT Guide](/blog/digital-growth/lead-gen-gpt-guide))

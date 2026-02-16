@@ -1,5 +1,19 @@
-# *
+# Devstract Robots.txt
 User-agent: *
+Allow: /
+
+# Block crawling of non-content pages
+Disallow: /api/
+Disallow: /_next/
+
+# Allow specific bots known for AI indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 # Sitemaps

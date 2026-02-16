@@ -41,7 +41,7 @@ The winning architecture for 2025 is the **Router Pattern**:
 
 ## How We Build It
 
-Since the GPT Store doesn't natively support "Router Logic" in the simple builder, we build this via **Function Calling**.
+Since the GPT Store (see our [2026 Ecosystem Guide](/blog/ai-automation/ultimate-gpt-store-guide-2026)) doesn't natively support "Router Logic" in the simple builder, we build this via **Function Calling**.
 Your GPT has a tool called `consult_expert_reasoner`.
 When it detects a hard problem, it calls this tool, which sends the prompt to our backend. Our backend calls the `o1` API, waits for the "Chain of Thought" process, and returns the high-IQ answer to the chat.
 

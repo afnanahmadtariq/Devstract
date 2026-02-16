@@ -92,13 +92,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.excerpt,
     image: post.image ? [post.image] : [],
     datePublished: post.publishedAt,
+    dateModified: post.lastModified ? post.lastModified.toISOString() : post.publishedAt,
+    wordCount: post.content.split(/\s+/).length,
+    articleSection: post.category,
+    keywords: post.tags.join(', '),
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: post.author,
+      url: 'https://www.devstract.site/about-us',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Devstract',
+      url: 'https://www.devstract.site',
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.devstract.site/logo.png',

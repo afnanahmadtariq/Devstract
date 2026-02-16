@@ -26,7 +26,7 @@ bottom_cta:
 
 # Common Mistakes to Avoid When Launching Your First GPT
 
-We review dozens of GPTs every week. Most make the same unforced errors.
+We review dozens of GPTs every week. Most make the same unforced errors. (For a complete roadmap on monetization and strategy, see our [Ultimate Guide to Winning in the GPT Store](/blog/ai-automation/ultimate-gpt-store-guide-2026)).
 
 ## 1. The "I Can Do Everything" Bot
 

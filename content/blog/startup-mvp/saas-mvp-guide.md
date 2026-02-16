@@ -86,4 +86,4 @@ Speed and scalability are key. At Devstract, we recommend:
 
 Building a SaaS is a marathon, but the first sprint is the most important. Launch fast, learn faster.
 
-Need a technical partner to guide you? **Devstract** helps founders navigate the MVP journey from concept to code.
+Need a technical partner to guide you? **Devstract** helps founders navigate the MVP journey from concept to code. (Also read: [Custom CRM vs Off-the-Shelf](/blog/startup-mvp/custom-crm-vs-off-shelf) and [Is Your Tech Stack Ready for Growth?](/blog/technical-deep-dive/scalable-tech-stack-growth))

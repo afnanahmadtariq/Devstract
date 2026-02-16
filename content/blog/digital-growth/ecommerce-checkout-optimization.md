@@ -69,4 +69,4 @@ If your checkout page takes 5 seconds to load, the user might assume the transac
 
 A smooth checkout experience is the final handshake with your customer. Make it firm, fast, and friendly.
 
-Need help implementing these changes? **Devstract** builds high-converting e-commerce experiences on Shopify, WooCommerce, and custom Next.js storefronts.
+Need help implementing these changes? **Devstract** builds high-converting e-commerce experiences on Shopify, WooCommerce, and custom Next.js storefronts. (See also: [AI-Driven Checkout Case Study](/blog/ai-automation/ai-checkout-case-study) and [Optimizing Product Feeds for ChatGPT](/blog/digital-growth/optimize-product-feed-chatgpt))

@@ -51,4 +51,4 @@ Should you double down on your Shop App presence, or pivot to AI? Here is the br
 ## The Verdict
 
 It is not zero-sum. The Shop App is your "Digital Mall." ChatGPT is your "Digital Sales Associate."
-The brands that win in Q4 2025 are capitalizing on ChatGPT's lack of saturation. While your competitors fight for pixels in the Shop App feed, you can own the conversation in the AI.
+The brands that win in Q4 2025 are capitalizing on ChatGPT's lack of saturation. While your competitors fight for pixels in the Shop App feed, you can own the conversation in the AI. (Learn how: [ChatGPT Merchants Integration Guide](/blog/ai-automation/chatgpt-merchants-guide) and [Optimize Your Product Feed for ChatGPT](/blog/digital-growth/optimize-product-feed-chatgpt))

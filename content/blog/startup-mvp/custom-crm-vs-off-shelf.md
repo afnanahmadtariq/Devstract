@@ -81,4 +81,4 @@ Employees hate complex software. A custom CRM that only does what they need it t
 
 Your CRM should work for you, not the other way around. If you find yourself constantly fighting your software, it might be time to build your own.
 
-At **Devstract**, we specialize in building robust, secure, and scalable custom CRMs. Let's discuss your workflow.
+At **Devstract**, we specialize in building robust, secure, and scalable custom CRMs. Let's discuss your workflow. (Related: [SaaS MVP Guide](/blog/startup-mvp/saas-mvp-guide) and [Internal Tools for Productivity](/blog/ai-automation/internal-tools-productivity))

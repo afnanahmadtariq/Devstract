@@ -19,9 +19,9 @@ bottom_cta:
 
 # Data Privacy in the AI Era: Ensuring Your Custom GPT is Compliant
 
-"If we upload our data, does ChatGPT learn from it?"
+Last month, a fintech CTO asked us to audit their internal GPT. Within 10 minutes, we found that every customer SSN processed through their bot was being logged in plain text in OpenAI's default conversation history. They had no idea.
 
-This is the #1 question we get from CTOs. The answer has changed with the October update.
+"If we upload our data, does ChatGPT learn from it?" This is the #1 question we get from CTOs. The uncomfortable truth is: **it depends entirely on how you built it**. The answer has changed significantly with OpenAI's enterprise updates, and most teams are still operating on outdated assumptions.
 
 ## The "Training" Toggle
 
@@ -43,4 +43,4 @@ Don't dump everything into one vector database. We organize your data into "Silo
 
 ## Conclusion
 
-AI is powerful, but a data leak is fatal. Don't rely on default settings. Engineering privacy _into_ the architecture is the only way to scale safely.
+AI is powerful, but a data leak is fatal. Don't rely on default settings. Engineering privacy _into_ the architecture is the only way to scale safely. (Related: [Hiring a GPT Developer vs DIY](/blog/startup-mvp/hiring-gpt-developer-vs-diy) and [Internal Company GPT Use Cases](/blog/ai-automation/internal-company-gpt-use-cases))
