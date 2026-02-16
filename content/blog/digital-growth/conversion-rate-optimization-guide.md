@@ -748,14 +748,12 @@ Before adding to cart, users could enter their zip code to see shipping cost.
 **Top Opportunities:**
 
 1. **Product pages**
-
    - High-quality photos (multiple angles, zoom)
    - Size guides
    - Reviews with photos
    - "You might also like" recommendations
 
 2. **Cart optimization**
-
    - Show shipping costs early
    - Add trust badges
    - Show security certification
@@ -776,12 +774,10 @@ Before adding to cart, users could enter their zip code to see shipping cost.
 **Top Opportunities:**
 
 1. **Qualify leads early**
-
    - Ask "How many employees?" before sharing pricing
    - This filters out small fish if you're enterprise-focused
 
 2. **Offer valuable gated content**
-
    - "Free audit" or "ROI calculator" converts better than "Contact us"
 
 3. **Multi-step forms**
@@ -871,5 +867,7 @@ At Devstract, we run comprehensive CRO audits:
 We've helped e-commerce stores increase revenue by 60%+ and SaaS companies double their trial signup rates.
 
 Let's turn your traffic into customers.
+
+**Related reading:** If you're a small business building your first (or next) website, don't miss our guide on [what small business website development services should actually include](/blog/digital-growth/small-business-website-development-services).
 
 ---

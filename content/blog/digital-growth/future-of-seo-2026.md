@@ -69,4 +69,4 @@ While top-of-funnel traffic (informational searches) might drop, the traffic you
 
 The "content mill" strategy is over. The "expert authority" era is here. Create high-value, human-centric content, and the AI will reward you.
 
-Unsure if your site is ready for the AI era? **Devstract** offers comprehensive SEO audits and strategy overhauls. (Deep dive: [AIO vs SEO — The New Standard](/blog/digital-growth/aio-vs-seo-guide))
+Unsure if your site is ready for the AI era? **Devstract** offers comprehensive SEO audits and strategy overhauls. (Deep dive: [AIO vs SEO — The New Standard](/blog/digital-growth/aio-vs-seo-guide) | For small businesses specifically: [Small Business Website Development Services — What You Actually Need](/blog/digital-growth/small-business-website-development-services))
